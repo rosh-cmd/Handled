@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fully Handled — Handled Studio</title>
+  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <link rel="stylesheet" href="style.css?v=13" />
+</head>
+<body>
+
+  <!-- MOBILE MENU -->
+  <div class="menu" id="menu">
+    <div class="menu__top">
+      <a href="/" class="menu__logo">
+        <img src="assets/logomark.svg" alt="" class="menu__logomark" />
+        <span class="nav__logotype">Handled.Studio</span>
+      </a>
+      <button class="menu__close" id="menuClose">✕</button>
+    </div>
+    <nav class="menu__nav">
+      <a href="/"                  class="menu__link">Home</a>
+      <a href="fully-handled.html" class="menu__link active">Fully Handled</a>
+      <a href="work.html"          class="menu__link">Work</a>
+      <a href="about.html"         class="menu__link">About</a>
+      <a href="journal.html"       class="menu__link">Journal</a>
+    </nav>
+    <a href="#contact" class="btn btn-gold menu__cta" onclick="document.getElementById('menu').classList.remove('open')">Book a Rundown</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo">
+        <img src="assets/logomark.svg" alt="" class="nav__logomark" />
+        <span class="nav__logotype">Handled.Studio</span>
+      </a>
+      <div class="nav__right">
+        <a href="#contact" class="btn btn-gold">Book a Rundown</a>
+        <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="fh-hero">
+    <div class="fh-hero__inner">
+      <div class="fh-hero__text">
+        <p class="fh-hero__eyebrow">Fully Handled</p>
+        <h1 class="fh-hero__headline">Your design output,<br><span class="hl">fully handled.</span></h1>
+        <a href="#contact" class="btn btn-gold">Get Started</a>
+      </div>
+      <div class="fh-hero__image">
+        <img src="assets/fh-hero.avif" alt="Fully Handled" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BUILT FOR BUSINESSES -->
+  <section class="fh-built">
+    <div class="fh-built__inner">
+      <div class="fh-built__image">
+        <img src="assets/brand-problem.jpg" alt="" />
+      </div>
+      <div class="fh-built__text">
+        <h2 class="fh-built__headline">Built for businesses where the work doesn't stop.</h2>
+        <p class="fh-built__body">You're managing a growing team, a growing brand, and a production load that keeps expanding. You don't need more tools — you need the right people, running the right systems, with full visibility over your output.</p>
+        <p class="fh-built__body">Fully Handled is a dedicated design partnership built around your business. We embed ourselves in your workflow, learn your brand inside out, and handle everything from brief to delivery — month after month.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- NOT ALONE -->
+  <section class="fh-alone">
+    <div class="fh-alone__inner">
+      <h2 class="fh-alone__headline">If things feel a bit inconsistent right now,<br><span class="hl-y">you're not alone.</span></h2>
+      <a href="#contact" class="btn btn-dark">Let's fix that</a>
+    </div>
+  </section>
+
+
+  <!-- PAIN POINTS -->
+  <section class="fh-pain">
+    <div class="fh-pain__inner">
+      <div class="fh-pain__col">
+        <h3 class="fh-pain__title">Your brand looks different across every touchpoint</h3>
+        <p class="fh-pain__body">Decks, socials, proposals, print — all made by different people, none of it consistent.</p>
+      </div>
+      <div class="fh-pain__col">
+        <h3 class="fh-pain__title">You're the one chasing briefs and checking quality</h3>
+        <p class="fh-pain__body">The work lands on your desk instead of theirs. You've become the design manager you never wanted to be.</p>
+      </div>
+      <div class="fh-pain__col">
+        <h3 class="fh-pain__title">Timelines keep slipping when it matters most</h3>
+        <p class="fh-pain__body">Launches, pitches, campaigns — you're scrambling to get design across the line at the last minute, every time.</p>
+      </div>
+      <div class="fh-pain__col">
+        <h3 class="fh-pain__title">You're paying for output but not getting a system</h3>
+        <p class="fh-pain__body">Files everywhere, no handover documentation, no brand logic. It all lives in someone else's head.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- INTRODUCING FULLY HANDLED -->
+  <section class="fh-intro">
+    <div class="fh-intro__inner">
+      <p class="fh-intro__eyebrow">Introducing Fully Handled</p>
+      <h2 class="fh-intro__headline">When your output is <span class="hl">properly handled</span> everything changes</h2>
+    </div>
+  </section>
+
+
+  <!-- NOT JUST DESIGN SUPPORT -->
+  <section class="fh-support">
+    <div class="fh-support__inner">
+      <h2 class="fh-support__headline">This isn't just 'more design support'</h2>
+      <p class="fh-support__lead">Most design services give you output. Fully Handled gives you a system. We embed ourselves in how your business creates, moves, and presents — then we run the whole thing.</p>
+      <ul class="fh-support__list">
+        <li>A dedicated design partner who knows your brand</li>
+        <li>Consistent output across every format and channel</li>
+        <li>Structured briefs, timelines, and delivery processes</li>
+        <li>Monthly reporting on output, turnaround, and brand health</li>
+        <li>Direct Slack or email access — no ticketing systems</li>
+        <li>Senior design eyes on everything that goes out</li>
+      </ul>
+      <p class="fh-support__kicker">That's what Fully Handled feels like.</p>
+    </div>
+  </section>
+
+
+  <!-- PROBLEM ISN'T ACCESS -->
+  <section class="fh-problem">
+    <div class="fh-problem__inner">
+      <h2 class="fh-problem__headline">The problem isn't access to design.<br>It's <span class="hl">how it's being managed.</span></h2>
+      <p class="fh-problem__body">You likely have designers. You may even have an agency. But without clear ownership, structured briefs, and senior oversight — the output is inconsistent, the timelines slip, and you're still doing half the work yourself.</p>
+      <p class="fh-problem__body">Fully Handled solves the management layer. We take the brief-to-delivery process off your plate so your team can focus on what they actually do.</p>
+    </div>
+  </section>
+
+
+  <!-- COMPARISON CARDS -->
+  <section class="fh-compare">
+    <div class="fh-compare__inner">
+
+      <div class="fh-compare__card">
+        <h3 class="fh-compare__card-title">Freelancers / VAs</h3>
+        <div class="fh-compare__pill fh-compare__pill--green">Works well for</div>
+        <p class="fh-compare__text">One-off tasks, simple edits, low complexity work</p>
+        <div class="fh-compare__pill fh-compare__pill--red">Breaks down when</div>
+        <p class="fh-compare__text">Volume increases, brand consistency is critical, or timelines tighten</p>
+        <div class="fh-compare__pill fh-compare__pill--muted">Built for</div>
+        <p class="fh-compare__text">Solopreneurs and small teams with occasional needs</p>
+      </div>
+
+      <div class="fh-compare__card">
+        <h3 class="fh-compare__card-title">Part-time Hire</h3>
+        <div class="fh-compare__pill fh-compare__pill--green">Works well for</div>
+        <p class="fh-compare__text">Predictable, in-house tasks and team coordination</p>
+        <div class="fh-compare__pill fh-compare__pill--red">Breaks down when</div>
+        <p class="fh-compare__text">Demand spikes, they leave, or you need senior-level output</p>
+        <div class="fh-compare__pill fh-compare__pill--muted">Built for</div>
+        <p class="fh-compare__text">Teams who want internal control at lower cost</p>
+      </div>
+
+      <div class="fh-compare__card">
+        <h3 class="fh-compare__card-title">Agency</h3>
+        <div class="fh-compare__pill fh-compare__pill--green">Works well for</div>
+        <p class="fh-compare__text">Large campaigns, brand launches, high-budget projects</p>
+        <div class="fh-compare__pill fh-compare__pill--red">Breaks down when</div>
+        <p class="fh-compare__text">Ongoing production is needed — too slow, too expensive, not embedded</p>
+        <div class="fh-compare__pill fh-compare__pill--muted">Built for</div>
+        <p class="fh-compare__text">Brand moments, not day-to-day design operations</p>
+      </div>
+
+      <div class="fh-compare__card fh-compare__card--highlight">
+        <h3 class="fh-compare__card-title">Fully Handled</h3>
+        <div class="fh-compare__pill fh-compare__pill--green">Works well for</div>
+        <p class="fh-compare__text">Ongoing, high-volume, multi-format design — all managed</p>
+        <div class="fh-compare__pill fh-compare__pill--green">Doesn't break</div>
+        <p class="fh-compare__text">We're built for exactly the moments others fall apart</p>
+        <div class="fh-compare__pill fh-compare__pill--green">Built for</div>
+        <p class="fh-compare__text">Businesses that need a senior design system, not just a designer</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- REAL PRODUCTION EXPERIENCE -->
+  <section class="fh-experience">
+    <div class="fh-experience__inner">
+      <h2 class="fh-experience__headline">Built from <span class="hl-y">real production experience</span></h2>
+      <p class="fh-experience__body">Fully Handled wasn't designed in a boardroom. It was built from years of running production for some of Australia's most active brands — managing high-volume output, embedding in internal teams, and solving the exact problems you're facing right now.</p>
+      <a href="#contact" class="btn btn-dark">Book a Rundown</a>
+    </div>
+  </section>
+
+
+  <!-- WHY HANDLED -->
+  <section class="fh-why">
+    <div class="fh-why__inner">
+      <div class="fh-why__image">
+        <img src="assets/plug-play.png" alt="" />
+      </div>
+      <div class="fh-why__text">
+        <h2 class="fh-why__headline">Why choose <span class="hl-y">Handled?</span></h2>
+        <ul class="fh-why__list">
+          <li>
+            <strong>Senior, not junior.</strong>
+            Every project is handled by senior designers with real production experience — not passed down a chain.
+          </li>
+          <li>
+            <strong>Local, not offshore.</strong>
+            We're based in Australia. We understand your market, your clients, and your timelines.
+          </li>
+          <li>
+            <strong>Systems, not just files.</strong>
+            We build repeatable processes so your output stays consistent even as your team grows.
+          </li>
+          <li>
+            <strong>Embedded, not transactional.</strong>
+            We learn your brand deeply and operate as an extension of your team — not a vendor you brief from scratch each time.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PRICING CTA HEADLINE -->
+  <section class="fh-pricing-cta">
+    <div class="fh-pricing-cta__inner">
+      <h2 class="fh-pricing-cta__headline"><span class="hl">Start with a Handoff.</span><br>Continue with Fully Handled.</h2>
+    </div>
+  </section>
+
+
+  <!-- PRICING CARDS -->
+  <section class="fh-pricing">
+    <div class="fh-pricing__inner">
+
+      <div class="fh-pricing__card">
+        <p class="fh-pricing__label">The Handoff</p>
+        <p class="fh-pricing__price">$1,500</p>
+        <p class="fh-pricing__freq">one-time</p>
+        <ul class="fh-pricing__list">
+          <li>Full brand audit across all your design outputs</li>
+          <li>Inconsistency report with clear recommendations</li>
+          <li>Priority list for what to fix first</li>
+          <li>45-minute strategy walkthrough</li>
+          <li>Templates to standardise your most-used formats</li>
+        </ul>
+        <a href="mailto:hello@handled.studio" class="btn btn-gold">Book a Handoff</a>
+      </div>
+
+      <div class="fh-pricing__card fh-pricing__card--highlight">
+        <p class="fh-pricing__label">Fully Handled</p>
+        <p class="fh-pricing__price">from $3,000</p>
+        <p class="fh-pricing__freq">per month</p>
+        <ul class="fh-pricing__list">
+          <li>Everything in The Handoff</li>
+          <li>Dedicated senior design partner</li>
+          <li>Unlimited design requests (within scope)</li>
+          <li>Monthly output report and brand health check</li>
+          <li>Direct Slack / email access — no ticketing</li>
+          <li>Ongoing system building and template library</li>
+        </ul>
+        <a href="mailto:hello@handled.studio" class="btn btn-green">Get Started</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- PRICING NOTE / CTA -->
+  <section class="fh-note" id="contact">
+    <div class="fh-note__inner">
+      <p class="fh-note__text">Most clients start with a Handoff then continue<br>once they see the difference.</p>
+      <a href="mailto:hello@handled.studio" class="btn btn-dark">Book a Rundown</a>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <a href="/" class="footer__logo">
+          <img src="assets/logomark.svg" alt="" class="nav__logomark" />
+          <span class="nav__logotype">Handled.Studio</span>
+        </a>
+        <h2 class="footer__tagline">Senior. Local. <span class="hl">Handled.</span></h2>
+        <p class="footer__ack">We acknowledge the Wurundjeri Woi-wurrung people as the Traditional Owners of Nillumbik and pay respect to Elders past, present and emerging.</p>
+      </div>
+      <div>
+        <h3 class="footer__nl-heading">Handled weekly.</h3>
+        <p class="footer__nl-sub">Subscribe to our newsletter for the latest updates on Handled.Studio.</p>
+        <form class="footer__form" onsubmit="return false;">
+          <label class="footer__label" for="femail2">Email *</label>
+          <input class="footer__input" type="email" id="femail2" placeholder="" />
+          <label class="footer__check"><input type="checkbox" /> Yes, subscribe me to your newsletter.</label>
+          <button type="submit" class="btn btn-gold footer__submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer__nav">
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <ul>
+          <li><a href="/"                  class="footer__link">Home</a></li>
+          <li><a href="fully-handled.html" class="footer__link footer__link-active">Fully Handled</a></li>
+          <li><a href="work.html"          class="footer__link">Work</a></li>
+          <li><a href="about.html"         class="footer__link">About</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Blog</div>
+        <ul>
+          <li><a href="journal.html" class="footer__link">Journal</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Social</div>
+        <ul>
+          <li><a href="#" class="footer__link">LinkedIn</a></li>
+          <li><a href="#" class="footer__link">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <a href="privacy.html">Privacy Policy</a>
+      <span>© 2026 by Handled.Studio</span>
+    </div>
+  </footer>
+
+  <script>
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+
+    const menu = document.getElementById('menu');
+    document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
+  </script>
+</body>
+</html>
