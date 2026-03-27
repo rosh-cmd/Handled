@@ -469,6 +469,7 @@ em { font-style: italic; }
 
 @media (max-width: 680px) {
   .hero__slide { flex: 0 0 80vw; max-width: none; }
+  .how__img-wrap { aspect-ratio: 16/9; }
   .for-you__grid { grid-template-columns: 1fr; }
   .for-you__cards { margin: 0 1rem 40px; }
   .how__steps { grid-template-columns: 1fr; }
