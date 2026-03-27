@@ -4,40 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Handled Studio</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════
-       MOBILE MENU OVERLAY
-  ══════════════════════════════════════ -->
-  <div class="menu-overlay" id="menu">
-    <div class="menu__inner">
-      <div class="menu__top">
-        <a href="/" class="menu__logo">
-          <span class="menu__logo-icon">✳</span>
-          Handled.Studio
-        </a>
-        <button class="menu__close" id="menuClose" aria-label="Close menu">✕</button>
-      </div>
-      <nav class="menu__nav">
-        <a href="/" class="menu__link menu__link--active">Home</a>
-        <a href="fully-handled.html" class="menu__link">Fully Handled</a>
-        <a href="work.html" class="menu__link">Work</a>
-        <a href="about.html" class="menu__link">About</a>
-        <a href="journal.html" class="menu__link">Journal</a>
-      </nav>
-      <a href="#contact" class="btn btn--gold menu__btn" onclick="closeMenu()">Book a Rundown</a>
+  <!-- MOBILE MENU -->
+  <div class="menu" id="menu">
+    <div class="menu__top">
+      <a href="/" class="menu__logo"><span style="font-size:1.4rem">✳</span> Handled.Studio</a>
+      <button class="menu__close" id="menuClose">✕</button>
     </div>
+    <nav class="menu__nav">
+      <a href="/"                  class="menu__link active">Home</a>
+      <a href="fully-handled.html" class="menu__link">Fully Handled</a>
+      <a href="work.html"          class="menu__link">Work</a>
+      <a href="about.html"         class="menu__link">About</a>
+      <a href="journal.html"       class="menu__link">Journal</a>
+    </nav>
+    <a href="#contact" class="btn btn-gold menu__cta" onclick="document.getElementById('menu').classList.remove('open')">Book a Rundown</a>
   </div>
 
-  <!-- ══════════════════════════════════════
-       NAV
-  ══════════════════════════════════════ -->
+  <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
       <a href="/" class="nav__logo">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="40" height="40" rx="3" fill="#69DE5F"/>
           <rect x="6"  y="6"  width="7" height="7" fill="#1E3D51"/>
           <rect x="17" y="6"  width="7" height="7" fill="#1E3D51"/>
@@ -49,27 +40,23 @@
         Handled.Studio
       </a>
       <div class="nav__right">
-        <a href="#contact" class="btn btn--gold btn--sm">Book a Rundown</a>
-        <button class="nav__hamburger" id="menuOpen" aria-label="Open menu">
-          <span></span><span></span><span></span>
-        </button>
+        <a href="#contact" class="btn btn-gold" style="font-size:0.72rem;padding:0.75rem 1.6rem">Book a Rundown</a>
+        <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
 
 
-  <!-- ══════════════════════════════════════
-       HERO
-  ══════════════════════════════════════ -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero__top">
       <h1 class="hero__headline">Your design output, <span class="hl">handled</span></h1>
       <div class="hero__aside">
-        <p class="hero__aside-text">Your business is growing.<br>Your design isn't keeping up.</p>
-        <a href="#contact" class="btn btn--gold">Book a Rundown</a>
+        <p>Your business is growing.<br>Your design isn't keeping up.</p>
+        <a href="#contact" class="btn btn-gold">Book a Rundown</a>
       </div>
     </div>
-    <div class="hero__body-text">
+    <div class="hero__body">
       <p>Things are getting out the door but not consistently, not properly, and not at the level your brand should be operating at. Handled is your plug-and-play design team. We learn your brand, match your production rhythm, and keep everything aligned, every month.</p>
     </div>
     <div class="hero__images">
@@ -80,9 +67,7 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       BRAND PROBLEM
-  ══════════════════════════════════════ -->
+  <!-- BRAND PROBLEM -->
   <section class="brand">
     <div class="brand__inner">
       <h2 class="brand__headline">
@@ -95,32 +80,26 @@
           <p class="brand__body">Some days it looks polished, other days it looks rushed. A listing goes out with the wrong logo, social disappears for weeks, proposals don't match, and something always needs fixing after it's already live. You've tried freelancers, VAs, or having someone internally "handle it" — but nothing really holds.</p>
           <p class="brand__body">The work keeps moving, the output gets inconsistent, and you're the one catching it at the last minute. It's not a design issue. No one <em>owns</em> the output.</p>
           <p class="brand__closer">That's the gap. <em>Handled.</em></p>
-          <a href="#contact" class="btn btn--gold">Book a Rundown</a>
+          <a href="#contact" class="btn btn-gold">Book a Rundown</a>
         </div>
         <div class="brand__img">
-          <img src="assets/brand-problem.jpg" alt="Design work examples — Myer catalogues" />
+          <img src="assets/brand-problem.jpg" alt="Design work examples" />
         </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       ONE TEAM  (Yellow)
-  ══════════════════════════════════════ -->
+  <!-- ONE TEAM -->
   <section class="one-team">
-    <div class="wrap">
-      <h2 class="one-team__headline">One team. Your brand. <span class="hl">Every month.</span></h2>
-      <p class="one-team__body">We take ownership of your production so everything that goes out — listings, social, proposals, documents — is consistent, on-brand, and done properly. No chasing freelancers, no starting from scratch, no last-minute fixes. Just a team that knows your business and keeps your output running the way it should.</p>
-      <p class="one-team__kicker">Your production. <em>Handled.</em></p>
-      <a href="#contact" class="btn btn--dark">Book a Rundown</a>
-    </div>
+    <h2 class="one-team__headline">One team. Your brand. <span class="hl">Every month.</span></h2>
+    <p class="one-team__body">We take ownership of your production so everything that goes out — listings, social, proposals, documents — is consistent, on-brand, and done properly. No chasing freelancers, no starting from scratch, no last-minute fixes. Just a team that knows your business and keeps your output running the way it should.</p>
+    <p class="one-team__kicker">Your production. <em>Handled.</em></p>
+    <a href="#contact" class="btn btn-dark">Book a Rundown</a>
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       FOR YOU IF  (Yellow heading → Navy cards)
-  ══════════════════════════════════════ -->
+  <!-- FOR YOU IF -->
   <section class="for-you">
     <div class="for-you__heading-wrap">
       <h2 class="for-you__heading">This is for you if...</h2>
@@ -147,9 +126,7 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       PLUG AND PLAY
-  ══════════════════════════════════════ -->
+  <!-- PLUG AND PLAY -->
   <section class="plug">
     <div class="plug__inner">
       <h2 class="plug__headline">Handled is your <span class="hl">plug-and-play design team</span></h2>
@@ -158,7 +135,7 @@
           <p class="plug__body">When your design is handled properly, everything becomes more consistent, more efficient, and easier to manage.</p>
           <p class="plug__body">The work moves faster. The brand holds together.<br>And you're no longer the one keeping it all in check.</p>
           <p class="plug__kicker">Handled.</p>
-          <a href="#contact" class="btn btn--gold">Book a Rundown</a>
+          <a href="#contact" class="btn btn-gold">Book a Rundown</a>
         </div>
         <div class="plug__img">
           <img src="assets/plug-play.jpg" alt="Jarden design work" />
@@ -168,9 +145,7 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       SERVICES LIST
-  ══════════════════════════════════════ -->
+  <!-- SERVICES -->
   <section class="services">
     <div class="services__inner">
       <div class="services__line">Listings, campaigns, social. <span class="hl">Handled.</span></div>
@@ -180,15 +155,13 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       HOW IT WORKS
-  ══════════════════════════════════════ -->
+  <!-- HOW IT WORKS -->
   <section class="how">
     <div class="how__inner">
       <div class="how__left">
         <h2>How it works</h2>
         <p class="how__subtext">Start without commitment.<br>Continue with confidence.</p>
-        <a href="#contact" class="btn btn--gold">Book a Rundown</a>
+        <a href="#contact" class="btn btn-gold">Book a Rundown</a>
       </div>
       <div class="how__steps">
         <div>
@@ -214,108 +187,94 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       PRODUCTION EXPERIENCE  (Yellow top + Navy stats)
-  ══════════════════════════════════════ -->
-  <section class="production">
-    <div class="production__top">
-      <div class="wrap">
-        <h2 class="production__headline">Built on <span class="hl">real production experience</span></h2>
-        <p class="production__body">Handled isn't a new idea. It's the model I've built after 15 years inside agencies and in-house teams where high-volume design <em>actually</em> happens. Campaigns, listings, mailers, documents, retail rollouts — work that needs to be produced consistently, at scale, under pressure.</p>
-        <a href="#contact" class="btn btn--dark">Book a Rundown</a>
+  <!-- PRODUCTION EXPERIENCE -->
+  <section class="production-top">
+    <h2 class="production-top__headline">Built on <span class="hl">real production experience</span></h2>
+    <p class="production-top__body">Handled isn't a new idea. It's the model I've built after 15 years inside agencies and in-house teams where high-volume design <em>actually</em> happens. Campaigns, listings, mailers, documents, retail rollouts — work that needs to be produced consistently, at scale, under pressure.</p>
+    <a href="#contact" class="btn btn-dark">Book a Rundown</a>
+  </section>
+
+  <section class="production-stats">
+    <div class="production-stats__grid">
+      <div>
+        <div class="production-stats__title"><span class="hl">15+ years experience</span></div>
+        <p class="production-stats__body">Agency, in-house, and independent</p>
       </div>
-    </div>
-    <div class="production__stats">
-      <div class="wrap">
-        <div class="production__grid">
-          <div class="production__stat">
-            <div class="production__stat-title"><span class="hl">15+ years experience</span></div>
-            <p class="production__stat-body">Agency, in-house, and independent</p>
-          </div>
-          <div class="production__stat">
-            <div class="production__stat-title"><span class="hl">Proven across industries</span></div>
-            <p class="production__stat-body">Retail, property, construction, finance, FMCG</p>
-          </div>
-          <div class="production__stat">
-            <div class="production__stat-title"><span class="hl">Built for scale</span></div>
-            <p class="production__stat-body">From single-site businesses to 80+ branch networks</p>
-          </div>
-        </div>
+      <div>
+        <div class="production-stats__title"><span class="hl">Proven across industries</span></div>
+        <p class="production-stats__body">Retail, property, construction, finance, FMCG</p>
+      </div>
+      <div>
+        <div class="production-stats__title"><span class="hl">Built for scale</span></div>
+        <p class="production-stats__body">From single-site businesses to 80+ branch networks</p>
       </div>
     </div>
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       PORTFOLIO / IN PRACTICE
-  ══════════════════════════════════════ -->
+  <!-- PORTFOLIO -->
   <section class="portfolio">
-    <div class="wrap">
-      <h2 class="portfolio__headline">What this looks like <span class="hl">in practice</span></h2>
-      <a href="work.html" class="btn btn--gold portfolio__btn">View Our Work</a>
-      <div class="portfolio__grid">
-        <div class="portfolio__item portfolio__item--large">
-          <img src="assets/portfolio-barfoot.jpg" alt="Barfoot and Thompson — Commercial Insite" />
-          <p class="portfolio__caption">Barfoot and Thompson</p>
-        </div>
-        <div class="portfolio__item">
-          <img src="assets/portfolio-status.jpg" alt="Status Realty — For Sale signage" />
-          <p class="portfolio__caption">Status Realty</p>
-        </div>
+    <h2 class="portfolio__headline">What this looks like <span class="hl">in practice</span></h2>
+    <div class="portfolio__cta"><a href="work.html" class="btn btn-gold">View Our Work</a></div>
+    <div class="portfolio__grid">
+      <div class="portfolio__item">
+        <img src="assets/portfolio-barfoot.jpg" alt="Barfoot and Thompson — Commercial Insite" />
+        <p class="portfolio__caption">Barfoot and Thompson</p>
+      </div>
+      <div class="portfolio__item">
+        <img src="assets/portfolio-status.jpg" alt="Status Realty — For Sale signage" />
+        <p class="portfolio__caption">Status Realty</p>
       </div>
     </div>
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       TESTIMONIALS
-  ══════════════════════════════════════ -->
+  <!-- TESTIMONIALS -->
   <section class="testimonials">
-    <div class="wrap">
+    <div class="testimonials__inner">
       <h2 class="testimonials__heading">In our <span class="hl">clients words</span></h2>
       <div class="testimonials__grid">
 
-        <div class="testimonials__card">
-          <p class="testimonials__quote">"Rosh has served as a key strategic partner to Barfoot & Thompson's marketing team, enhancing our workflow with a consistent and high-calibre design resource. Their work safeguards our brand integrity and ensures consistency across a large and complex organisation."</p>
-          <div class="testimonials__author">Neal Morshead</div>
-          <div class="testimonials__company"><em>Barfoot &amp; Thompson</em></div>
+        <div>
+          <p class="t-quote">"Rosh has served as a key strategic partner to Barfoot & Thompson's marketing team, enhancing our workflow with a consistent and high-calibre design resource. Their work safeguards our brand integrity and ensures consistency across a large and complex organisation."</p>
+          <p class="t-name">Neal Morshead</p>
+          <p class="t-company">Barfoot &amp; Thompson</p>
         </div>
 
-        <div class="testimonials__card">
-          <p class="testimonials__quote">"I was guided by experts who were genuinely in tune with my vision from day one, taking the time to deeply understand my market and how to help me stand out.<br><br>I feel armed, ready, and proud of my brand."</p>
-          <div class="testimonials__author">AJ Hazelhurst</div>
-          <div class="testimonials__company"><em>Status Realty</em></div>
+        <div>
+          <p class="t-quote">"I was guided by experts who were genuinely in tune with my vision from day one, taking the time to deeply understand my market and how to help me stand out.<br><br>I feel armed, ready, and proud of my brand."</p>
+          <p class="t-name">AJ Hazelhurst</p>
+          <p class="t-company">Status Realty</p>
         </div>
 
-        <div class="testimonials__card">
-          <p class="testimonials__quote">"Rosh has been instrumental in the production of our flagship Investment Outlook publication distributed quarterly to clients and industry professionals. She has continually lifted the standard over the years through communication, production, attention to detail, and implementing improvements."</p>
-          <div class="testimonials__author">Tim Agar</div>
-          <div class="testimonials__company"><em>Jarden</em></div>
+        <div>
+          <p class="t-quote">"Rosh has been instrumental in the production of our flagship Investment Outlook publication distributed quarterly to clients and industry professionals. She has continually lifted the standard over the years through communication, production, attention to detail, and implementing improvements."</p>
+          <p class="t-name">Tim Agar</p>
+          <p class="t-company">Jarden</p>
         </div>
 
-        <div class="testimonials__card">
-          <p class="testimonials__quote">"She really understood our target audience, and the new digital and print brochures have helped us win work and grow our business ever since.<br><br>Rosh and her team are our go-to for design."</p>
-          <div class="testimonials__author">Ben Lewis</div>
-          <div class="testimonials__company"><em>Lewis Build</em></div>
+        <div>
+          <p class="t-quote">"She really understood our target audience, and the new digital and print brochures have helped us win work and grow our business ever since.<br><br>Rosh and her team are our go-to for design."</p>
+          <p class="t-name">Ben Lewis</p>
+          <p class="t-company">Lewis Build</p>
         </div>
 
-        <div class="testimonials__card">
-          <p class="testimonials__quote">"I worked closely with Rosh for nearly 3 years to publish 4 books I have written in this time. She was prompt, efficient, and accurate in the details of her work, including great design and illustration. She also liaised with the printers for me, and I can thoroughly recommend her for the quality of her work."</p>
-          <div class="testimonials__author">Chris Barfoot</div>
-          <div class="testimonials__company"><em>Author, OSM</em></div>
+        <div>
+          <p class="t-quote">"I worked closely with Rosh for nearly 3 years to publish 4 books I have written in this time. She was prompt, efficient, and accurate in the details of her work, including great design and illustration. She also liaised with the printers for me, and I can thoroughly recommend her for the quality of her work."</p>
+          <p class="t-name">Chris Barfoot</p>
+          <p class="t-company">Author, OSM</p>
         </div>
 
-        <div class="testimonials__card">
-          <p class="testimonials__quote">"I engaged Rosh to design signage, brochures, and booklets, and she delivered outstanding results on time. Great vision and ideas. I engaged her again on another restaurant project, and she excelled again. I would highly recommend her for any project."</p>
-          <div class="testimonials__author">Bruce Rule</div>
-          <div class="testimonials__company"><em>Artist / Real Estate Salesperson</em></div>
+        <div>
+          <p class="t-quote">"I engaged Rosh to design signage, brochures, and booklets, and she delivered outstanding results on time. Great vision and ideas. I engaged her again on another restaurant project, and she excelled again. I would highly recommend her for any project."</p>
+          <p class="t-name">Bruce Rule</p>
+          <p class="t-company">Artist / Real Estate Salesperson</p>
         </div>
 
       </div>
 
-      <!-- Client Logos -->
       <div class="logos">
-        <div class="logos__item">Barfoot<br>&amp; Thompson</div>
+        <div class="logos__item">Barfoot &amp;<br>Thompson</div>
         <div class="logos__item">Non Fungible<br>Labs</div>
         <div class="logos__item">Jarden</div>
         <div class="logos__item">Status</div>
@@ -325,29 +284,27 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       JOURNAL
-  ══════════════════════════════════════ -->
+  <!-- JOURNAL -->
   <section class="journal">
-    <div class="journal__header wrap">
+    <div class="journal__header">
       <h2 class="journal__heading">Journal</h2>
-      <a href="journal.html" class="btn btn--green-outline">Read More</a>
+      <a href="journal.html" class="btn btn-green">Read More</a>
     </div>
     <hr class="journal__rule" />
-    <div class="journal__cards wrap">
-      <article class="journal__card">
+    <div class="journal__grid">
+      <article>
         <div class="journal__img"><img src="assets/journal-1.jpg" alt="Colourful umbrellas" /></div>
         <div class="journal__meta">22 hours ago · 3 min read</div>
         <h3 class="journal__title">Why Your Marketing Looks Different Every Time (and How to Fix It)</h3>
         <p class="journal__excerpt">If your business marketing looks inconsistent across channels, there's usually one underlying cause. Here's why it happens and how to fix it.</p>
       </article>
-      <article class="journal__card">
+      <article>
         <div class="journal__img"><img src="assets/journal-2.jpg" alt="Architectural arches" /></div>
         <div class="journal__meta">1 day ago · 3 min read</div>
         <h3 class="journal__title">Hiring a Designer vs a Design Retainer: Which Is Right for Your Business?</h3>
         <p class="journal__excerpt">Should you hire an in-house designer or use a design retainer? An honest comparison of cost, quality, and flexibility for growing businesses.</p>
       </article>
-      <article class="journal__card">
+      <article>
         <div class="journal__img"><img src="assets/journal-3.jpg" alt="Abstract coral sculpture" /></div>
         <div class="journal__meta">2 days ago · 3 min read</div>
         <h3 class="journal__title">5 Signs Your Business Has Outgrown Its Design Setup</h3>
@@ -357,29 +314,25 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       CTA  (Bright green)
-  ══════════════════════════════════════ -->
+  <!-- CTA -->
   <section class="cta" id="contact">
-    <div class="cta__inner wrap">
-      <div class="cta__left">
-        <h2 class="cta__headline">Start with <span class="hl-yellow">a Rundown.</span></h2>
+    <div class="cta__inner">
+      <div>
+        <h2 class="cta__headline">Start with <span class="hl-y">a Rundown.</span></h2>
         <p class="cta__body">A focused 45-minute call to look at your current design setup, where it's breaking down, where it's inconsistent, and what to fix. If it looks like a fit, I'll show you how <em>Handled</em> would work for your business. If not, you'll still leave with a clear view of what's happening across your output.</p>
       </div>
-      <div class="cta__right">
+      <div>
         <p class="cta__kicker">Let's get it <em>handled.</em></p>
-        <a href="mailto:hello@handled.studio" class="btn btn--dark">Book a Rundown</a>
+        <a href="mailto:hello@handled.studio" class="btn btn-dark">Book a Rundown</a>
       </div>
     </div>
   </section>
 
 
-  <!-- ══════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════ -->
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer__top wrap">
-      <div class="footer__brand">
+    <div class="footer__top">
+      <div>
         <div class="footer__logo">
           <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
             <rect width="40" height="40" rx="3" fill="#69DE5F"/>
@@ -393,32 +346,28 @@
           <span>Handled.Studio</span>
         </div>
         <h2 class="footer__tagline">Senior. Local. <span class="hl">Handled.</span></h2>
-        <p class="footer__acknowledgement">We acknowledge the Wurundjeri Woi-wurrung people as the Traditional Owners of Nillumbik and pay respect to Elders past, present and emerging.</p>
+        <p class="footer__ack">We acknowledge the Wurundjeri Woi-wurrung people as the Traditional Owners of Nillumbik and pay respect to Elders past, present and emerging.</p>
       </div>
-
-      <div class="footer__newsletter">
-        <h3 class="footer__newsletter-heading">Handled weekly.</h3>
-        <p class="footer__newsletter-sub">Subscribe to our newsletter for the latest updates on Handled.Studio.</p>
+      <div>
+        <h3 class="footer__nl-heading">Handled weekly.</h3>
+        <p class="footer__nl-sub">Subscribe to our newsletter for the latest updates on Handled.Studio.</p>
         <form class="footer__form" onsubmit="return false;">
-          <label class="footer__label" for="email">Email *</label>
-          <input class="footer__input" type="email" id="email" name="email" required />
-          <label class="footer__checkbox-label">
-            <input type="checkbox" name="consent" />
-            Yes, subscribe me to your newsletter.
-          </label>
-          <button type="submit" class="btn btn--gold footer__submit">Submit</button>
+          <label class="footer__label" for="femail">Email *</label>
+          <input class="footer__input" type="email" id="femail" placeholder="" />
+          <label class="footer__check"><input type="checkbox" /> Yes, subscribe me to your newsletter.</label>
+          <button type="submit" class="btn btn-gold footer__submit">Submit</button>
         </form>
       </div>
     </div>
 
-    <div class="footer__nav wrap">
+    <div class="footer__nav">
       <div class="footer__col">
         <div class="footer__col-title">Company</div>
         <ul>
-          <li><a href="/" class="footer__link footer__link--active">Home</a></li>
+          <li><a href="/"                  class="footer__link footer__link-active">Home</a></li>
           <li><a href="fully-handled.html" class="footer__link">Fully Handled</a></li>
-          <li><a href="work.html" class="footer__link">Work</a></li>
-          <li><a href="about.html" class="footer__link">About</a></li>
+          <li><a href="work.html"          class="footer__link">Work</a></li>
+          <li><a href="about.html"         class="footer__link">About</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -436,21 +385,16 @@
       </div>
     </div>
 
-    <div class="footer__bottom wrap">
-      <a href="privacy.html" class="footer__bottom-link">Privacy Policy</a>
+    <div class="footer__bottom">
+      <a href="privacy.html">Privacy Policy</a>
       <span>© 2026 by Handled.Studio</span>
     </div>
   </footer>
 
-
   <script>
-    const menu    = document.getElementById('menu');
-    const menuOpen  = document.getElementById('menuOpen');
-    const menuClose = document.getElementById('menuClose');
-    menuOpen.addEventListener('click',  () => menu.classList.add('is-open'));
-    menuClose.addEventListener('click', () => menu.classList.remove('is-open'));
-    function closeMenu() { menu.classList.remove('is-open'); }
+    const menu = document.getElementById('menu');
+    document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
   </script>
-
 </body>
 </html>
