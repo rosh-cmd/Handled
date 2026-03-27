@@ -392,9 +392,20 @@
   </footer>
 
   <script>
+    // Mobile menu
     const menu = document.getElementById('menu');
     document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
     document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
+
+    // Scroll-driven clock rotation on "For you" icons
+    const icons = document.querySelectorAll('.for-you__icon');
+    function updateIconRotation() {
+      const scrollY = window.scrollY;
+      icons.forEach(icon => {
+        icon.style.transform = `rotate(${scrollY * 0.3}deg)`;
+      });
+    }
+    window.addEventListener('scroll', updateIconRotation, { passive: true });
   </script>
 </body>
 </html>
