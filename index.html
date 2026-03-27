@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Handled Studio</title>
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
 <body>
 
@@ -51,10 +51,33 @@
     <div class="hero__body">
       <p>Things are getting out the door but not consistently, not properly, and not at the level your brand should be operating at. Handled is your plug-and-play design team. We learn your brand, match your production rhythm, and keep everything aligned, every month.</p>
     </div>
-    <div class="hero__images">
-      <div class="hero__img"><img src="assets/hero-1.jpg" alt="Barfoot & Thompson design work" /></div>
-      <div class="hero__img"><img src="assets/hero-2.jpg" alt="Good with Nestlé" /></div>
-      <div class="hero__img"><img src="assets/hero-3.jpg" alt="Maison collection" /></div>
+    <div class="hero__slider-wrap">
+      <div class="hero__slider-track">
+        <!-- 11 slides -->
+        <div class="hero__slide"><img src="assets/slide-office.jpg" alt="Office Options Report" /></div>
+        <div class="hero__slide"><img src="assets/slide-nestle.jpg" alt="Good with Nestlé" /></div>
+        <div class="hero__slide"><img src="assets/slide-cpraper.jpg" alt="CP Rapee Brochure" /></div>
+        <div class="hero__slide"><img src="assets/slide-myer.jpg" alt="Myer" /></div>
+        <div class="hero__slide"><img src="assets/slide-jarden.png" alt="Jarden Investment Outlook" /></div>
+        <div class="hero__slide"><img src="assets/slide-lewis.jpg" alt="Lewis Build Brochure" /></div>
+        <div class="hero__slide"><img src="assets/slide-aromaco.jpg" alt="AROMACo" /></div>
+        <div class="hero__slide"><img src="assets/slide-rebel.jpg" alt="Rebel" /></div>
+        <div class="hero__slide"><img src="assets/slide-myer-adshel.jpg" alt="Myer Adshel" /></div>
+        <div class="hero__slide"><img src="assets/slide-jdw.jpg" alt="JDW Lead Magnet" /></div>
+        <div class="hero__slide"><img src="assets/slide-nckp.jpg" alt="NCKP Brand Guidelines" /></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="hero__slide"><img src="assets/slide-office.jpg" alt="" aria-hidden="true" /></div>
+        <div class="hero__slide"><img src="assets/slide-nestle.jpg" alt="" aria-hidden="true" /></div>
+        <div class="hero__slide"><img src="assets/slide-cpraper.jpg" alt="" aria-hidden="true" /></div>
+        <div class="hero__slide"><img src="assets/slide-myer.jpg" alt="" aria-hidden="true" /></div>
+        <div class="hero__slide"><img src="assets/slide-jarden.png" alt="" aria-hidden="true" /></div>
+        <div class="hero__slide"><img src="assets/slide-lewis.jpg" alt="" aria-hidden="true" /></div>
+        <div class="hero__slide"><img src="assets/slide-aromaco.jpg" alt="" aria-hidden="true" /></div>
+        <div class="hero__slide"><img src="assets/slide-rebel.jpg" alt="" aria-hidden="true" /></div>
+        <div class="hero__slide"><img src="assets/slide-myer-adshel.jpg" alt="" aria-hidden="true" /></div>
+        <div class="hero__slide"><img src="assets/slide-jdw.jpg" alt="" aria-hidden="true" /></div>
+        <div class="hero__slide"><img src="assets/slide-nckp.jpg" alt="" aria-hidden="true" /></div>
+      </div>
     </div>
   </section>
 
@@ -313,7 +336,7 @@
         <h2 class="cta__headline">Start with <span class="hl-y">a Rundown.</span></h2>
         <p class="cta__body">A focused 45-minute call to look at your current design setup, where it's breaking down, where it's inconsistent, and what to fix. If it looks like a fit, I'll show you how <em>Handled</em> would work for your business. If not, you'll still leave with a clear view of what's happening across your output.</p>
       </div>
-      <div>
+      <div class="cta__right">
         <p class="cta__kicker">Let's get it <em>handled.</em></p>
         <a href="mailto:hello@handled.studio" class="btn btn-dark">Book a Rundown</a>
       </div>
@@ -390,6 +413,35 @@
       });
     }
     window.addEventListener('scroll', updateIconRotation, { passive: true });
+
+    // Hero image slider — infinite marquee
+    (function() {
+      const track = document.querySelector('.hero__slider-track');
+      if (!track) return;
+      const slideCount = 11; // original slides (duplicates handled in HTML)
+      let offset = 0;
+      let paused = false;
+      const speed = 0.6; // px per frame
+
+      track.addEventListener('mouseenter', () => { paused = true; });
+      track.addEventListener('mouseleave', () => { paused = false; });
+
+      function getSlideWidth() {
+        const slide = track.querySelector('.hero__slide');
+        return slide ? slide.offsetWidth + 20 : 420; // +gap
+      }
+
+      function animate() {
+        if (!paused) {
+          offset += speed;
+          const totalWidth = getSlideWidth() * slideCount;
+          if (offset >= totalWidth) offset = 0;
+          track.style.transform = `translateX(-${offset}px)`;
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
   </script>
 </body>
 </html>
