@@ -590,6 +590,25 @@ em { font-style: italic; }
   font-weight: 700;
   color: var(--white);
   line-height: 1.1;
+  margin-bottom: 2.5rem;
+}
+.fh-intro__lead {
+  font-size: 1.1rem;
+  color: var(--white);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+.fh-intro__body {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.fh-intro__closer {
+  font-size: 1rem;
+  color: var(--white);
+  font-weight: 600;
+  margin-bottom: 2.5rem;
 }
 
 
