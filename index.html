@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Handled Studio</title>
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="style.css?v=11" />
+  <link rel="stylesheet" href="style.css?v=12" />
 </head>
 <body>
 
@@ -56,6 +56,8 @@
       </div>
     </div>
     <div class="hero__slider-wrap">
+      <button class="slider__arrow slider__arrow--prev" id="sliderPrev" aria-label="Previous">&#8592;</button>
+      <button class="slider__arrow slider__arrow--next" id="sliderNext" aria-label="Next">&#8594;</button>
       <div class="hero__slider-track">
         <!-- 11 slides -->
         <div class="hero__slide"><img src="assets/slide-office.jpg" alt="Office Options Report" /></div>
@@ -422,69 +424,80 @@
     }
     window.addEventListener('scroll', updateIconRotation, { passive: true });
 
-    // Hero slider — mouse-wheel (hover to scroll) + touch swipe
+    // Hero slider — smooth lerp, wheel (horizontal only), touch swipe, arrows
     (function() {
       const wrap  = document.querySelector('.hero__slider-wrap');
       const track = document.querySelector('.hero__slider-track');
+      const prevBtn = document.getElementById('sliderPrev');
+      const nextBtn = document.getElementById('sliderNext');
       if (!wrap || !track) return;
 
-      const slideCount = 11;
-      let offset = 0;
-      let velocity = 0;
-      let momentumRaf = null;
+      const SLIDE_COUNT = 11;
+      let current = 0;   // rendered position
+      let target  = 0;   // destination
+      let rafId   = null;
 
-      function getMaxOffset() {
-        const slide = track.querySelector('.hero__slide');
-        return slide ? (slide.offsetWidth + 20) * slideCount : 5000;
+      function slideW() {
+        const s = track.querySelector('.hero__slide');
+        return s ? s.offsetWidth + 20 : 420;
       }
-      function clamp(val) { return Math.max(0, Math.min(val, getMaxOffset())); }
-      function setOffset(val) {
-        offset = clamp(val);
-        track.style.transform = `translateX(-${offset}px)`;
+      function maxOffset() { return slideW() * SLIDE_COUNT; }
+      function clamp(v)    { return Math.max(0, Math.min(v, maxOffset())); }
+
+      // Lerp render loop — runs only while current ≠ target
+      function tick() {
+        const diff = target - current;
+        if (Math.abs(diff) < 0.15) {
+          current = target;
+          track.style.transform = `translateX(-${current}px)`;
+          rafId = null;
+          return;
+        }
+        current += diff * 0.13;   // 0.13 = smoothing (higher = snappier)
+        track.style.transform = `translateX(-${current}px)`;
+        rafId = requestAnimationFrame(tick);
       }
 
-      // Mouse wheel / trackpad
-      // Vertical scroll → page scrolls normally; horizontal → slide the strip
+      function setTarget(v) {
+        target = clamp(v);
+        if (!rafId) rafId = requestAnimationFrame(tick);
+      }
+
+      // Horizontal wheel / trackpad (vertical falls through to page)
       wrap.addEventListener('wheel', e => {
         const absX = Math.abs(e.deltaX);
         const absY = Math.abs(e.deltaY);
         if (absX > absY * 0.4 && absX > 2) {
-          // Primarily horizontal — take over
           e.preventDefault();
-          if (momentumRaf) { cancelAnimationFrame(momentumRaf); momentumRaf = null; }
-          velocity = e.deltaX * 0.8;
-          setOffset(offset + e.deltaX);
-          applyMomentum();
+          setTarget(target + e.deltaX * 1.4);
         }
-        // Vertical: fall through, page scrolls normally
       }, { passive: false });
 
-      // Touch swipe (mobile)
-      let touchStartX = 0, touchStartOffset = 0, touchLastX = 0;
+      // Arrow buttons — step one slide at a time
+      prevBtn && prevBtn.addEventListener('click', () => setTarget(target - slideW()));
+      nextBtn && nextBtn.addEventListener('click', () => setTarget(target + slideW()));
+
+      // Touch swipe — direct tracking on move, lerp-momentum on end
+      let tStartX = 0, tStartTarget = 0, tLastX = 0, tVel = 0;
       wrap.addEventListener('touchstart', e => {
-        touchStartX = e.touches[0].clientX;
-        touchStartOffset = offset;
-        touchLastX = touchStartX;
-        velocity = 0;
-        if (momentumRaf) { cancelAnimationFrame(momentumRaf); momentumRaf = null; }
+        tStartX = e.touches[0].clientX;
+        tStartTarget = target;
+        tLastX = tStartX;
+        tVel = 0;
       }, { passive: true });
       wrap.addEventListener('touchmove', e => {
-        const dx = touchStartX - e.touches[0].clientX;
-        velocity = touchLastX - e.touches[0].clientX;
-        touchLastX = e.touches[0].clientX;
-        setOffset(touchStartOffset + dx);
+        const dx = tStartX - e.touches[0].clientX;
+        tVel = tLastX - e.touches[0].clientX;
+        tLastX = e.touches[0].clientX;
+        // Direct during drag for immediacy
+        current = clamp(tStartTarget + dx);
+        target  = current;
+        track.style.transform = `translateX(-${current}px)`;
       }, { passive: true });
-      wrap.addEventListener('touchend', applyMomentum, { passive: true });
-
-      function applyMomentum() {
-        function step() {
-          if (Math.abs(velocity) < 0.4) return;
-          velocity *= 0.93;
-          setOffset(offset + velocity);
-          momentumRaf = requestAnimationFrame(step);
-        }
-        momentumRaf = requestAnimationFrame(step);
-      }
+      wrap.addEventListener('touchend', () => {
+        // Hand off to lerp with remaining velocity
+        setTarget(target + tVel * 8);
+      }, { passive: true });
     })();
   </script>
 </body>
