@@ -491,22 +491,14 @@ em { font-style: italic; }
 
 /* ── FH Hero ─────────────────────────────────────────────── */
 .fh-hero { background: var(--navy); padding-top: 70px; }
-.fh-hero__inner {
+.fh-hero__top {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 80px var(--pad) 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: end;
-}
-.fh-hero__eyebrow {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--green);
-  margin-bottom: 1.25rem;
+  padding: 60px var(--pad) 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 .fh-hero__headline {
   font-family: var(--serif);
@@ -514,13 +506,11 @@ em { font-style: italic; }
   font-weight: 700;
   color: var(--white);
   line-height: 1.05;
-  margin-bottom: 2rem;
 }
 .fh-hero__image {
   width: 100%;
   overflow: hidden;
-  border-radius: 6px;
-  background: #2a5060;
+  background: #1a1a1a;
 }
 .fh-hero__image img { width: 100%; height: auto; display: block; }
 
@@ -589,7 +579,7 @@ em { font-style: italic; }
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--green);
+  color: var(--white);
   margin-bottom: 1.5rem;
 }
 .fh-intro__headline {
@@ -899,7 +889,7 @@ em { font-style: italic; }
 
 /* ── FH Responsive ───────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .fh-hero__inner        { grid-template-columns: 1fr; }
+  .fh-hero__top          { flex-direction: column; align-items: flex-start; }
   .fh-built__inner       { grid-template-columns: 1fr; }
   .fh-why__inner         { grid-template-columns: 1fr; }
   .fh-compare__inner     { grid-template-columns: 1fr 1fr; }
