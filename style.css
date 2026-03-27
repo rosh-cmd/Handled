@@ -130,7 +130,9 @@ em { font-style: italic; }
   padding: 2rem var(--pad);
   display: flex;
   flex-direction: column;
-  transform: translateX(-100%);
+  left: auto;
+  right: 0;
+  transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
 }
 .menu.open { transform: translateX(0); }
