@@ -4,23 +4,12 @@
    Fonts: Glook (headings) + Barlow (body)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Gloock&display=swap');
 
-/* Glook — loaded from assets/fonts/ */
+/* Self-hosted fallback (Gloock-Regular.ttf in assets/fonts/) */
 @font-face {
-  font-family: 'Glook';
-  src: url('assets/fonts/Glook-Bold.woff2') format('woff2'),
-       url('assets/fonts/Glook-Bold.woff')  format('woff'),
-       url('assets/fonts/Glook.woff2')      format('woff2'),
-       url('assets/fonts/Glook.woff')       format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Glook';
-  src: url('assets/fonts/Glook-Regular.woff2') format('woff2'),
-       url('assets/fonts/Glook-Regular.woff')  format('woff');
+  font-family: 'Gloock';
+  src: url('assets/fonts/Gloock-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -31,7 +20,7 @@
   --green:  #69DE5F;
   --yellow: #F4C85A;
   --white:  #FFFFFF;
-  --serif:  'Glook', 'Playfair Display', Georgia, serif;
+  --serif:  'Gloock', Georgia, serif;
   --sans:   'Barlow', 'Helvetica Neue', Arial, sans-serif;
   --max:    1240px;
   --pad:    clamp(1.5rem, 5vw, 80px);
@@ -112,7 +101,14 @@ em { font-style: italic; }
   color: var(--white);
 }
 .nav__logomark { height: 36px; width: auto; display: block; }
-.nav__logotype { height: 18px; width: auto; display: block; }
+.nav__logotype {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
 .nav__right { display: flex; align-items: center; gap: 1.2rem; }
 .nav__hamburger {
   display: flex;
