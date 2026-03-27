@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Handled Studio</title>
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 <body>
 
@@ -47,9 +47,9 @@
         <p>Your business is growing.<br>Your design isn't keeping up.</p>
         <a href="#contact" class="btn btn-gold">Book a Rundown</a>
       </div>
-    </div>
-    <div class="hero__body">
-      <p>Things are getting out the door but not consistently, not properly, and not at the level your brand should be operating at. Handled is your plug-and-play design team. We learn your brand, match your production rhythm, and keep everything aligned, every month.</p>
+      <div class="hero__body">
+        <p>Things are getting out the door but not consistently, not properly, and not at the level your brand should be operating at. Handled is your plug-and-play design team. We learn your brand, match your production rhythm, and keep everything aligned, every month.</p>
+      </div>
     </div>
     <div class="hero__slider-wrap">
       <div class="hero__slider-track">
@@ -289,11 +289,11 @@
       </div>
 
       <div class="logos">
-        <div class="logos__item">Barfoot &amp;<br>Thompson</div>
-        <div class="logos__item">Non Fungible<br>Labs</div>
-        <div class="logos__item">Jarden</div>
-        <div class="logos__item">Status</div>
-        <div class="logos__item">Lewis Build</div>
+        <div class="logos__item"><img src="assets/logo-barfoot.svg" alt="Barfoot &amp; Thompson" /></div>
+        <div class="logos__item"><img src="assets/logo-nfl.svg" alt="Non Fungible Labs" /></div>
+        <div class="logos__item"><img src="assets/logo-jarden.svg" alt="Jarden" /></div>
+        <div class="logos__item"><img src="assets/logo-status.svg" alt="Status" /></div>
+        <div class="logos__item"><img src="assets/logo-lb.svg" alt="Lewis Build" /></div>
       </div>
     </div>
   </section>
@@ -414,33 +414,47 @@
     }
     window.addEventListener('scroll', updateIconRotation, { passive: true });
 
-    // Hero image slider — infinite marquee
+    // Hero image slider — hover to scroll, page scroll to drive
     (function() {
       const track = document.querySelector('.hero__slider-track');
       if (!track) return;
-      const slideCount = 11; // original slides (duplicates handled in HTML)
+      const slideCount = 11;
       let offset = 0;
-      let paused = false;
-      const speed = 0.6; // px per frame
+      let isHovering = false;
+      let hoverRaf = null;
+      const speed = 0.7;
 
-      track.addEventListener('mouseenter', () => { paused = true; });
-      track.addEventListener('mouseleave', () => { paused = false; });
-
-      function getSlideWidth() {
+      function getTotal() {
         const slide = track.querySelector('.hero__slide');
-        return slide ? slide.offsetWidth + 20 : 420; // +gap
+        if (!slide) return 5000;
+        return (slide.offsetWidth + 20) * slideCount;
       }
 
-      function animate() {
-        if (!paused) {
-          offset += speed;
-          const totalWidth = getSlideWidth() * slideCount;
-          if (offset >= totalWidth) offset = 0;
-          track.style.transform = `translateX(-${offset}px)`;
-        }
-        requestAnimationFrame(animate);
+      // Hover: auto-scroll while hovered
+      function hoverAnimate() {
+        if (!isHovering) return;
+        offset = (offset + speed) % getTotal();
+        track.style.transform = `translateX(-${offset}px)`;
+        hoverRaf = requestAnimationFrame(hoverAnimate);
       }
-      animate();
+
+      track.addEventListener('mouseenter', () => {
+        isHovering = true;
+        hoverAnimate();
+      });
+      track.addEventListener('mouseleave', () => {
+        isHovering = false;
+        if (hoverRaf) cancelAnimationFrame(hoverRaf);
+      });
+
+      // Scroll: drive slider proportionally with page scroll
+      window.addEventListener('scroll', () => {
+        if (isHovering) return;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+        offset = progress * getTotal();
+        track.style.transform = `translateX(-${offset}px)`;
+      }, { passive: true });
     })();
   </script>
 </body>
