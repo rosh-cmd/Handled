@@ -4,188 +4,163 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Handled Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════════════════
-       NAVIGATION
-  ════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════ NAV ═══════════════ -->
   <nav class="nav">
     <div class="nav__inner">
-      <a href="#" class="nav__logo">
-        <div class="nav__logo-mark" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
-        </div>
-        Handled Studio
+
+      <!-- Logo — replace the SVG with your actual logo file once exported from Wix -->
+      <a href="/" class="nav__logo">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="40" height="40" rx="3" fill="#69DE5F"/>
+          <rect x="6"  y="6"  width="7" height="7" fill="#1E3D51"/>
+          <rect x="17" y="6"  width="7" height="7" fill="#1E3D51"/>
+          <rect x="28" y="6"  width="6" height="7" fill="#1E3D51"/>
+          <rect x="6"  y="17" width="7" height="6" fill="#1E3D51"/>
+          <rect x="28" y="17" width="6" height="6" fill="#1E3D51"/>
+          <rect x="6"  y="27" width="28" height="7" fill="#1E3D51"/>
+        </svg>
+        Handled.Studio
       </a>
-      <a href="#contact" class="btn btn--sm">Book a Rundown</a>
+
+      <div class="nav__right">
+        <a href="#contact" class="btn btn--gold">Book a Rundown</a>
+        <button class="nav__hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
     </div>
   </nav>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       HERO
-  ════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════ HERO ═══════════════ -->
   <section class="hero">
-    <div class="hero__inner">
-      <div class="hero__content">
-        <h1 class="hero__headline">
-          Your design output,<br><span class="hl">handled.</span>
-        </h1>
-        <p class="hero__body">
-          <!-- TODO: Add your exact hero body copy here -->
-          Bringing your brand ideas to life through compelling, conversion-focused marketing materials and brand experiences — without the overhead of a full in-house team.
-        </p>
-        <a href="#contact" class="btn">Book a Rundown</a>
-        <div class="hero__stats">
-          <div>
-            <div class="hero__stat-num">15+</div>
-            <div class="hero__stat-label">Years Experience</div>
-          </div>
-          <div>
-            <div class="hero__stat-num">100+</div>
-            <div class="hero__stat-label">Brands Handled</div>
-          </div>
-          <div>
-            <div class="hero__stat-num">∞</div>
-            <div class="hero__stat-label">Design Requests</div>
-          </div>
+
+    <div class="hero__top">
+      <h1 class="hero__headline">
+        Your design output, <span class="hl">handled</span>
+      </h1>
+      <div class="hero__aside">
+        <p class="hero__aside-text">Your business is growing.<br>Your design isn't keeping up.</p>
+        <a href="#contact" class="btn btn--gold">Book a Rundown</a>
+      </div>
+    </div>
+
+    <div class="hero__body-text">
+      <p>Things are getting out the door but not consistently, not properly, and not at the level your brand should be operating at. Handled is your plug-and-play design team. We learn your brand, match your production rhythm, and keep everything aligned, every month.</p>
+    </div>
+
+    <!-- Replace these src values with your actual portfolio images -->
+    <div class="hero__images">
+      <div class="hero__img"><img src="assets/hero-1.jpg" alt="Barfoot & Thompson design work" /></div>
+      <div class="hero__img"><img src="assets/hero-2.jpg" alt="Good with Nestlé" /></div>
+      <div class="hero__img"><img src="assets/hero-3.jpg" alt="Maison collection" /></div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════ BRAND PROBLEM ═══════════════ -->
+  <section class="brand">
+    <div class="brand__inner">
+
+      <h2 class="brand__headline">
+        Your brand isn't the problem.<br>
+        <span class="hl">The way it's being executed is.</span>
+      </h2>
+
+      <div class="brand__cols">
+        <div>
+          <p class="brand__lead">Your brand isn't the problem, the way it's being executed is.</p>
+          <p class="brand__body">Some days it looks polished, other days it looks rushed. A listing goes out with the wrong logo, social disappears for weeks, proposals don't match, and something always needs fixing after it's already live. You've tried freelancers, VAs, or having someone internally "handle it" — but nothing really holds.</p>
+          <p class="brand__body">The work keeps moving, the output gets inconsistent, and you're the one catching it at the last minute. It's not a design issue. No one <em>owns</em> the output.</p>
+          <p class="brand__closer">That's the gap. <em>Handled.</em></p>
+          <a href="#contact" class="btn btn--gold">Book a Rundown</a>
+        </div>
+        <div class="brand__img">
+          <!-- Replace with your actual image -->
+          <img src="assets/brand-problem.jpg" alt="Design work examples" />
         </div>
       </div>
-      <div class="hero__images">
-        <!-- Replace src values with your actual images -->
-        <div class="hero__img hero__img--tall">
-          <img src="assets/hero-1.jpg" alt="Handled Studio design work" />
-        </div>
-        <div class="hero__img hero__img--short">
-          <img src="assets/hero-2.jpg" alt="Handled Studio design work" />
-        </div>
-        <div class="hero__img hero__img--short">
-          <img src="assets/hero-3.jpg" alt="Handled Studio design work" />
-        </div>
-      </div>
+
     </div>
   </section>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       YOUR BRAND ISN'T THE PROBLEM
-  ════════════════════════════════════════════════════════ -->
-  <section class="brand-problem">
-    <div class="brand-problem__inner">
-      <div>
-        <h2 class="brand-problem__headline">
-          Your brand isn't the problem.<br>
-          <span class="hl">The way it's being executed is.</span>
-        </h2>
-      </div>
-      <div class="brand-problem__right">
-        <p class="brand-problem__body">
-          <!-- TODO: Add your exact body copy here -->
-          Great brands don't fail because of bad ideas. They fail because the day-to-day execution — the listings, the social posts, the proposals, the print — never quite matches the vision. That's where we come in.
-        </p>
-        <p class="brand-problem__body">
-          <!-- TODO: Add your exact body copy here -->
-          We embed ourselves in your brand and handle the output. Every request. Every deadline. Every time.
-        </p>
-        <a href="#how" class="brand-problem__link">Find Out More</a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       ONE TEAM
-  ════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════ ONE TEAM ═══════════════ -->
   <section class="one-team">
-    <div class="container">
+    <div class="wrap">
       <h2 class="one-team__headline">
         One team. Your brand. <span class="hl">Every month.</span>
       </h2>
-      <p class="one-team__body">
-        <!-- TODO: Add your exact body copy here -->
-        We offer a flat monthly subscription — unlimited design requests, one dedicated team, one brand, every single month. No briefs lost in translation. No agency markups. Just great work, delivered.
-      </p>
-      <a href="#contact" class="btn">Book a Rundown</a>
+      <p class="one-team__body">We take ownership of your production so everything that goes out — listings, social, proposals, documents — is consistent, on-brand, and done properly. No chasing freelancers, no starting from scratch, no last-minute fixes. Just a team that knows your business and keeps your output running the way it should.</p>
+      <p class="one-team__kicker">Your production. <em>Handled.</em></p>
+      <a href="#contact" class="btn btn--dark">Book a Rundown</a>
     </div>
   </section>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       THIS IS FOR YOU IF...
-  ════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════ FOR YOU IF ═══════════════ -->
   <section class="for-you">
-    <div class="for-you__inner">
+    <div class="for-you__heading-wrap">
       <h2 class="for-you__heading">This is for you if...</h2>
+    </div>
+    <div class="for-you__cards">
       <div class="for-you__grid">
+
         <div class="for-you__card">
-          <div class="for-you__card-icon">📋</div>
-          <div class="for-you__card-title">
-            <!-- TODO: Add your exact card title here -->
-            You have more design needs than your current team can handle
-          </div>
-          <p class="for-you__card-body">
-            <!-- TODO: Add your exact body copy here -->
-            Your pipeline is full but your output doesn't reflect it. We become the design arm you need without the cost of hiring in-house.
-          </p>
+          <div class="for-you__icon"></div>
+          <h3 class="for-you__title">Your output has outgrown your setup</h3>
+          <p class="for-you__text">Your business is producing more than your current design process can reliably handle.</p>
         </div>
+
         <div class="for-you__card">
-          <div class="for-you__card-icon">🚀</div>
-          <div class="for-you__card-title">
-            <!-- TODO: Add your exact card title here -->
-            Your brand has real ambition but the execution hasn't kept up
-          </div>
-          <p class="for-you__card-body">
-            <!-- TODO: Add your exact body copy here -->
-            The vision is there. The materials just need to match it. We take the brief and make it happen — fast, consistently, and on brand.
-          </p>
+          <div class="for-you__icon"></div>
+          <h3 class="for-you__title">Your brand looks inconsistent</h3>
+          <p class="for-you__text">The quality shifts depending on who's working on it and it's noticeable.</p>
         </div>
+
         <div class="for-you__card">
-          <div class="for-you__card-icon">⚡</div>
-          <div class="for-you__card-title">
-            <!-- TODO: Add your exact card title here -->
-            You're tired of managing multiple freelancers and agencies
-          </div>
-          <p class="for-you__card-body">
-            <!-- TODO: Add your exact body copy here -->
-            One relationship. One team. One monthly cost. We handle everything from strategy to production, so you can focus on what matters.
-          </p>
+          <div class="for-you__icon"></div>
+          <h3 class="for-you__title">No one owns the output</h3>
+          <p class="for-you__text">You or your team are still fixing, chasing, or piecing things together before anything goes out.</p>
         </div>
+
       </div>
     </div>
   </section>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       PLUG-AND-PLAY DESIGN TEAM
-  ════════════════════════════════════════════════════════ -->
-  <section class="plug-play" id="how">
-    <div class="plug-play__inner">
-      <div>
-        <h2 class="plug-play__headline">
-          Handled is your <span class="hl">plug-and-play design team</span>
-        </h2>
-        <p class="plug-play__body">
-          <!-- TODO: Add your exact body copy here -->
-          Think of us as your in-house creative team — without the salary, super, leave entitlements, or management overhead. We plug directly into your business and handle every design output your brand needs.
-        </p>
-        <a href="#contact" class="btn">Book a Rundown</a>
+  <!-- ═══════════════ PLUG AND PLAY ═══════════════ -->
+  <section class="plug">
+    <div class="plug__inner">
+
+      <h2 class="plug__headline">
+        Handled is your <span class="hl">plug-and-play design team</span>
+      </h2>
+
+      <div class="plug__cols">
+        <div>
+          <p class="plug__body">When your design is handled properly, everything becomes more consistent, more efficient, and easier to manage.</p>
+          <p class="plug__body">The work moves faster. The brand holds together.<br>And you're no longer the one keeping it all in check.</p>
+          <p class="plug__kicker">Handled.</p>
+          <a href="#contact" class="btn btn--gold">Book a Rundown</a>
+        </div>
+        <div class="plug__img">
+          <!-- Replace with your actual image -->
+          <img src="assets/plug-play.jpg" alt="Jarden design work" />
+        </div>
       </div>
-      <div class="plug-play__image">
-        <!-- Replace with your actual image -->
-        <img src="assets/plug-play.jpg" alt="Design team at work" />
-      </div>
+
     </div>
   </section>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       SERVICES LIST
-  ════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════ SERVICES LIST ═══════════════ -->
   <section class="services">
     <div class="services__inner">
       <div class="services__line">Listings, campaigns, social. <span class="hl">Handled.</span></div>
@@ -195,308 +170,53 @@
   </section>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       HOW IT WORKS
-  ════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
   <section class="how">
     <div class="how__inner">
-      <div class="how__header">
-        <h2 class="how__heading">How it works</h2>
-        <a href="#contact" class="btn btn--dark btn--sm">Book a Rundown</a>
+
+      <div class="how__left">
+        <h2>How it works</h2>
+        <p class="how__subtext">Start without commitment.<br>Continue with confidence.</p>
+        <a href="#contact" class="btn btn--gold">Book a Rundown</a>
       </div>
-      <div class="how__grid">
-        <div class="how__step">
-          <div class="how__step-num">Step 01</div>
-          <div class="how__step-img" style="background:#ddd;">
+
+      <div class="how__steps">
+
+        <div>
+          <div class="how__img-wrap">
             <!-- Replace with your actual image -->
-            <img src="assets/step-1.jpg" alt="The Rundown" style="width:100%;height:100%;object-fit:cover;" />
+            <img src="assets/step-rundown.jpg" alt="The Rundown" />
           </div>
+          <div class="how__num">Step One</div>
           <h3 class="how__step-title">The Rundown</h3>
-          <p class="how__step-body">
-            <!-- TODO: Add your exact copy here -->
-            We start with a detailed discovery session — your brand, your goals, your backlog. We get across everything so we can hit the ground running from day one.
-          </p>
+          <p class="how__step-body">A free 45-minute call. We'll look at your current setup and show you exactly where your design is breaking down — and what to fix.</p>
         </div>
-        <div class="how__step">
-          <div class="how__step-num">Step 02</div>
-          <div class="how__step-img" style="background:#ddd;">
-            <img src="assets/step-2.jpg" alt="The Handoff" style="width:100%;height:100%;object-fit:cover;" />
+
+        <div>
+          <div class="how__img-wrap">
+            <img src="assets/step-handoff.jpg" alt="The Handoff" />
           </div>
+          <div class="how__num">Step Two</div>
           <h3 class="how__step-title">The Handoff</h3>
-          <p class="how__step-body">
-            <!-- TODO: Add your exact copy here -->
-            You submit requests as they come up. We turn them around fast, keeping you updated throughout. Files are delivered exactly how you need them — print-ready, web-optimised, brand-compliant.
-          </p>
+          <p class="how__step-body">A 30-day pilot. Real work, real output. So you can experience what it's like to have your design properly handled before committing to anything ongoing.</p>
         </div>
-        <div class="how__step">
-          <div class="how__step-num">Step 03</div>
-          <div class="how__step-img" style="background:#ddd;">
-            <img src="assets/step-3.jpg" alt="Fully Handled" style="width:100%;height:100%;object-fit:cover;" />
+
+        <div>
+          <div class="how__img-wrap">
+            <img src="assets/step-handled.jpg" alt="Fully Handled" />
           </div>
+          <div class="how__num">Step Three</div>
           <h3 class="how__step-title">Fully Handled</h3>
-          <p class="how__step-body">
-            <!-- TODO: Add your exact copy here -->
-            Month after month, your brand output compounds. Better assets, stronger consistency, more time back in your day. That's what fully handled looks like.
-          </p>
+          <p class="how__step-body">Ongoing monthly support. Your design production runs through us — consistently, on-brand, every month.</p>
         </div>
+
       </div>
     </div>
   </section>
 
 
-  <!-- ═══════════════════════════════════════════════════════
-       PRODUCTION EXPERIENCE
-  ════════════════════════════════════════════════════════ -->
-  <section class="production">
-    <div class="production__inner">
-      <h2 class="production__headline">
-        Built on <span class="hl">real production experience</span>
-      </h2>
-      <p class="production__sub">
-        <!-- TODO: Add your exact body copy here -->
-        Handled isn't a side project. It's built on over 15 years of hands-on production experience across some of Australia's most demanding industries.
-      </p>
-      <div class="production__stats">
-        <div class="production__stat">
-          <div class="production__stat-num">15+</div>
-          <div class="production__stat-title">Years experience</div>
-          <div class="production__stat-body">
-            <!-- TODO: Add your exact copy here -->
-            Senior-level creative direction and production management
-          </div>
-        </div>
-        <div class="production__stat">
-          <div class="production__stat-num">✓</div>
-          <div class="production__stat-title">Proven across industries</div>
-          <div class="production__stat-body">
-            <!-- TODO: Add your exact copy here -->
-            Finance, Law, Real Estate, Hospitality, Retail &amp; more
-          </div>
-        </div>
-        <div class="production__stat">
-          <div class="production__stat-num">∞</div>
-          <div class="production__stat-title">Built for scale</div>
-          <div class="production__stat-body">
-            <!-- TODO: Add your exact copy here -->
-            Systems and processes built to grow with your business
-          </div>
-        </div>
-      </div>
-      <a href="#contact" class="btn">Book a Rundown</a>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       PORTFOLIO / IN PRACTICE
-  ════════════════════════════════════════════════════════ -->
-  <section class="portfolio">
-    <div class="portfolio__inner">
-      <div class="portfolio__header">
-        <h2 class="portfolio__heading">What this looks like in practice</h2>
-        <a href="#" class="btn btn--dark btn--sm">See More</a>
-      </div>
-      <div class="portfolio__grid">
-        <!-- Replace with your actual portfolio images -->
-        <div class="portfolio__item portfolio__item--wide">
-          <img src="assets/portfolio-1.jpg" alt="Portfolio example" />
-        </div>
-        <div class="portfolio__item">
-          <img src="assets/portfolio-2.jpg" alt="Portfolio example" />
-        </div>
-        <div class="portfolio__item">
-          <img src="assets/portfolio-3.jpg" alt="Portfolio example" />
-        </div>
-        <div class="portfolio__item">
-          <img src="assets/portfolio-4.jpg" alt="Portfolio example" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       TESTIMONIALS + CLIENT LOGOS
-  ════════════════════════════════════════════════════════ -->
-  <section class="testimonials">
-    <div class="testimonials__inner">
-      <h2 class="testimonials__heading">In our clients' words</h2>
-      <div class="testimonials__grid">
-        <div class="testimonials__card">
-          <p class="testimonials__quote">
-            <!-- TODO: Add exact testimonial copy -->
-            "Working with Handled has completely changed how we approach our marketing. The output is consistent, fast, and genuinely impressive."
-          </p>
-          <div class="testimonials__author"><!-- TODO: Name --></div>
-          <div class="testimonials__company"><!-- TODO: Company --></div>
-        </div>
-        <div class="testimonials__card">
-          <p class="testimonials__quote">
-            <!-- TODO: Add exact testimonial copy -->
-            "We've tried freelancers and agencies. Nothing compares to having a team that truly knows our brand and just gets it done."
-          </p>
-          <div class="testimonials__author"><!-- TODO: Name --></div>
-          <div class="testimonials__company"><!-- TODO: Company --></div>
-        </div>
-        <div class="testimonials__card">
-          <p class="testimonials__quote">
-            <!-- TODO: Add exact testimonial copy -->
-            "I can't imagine running our business without Handled now. They make us look like we have a full in-house creative team."
-          </p>
-          <div class="testimonials__author"><!-- TODO: Name --></div>
-          <div class="testimonials__company"><!-- TODO: Company --></div>
-        </div>
-      </div>
-
-      <!-- Client Logos -->
-      <div class="logos__strip">
-        <!-- TODO: Replace with your actual client logo images or names -->
-        <span class="logos__item"><!-- Logo 1 --></span>
-        <span class="logos__item"><!-- Logo 2 --></span>
-        <span class="logos__item"><!-- Logo 3 --></span>
-        <span class="logos__item"><!-- Logo 4 --></span>
-        <span class="logos__item"><!-- Logo 5 --></span>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       JOURNAL
-  ════════════════════════════════════════════════════════ -->
-  <section class="journal">
-    <div class="journal__inner">
-      <div class="journal__header">
-        <h2 class="journal__heading">Journal</h2>
-        <a href="#" class="btn btn--dark btn--sm">See All</a>
-      </div>
-      <div class="journal__grid">
-        <article class="journal__card">
-          <div class="journal__card-img">
-            <img src="assets/journal-1.jpg" alt="Journal article" />
-          </div>
-          <div class="journal__card-body">
-            <div class="journal__card-tag"><!-- TODO: Tag/Category --></div>
-            <h3 class="journal__card-title">
-              <!-- TODO: Article title -->
-              Why Your Marketing Looks Different Every Time (And How to Fix It)
-            </h3>
-            <p class="journal__card-excerpt">
-              <!-- TODO: Article excerpt -->
-              Consistency is the secret weapon of great brands. Here's how to build it into every single touchpoint.
-            </p>
-          </div>
-        </article>
-        <article class="journal__card">
-          <div class="journal__card-img">
-            <img src="assets/journal-2.jpg" alt="Journal article" />
-          </div>
-          <div class="journal__card-body">
-            <div class="journal__card-tag"><!-- TODO: Tag/Category --></div>
-            <h3 class="journal__card-title">
-              <!-- TODO: Article title -->
-              Hiring a Designer vs a Design Retainer: Which Is Right for Your Business?
-            </h3>
-            <p class="journal__card-excerpt">
-              <!-- TODO: Article excerpt -->
-              Both have merits. But for most growing businesses, the answer might surprise you.
-            </p>
-          </div>
-        </article>
-        <article class="journal__card">
-          <div class="journal__card-img">
-            <img src="assets/journal-3.jpg" alt="Journal article" />
-          </div>
-          <div class="journal__card-body">
-            <div class="journal__card-tag"><!-- TODO: Tag/Category --></div>
-            <h3 class="journal__card-title">
-              <!-- TODO: Article title -->
-              5 Signs Your Business Has Outgrown Its Design Setup
-            </h3>
-            <p class="journal__card-excerpt">
-              <!-- TODO: Article excerpt -->
-              There comes a moment when ad hoc design just doesn't cut it anymore. Here's how to know when you're there.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       CTA SECTION
-  ════════════════════════════════════════════════════════ -->
-  <section class="cta" id="contact">
-    <div class="cta__inner">
-      <div>
-        <h2 class="cta__headline">
-          Start with a <span class="hl">Rundown.</span>
-        </h2>
-      </div>
-      <div class="cta__right">
-        <p class="cta__body">
-          <!-- TODO: Add your exact body copy here -->
-          Book a free Rundown session and we'll map out exactly how Handled can work for your business. No obligations, no sales pitch — just a clear picture of what's possible.
-        </p>
-        <a href="mailto:hello@handledstudio.com.au" class="btn">Book a Rundown</a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════════════════════ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__top">
-        <div>
-          <div class="footer__brand-name">
-            <div class="nav__logo-mark" aria-hidden="true" style="width:16px;height:16px;">
-              <span></span><span></span><span></span><span></span>
-            </div>
-            Handled Studio
-          </div>
-          <div class="footer__tagline">
-            Senior. Local. <span class="hl">Handled.</span>
-          </div>
-        </div>
-        <div>
-          <div class="footer__col-title">Pages</div>
-          <ul class="footer__links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">How It Works</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Journal</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__col-title">Services</div>
-          <ul class="footer__links">
-            <!-- TODO: Add your service links -->
-            <li><a href="#">Campaigns &amp; Social</a></li>
-            <li><a href="#">Proposals &amp; Docs</a></li>
-            <li><a href="#">Print &amp; Signage</a></li>
-            <li><a href="#">Brand &amp; Identity</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__col-title">Contact</div>
-          <ul class="footer__links">
-            <!-- TODO: Add your contact details -->
-            <li><a href="mailto:hello@handledstudio.com.au">hello@handledstudio.com.au</a></li>
-            <li><a href="#">Book a Rundown</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>© 2025 Handled Studio. All rights reserved.</span>
-        <span><!-- TODO: Add your privacy/terms links if needed --></span>
-      </div>
-    </div>
-  </footer>
+  <!-- Remaining sections (production, portfolio, testimonials, journal, CTA, footer)
+       will be added as you share more screenshots. -->
 
 </body>
 </html>
