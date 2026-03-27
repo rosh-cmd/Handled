@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Handled Studio</title>
-  <link rel="stylesheet" href="style.css?v=8" />
+  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <link rel="stylesheet" href="style.css?v=9" />
 </head>
 <body>
 
@@ -30,14 +31,14 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
+      <div class="nav__right">
+        <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
+        <a href="#contact" class="btn btn-gold">Book a Rundown</a>
+      </div>
       <a href="/" class="nav__logo">
         <img src="assets/logomark.svg" alt="" class="nav__logomark" />
         <span class="nav__logotype">Handled.Studio</span>
       </a>
-      <div class="nav__right">
-        <a href="#contact" class="btn btn-gold">Book a Rundown</a>
-        <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
-      </div>
     </div>
   </nav>
 
@@ -351,10 +352,10 @@
   <footer class="footer">
     <div class="footer__top">
       <div>
-        <div class="footer__logo">
+        <a href="/" class="footer__logo">
           <img src="assets/logomark.svg" alt="" class="nav__logomark" />
           <span class="nav__logotype">Handled.Studio</span>
-        </div>
+        </a>
         <h2 class="footer__tagline">Senior. Local. <span class="hl">Handled.</span></h2>
         <p class="footer__ack">We acknowledge the Wurundjeri Woi-wurrung people as the Traditional Owners of Nillumbik and pay respect to Elders past, present and emerging.</p>
       </div>
@@ -402,8 +403,8 @@
   </footer>
 
   <script>
-    // Prevent browser from restoring previous scroll position
-    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    // Strip any hash from URL and ensure page starts at top
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     window.scrollTo(0, 0);
 
     // Mobile menu
@@ -421,7 +422,7 @@
     }
     window.addEventListener('scroll', updateIconRotation, { passive: true });
 
-    // Hero slider — manual drag (mouse + touch)
+    // Hero slider — mouse-wheel (hover to scroll) + touch swipe
     (function() {
       const wrap  = document.querySelector('.hero__slider-wrap');
       const track = document.querySelector('.hero__slider-track');
@@ -429,11 +430,7 @@
 
       const slideCount = 11;
       let offset = 0;
-      let isDragging = false;
-      let startX = 0;
-      let startOffset = 0;
       let velocity = 0;
-      let lastX = 0;
       let momentumRaf = null;
 
       function getMaxOffset() {
@@ -446,59 +443,42 @@
         track.style.transform = `translateX(-${offset}px)`;
       }
 
-      // Mouse
-      wrap.addEventListener('mousedown', e => {
-        isDragging = true;
-        startX = e.clientX;
-        startOffset = offset;
-        lastX = e.clientX;
-        velocity = 0;
-        track.style.transition = 'none';
-        wrap.style.cursor = 'grabbing';
-        if (momentumRaf) cancelAnimationFrame(momentumRaf);
+      // Mouse wheel / trackpad
+      wrap.addEventListener('wheel', e => {
         e.preventDefault();
-      });
-      window.addEventListener('mousemove', e => {
-        if (!isDragging) return;
-        velocity = lastX - e.clientX;
-        lastX = e.clientX;
-        setOffset(startOffset + (startX - e.clientX));
-      });
-      window.addEventListener('mouseup', () => {
-        if (!isDragging) return;
-        isDragging = false;
-        wrap.style.cursor = '';
+        if (momentumRaf) { cancelAnimationFrame(momentumRaf); momentumRaf = null; }
+        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        velocity = delta * 0.8;
+        setOffset(offset + delta);
         applyMomentum();
-      });
+      }, { passive: false });
 
-      // Touch
+      // Touch swipe (mobile)
+      let touchStartX = 0, touchStartOffset = 0, touchLastX = 0;
       wrap.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-        startOffset = offset;
-        lastX = startX;
+        touchStartX = e.touches[0].clientX;
+        touchStartOffset = offset;
+        touchLastX = touchStartX;
         velocity = 0;
-        track.style.transition = 'none';
-        if (momentumRaf) cancelAnimationFrame(momentumRaf);
+        if (momentumRaf) { cancelAnimationFrame(momentumRaf); momentumRaf = null; }
       }, { passive: true });
       wrap.addEventListener('touchmove', e => {
-        velocity = lastX - e.touches[0].clientX;
-        lastX = e.touches[0].clientX;
-        setOffset(startOffset + (startX - e.touches[0].clientX));
+        const dx = touchStartX - e.touches[0].clientX;
+        velocity = touchLastX - e.touches[0].clientX;
+        touchLastX = e.touches[0].clientX;
+        setOffset(touchStartOffset + dx);
       }, { passive: true });
       wrap.addEventListener('touchend', applyMomentum, { passive: true });
 
-      // Momentum glide after release
       function applyMomentum() {
         function step() {
-          if (Math.abs(velocity) < 0.5) return;
-          velocity *= 0.92;
+          if (Math.abs(velocity) < 0.4) return;
+          velocity *= 0.93;
           setOffset(offset + velocity);
           momentumRaf = requestAnimationFrame(step);
         }
         momentumRaf = requestAnimationFrame(step);
       }
-
-      wrap.style.cursor = 'grab';
     })();
   </script>
 </body>
