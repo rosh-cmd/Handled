@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Handled Studio</title>
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="style.css?v=9" />
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 <body>
 
@@ -14,7 +14,7 @@
     <div class="menu__top">
       <a href="/" class="menu__logo">
         <img src="assets/logomark.svg" alt="" class="menu__logomark" />
-        <span>Handled.Studio</span>
+        <span class="nav__logotype">Handled.Studio</span>
       </a>
       <button class="menu__close" id="menuClose">✕</button>
     </div>
@@ -444,13 +444,19 @@
       }
 
       // Mouse wheel / trackpad
+      // Vertical scroll → page scrolls normally; horizontal → slide the strip
       wrap.addEventListener('wheel', e => {
-        e.preventDefault();
-        if (momentumRaf) { cancelAnimationFrame(momentumRaf); momentumRaf = null; }
-        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-        velocity = delta * 0.8;
-        setOffset(offset + delta);
-        applyMomentum();
+        const absX = Math.abs(e.deltaX);
+        const absY = Math.abs(e.deltaY);
+        if (absX > absY * 0.4 && absX > 2) {
+          // Primarily horizontal — take over
+          e.preventDefault();
+          if (momentumRaf) { cancelAnimationFrame(momentumRaf); momentumRaf = null; }
+          velocity = e.deltaX * 0.8;
+          setOffset(offset + e.deltaX);
+          applyMomentum();
+        }
+        // Vertical: fall through, page scrolls normally
       }, { passive: false });
 
       // Touch swipe (mobile)

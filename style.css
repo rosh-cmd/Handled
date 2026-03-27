@@ -348,9 +348,9 @@ em { font-style: italic; }
 .logos { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.12); flex-wrap: wrap; }
 .logos__item img { height: 44px; width: auto; opacity: 1; filter: brightness(0) invert(1); transition: opacity 0.2s; }
 .logos__item img:hover { opacity: 0.75; }
-/* Logos 2 (NFL) and 5 (LB) are less legible — boost size */
+/* NFL (2) and Lewis Build (5) are wordmarks — need more height */
 .logos__item:nth-child(2) img,
-.logos__item:nth-child(5) img { height: 53px; }
+.logos__item:nth-child(5) img { height: 72px; }
 
 
 /* ============================================================
@@ -452,5 +452,7 @@ em { font-style: italic; }
   .testimonials__grid { grid-template-columns: 1fr; }
   .journal__grid { grid-template-columns: 1fr; }
   .footer__nav { grid-template-columns: 1fr 1fr; }
-  .logos { flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+  /* Logos: 3 on first row, 2 centered on second */
+  .logos { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1.5rem 1rem; }
+  .logos__item { flex: 0 0 calc(33.33% - 0.75rem); display: flex; justify-content: center; align-items: center; }
 }
