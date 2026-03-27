@@ -4,14 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Handled Studio</title>
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=8" />
 </head>
 <body>
 
   <!-- MOBILE MENU -->
   <div class="menu" id="menu">
     <div class="menu__top">
-      <a href="/" class="menu__logo"><span style="font-size:1.4rem">✳</span> Handled.Studio</a>
+      <a href="/" class="menu__logo">
+        <img src="assets/logomark.svg" alt="" class="menu__logomark" />
+        <span>Handled.Studio</span>
+      </a>
       <button class="menu__close" id="menuClose">✕</button>
     </div>
     <nav class="menu__nav">
@@ -32,7 +35,7 @@
         <span class="nav__logotype">Handled.Studio</span>
       </a>
       <div class="nav__right">
-        <a href="#contact" class="btn btn-gold" style="font-size:0.72rem;padding:0.75rem 1.6rem">Book a Rundown</a>
+        <a href="#contact" class="btn btn-gold">Book a Rundown</a>
         <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -399,6 +402,10 @@
   </footer>
 
   <script>
+    // Prevent browser from restoring previous scroll position
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+
     // Mobile menu
     const menu = document.getElementById('menu');
     document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
@@ -414,47 +421,84 @@
     }
     window.addEventListener('scroll', updateIconRotation, { passive: true });
 
-    // Hero image slider — hover to scroll, page scroll to drive
+    // Hero slider — manual drag (mouse + touch)
     (function() {
+      const wrap  = document.querySelector('.hero__slider-wrap');
       const track = document.querySelector('.hero__slider-track');
-      if (!track) return;
+      if (!wrap || !track) return;
+
       const slideCount = 11;
       let offset = 0;
-      let isHovering = false;
-      let hoverRaf = null;
-      const speed = 0.7;
+      let isDragging = false;
+      let startX = 0;
+      let startOffset = 0;
+      let velocity = 0;
+      let lastX = 0;
+      let momentumRaf = null;
 
-      function getTotal() {
+      function getMaxOffset() {
         const slide = track.querySelector('.hero__slide');
-        if (!slide) return 5000;
-        return (slide.offsetWidth + 20) * slideCount;
+        return slide ? (slide.offsetWidth + 20) * slideCount : 5000;
+      }
+      function clamp(val) { return Math.max(0, Math.min(val, getMaxOffset())); }
+      function setOffset(val) {
+        offset = clamp(val);
+        track.style.transform = `translateX(-${offset}px)`;
       }
 
-      // Hover: auto-scroll while hovered
-      function hoverAnimate() {
-        if (!isHovering) return;
-        offset = (offset + speed) % getTotal();
-        track.style.transform = `translateX(-${offset}px)`;
-        hoverRaf = requestAnimationFrame(hoverAnimate);
-      }
-
-      track.addEventListener('mouseenter', () => {
-        isHovering = true;
-        hoverAnimate();
+      // Mouse
+      wrap.addEventListener('mousedown', e => {
+        isDragging = true;
+        startX = e.clientX;
+        startOffset = offset;
+        lastX = e.clientX;
+        velocity = 0;
+        track.style.transition = 'none';
+        wrap.style.cursor = 'grabbing';
+        if (momentumRaf) cancelAnimationFrame(momentumRaf);
+        e.preventDefault();
       });
-      track.addEventListener('mouseleave', () => {
-        isHovering = false;
-        if (hoverRaf) cancelAnimationFrame(hoverRaf);
+      window.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        velocity = lastX - e.clientX;
+        lastX = e.clientX;
+        setOffset(startOffset + (startX - e.clientX));
+      });
+      window.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        wrap.style.cursor = '';
+        applyMomentum();
       });
 
-      // Scroll: drive slider proportionally with page scroll
-      window.addEventListener('scroll', () => {
-        if (isHovering) return;
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-        offset = progress * getTotal();
-        track.style.transform = `translateX(-${offset}px)`;
+      // Touch
+      wrap.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        startOffset = offset;
+        lastX = startX;
+        velocity = 0;
+        track.style.transition = 'none';
+        if (momentumRaf) cancelAnimationFrame(momentumRaf);
       }, { passive: true });
+      wrap.addEventListener('touchmove', e => {
+        velocity = lastX - e.touches[0].clientX;
+        lastX = e.touches[0].clientX;
+        setOffset(startOffset + (startX - e.touches[0].clientX));
+      }, { passive: true });
+      wrap.addEventListener('touchend', applyMomentum, { passive: true });
+
+      // Momentum glide after release
+      function applyMomentum() {
+        function step() {
+          if (Math.abs(velocity) < 0.5) return;
+          velocity *= 0.92;
+          setOffset(offset + velocity);
+          momentumRaf = requestAnimationFrame(step);
+        }
+        momentumRaf = requestAnimationFrame(step);
+      }
+
+      wrap.style.cursor = 'grab';
     })();
   </script>
 </body>
