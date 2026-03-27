@@ -695,80 +695,130 @@ em { font-style: italic; }
 }
 
 
-/* ── Problem / Compare section ───────────────────────────── */
-.fh-problem { background: var(--navy); padding: 90px var(--pad) 60px; text-align: center; }
-.fh-problem__inner { max-width: 900px; margin: 0 auto; }
-.fh-problem__headline {
-  font-family: var(--serif);
-  font-size: clamp(1.7rem, 3.8vw, 4.1rem);
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.1;
-}
+/* ── Comparison table ────────────────────────────────────── */
+.fh-ct { background: #1a2e38; padding: 90px var(--pad) 100px; }
+.fh-ct__inner { max-width: var(--max); margin: 0 auto; }
 
-
-/* ── Comparison cards ────────────────────────────────────── */
-.fh-compare { background: var(--navy); padding: 0 var(--pad) 100px; }
-.fh-compare__inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  align-items: stretch;
-}
-.fh-compare__card {
-  background: rgba(255,255,255,0.20);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 14px;
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-}
-.fh-compare__card--highlight { border: 2px solid var(--green); }
-.fh-compare__card-title {
+/* Hero */
+.fh-ct__hero { text-align: center; margin-bottom: 3rem; }
+.fh-ct__headline {
   font-family: var(--serif);
-  font-size: 1.3rem;
+  font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 700;
-  color: var(--white);
-  margin-bottom: 1.25rem;
-  text-align: center;
-  line-height: 1.2;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
 }
-/* Pill — cream/neutral, sentence case */
-.fh-compare__pill {
-  display: inline-block;
-  font-size: 0.82rem;
-  font-weight: 400;
-  background: rgba(210,195,170,0.18);
-  color: rgba(255,255,255,0.85);
-  border: 1px solid rgba(210,195,170,0.25);
-  padding: 0.35em 1em;
-  border-radius: 100px;
-  margin-bottom: 0.75rem;
+.fh-ct__hl {
+  background: #7ed957;
+  color: #1a2e38;
+  padding: 0 0.2em;
+  border-radius: 4px;
+}
+.fh-ct__sub { font-size: 1rem; color: #9ab8c2; }
+
+/* Table wrap */
+.fh-ct__wrap {
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow-x: auto;
+}
+.fh-ct__table {
   width: 100%;
-  text-align: center;
-}
-/* Remove old colour variants — all pills same style now */
-.fh-compare__pill--green,
-.fh-compare__pill--red,
-.fh-compare__pill--muted { background: rgba(210,195,170,0.18); color: rgba(255,255,255,0.85); border-color: rgba(210,195,170,0.25); }
-/* "Works well for" text — bold */
-.fh-compare__text-bold {
+  min-width: 560px;
+  border-collapse: collapse;
   font-size: 0.88rem;
+  color: #cde0e8;
+}
+
+/* Header row */
+.fh-ct__head-row { background: rgba(255,255,255,0.04); }
+.fh-ct__th {
+  padding: 1rem 1.1rem;
+  text-align: left;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: var(--white);
-  line-height: 1.55;
-  margin-bottom: 1.25rem;
-  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #9ab8c2;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.fh-compare__text {
+.fh-ct__th--label { width: 18%; }
+.fh-ct__th--fh {
+  background: rgba(126,217,87,0.10);
+  color: #7ed957;
+  border-left: 1px solid rgba(126,217,87,0.2);
+  border-right: 1px solid rgba(126,217,87,0.2);
+}
+.fh-ct__rec {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #7ed957;
+  letter-spacing: 0.06em;
+  margin-top: 0.3rem;
+  text-transform: none;
+}
+
+/* Section header rows */
+.fh-ct__section-row td {
+  background: rgba(255,255,255,0.03);
+  color: #7ed957;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 1.1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Data rows */
+.fh-ct__row { border-bottom: 1px solid rgba(255,255,255,0.05); }
+.fh-ct__row:hover { background: rgba(255,255,255,0.03); }
+.fh-ct__row td { padding: 0.85rem 1.1rem; vertical-align: middle; }
+.fh-ct__label { color: #9ab8c2; font-size: 0.82rem; white-space: nowrap; }
+
+/* Fully Handled column */
+.fh-ct__td--fh {
+  background: rgba(126,217,87,0.05);
+  border-left: 1px solid rgba(126,217,87,0.2);
+  border-right: 1px solid rgba(126,217,87,0.2);
+}
+
+/* Icons */
+.fh-ct__c { color: #7ed957; font-weight: 700; }
+.fh-ct__x { color: #e05252; opacity: 0.7; font-weight: 700; }
+.fh-ct__m { color: #f5a623; font-weight: 700; }
+
+/* Pills */
+.fh-ct__pill {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+.fh-ct__pill--green { background: rgba(126,217,87,0.15); color: #7ed957; }
+.fh-ct__pill--amber { background: rgba(245,166,35,0.15);  color: #f5a623; }
+.fh-ct__pill--red   { background: rgba(224,82,82,0.15);   color: #e05252; }
+
+/* CTA */
+.fh-ct__cta { text-align: right; margin-top: 2rem; }
+.fh-ct__btn {
+  display: inline-block;
+  background: #f5c842;
+  color: #1a2e38;
+  font-weight: 700;
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.68);
-  line-height: 1.6;
-  margin-bottom: 1.25rem;
-  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
 }
+.fh-ct__btn:hover { background: #e8b830; }
 
 
 /* ── Real production experience ──────────────────────────── */
@@ -949,13 +999,13 @@ em { font-style: italic; }
   .fh-built__inner       { grid-template-columns: 1fr; }
   .fh-support__inner     { grid-template-columns: 1fr; }
   .fh-why__inner         { grid-template-columns: 1fr; }
-  .fh-compare__inner     { grid-template-columns: 1fr 1fr; }
+  .fh-ct { padding: 60px var(--pad) 80px; }
   .fh-pricing__cards     { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
 }
 
 @media (max-width: 700px) {
   .fh-pain__inner    { grid-template-columns: 1fr 1fr; }
-  .fh-compare__inner { grid-template-columns: 1fr; }
+  .fh-ct__cta { text-align: center; }
 }
 
 @media (max-width: 480px) {

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fully Handled — Handled Studio</title>
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="stylesheet" href="style.css?v=25" />
 </head>
 <body>
 
@@ -161,48 +161,91 @@
   </section>
 
 
-  <!-- PROBLEM ISN'T ACCESS -->
-  <section class="fh-problem">
-    <div class="fh-problem__inner">
-      <h2 class="fh-problem__headline">The problem isn't access to design. It's <span class="hl">how it's being managed</span></h2>
-    </div>
-  </section>
+  <!-- COMPARISON TABLE -->
+  <section class="fh-ct">
+    <div class="fh-ct__inner">
 
-
-  <!-- COMPARISON CARDS -->
-  <section class="fh-compare">
-    <div class="fh-compare__inner">
-
-      <div class="fh-compare__card">
-        <h3 class="fh-compare__card-title">Freelancers / VAs</h3>
-        <div class="fh-compare__pill">Works well for:</div>
-        <p class="fh-compare__text-bold">Quick tasks. Lower upfront cost. Easy to access.</p>
-        <div class="fh-compare__pill">Breaks down when:</div>
-        <p class="fh-compare__text">The output needs to stay consistent. You're briefing every job and nothing carries over. Time consuming.</p>
+      <div class="fh-ct__hero">
+        <h2 class="fh-ct__headline">The problem isn't access to design.<br>It's <span class="fh-ct__hl">how it's being managed</span></h2>
+        <p class="fh-ct__sub">Compare your options — and see why Fully Handled is different.</p>
       </div>
 
-      <div class="fh-compare__card">
-        <h3 class="fh-compare__card-title">Part-time Hire</h3>
-        <div class="fh-compare__pill">Works well for:</div>
-        <p class="fh-compare__text-bold">Someone who knows the business. Fast, internal turnaround.</p>
-        <div class="fh-compare__pill">Breaks down when:</div>
-        <p class="fh-compare__text">Design isn't their main role. Capacity gets stretched and things slip under pressure. HR overheads.</p>
+      <div class="fh-ct__wrap">
+        <table class="fh-ct__table">
+          <thead>
+            <tr class="fh-ct__head-row">
+              <th class="fh-ct__th fh-ct__th--label"></th>
+              <th class="fh-ct__th">Freelancers / VAs</th>
+              <th class="fh-ct__th">Part-time Hire</th>
+              <th class="fh-ct__th">Agency (ad-hoc)</th>
+              <th class="fh-ct__th fh-ct__th--fh">Fully Handled<span class="fh-ct__rec">★ Recommended</span></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr class="fh-ct__section-row"><td colspan="5">Best suited for</td></tr>
+            <tr class="fh-ct__row">
+              <td class="fh-ct__label">Ideal use case</td>
+              <td>Quick, one-off tasks</td>
+              <td>Someone who knows business</td>
+              <td>Big projects &amp; bursts</td>
+              <td class="fh-ct__td--fh">Ongoing, always-on production</td>
+            </tr>
+
+            <tr class="fh-ct__section-row"><td colspan="5">Consistency &amp; quality</td></tr>
+            <tr class="fh-ct__row">
+              <td class="fh-ct__label">On-brand output</td>
+              <td><span class="fh-ct__x">✕</span> Varies per brief</td>
+              <td><span class="fh-ct__m">~</span> If trained well</td>
+              <td><span class="fh-ct__m">~</span> Project to project</td>
+              <td class="fh-ct__td--fh"><span class="fh-ct__c">✓</span> Always consistent</td>
+            </tr>
+            <tr class="fh-ct__row">
+              <td class="fh-ct__label">Carries context over</td>
+              <td><span class="fh-ct__x">✕</span> Rebriefed each time</td>
+              <td><span class="fh-ct__c">✓</span> Institutional memory</td>
+              <td><span class="fh-ct__x">✕</span> Starts from zero</td>
+              <td class="fh-ct__td--fh"><span class="fh-ct__c">✓</span> Built in</td>
+            </tr>
+
+            <tr class="fh-ct__section-row"><td colspan="5">Capacity &amp; reliability</td></tr>
+            <tr class="fh-ct__row">
+              <td class="fh-ct__label">Handles urgent briefs</td>
+              <td><span class="fh-ct__m">~</span> Depends on availability</td>
+              <td><span class="fh-ct__x">✕</span> Capacity gets stretched</td>
+              <td><span class="fh-ct__x">✕</span> Not built for small/urgent</td>
+              <td class="fh-ct__td--fh"><span class="fh-ct__c">✓</span> Yes, always</td>
+            </tr>
+            <tr class="fh-ct__row">
+              <td class="fh-ct__label">Scales with demand</td>
+              <td><span class="fh-ct__x">✕</span></td>
+              <td><span class="fh-ct__x">✕</span></td>
+              <td><span class="fh-ct__m">~</span> At extra cost</td>
+              <td class="fh-ct__td--fh"><span class="fh-ct__c">✓</span></td>
+            </tr>
+
+            <tr class="fh-ct__section-row"><td colspan="5">Cost &amp; overhead</td></tr>
+            <tr class="fh-ct__row">
+              <td class="fh-ct__label">Upfront cost</td>
+              <td><span class="fh-ct__pill fh-ct__pill--green">Low</span></td>
+              <td><span class="fh-ct__pill fh-ct__pill--amber">Medium</span></td>
+              <td><span class="fh-ct__pill fh-ct__pill--red">High</span></td>
+              <td class="fh-ct__td--fh"><span class="fh-ct__pill fh-ct__pill--green">Predictable</span></td>
+            </tr>
+            <tr class="fh-ct__row">
+              <td class="fh-ct__label">HR &amp; mgmt overhead</td>
+              <td><span class="fh-ct__m">~</span> Coordination time</td>
+              <td><span class="fh-ct__x">✕</span> Full HR overhead</td>
+              <td><span class="fh-ct__x">✕</span> Account management</td>
+              <td class="fh-ct__td--fh"><span class="fh-ct__c">✓</span> None</td>
+            </tr>
+
+          </tbody>
+        </table>
       </div>
 
-      <div class="fh-compare__card">
-        <h3 class="fh-compare__card-title">Agency (ad-hoc)</h3>
-        <div class="fh-compare__pill">Works well for:</div>
-        <p class="fh-compare__text-bold">Big projects. Campaign bursts. High-quality, one-off projects.</p>
-        <div class="fh-compare__pill">Breaks down when:</div>
-        <p class="fh-compare__text">Costs stack up quickly. Everything starts from zero each time. Unable to brief small or urgent briefs.</p>
-      </div>
-
-      <div class="fh-compare__card fh-compare__card--highlight">
-        <h3 class="fh-compare__card-title">Fully Handled</h3>
-        <div class="fh-compare__pill">Works well for:</div>
-        <p class="fh-compare__text-bold">Ongoing production. Consistent, on-brand output across everything.</p>
-        <div class="fh-compare__pill">Built for:</div>
-        <p class="fh-compare__text">Businesses where deadlines are unpredictable or simply don't stop and the quality can't fall behind.</p>
+      <div class="fh-ct__cta">
+        <a href="#contact" class="fh-ct__btn">BOOK A RUNDOWN</a>
       </div>
 
     </div>
