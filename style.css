@@ -6,16 +6,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap');
 
-/*
-  GLOOK FONT: export webfont from Wix → place in assets/fonts/
-  then uncomment:
-
-  @font-face {
-    font-family: 'Glook';
-    src: url('assets/fonts/Glook-Bold.woff2') format('woff2');
-    font-weight: 700;
-  }
-*/
+/* Glook — loaded from assets/fonts/ */
+@font-face {
+  font-family: 'Glook';
+  src: url('assets/fonts/Glook-Bold.woff2') format('woff2'),
+       url('assets/fonts/Glook-Bold.woff')  format('woff'),
+       url('assets/fonts/Glook.woff2')      format('woff2'),
+       url('assets/fonts/Glook.woff')       format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Glook';
+  src: url('assets/fonts/Glook-Regular.woff2') format('woff2'),
+       url('assets/fonts/Glook-Regular.woff')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --navy:   #1E3D51;
@@ -40,9 +49,16 @@ em { font-style: italic; }
 /* ── Layout ──────────────────────────────────────────────── */
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
 
-/* ── Green highlight box ─────────────────────────────────── */
-.hl  { background: var(--green);  color: var(--navy); padding: 1px 5px 3px; display: inline; line-height: inherit; }
-.hl-y { background: var(--yellow); color: var(--navy); padding: 1px 5px 3px; display: inline; line-height: inherit; }
+/* ── Highlight boxes — sits flush with cap-height ─────────── */
+.hl, .hl-y {
+  display: inline;
+  padding: 0 0.2em 0.08em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  line-height: 1.35;
+}
+.hl   { background: var(--green);  color: var(--navy); }
+.hl-y { background: var(--yellow); color: var(--navy); }
 
 /* ── Buttons ─────────────────────────────────────────────── */
 .btn {
@@ -94,13 +110,9 @@ em { font-style: italic; }
   align-items: center;
   gap: 10px;
   color: var(--white);
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
-.nav__logo svg { width: 36px; height: 36px; }
+.nav__logomark { height: 36px; width: auto; display: block; }
+.nav__logotype { height: 18px; width: auto; display: block; }
 .nav__right { display: flex; align-items: center; gap: 1.2rem; }
 .nav__hamburger {
   display: flex;
