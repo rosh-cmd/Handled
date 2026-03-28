@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Handled Studio</title>
+  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <link rel="stylesheet" href="style.css?v=59" />
+</head>
+<body>
+
+  <!-- MOBILE MENU -->
+  <div class="menu" id="menu">
+    <div class="menu__top">
+      <a href="index.html" class="menu__logo">
+        <img src="assets/logomark.svg" alt="" class="menu__logomark" />
+        <span class="nav__logotype">Handled.Studio</span>
+      </a>
+      <button class="menu__close" id="menuClose">✕</button>
+    </div>
+    <nav class="menu__nav">
+      <a href="index.html"         class="menu__link">Home</a>
+      <a href="fully-handled.html" class="menu__link">Fully Handled</a>
+      <a href="work.html"          class="menu__link active">Work</a>
+      <a href="about.html"         class="menu__link">About</a>
+      <a href="journal.html"       class="menu__link">Journal</a>
+    </nav>
+    <a href="#contact" class="btn btn-gold menu__cta" onclick="closeMenu()">Book a Rundown</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logomark.svg" alt="" class="nav__logomark" />
+        <span class="nav__logotype">Handled.Studio</span>
+      </a>
+      <div class="nav__right">
+        <a href="#contact" class="btn btn-gold">Book a Rundown</a>
+        <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="wk-hero">
+    <div class="wk-hero__inner">
+      <div class="wk-hero__head">
+        <div class="wk-hero__text">
+          <h1 class="wk-hero__headline">When your output<br>is <span class="hl">handled properly.</span></h1>
+          <p class="wk-hero__sub">A selection of projects across brand and ongoing production, showing how consistency is built, maintained, and scaled across real businesses.</p>
+        </div>
+        <a href="#contact" class="btn btn-gold wk-hero__cta">Book a Rundown</a>
+      </div>
+    </div>
+    <img src="assets/slide-lewis.jpg" alt="Lewis Build team on site" class="wk-hero__img" />
+  </section>
+
+
+  <!-- CONSISTENCY AT SCALE -->
+  <section class="wk-cases" id="work">
+    <div class="wk-cases__inner">
+
+      <div class="wk-cases__header">
+        <h2 class="wk-cases__heading">Consistency at scale</h2>
+        <a href="#contact" class="btn btn-dark">Book a Rundown</a>
+      </div>
+
+      <!-- Barfoot & Thompson -->
+      <div class="wk-case">
+        <div class="wk-case__text">
+          <h3 class="wk-case__heading">Barfoot &amp; Thompson</h3>
+          <p class="wk-case__tagline">Consistency at scale across 70+ branches.</p>
+          <p class="wk-case__body">Ongoing production support across one of New Zealand's largest real estate brands — maintaining consistent output across 1,700+ salespeople and multiple teams.</p>
+          <a href="#" class="btn btn-dark">Read Case Study</a>
+        </div>
+        <div class="wk-case__img">
+          <img src="assets/books-bt12.jpg" alt="Barfoot &amp; Thompson publication" />
+        </div>
+      </div>
+
+      <!-- Status Realty -->
+      <div class="wk-case">
+        <div class="wk-case__text">
+          <h3 class="wk-case__heading">Status Realty</h3>
+          <p class="wk-case__tagline">Brand system designed for real-world use.</p>
+          <p class="wk-case__body">Full brand identity, template suite, and ongoing support, ensuring the brand holds consistently across every touchpoint.</p>
+          <a href="#" class="btn btn-dark">Read Case Study</a>
+        </div>
+        <div class="wk-case__img">
+          <img src="assets/portfolio-status.jpg" alt="Status Realty brand guidelines" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONSISTENCY ACROSS INDUSTRIES -->
+  <section class="wk-industries">
+    <div class="wk-industries__inner">
+
+      <div class="wk-industries__header">
+        <h2 class="wk-industries__heading">Consistency across industries</h2>
+        <a href="#contact" class="btn btn-gold">Book a Rundown</a>
+      </div>
+
+      <div class="wk-grid-wrap">
+        <div class="wk-grid" id="wkGrid">
+          <div class="wk-grid__item"><img src="assets/slide-myer.jpg" alt="Myer fashion editorial" /></div>
+          <div class="wk-grid__item"><img src="assets/slide-rebel.jpg" alt="Rebel Sport" /></div>
+          <div class="wk-grid__item"><img src="assets/slide-nckp.jpg" alt="Nockpoint brand guidelines" /></div>
+          <div class="wk-grid__item"><img src="assets/slide-jarden.png" alt="Jarden Investment Outlook" /></div>
+          <div class="wk-grid__item"><img src="assets/slide-aromaco.jpg" alt="Aromaco" /></div>
+          <div class="wk-grid__item"><img src="assets/slide-nestle.jpg" alt="Nestlé" /></div>
+        </div>
+        <button class="wk-grid__arrow wk-grid__arrow--next" id="wkNext" aria-label="Next">&#8250;</button>
+        <button class="wk-grid__arrow wk-grid__arrow--prev" id="wkPrev" aria-label="Previous" style="display:none">&#8249;</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="ab-closing" id="contact">
+    <div class="ab-closing__inner">
+      <div class="ab-closing__text">
+        <h2 class="ab-closing__headline">If your output isn't holding together, it's not unusual</h2>
+        <p class="ab-closing__body">It just means your business has outgrown how your design is being handled. That's where this model works.</p>
+      </div>
+      <div class="ab-closing__cta">
+        <p class="ab-closing__tagline">Let's get it <em>handled.</em></p>
+        <a href="mailto:hello@handled.studio" class="btn btn-dark">Book a Rundown</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <a href="index.html" class="footer__logo">
+          <img src="assets/logomark.svg" alt="" class="nav__logomark" />
+          <span class="nav__logotype">Handled.Studio</span>
+        </a>
+        <h2 class="footer__tagline">Senior. Local. <span class="hl">Handled.</span></h2>
+        <p class="footer__ack">We acknowledge the Wurundjeri Woi-wurrung people as the Traditional Owners of Nillumbik and pay respect to Elders past, present and emerging.</p>
+      </div>
+      <div>
+        <h3 class="footer__nl-heading">Handled weekly.</h3>
+        <p class="footer__nl-sub">Subscribe to our newsletter for the latest updates on Handled.Studio.</p>
+        <form class="footer__form" onsubmit="return false;">
+          <label class="footer__label" for="wk-email">Email *</label>
+          <input class="footer__input" type="email" id="wk-email" placeholder="" />
+          <label class="footer__check"><input type="checkbox" /> Yes, subscribe me to your newsletter.</label>
+          <button type="submit" class="btn btn-gold footer__submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer__nav">
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <ul>
+          <li><a href="index.html"         class="footer__link">Home</a></li>
+          <li><a href="fully-handled.html" class="footer__link">Fully Handled</a></li>
+          <li><a href="work.html"          class="footer__link footer__link-active">Work</a></li>
+          <li><a href="about.html"         class="footer__link">About</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Blog</div>
+        <ul>
+          <li><a href="journal.html" class="footer__link">Journal</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Social</div>
+        <ul>
+          <li><a href="#" class="footer__link">LinkedIn</a></li>
+          <li><a href="#" class="footer__link">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <a href="privacy.html">Privacy Policy</a>
+      <span>© 2026 by Handled.Studio</span>
+    </div>
+  </footer>
+
+  <script>
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+
+    // Mobile menu
+    const menu = document.getElementById('menu');
+    function openMenu() {
+      menu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('menuOpen').addEventListener('click', openMenu);
+    document.getElementById('menuClose').addEventListener('click', closeMenu);
+    document.addEventListener('click', e => {
+      if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== document.getElementById('menuOpen')) {
+        closeMenu();
+      }
+    });
+
+    // Industries grid arrows
+    (function () {
+      const grid = document.getElementById('wkGrid');
+      const btnNext = document.getElementById('wkNext');
+      const btnPrev = document.getElementById('wkPrev');
+      if (!grid) return;
+      let page = 0;
+      const perPage = window.innerWidth <= 680 ? 1 : 3;
+      const total = grid.querySelectorAll('.wk-grid__item').length;
+      const pages = Math.ceil(total / perPage);
+
+      function update() {
+        const itemW = grid.querySelector('.wk-grid__item').getBoundingClientRect().width;
+        const gap = 24;
+        grid.style.transform = 'translateX(-' + (page * perPage * (itemW + gap)) + 'px)';
+        btnPrev.style.display = page === 0 ? 'none' : 'flex';
+        btnNext.style.display = page >= pages - 1 ? 'none' : 'flex';
+      }
+
+      btnNext.addEventListener('click', () => { if (page < pages - 1) { page++; update(); } });
+      btnPrev.addEventListener('click', () => { if (page > 0) { page--; update(); } });
+    })();
+  </script>
+</body>
+</html>
