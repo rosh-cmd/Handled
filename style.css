@@ -1473,7 +1473,7 @@ em { font-style: italic; }
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 3rem;
 }
 .ab-stats__card {
   border-left: 3px solid #8aff6c;
