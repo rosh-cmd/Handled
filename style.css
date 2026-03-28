@@ -1315,7 +1315,7 @@ em { font-style: italic; }
   display: grid;
   grid-template-columns: 1fr 0.45fr;
   gap: 4rem;
-  align-items: center;
+  align-items: end;
 }
 .ab-hero__headline {
   font-family: var(--serif);
@@ -1332,7 +1332,7 @@ em { font-style: italic; }
   margin-bottom: 1rem;
 }
 .ab-hero__body { font-size: 1rem; color: rgba(255,255,255,0.72); line-height: 1.75; }
-.ab-hero__aside { display: flex; flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+.ab-hero__aside { display: flex; flex-direction: column; align-items: flex-end; gap: 1.25rem; text-align: right; }
 .ab-hero__tagline {
   font-size: 1rem;
   font-weight: 700;
