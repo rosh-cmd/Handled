@@ -366,13 +366,79 @@ em { font-style: italic; }
 /* ============================================================
    TESTIMONIALS
    ============================================================ */
-.testimonials { background: var(--navy); padding: 80px var(--pad); }
+/* ── Testimonials pull-quote strip ───────────────────────── */
+.testimonials { background: var(--navy); padding: 60px var(--pad); }
 .testimonials__inner { max-width: var(--max); margin: 0 auto; }
-.testimonials__heading { font-family: var(--serif); font-size: clamp(1.3rem, 3.3vw, 2.9rem); font-weight: 700; color: var(--white); margin-bottom: 3rem; line-height: 1.15; }
-.testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem 4rem; margin-bottom: 4rem; }
-.t-quote { font-size: 0.9rem; color: rgba(255,255,255,0.78); line-height: 1.75; margin-bottom: 1.25rem; }
-.t-name { font-size: 0.88rem; color: var(--white); font-weight: 500; }
-.t-company { font-size: 0.88rem; color: var(--white); font-weight: 700; font-style: italic; }
+.testimonials__heading { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 2rem; line-height: 1.2; }
+.tq-hl { background: #8aff6c; color: #162a3a; padding: 2px 8px; }
+
+.tq-list { margin-bottom: 3rem; }
+
+.tq-row { border-bottom: 0.5px solid rgba(255,255,255,0.08); cursor: pointer; }
+.tq-row:last-child { border-bottom: none; }
+
+.tq-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
+}
+.tq-pull {
+  flex: 1;
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.4;
+}
+.tq-attr {
+  min-width: 140px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.tq-name  { font-size: 13px; font-weight: 600; color: var(--white); }
+.tq-company { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.4); font-style: italic; }
+.tq-tag {
+  width: 96px;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 11px;
+  color: #8aff6c;
+  background: rgba(138,255,108,0.1);
+  padding: 3px 0;
+  border-radius: 100px;
+}
+.tq-btn {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0.5px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.tq-row.tq-open .tq-btn {
+  transform: rotate(45deg);
+  border-color: rgba(138,255,108,0.3);
+}
+
+.tq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.tq-row.tq-open .tq-body { max-height: 200px; }
+.tq-body p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+  padding-bottom: 18px;
+  max-width: 680px;
+}
 
 .logos { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.12); flex-wrap: wrap; }
 .logos__item img { height: 44px; width: auto; opacity: 1; filter: brightness(0) invert(1); transition: opacity 0.2s; }
@@ -469,7 +535,11 @@ em { font-style: italic; }
   .production-stats__divider { width: 100%; height: 1px; align-self: auto; margin: 16px 0; }
   .production-stats__block { text-align: center; }
   .portfolio__grid { grid-template-columns: 1fr; }
-  .testimonials__grid { grid-template-columns: 1fr 1fr; }
+  /* tq-list: tag pills hidden on mobile */
+  .tq-tag { display: none; }
+  .tq-pull { font-size: 14px; }
+  .tq-header { flex-wrap: wrap; }
+  .tq-attr { min-width: auto; text-align: left; order: 3; flex-basis: 100%; }
   .journal__grid { grid-template-columns: 1fr 1fr; }
   .footer__nav { grid-template-columns: repeat(3, 1fr); }
 }
@@ -481,7 +551,7 @@ em { font-style: italic; }
   .for-you__cards { margin: 0 1rem 40px; }
   .how__steps { grid-template-columns: 1fr; }
   /* production-stats stacks at 900px already */
-  .testimonials__grid { grid-template-columns: 1fr; }
+  .tq-body p { max-width: 100%; }
   .journal__grid { grid-template-columns: 1fr; }
   .footer__nav { grid-template-columns: 1fr 1fr; }
   /* Logos: 3 on first row, 2 centered on second */
