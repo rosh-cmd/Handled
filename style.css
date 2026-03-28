@@ -820,6 +820,102 @@ em { font-style: italic; }
 }
 .fh-ct__btn:hover { background: #e8b830; }
 
+/* ── Responsive switch ───────────────────────────────────── */
+@media (min-width: 768px) {
+  .comparison-table-wrap { display: block; }
+  .comparison-accordion  { display: none; }
+}
+@media (max-width: 767px) {
+  .comparison-table-wrap { display: none; }
+  .comparison-accordion  { display: block; }
+  .fh-ct__cta { text-align: center; }
+}
+
+/* ── Mobile accordion ────────────────────────────────────── */
+.comparison-accordion {
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Section headers */
+.ca-section-header {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7ed957;
+  padding: 7px 12px;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Accordion item */
+.ca-item { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.ca-item:last-child { border-bottom: none; }
+
+/* Trigger button */
+.ca-trigger {
+  width: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 12px;
+  text-align: left;
+}
+.ca-trigger__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  font-family: sans-serif;
+}
+.ca-trigger__arrow {
+  color: #7ed957;
+  font-size: 14px;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.ca-trigger[aria-expanded="true"] .ca-trigger__arrow { transform: rotate(180deg); }
+
+/* Body panel */
+.ca-body { display: none; padding-bottom: 8px; }
+
+/* Option cards */
+.ca-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.ca-card:last-child { border-bottom: none; }
+.ca-opt {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9ab8c2;
+  min-width: 100px;
+}
+.ca-val {
+  font-size: 11px;
+  color: #cde0e8;
+  text-align: right;
+}
+
+/* Fully Handled card */
+.ca-card--fh {
+  background: rgba(126,217,87,0.07);
+  border-left: 2px solid #7ed957;
+}
+.ca-card--fh .ca-opt { color: #7ed957; }
+.ca-card--fh .ca-val { color: #d8f5c0; font-weight: 600; }
+
+/* Pills inside accordion */
+.ca-pill { font-size: 10px; }
+
 
 /* ── Real production experience ──────────────────────────── */
 .fh-experience { background: var(--yellow); padding: 90px var(--pad); text-align: center; }
