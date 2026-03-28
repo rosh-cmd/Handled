@@ -1467,7 +1467,7 @@ em { font-style: italic; }
 .ab-how__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ── Stats ───────────────────────────────────────────────── */
-.ab-stats { background: #162a3a; padding: 60px var(--pad); }
+.ab-stats { background: var(--navy); padding: 60px var(--pad); }
 .ab-stats__inner {
   max-width: var(--max);
   margin: 0 auto;
