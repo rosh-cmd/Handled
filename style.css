@@ -386,7 +386,7 @@ em { font-style: italic; }
 .tq-pull {
   flex: 1;
   font-family: var(--serif);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   color: var(--white);
   line-height: 1.4;
@@ -396,16 +396,16 @@ em { font-style: italic; }
   text-align: right;
   flex-shrink: 0;
 }
-.tq-name  { font-size: 13px; font-weight: 600; color: var(--white); }
-.tq-company { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.4); font-style: italic; }
+.tq-name  { font-size: 15px; font-weight: 600; color: var(--white); }
+.tq-company { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.4); font-style: italic; }
 .tq-tag {
   width: 96px;
   flex-shrink: 0;
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
   color: #8aff6c;
   background: rgba(138,255,108,0.1);
-  padding: 3px 0;
+  padding: 4px 0;
   border-radius: 100px;
 }
 .tq-btn {
@@ -433,7 +433,7 @@ em { font-style: italic; }
 }
 .tq-row.tq-open .tq-body { max-height: 200px; }
 .tq-body p {
-  font-size: 13px;
+  font-size: 15px;
   color: rgba(255,255,255,0.55);
   line-height: 1.6;
   padding-bottom: 18px;
@@ -537,7 +537,7 @@ em { font-style: italic; }
   .portfolio__grid { grid-template-columns: 1fr; }
   /* tq-list: tag pills hidden on mobile */
   .tq-tag { display: none; }
-  .tq-pull { font-size: 14px; }
+  .tq-pull { font-size: 16px; }
   .tq-header { flex-wrap: wrap; }
   .tq-attr { min-width: auto; text-align: left; order: 3; flex-basis: 100%; }
   .journal__grid { grid-template-columns: 1fr 1fr; }
