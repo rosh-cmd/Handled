@@ -369,7 +369,7 @@ em { font-style: italic; }
 /* ── Testimonials pull-quote strip ───────────────────────── */
 .testimonials { background: var(--navy); padding: 60px var(--pad); }
 .testimonials__inner { max-width: var(--max); margin: 0 auto; }
-.testimonials__heading { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 2rem; line-height: 1.2; }
+.testimonials__heading { font-family: var(--serif); font-size: clamp(1.3rem, 3.3vw, 3.1rem); font-weight: 700; color: var(--white); margin-bottom: 2rem; line-height: 1.2; }
 .tq-hl { background: #8aff6c; color: #162a3a; padding: 2px 8px; }
 
 .tq-list { margin-bottom: 3rem; }
@@ -386,7 +386,7 @@ em { font-style: italic; }
 .tq-pull {
   flex: 1;
   font-family: var(--serif);
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 400;
   color: var(--white);
   line-height: 1.4;
@@ -396,16 +396,16 @@ em { font-style: italic; }
   text-align: right;
   flex-shrink: 0;
 }
-.tq-name  { font-size: 15px; font-weight: 600; color: var(--white); }
-.tq-company { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.4); font-style: italic; }
+.tq-name  { font-size: 18px; font-weight: 600; color: var(--white); }
+.tq-company { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.4); font-style: italic; }
 .tq-tag {
-  width: 96px;
+  width: 120px;
   flex-shrink: 0;
   text-align: center;
-  font-size: 13px;
+  font-size: 16px;
   color: #8aff6c;
   background: rgba(138,255,108,0.1);
-  padding: 4px 0;
+  padding: 5px 0;
   border-radius: 100px;
 }
 .tq-btn {
@@ -431,9 +431,9 @@ em { font-style: italic; }
   overflow: hidden;
   transition: max-height 0.3s ease;
 }
-.tq-row.tq-open .tq-body { max-height: 200px; }
+.tq-row.tq-open .tq-body { max-height: 260px; }
 .tq-body p {
-  font-size: 15px;
+  font-size: 18px;
   color: rgba(255,255,255,0.55);
   line-height: 1.6;
   padding-bottom: 18px;
@@ -537,7 +537,7 @@ em { font-style: italic; }
   .portfolio__grid { grid-template-columns: 1fr; }
   /* tq-list: tag pills hidden on mobile */
   .tq-tag { display: none; }
-  .tq-pull { font-size: 16px; }
+  .tq-pull { font-size: 19px; }
   .tq-header { flex-wrap: wrap; }
   .tq-attr { min-width: auto; text-align: left; order: 3; flex-basis: 100%; }
   .journal__grid { grid-template-columns: 1fr 1fr; }
