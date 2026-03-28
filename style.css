@@ -979,8 +979,8 @@ em { font-style: italic; }
 
 /* ── Offers / Pricing journey ────────────────────────────── */
 .offers {
-  background: var(--navy);
-  padding: 4rem var(--pad) 3rem;
+  background: linear-gradient(180deg, var(--navy) 0%, #1b3d2e 55%, var(--green) 100%);
+  padding: 4rem var(--pad) 5rem;
 }
 .offers__inner { max-width: 960px; margin: 0 auto; }
 
@@ -1115,7 +1115,7 @@ em { font-style: italic; }
 
 /* Descriptions */
 .offers__desc {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: #3d2e00;
   line-height: 1.6;
   margin-bottom: 1.25rem;
@@ -1136,7 +1136,7 @@ em { font-style: italic; }
   margin-bottom: 1.25rem;
   flex: 1;
 }
-.offers__features li { font-size: 0.82rem; display: flex; align-items: flex-start; gap: 8px; }
+.offers__features li { font-size: 0.97rem; display: flex; align-items: flex-start; gap: 8px; }
 
 /* Dot bullets (Handoff) */
 .offers__features--dot li::before {
@@ -1162,7 +1162,7 @@ em { font-style: italic; }
 
 /* Availability notes */
 .offers__avail {
-  font-size: 0.92rem;
+  font-size: 1rem;
   font-weight: 700;
   padding: 8px 12px;
   border-radius: 8px;
