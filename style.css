@@ -373,21 +373,21 @@ em { font-style: italic; }
 .tq-hl { background: #8aff6c; color: #162a3a; padding: 2px 8px; }
 
 .tq-featured { border-left: 3px solid #8aff6c; padding: 20px 24px; margin-bottom: 2rem; }
-.tq-featured__quote { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--white); line-height: 1.5; margin-bottom: 14px; }
+.tq-featured__quote { font-family: var(--serif); font-size: 24px; font-weight: 400; color: var(--white); line-height: 1.5; margin-bottom: 14px; }
 .tq-featured__foot { display: flex; align-items: center; gap: 1rem; }
-.tq-featured__name { font-size: 14px; font-weight: 600; color: var(--white); }
-.tq-featured__company { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.5); font-style: italic; }
-.tq-pill { font-size: 11px; color: #8aff6c; background: rgba(138,255,108,0.1); padding: 3px 0; border-radius: 100px; width: 96px; text-align: center; display: inline-block; }
+.tq-featured__name { font-size: 17px; font-weight: 600; color: var(--white); }
+.tq-featured__company { font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.5); font-style: italic; }
+.tq-pill { font-size: 13px; color: #8aff6c; background: rgba(138,255,108,0.1); padding: 3px 0; border-radius: 100px; width: 96px; text-align: center; display: inline-block; }
 .tq-featured__foot .tq-pill { margin-left: auto; }
 
 .tq-slider-wrap { overflow: hidden; }
 .tq-track { display: flex; gap: 14px; transition: transform 0.35s ease; }
 .tq-card { width: calc((100% - 28px) / 3); flex-shrink: 0; border: 0.5px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 24px; display: flex; flex-direction: column; }
 .tq-card .tq-pill { margin-bottom: 14px; }
-.tq-card__quote { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; flex: 1; margin-bottom: 20px; }
+.tq-card__quote { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.6; flex: 1; margin-bottom: 20px; }
 .tq-card__attr { border-top: 0.5px solid rgba(255,255,255,0.08); padding-top: 14px; }
-.tq-card__name { font-size: 13px; font-weight: 600; color: var(--white); }
-.tq-card__company { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.4); font-style: italic; }
+.tq-card__name { font-size: 16px; font-weight: 600; color: var(--white); }
+.tq-card__company { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.4); font-style: italic; }
 
 .tq-dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
 .tq-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.15); border: none; cursor: pointer; transition: background 0.25s ease; padding: 0; }
@@ -501,7 +501,7 @@ em { font-style: italic; }
   .for-you__cards { margin: 0 1rem 40px; }
   .how__steps { grid-template-columns: 1fr; }
   /* production-stats stacks at 900px already */
-  .tq-featured__quote { font-size: 18px; }
+  .tq-featured__quote { font-size: 22px; }
   .journal__grid { grid-template-columns: 1fr; }
   .footer__nav { grid-template-columns: 1fr 1fr; }
   /* Logos: 3 on first row, 2 centered on second */
