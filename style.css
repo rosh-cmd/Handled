@@ -1175,19 +1175,20 @@ em { font-style: italic; }
   border: 1px solid rgba(126,217,87,0.2);
 }
 
-/* CTA button — inherits site .btn .btn-dark behaviour */
+/* CTA button — matches site .btn style */
 .offers__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   font-family: var(--sans);
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.75em 1.6em;
-  border-radius: 6px;
+  padding: 0 1.25rem;
+  height: 36px;
+  border-radius: 100px;
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -1199,6 +1200,13 @@ em { font-style: italic; }
   white-space: nowrap;
 }
 .offers__cta:hover { background: var(--green) !important; color: var(--navy) !important; transform: translateY(-1px); }
+
+/* FH card CTA — green bg, navy text, yellow hover */
+.offers__card--fh .offers__cta {
+  background: var(--green);
+  color: var(--navy);
+}
+.offers__card--fh .offers__cta:hover { background: var(--yellow) !important; color: var(--navy) !important; }
 
 /* Connector */
 .offers__connector {
@@ -1212,7 +1220,7 @@ em { font-style: italic; }
 .conn-line { width: 2px; height: 40px; background: rgba(126,217,87,0.3); }
 .conn-arrow { color: #7ed957; font-size: 1.2rem; }
 .conn-label {
-  font-size: 0.65rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1224,16 +1232,15 @@ em { font-style: italic; }
 }
 
 /* Social proof */
-.offers__proof { text-align: center; max-width: 700px; margin: 0 auto; }
+.offers__proof { text-align: center; max-width: 700px; margin: 0 auto; padding-top: 3.5rem; }
 .offers__quote {
   font-family: var(--serif);
   font-style: italic;
   font-size: clamp(1.3rem, 2.8vw, 2.2rem);
   color: var(--navy);
   line-height: 1.35;
-  color: #9ab8c2;
 }
-.offers__quote strong { color: #fff; font-style: normal; }
+.offers__quote strong { color: var(--navy); font-style: normal; }
 .offers__cta--secondary {
   width: auto;
   padding: 0.75em 2.5rem;
