@@ -453,8 +453,22 @@
 
     // Mobile menu
     const menu = document.getElementById('menu');
-    document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
-    document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
+    function openMenu() {
+      menu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('menuOpen').addEventListener('click', openMenu);
+    document.getElementById('menuClose').addEventListener('click', closeMenu);
+    // Close when clicking outside the menu panel
+    document.addEventListener('click', e => {
+      if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== document.getElementById('menuOpen')) {
+        closeMenu();
+      }
+    });
 
     // Scroll-driven clock rotation on "For you" icons
     const icons = document.querySelectorAll('.for-you__icon');
