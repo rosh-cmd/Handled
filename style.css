@@ -807,18 +807,26 @@ em { font-style: italic; }
 /* CTA */
 .fh-ct__cta { text-align: right; margin-top: 2rem; }
 .fh-ct__btn {
-  display: inline-block;
-  background: #f5c842;
-  color: #1a2e38;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--yellow);
+  color: var(--navy);
+  font-family: var(--sans);
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.7rem 1.5rem;
-  border-radius: 6px;
+  padding: 0 1.25rem;
+  height: 36px;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
 }
-.fh-ct__btn:hover { background: #e8b830; }
+.fh-ct__btn:hover { background: var(--green) !important; color: var(--navy) !important; transform: translateY(-1px); }
 
 /* ── Responsive switch ───────────────────────────────────── */
 @media (min-width: 768px) {
@@ -1238,9 +1246,10 @@ em { font-style: italic; }
 .offers__quote {
   font-family: var(--serif);
   font-style: normal;
-  font-size: clamp(1.3rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   color: var(--navy);
-  line-height: 1.35;
+  line-height: 1.15;
 }
 .offers__quote strong { color: var(--navy); font-style: normal; }
 .offers__cta--secondary {
