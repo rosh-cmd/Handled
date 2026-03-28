@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fully Handled — Handled Studio</title>
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="style.css?v=27" />
+  <link rel="stylesheet" href="style.css?v=28" />
 </head>
 <body>
 
@@ -483,53 +483,76 @@
   </section>
 
 
-  <!-- PRICING -->
-  <section class="fh-pricing" id="contact">
-    <div class="fh-pricing__inner">
-      <div class="fh-pricing__header">
-        <h2 class="fh-pricing__headline"><span class="hl">Start with a Handoff.</span><br>Continue with Fully Handled.</h2>
-      </div>
-      <div class="fh-pricing__cards">
+  <!-- PRICING / OFFERS -->
+  <section class="offers" id="contact">
+    <div class="offers__inner">
 
-        <div class="fh-pricing__card fh-pricing__card--handoff">
-          <h3 class="fh-pricing__title">The Handoff</h3>
-          <div class="fh-pricing__badge">30-Day Pilot – $1500</div>
-          <p class="fh-pricing__desc">Experience how it works inside your business with real production — not a trial, not a sample.</p>
-          <hr class="fh-pricing__rule" />
-          <ul class="fh-pricing__features">
-            <li>Real design output</li>
+      <!-- Headline -->
+      <div class="offers__head">
+        <p class="offers__eyebrow">Two ways in. One destination.</p>
+        <h2 class="offers__headline">
+          <span class="offers__hl">Start with a Handoff.</span><br>
+          Continue with Fully Handled.
+        </h2>
+        <p class="offers__sub">No long-term commitment to begin. Most clients never look back.</p>
+      </div>
+
+      <!-- Journey grid -->
+      <div class="offers__journey">
+
+        <!-- Step 1: The Handoff -->
+        <div class="offers__card offers__card--handoff">
+          <div class="offers__step">
+            <span class="offers__step-num">1</span>
+            <span class="offers__step-label">Start here</span>
+          </div>
+          <h3 class="offers__title">The Handoff</h3>
+          <span class="offers__price-pill offers__price-pill--dark">30-day pilot — $1,500</span>
+          <p class="offers__desc">Experience how it works inside your business with real production — not a trial, not a sample.</p>
+          <ul class="offers__features offers__features--dot">
+            <li>Real design output from day one</li>
             <li>Brand familiarisation begins</li>
             <li>No long-term commitment</li>
           </ul>
-          <hr class="fh-pricing__rule" />
-          <p class="fh-pricing__avail-label">Availability</p>
-          <p class="fh-pricing__avail">Only one new Handoff each month</p>
+          <p class="offers__avail offers__avail--yellow">Only one new Handoff per month</p>
         </div>
 
-        <div class="fh-pricing__card fh-pricing__card--fh">
-          <h3 class="fh-pricing__title">Fully Handled</h3>
-          <div class="fh-pricing__badge">Ongoing – From $3,000/pm</div>
-          <p class="fh-pricing__desc">Your design production runs through us — consistently, on-brand, every month.</p>
-          <hr class="fh-pricing__rule" />
-          <ul class="fh-pricing__features">
-            <li>Ongoing design support</li>
-            <li>Deep brand understanding over time</li>
-            <li>Structured partnership</li>
+        <!-- Connector -->
+        <div class="offers__connector">
+          <div class="conn-line"></div>
+          <span class="conn-arrow">▼</span>
+          <span class="conn-label">then</span>
+          <div class="conn-line"></div>
+        </div>
+
+        <!-- Step 2: Fully Handled -->
+        <div class="offers__card offers__card--fh">
+          <span class="offers__float-badge">Where most clients end up</span>
+          <div class="offers__step">
+            <span class="offers__step-num offers__step-num--green">2</span>
+            <span class="offers__step-label offers__step-label--green">The destination</span>
+          </div>
+          <h3 class="offers__title offers__title--white">Fully Handled</h3>
+          <span class="offers__price-pill offers__price-pill--green">Ongoing — from $3,000 / month</span>
+          <p class="offers__desc offers__desc--muted">Your design production runs through us — consistently, on-brand, every month.<br>No briefing from scratch. No dropped balls.</p>
+          <ul class="offers__features offers__features--check">
+            <li>Ongoing design support, always on</li>
+            <li>Deep brand understanding built over time</li>
+            <li>Structured partnership, not a vendor relationship</li>
+            <li>Scales up or down with your needs</li>
           </ul>
-          <hr class="fh-pricing__rule" />
-          <p class="fh-pricing__avail">Designed as an ongoing engagement once the pilot proves the fit</p>
+          <p class="offers__avail offers__avail--green">Designed for businesses where deadlines don't stop</p>
+          <button class="offers__cta" onclick="location.href='mailto:hello@handled.studio'">Book a rundown →</button>
         </div>
 
+      </div><!-- /journey -->
+
+      <!-- Social proof -->
+      <div class="offers__proof">
+        <p class="offers__quote">Most clients start with a Handoff — then continue once <strong>they see the difference.</strong></p>
+        <button class="offers__cta offers__cta--secondary" onclick="location.href='mailto:hello@handled.studio'">Book a rundown</button>
       </div>
-    </div>
-  </section>
 
-
-  <!-- PRICING NOTE / CTA -->
-  <section class="fh-note">
-    <div class="fh-note__inner">
-      <p class="fh-note__text">Most clients start with a Handoff then continue<br>once they see the difference.</p>
-      <a href="mailto:hello@handled.studio" class="btn btn-dark">Book a Rundown</a>
     </div>
   </section>
 
