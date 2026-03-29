@@ -1607,7 +1607,7 @@ em { font-style: italic; }
    ============================================================ */
 
 /* Hero */
-.wk-hero { background: var(--navy); padding: 80px var(--pad) 0; }
+.wk-hero { background: var(--navy); padding: 120px var(--pad) 0; }
 .wk-hero__inner { max-width: var(--max); margin: 0 auto; }
 .wk-hero__head {
   display: flex;
@@ -1619,10 +1619,10 @@ em { font-style: italic; }
 .wk-hero__text { max-width: 640px; }
 .wk-hero__headline {
   font-family: var(--serif);
-  font-size: clamp(2.4rem, 5.5vw, 5.5rem);
+  font-size: clamp(1.7rem, 3.8vw, 4.1rem);
   font-weight: 700;
   color: var(--white);
-  line-height: 1.1;
+  line-height: 1.15;
   margin-bottom: 1.5rem;
 }
 .wk-hero__sub {
@@ -1634,52 +1634,26 @@ em { font-style: italic; }
 .wk-hero__cta { flex-shrink: 0; align-self: flex-end; }
 .wk-hero__img { width: 100%; aspect-ratio: 16/6; object-fit: cover; display: block; object-position: center 40%; }
 
-/* Case studies (yellow section) */
-.wk-cases { background: var(--yellow); padding: 80px var(--pad); }
-.wk-cases__inner { max-width: var(--max); margin: 0 auto; }
-.wk-cases__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 5rem;
-}
-.wk-cases__heading {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 3.8vw, 3.5rem);
-  font-weight: 700;
-  color: var(--navy);
-}
-.wk-case {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 4rem;
-  align-items: center;
-  margin-bottom: 6rem;
-}
-.wk-case:last-child { margin-bottom: 0; }
-.wk-case__heading {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 3.2vw, 3rem);
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 1rem;
-}
-.wk-case__tagline {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
-.wk-case__body {
-  font-size: 1rem;
-  color: var(--navy);
-  line-height: 1.75;
-  margin-bottom: 1.75rem;
-  opacity: 0.8;
-}
-.wk-case__img { border-radius: 12px; overflow: hidden; background: #2a3a4a; }
-.wk-case__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Case studies — navy side-by-side */
+.wk-work { background: #162a3a; padding: 60px var(--pad); }
+.wk-work__inner { max-width: var(--max); margin: 0 auto; }
+.wk-work__heading { font-family: var(--serif); font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 2rem; }
+.wk-work__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.wk-work__imgwrap { background: rgba(255,255,255,0.04); border-radius: 8px; height: 280px; margin-bottom: 20px; overflow: hidden; }
+.wk-work__imgwrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.wk-work__meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.wk-work__tag { font-size: 11px; color: #8aff6c; background: rgba(138,255,108,0.1); padding: 3px 0; border-radius: 100px; width: 96px; text-align: center; display: inline-block; }
+.wk-work__loc { font-size: 11px; color: rgba(255,255,255,0.3); }
+.wk-work__name { font-family: var(--serif); font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.wk-work__tagline { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 10px; }
+.wk-work__desc { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 20px; }
+.wk-work__stats { display: flex; align-items: stretch; gap: 16px; margin-bottom: 20px; }
+.wk-work__stat { display: flex; flex-direction: column; }
+.wk-work__stat-val { font-family: var(--serif); font-size: 18px; font-weight: 600; color: #8aff6c; }
+.wk-work__stat-label { font-size: 12px; color: rgba(255,255,255,0.4); }
+.wk-work__stat-div { width: 1px; background: rgba(255,255,255,0.08); flex-shrink: 0; }
+.wk-work__cta { display: inline-block; padding: 8px 20px; border: 0.5px solid rgba(255,255,255,0.2); border-radius: 100px; font-size: 12px; font-weight: 500; color: #fff; text-decoration: none; transition: border-color 0.2s; }
+.wk-work__cta:hover { border-color: rgba(255,255,255,0.4); }
 
 /* Industries (navy section) */
 .wk-industries { background: var(--navy); padding: 80px var(--pad) 0; }
@@ -1692,7 +1666,7 @@ em { font-style: italic; }
 }
 .wk-industries__heading {
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 3.8vw, 3.5rem);
+  font-size: clamp(1.7rem, 3.8vw, 4.1rem);
   font-weight: 700;
   color: var(--white);
 }
@@ -1706,10 +1680,10 @@ em { font-style: italic; }
   flex: 0 0 calc((100% - 48px) / 3);
 }
 .wk-grid__img {
-  border-radius: 12px;
   overflow: hidden;
-  aspect-ratio: 3/4;
+  height: clamp(280px, 30vw, 420px);
   margin-bottom: 14px;
+  background: #2a5060;
 }
 .wk-grid__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .wk-grid__name { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 3px; }
@@ -1773,10 +1747,10 @@ em { font-style: italic; }
 .wk-output__inner { max-width: 700px; margin: 0 auto; }
 .wk-output__heading {
   font-family: var(--serif);
-  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-size: clamp(1.7rem, 3.8vw, 4.1rem);
   font-weight: 700;
   color: var(--white);
-  line-height: 1.1;
+  line-height: 1.15;
   margin-bottom: 2rem;
 }
 .wk-output__lead {
@@ -1805,7 +1779,7 @@ em { font-style: italic; }
 }
 .wk-closing__heading {
   font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-size: clamp(1.7rem, 3.8vw, 4.1rem);
   font-weight: 700;
   color: var(--navy);
   line-height: 1.15;
@@ -1830,12 +1804,13 @@ em { font-style: italic; }
 /* Work page responsive */
 @media (max-width: 900px) {
   .wk-hero__head { flex-direction: column; align-items: flex-start; }
-  .wk-case { grid-template-columns: 1fr; gap: 2rem; }
-  .wk-case__img { order: -1; }
   .wk-industries__header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
   .wk-stats__inner { grid-template-columns: 1fr; gap: 2rem; }
   .wk-closing__inner { flex-direction: column; align-items: flex-start; }
   .wk-closing__cta { text-align: left; }
+}
+@media (max-width: 768px) {
+  .wk-work__grid { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 680px) {
   .wk-hero__img { aspect-ratio: 4/3; }
