@@ -1637,7 +1637,7 @@ em { font-style: italic; }
 /* Case studies — navy side-by-side */
 .wk-work { background: var(--navy); padding: 60px var(--pad); }
 .wk-work__inner { max-width: var(--max); margin: 0 auto; }
-.wk-work__heading { font-family: var(--serif); font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 2rem; }
+.wk-work__heading { font-family: var(--serif); font-size: clamp(1.7rem, 3.8vw, 4.1rem); font-weight: 700; color: #fff; margin-bottom: 2rem; }
 .wk-work__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
 .wk-work__imgwrap { background: rgba(255,255,255,0.04); border-radius: 8px; height: 280px; margin-bottom: 20px; overflow: hidden; }
 .wk-work__imgwrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
