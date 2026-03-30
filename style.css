@@ -2009,7 +2009,7 @@ em { font-style: italic; }
   max-width: 800px;
   margin: 0 auto;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 2.5rem;
 }
 .bt-tq__avatar {
@@ -2104,6 +2104,215 @@ em { font-style: italic; }
 }
 @media (max-width: 480px) {
   .bt-work__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   STATUS REALTY CASE STUDY  (st-)
+   ============================================================ */
+
+/* Hero */
+.st-hero { background: var(--navy); padding: 120px var(--pad) 80px; }
+.st-hero__inner { max-width: var(--max); margin: 0 auto; }
+.st-hero__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+.st-hero__text { flex: 1; min-width: 0; }
+.st-hero__client {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8aff6c;
+  margin-bottom: 1rem;
+}
+.st-hero__headline {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+.st-hero__sub {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+  max-width: 520px;
+}
+.st-hero__cta { flex-shrink: 0; padding-top: 0.5rem; }
+.st-hero__features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.st-hero__feat-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+}
+.st-hero__feat-body {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+}
+
+/* The Story — tabs */
+.st-story { background: var(--navy); }
+.st-story__tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.st-story__tab {
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--yellow);
+  border: none;
+  border-right: 1px solid rgba(0,0,0,0.12);
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+.st-story__tab:last-child { border-right: none; }
+.st-story__tab.active { opacity: 1; }
+.st-story__tab:hover { opacity: 0.85; }
+.st-story__panels { background: rgba(22,42,58,0.55); }
+.st-story__panel {
+  display: none;
+  padding: 3rem var(--pad);
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
+}
+.st-story__panel.active { display: block; }
+.st-story__panel-body {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.st-story__panel-body:last-child { margin-bottom: 0; }
+
+/* The Work */
+.st-work { background: var(--navy); padding: 80px var(--pad); border-top: 1px solid rgba(255,255,255,0.08); }
+.st-work__inner { max-width: var(--max); margin: 0 auto; }
+.st-work__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.st-work__headline {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3.8vw, 4.1rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+}
+.st-work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.st-work__item { border-radius: 8px; overflow: hidden; }
+.st-work__img-wrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+}
+.st-work__img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Testimonial — reuses gradient, different layout for multi-para quote */
+.st-tq {
+  background: linear-gradient(180deg,
+    #1E3D51 0%, #1c3e50 8%, #194049 17%, #164141 26%,
+    #164539 35%, #1a4d33 44%, #255931 52%,
+    #306c33 61%, #3e8338 70%, #509d3f 79%, #60bf4b 89%, #69DE5F 100%
+  );
+  padding: 90px var(--pad);
+}
+.st-tq__inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.st-tq__avatar {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+}
+.st-tq__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.st-tq__content { flex: 1; min-width: 0; }
+.st-tq__open {
+  font-family: var(--serif);
+  font-size: 3rem;
+  line-height: 1;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 1rem;
+}
+.st-tq__para {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.st-tq__para:last-of-type { margin-bottom: 1.5rem; }
+.st-tq__name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* CTA — identical to Barfoot, reuse bt-cta */
+
+/* Status responsive */
+@media (max-width: 900px) {
+  .st-hero__top { flex-direction: column; gap: 2rem; }
+  .st-hero__features { grid-template-columns: 1fr; gap: 1.5rem; }
+  .st-story__tab { padding: 1rem; font-size: 0.7rem; }
+  .st-work__header { flex-direction: column; align-items: flex-start; }
+  .st-tq__inner { flex-direction: column; align-items: center; text-align: center; }
+}
+@media (max-width: 680px) {
+  .st-work__grid { grid-template-columns: repeat(2, 1fr); }
+  .st-story__tabs { grid-template-columns: 1fr; }
+  .st-story__tab { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.12); }
+}
+@media (max-width: 480px) {
+  .st-work__grid { grid-template-columns: 1fr; }
 }
 
 /* Work page responsive */

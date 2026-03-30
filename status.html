@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Status Realty — Handled Studio</title>
+  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <link rel="stylesheet" href="style.css?v=65" />
+</head>
+<body>
+
+  <!-- MOBILE MENU -->
+  <div class="menu" id="menu">
+    <div class="menu__top">
+      <a href="index.html" class="menu__logo">
+        <img src="assets/logomark.svg" alt="" class="menu__logomark" />
+        <span class="nav__logotype">Handled.Studio</span>
+      </a>
+      <button class="menu__close" id="menuClose">✕</button>
+    </div>
+    <nav class="menu__nav">
+      <a href="index.html"         class="menu__link">Home</a>
+      <a href="fully-handled.html" class="menu__link">Fully Handled</a>
+      <a href="work.html"          class="menu__link active">Work</a>
+      <a href="about.html"         class="menu__link">About</a>
+      <a href="journal.html"       class="menu__link">Journal</a>
+    </nav>
+    <a href="#contact" class="btn btn-gold menu__cta" onclick="document.getElementById('menu').classList.remove('open')">Book a Rundown</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logomark.svg" alt="" class="nav__logomark" />
+        <span class="nav__logotype">Handled.Studio</span>
+      </a>
+      <div class="nav__right">
+        <a href="#contact" class="btn btn-gold">Book a Rundown</a>
+        <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- SECTION 1: HERO -->
+  <section class="st-hero">
+    <div class="st-hero__inner">
+      <div class="st-hero__top">
+        <div class="st-hero__text">
+          <p class="st-hero__client">Status Realty</p>
+          <h1 class="st-hero__headline">Brand, templates, and ongoing design support, <span class="hl">built for consistency</span></h1>
+          <p class="st-hero__sub">A brand designed to hold — across marketing, sales, and day-to-day output.</p>
+        </div>
+        <div class="st-hero__cta">
+          <a href="#contact" class="btn btn-gold">Book a Rundown</a>
+        </div>
+      </div>
+
+      <div class="st-hero__features">
+        <div>
+          <p class="st-hero__feat-title">Full brand system</p>
+          <p class="st-hero__feat-body">Designed to support real-world application from day one.</p>
+        </div>
+        <div>
+          <p class="st-hero__feat-title"><span class="hl">Template suite for real-world use</span></p>
+          <p class="st-hero__feat-body">Enabling consistent output across marketing and sales materials.</p>
+        </div>
+        <div>
+          <p class="st-hero__feat-title"><span class="hl">Template suite for ongoing use</span></p>
+          <p class="st-hero__feat-body">Maintaining alignment as the business produced new work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 2: THE STORY -->
+  <section class="st-story">
+    <div class="st-story__tabs" role="tablist">
+      <button class="st-story__tab active" data-panel="context"  role="tab" aria-selected="true">The Context</button>
+      <button class="st-story__tab"        data-panel="approach" role="tab" aria-selected="false">The Approach</button>
+      <button class="st-story__tab"        data-panel="outcome"  role="tab" aria-selected="false">The Outcome</button>
+    </div>
+    <div class="st-story__panels">
+
+      <div class="st-story__panel active" id="panel-context">
+        <p class="st-story__panel-body">Status Realty needed a brand that could support how the business would actually operate — across marketing, sales materials, and day-to-day communication. The goal wasn't just to create a strong identity, but to ensure it could be seamlessly applied consistently across everything the business produced. Without that, the brand would quickly fragment as output increased.</p>
+      </div>
+
+      <div class="st-story__panel" id="panel-approach">
+        <p class="st-story__panel-body">We developed a full brand identity alongside a structured set of templates and core materials, designed for real-world use, not just presentation. This included: A clear visual identity and brand system + Templates for marketing, sales, and internal use + Guidelines that could be applied consistently across different outputs.</p>
+        <p class="st-story__panel-body">Following the initial rollout, I continued to support ongoing brand management and production, ensuring the brand was applied consistently as the business grew. The focus wasn't just on creating the brand, but on making sure it held over time.</p>
+      </div>
+
+      <div class="st-story__panel" id="panel-outcome">
+        <p class="st-story__panel-body">The brand remained consistent across all touchpoints from marketing materials to day-to-day communication. Work could be produced more efficiently using the established templates and system. And new materials aligned naturally without needing to be rethought each time. Instead of drifting, the brand strengthened as more output was created.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SECTION 3: THE WORK -->
+  <section class="st-work">
+    <div class="st-work__inner">
+      <div class="st-work__header">
+        <h2 class="st-work__headline">What this looks like <span class="hl">in practice</span></h2>
+        <a href="#contact" class="btn btn-gold">Book a Rundown</a>
+      </div>
+      <div class="st-work__grid">
+
+        <div class="st-work__item">
+          <div class="st-work__img-wrap">
+            <img src="assets/Status-Brand-03.jpg" alt="Status brand system" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="st-work__item">
+          <div class="st-work__img-wrap">
+            <img src="assets/Status-Listing.jpg" alt="Status listing materials" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="st-work__item">
+          <div class="st-work__img-wrap">
+            <img src="assets/portfolio-status.jpg" alt="Status portfolio" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="st-work__item">
+          <div class="st-work__img-wrap">
+            <img src="assets/Status 2.avif" alt="Status materials" loading="lazy" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 4: TESTIMONIAL -->
+  <section class="st-tq">
+    <div class="st-tq__inner">
+      <div class="st-tq__avatar">AJ</div>
+      <div class="st-tq__content">
+        <p class="st-tq__open">&ldquo;&ldquo;</p>
+        <p class="st-tq__para">I was guided by experts who were genuinely in tune with my vision from day one, taking the time to deeply understand my market, what worked in the competitive landscape, and how to help me stand out, as well as who my ideal clients are and the value they need from my offering.</p>
+        <p class="st-tq__para">The outcome was a world-class brand guideline, a spot-on logo (in multiple variations), logomark, and templates for nearly any use case, from social media to billboards along with colours, fonts, sizing, spacing, look and feel, and real examples of the brand in action.</p>
+        <p class="st-tq__para">I can't wait to see the impact a well-formed, curated brand has in such a competitive market — but most importantly, I feel armed, ready, and proud of my brand.</p>
+        <p class="st-tq__name">AJ Hazelhurst – Principal</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 5: CTA -->
+  <section class="bt-cta" id="contact">
+    <div class="bt-cta__inner">
+      <div class="bt-cta__text">
+        <h2 class="bt-cta__headline">See how this could work <span class="hl-y">for your business</span></h2>
+        <p class="bt-cta__sub">Start with a Rundown — a focused 45-minute call to look at your current design setup.</p>
+      </div>
+      <a href="mailto:hello@handled.studio" class="btn bt-cta__btn">Book a Rundown</a>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <a href="index.html" class="footer__logo">
+          <img src="assets/logomark.svg" alt="" class="nav__logomark" />
+          <span class="nav__logotype">Handled.Studio</span>
+        </a>
+        <h2 class="footer__tagline">Senior. Local. <span class="hl">Handled.</span></h2>
+        <p class="footer__ack">We acknowledge the Wurundjeri Woi-wurrung people as the Traditional Owners of Nillumbik and pay respect to Elders past, present and emerging.</p>
+      </div>
+      <div>
+        <h3 class="footer__nl-heading">Handled weekly.</h3>
+        <p class="footer__nl-sub">Subscribe to our newsletter for the latest updates on Handled.Studio.</p>
+        <form class="footer__form" onsubmit="return false;">
+          <label class="footer__label" for="st-email">Email *</label>
+          <input class="footer__input" type="email" id="st-email" placeholder="" />
+          <label class="footer__check"><input type="checkbox" /> Yes, subscribe me to your newsletter.</label>
+          <button type="submit" class="btn btn-gold footer__submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__nav">
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <ul>
+          <li><a href="index.html"         class="footer__link">Home</a></li>
+          <li><a href="fully-handled.html" class="footer__link">Fully Handled</a></li>
+          <li><a href="work.html"          class="footer__link footer__link-active">Work</a></li>
+          <li><a href="about.html"         class="footer__link">About</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Blog</div>
+        <ul><li><a href="journal.html" class="footer__link">Journal</a></li></ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Social</div>
+        <ul>
+          <li><a href="#" class="footer__link">LinkedIn</a></li>
+          <li><a href="#" class="footer__link">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <a href="privacy.html">Privacy Policy</a>
+      <span>© 2026 by Handled.Studio</span>
+    </div>
+  </footer>
+
+  <script>
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+    const menu = document.getElementById('menu');
+    document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
+
+    // Story tabs
+    document.querySelectorAll('.st-story__tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.st-story__tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        document.querySelectorAll('.st-story__panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
