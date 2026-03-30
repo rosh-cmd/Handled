@@ -105,47 +105,83 @@
       <h2 class="bt-work__headline">Consistent output, <span class="hl">across everything</span></h2>
 
       <div class="bt-work__filters" role="tablist">
-        <button class="bt-filter active" data-filter="all"          role="tab" aria-selected="true">All</button>
-        <button class="bt-filter"        data-filter="publications" role="tab">Publications</button>
-        <button class="bt-filter"        data-filter="marketing"    role="tab">Marketing</button>
-        <button class="bt-filter"        data-filter="commercial"   role="tab">Commercial</button>
-        <button class="bt-filter"        data-filter="events"       role="tab">Events</button>
+        <button class="bt-filter active" data-filter="marketing"    role="tab" aria-selected="true">Marketing</button>
+        <button class="bt-filter"        data-filter="publications" role="tab" aria-selected="false">Publications</button>
+        <button class="bt-filter"        data-filter="events"       role="tab" aria-selected="false">Events</button>
       </div>
 
       <div class="bt-work__grid">
 
-        <div class="bt-work__item" data-category="publications">
+        <!-- Marketing -->
+        <div class="bt-work__item" data-category="marketing">
           <div class="bt-work__img-wrap">
-            <img src="assets/Books-BT12.jpg" alt="In-site Magazine" loading="lazy" />
-            <span class="bt-work__img-label">In-site Magazine</span>
-          </div>
-        </div>
-
-        <div class="bt-work__item" data-category="publications">
-          <div class="bt-work__img-wrap">
-            <img src="assets/Books-Insite-Mag.jpg" alt="In-site Mag" loading="lazy" />
-            <span class="bt-work__img-label">Salespeople Magazine</span>
+            <img src="assets/B&T-2.jpg" alt="Marketing" loading="lazy" />
+            <span class="bt-work__img-label">Marketing</span>
           </div>
         </div>
 
         <div class="bt-work__item" data-category="marketing">
           <div class="bt-work__img-wrap">
-            <img src="assets/portfolio-barfoot.jpg" alt="Marketing Collateral" loading="lazy" />
-            <span class="bt-work__img-label">Marketing Collateral</span>
+            <img src="assets/B&T-5.jpg" alt="Marketing" loading="lazy" />
+            <span class="bt-work__img-label">Marketing</span>
           </div>
         </div>
 
-        <div class="bt-work__item" data-category="marketing">
+        <!-- Publications -->
+        <div class="bt-work__item" data-category="publications">
           <div class="bt-work__img-wrap">
-            <img src="assets/Books-BT2.jpg" alt="Marketing Materials" loading="lazy" />
-            <span class="bt-work__img-label">Marketing Materials</span>
+            <img src="assets/Books-BT12.jpg" alt="Publications" loading="lazy" />
+            <span class="bt-work__img-label">Publications</span>
           </div>
         </div>
 
-        <div class="bt-work__item" data-category="commercial">
+        <div class="bt-work__item" data-category="publications">
           <div class="bt-work__img-wrap">
-            <img src="assets/Office-Options-Report.jpg" alt="Commercial Report" loading="lazy" />
-            <span class="bt-work__img-label">Commercial Report</span>
+            <img src="assets/B&T-11.jpg" alt="Publications" loading="lazy" />
+            <span class="bt-work__img-label">Publications</span>
+          </div>
+        </div>
+
+        <div class="bt-work__item" data-category="publications">
+          <div class="bt-work__img-wrap">
+            <img src="assets/Books-BT10.png" alt="Publications" loading="lazy" />
+            <span class="bt-work__img-label">Publications</span>
+          </div>
+        </div>
+
+        <div class="bt-work__item" data-category="publications">
+          <div class="bt-work__img-wrap">
+            <img src="assets/Books-BT9.png" alt="Publications" loading="lazy" />
+            <span class="bt-work__img-label">Publications</span>
+          </div>
+        </div>
+
+        <div class="bt-work__item" data-category="publications">
+          <div class="bt-work__img-wrap">
+            <img src="assets/Books-BT8.png" alt="Publications" loading="lazy" />
+            <span class="bt-work__img-label">Publications</span>
+          </div>
+        </div>
+
+        <div class="bt-work__item" data-category="publications">
+          <div class="bt-work__img-wrap">
+            <img src="assets/BTCOM2.jpg" alt="Publications" loading="lazy" />
+            <span class="bt-work__img-label">Publications</span>
+          </div>
+        </div>
+
+        <!-- Events -->
+        <div class="bt-work__item" data-category="events">
+          <div class="bt-work__img-wrap">
+            <img src="assets/B&T-17.jpg" alt="Events" loading="lazy" />
+            <span class="bt-work__img-label">Events</span>
+          </div>
+        </div>
+
+        <div class="bt-work__item" data-category="events">
+          <div class="bt-work__img-wrap">
+            <img src="assets/Barfoot-DL.jpg" alt="Events" loading="lazy" />
+            <span class="bt-work__img-label">Events</span>
           </div>
         </div>
 
@@ -243,9 +279,13 @@
     document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
     document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
 
-    // Gallery filter
+    // Gallery filter — show Marketing by default
     const filters = document.querySelectorAll('.bt-filter');
     const items   = document.querySelectorAll('.bt-work__item');
+
+    items.forEach(item => {
+      if (item.dataset.category !== 'marketing') item.style.display = 'none';
+    });
 
     filters.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -255,7 +295,7 @@
 
         const cat = btn.dataset.filter;
         items.forEach(item => {
-          if (cat === 'all' || item.dataset.category === cat) {
+          if (item.dataset.category === cat) {
             item.style.display = '';
             requestAnimationFrame(() => { item.style.opacity = '1'; });
           } else {
