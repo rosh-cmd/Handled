@@ -1838,7 +1838,7 @@ em { font-style: italic; }
   margin-bottom: 1.25rem;
 }
 .bt-hero__desc {
-  font-size: 0.9375rem;
+  font-size: 0.97rem;
   color: rgba(255,255,255,0.5);
   line-height: 1.65;
   margin-bottom: 2rem;
@@ -1907,7 +1907,7 @@ em { font-style: italic; }
   margin-bottom: 1rem;
 }
 .bt-story__body {
-  font-size: 0.875rem;
+  font-size: 0.97rem;
   color: rgba(255,255,255,0.6);
   line-height: 1.65;
   margin-bottom: 0.75rem;
@@ -2054,7 +2054,7 @@ em { font-style: italic; }
 }
 
 /* CTA */
-.bt-cta { background: #8aff6c; padding: 70px var(--pad); }
+.bt-cta { background: var(--green); padding: 70px var(--pad); }
 .bt-cta__inner {
   max-width: var(--max);
   margin: 0 auto;
@@ -2073,7 +2073,7 @@ em { font-style: italic; }
   margin-bottom: 0.6rem;
 }
 .bt-cta__sub {
-  font-size: 0.875rem;
+  font-size: 0.97rem;
   color: rgba(22,42,58,0.55);
   line-height: 1.6;
   max-width: 440px;
@@ -2089,7 +2089,7 @@ em { font-style: italic; }
   transition: background 0.2s;
   white-space: nowrap;
 }
-.bt-cta__btn:hover { background: #1e3a4f; }
+.bt-cta__btn:hover { background: var(--yellow); color: var(--navy); }
 
 /* Barfoot responsive */
 @media (max-width: 900px) {
