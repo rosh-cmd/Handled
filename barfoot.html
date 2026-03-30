@@ -105,7 +105,8 @@
       <h2 class="bt-work__headline">Consistent output, <span class="hl">across everything</span></h2>
 
       <div class="bt-work__filters" role="tablist">
-        <button class="bt-filter active" data-filter="marketing"    role="tab" aria-selected="true">Marketing</button>
+        <button class="bt-filter active" data-filter="all"          role="tab" aria-selected="true">All</button>
+        <button class="bt-filter"        data-filter="marketing"    role="tab" aria-selected="false">Marketing</button>
         <button class="bt-filter"        data-filter="publications" role="tab" aria-selected="false">Publications</button>
         <button class="bt-filter"        data-filter="events"       role="tab" aria-selected="false">Events</button>
       </div>
@@ -279,13 +280,11 @@
     document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
     document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
 
-    // Gallery filter — show Marketing by default
+    // Gallery filter — show all by default
     const filters = document.querySelectorAll('.bt-filter');
     const items   = document.querySelectorAll('.bt-work__item');
 
-    items.forEach(item => {
-      if (item.dataset.category !== 'marketing') item.style.display = 'none';
-    });
+    items.forEach(item => { item.style.display = ''; });
 
     filters.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -295,7 +294,7 @@
 
         const cat = btn.dataset.filter;
         items.forEach(item => {
-          if (item.dataset.category === cat) {
+          if (cat === 'all' || item.dataset.category === cat) {
             item.style.display = '';
             requestAnimationFrame(() => { item.style.opacity = '1'; });
           } else {
