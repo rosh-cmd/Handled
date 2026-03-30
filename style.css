@@ -359,6 +359,7 @@ em { font-style: italic; }
 .portfolio__headline { font-family: var(--serif); font-size: clamp(1.3rem, 3.3vw, 3.1rem); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; }
 .portfolio__cta { margin-bottom: 3rem; }
 .portfolio__grid { display: grid; grid-template-columns: 1.8fr 1fr; gap: 1rem; text-align: left; max-width: var(--max); margin: 0 auto; }
+.portfolio__item { display: block; }
 .portfolio__item img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; display: block; background: #2a5060; }
 .portfolio__caption { font-size: 0.85rem; color: var(--white); margin-top: 0.75rem; font-weight: 600; }
 
