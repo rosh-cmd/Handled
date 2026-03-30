@@ -2097,7 +2097,7 @@ em { font-style: italic; }
   transition: background 0.2s;
   white-space: nowrap;
 }
-.bt-cta__btn:hover { background: var(--yellow); color: var(--navy); }
+.bt-cta__btn:hover { background: var(--yellow) !important; color: var(--navy) !important; }
 
 /* Barfoot responsive */
 @media (max-width: 900px) {
