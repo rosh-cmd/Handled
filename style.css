@@ -2066,10 +2066,10 @@ em { font-style: italic; }
 .bt-cta__text { flex: 1; min-width: 0; }
 .bt-cta__headline {
   font-family: var(--serif);
-  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-size: clamp(1.7rem, 3.8vw, 4.1rem);
   font-weight: 700;
-  color: #162a3a;
-  line-height: 1.25;
+  color: var(--navy);
+  line-height: 1.15;
   margin-bottom: 0.6rem;
 }
 .bt-cta__sub {
