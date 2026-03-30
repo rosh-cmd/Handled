@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barfoot &amp; Thompson — Handled Studio</title>
+  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <link rel="stylesheet" href="style.css?v=61" />
+</head>
+<body>
+
+  <!-- MOBILE MENU -->
+  <div class="menu" id="menu">
+    <div class="menu__top">
+      <a href="index.html" class="menu__logo">
+        <img src="assets/logomark.svg" alt="" class="menu__logomark" />
+        <span class="nav__logotype">Handled.Studio</span>
+      </a>
+      <button class="menu__close" id="menuClose">✕</button>
+    </div>
+    <nav class="menu__nav">
+      <a href="index.html"         class="menu__link">Home</a>
+      <a href="fully-handled.html" class="menu__link">Fully Handled</a>
+      <a href="work.html"          class="menu__link active">Work</a>
+      <a href="about.html"         class="menu__link">About</a>
+      <a href="journal.html"       class="menu__link">Journal</a>
+    </nav>
+    <a href="#contact" class="btn btn-gold menu__cta" onclick="document.getElementById('menu').classList.remove('open')">Book a Rundown</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logomark.svg" alt="" class="nav__logomark" />
+        <span class="nav__logotype">Handled.Studio</span>
+      </a>
+      <div class="nav__right">
+        <a href="#contact" class="btn btn-gold">Book a Rundown</a>
+        <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- SECTION 1: HERO -->
+  <section class="bt-hero">
+    <div class="bt-hero__inner">
+      <div class="bt-hero__text">
+        <p class="bt-hero__client">Barfoot &amp; Thompson</p>
+        <h1 class="bt-hero__headline">Consistency at scale across 80+ branches</h1>
+        <p class="bt-hero__desc">Supporting Barfoot &amp; Thompson's ongoing design production — ensuring consistent, on-brand output across 1,800+ salespeople and multiple teams.</p>
+        <div class="bt-hero__stats">
+          <div class="bt-hero__stat">
+            <span class="bt-hero__stat-num">80+</span>
+            <span class="bt-hero__stat-label">Branches</span>
+          </div>
+          <div class="bt-hero__divider" aria-hidden="true"></div>
+          <div class="bt-hero__stat">
+            <span class="bt-hero__stat-num">1,800+</span>
+            <span class="bt-hero__stat-label">Salespeople</span>
+          </div>
+          <div class="bt-hero__divider" aria-hidden="true"></div>
+          <div class="bt-hero__stat">
+            <span class="bt-hero__stat-num">Returning</span>
+            <span class="bt-hero__stat-label">Client</span>
+          </div>
+        </div>
+      </div>
+      <div class="bt-hero__image">
+        <img src="assets/Books-BT2.jpg" alt="Barfoot &amp; Thompson design work" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 2: THE STORY -->
+  <section class="bt-story">
+    <div class="bt-story__inner">
+      <div class="bt-story__col">
+        <p class="bt-story__label">The Context</p>
+        <p class="bt-story__body">Barfoot &amp; Thompson is New Zealand's largest privately-owned real estate company, with 80+ branches and 1,800+ salespeople across Auckland and Northland.</p>
+        <p class="bt-story__body">Their marketing team operates at significant scale — high volume of content across print, digital, and event formats. Multiple stakeholders, branch offices, and output requirements running simultaneously.</p>
+        <p class="bt-story__body">They needed a reliable design production resource that could function as a true extension of their in-house team — consistent, experienced, and ready to move at pace.</p>
+      </div>
+      <div class="bt-story__col">
+        <p class="bt-story__label">The Approach</p>
+        <p class="bt-story__body">Handled embedded directly into the Barfoot &amp; Thompson marketing team as the primary external design production resource — working alongside the Head of Design and Production.</p>
+        <p class="bt-story__body">The arrangement operates as an extension of the in-house team, absorbing ongoing briefs across publications, marketing collateral, commercial materials, and event formats.</p>
+        <p class="bt-story__body">A consistent point of contact. Predictable output. No onboarding cycles. No handover friction. Just reliable production capacity that scales with the team's demands week to week.</p>
+      </div>
+      <div class="bt-story__col">
+        <p class="bt-story__label">The Outcome</p>
+        <p class="bt-story__body">Consistent, on-brand output across 80+ branches and 1,800+ salespeople. Marketing collateral produced without delays, brand standards maintained across every touchpoint.</p>
+        <p class="bt-story__body">The team has a production resource they can rely on — not manage. A working relationship that has continued across multiple years, absorbing increased volume as the business has grown.</p>
+        <p class="bt-story__body">The result is a design operation that holds together under pressure, across a large and complex organisation.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 3: THE WORK -->
+  <section class="bt-work">
+    <div class="bt-work__inner">
+      <h2 class="bt-work__headline">Consistent output, <span class="hl">across everything</span></h2>
+
+      <div class="bt-work__filters" role="tablist">
+        <button class="bt-filter active" data-filter="all"          role="tab" aria-selected="true">All</button>
+        <button class="bt-filter"        data-filter="publications" role="tab">Publications</button>
+        <button class="bt-filter"        data-filter="marketing"    role="tab">Marketing</button>
+        <button class="bt-filter"        data-filter="commercial"   role="tab">Commercial</button>
+        <button class="bt-filter"        data-filter="events"       role="tab">Events</button>
+      </div>
+
+      <div class="bt-work__grid">
+
+        <div class="bt-work__item" data-category="publications">
+          <div class="bt-work__img-wrap">
+            <img src="assets/Books-BT12.jpg" alt="In-site Magazine" loading="lazy" />
+            <span class="bt-work__img-label">In-site Magazine</span>
+          </div>
+        </div>
+
+        <div class="bt-work__item" data-category="publications">
+          <div class="bt-work__img-wrap">
+            <img src="assets/Books-Insite-Mag.jpg" alt="In-site Mag" loading="lazy" />
+            <span class="bt-work__img-label">Salespeople Magazine</span>
+          </div>
+        </div>
+
+        <div class="bt-work__item" data-category="publications">
+          <div class="bt-work__img-wrap">
+            <img src="assets/Books-hero.jpg" alt="Publications" loading="lazy" />
+            <span class="bt-work__img-label">Publications</span>
+          </div>
+        </div>
+
+        <div class="bt-work__item" data-category="marketing">
+          <div class="bt-work__img-wrap">
+            <img src="assets/portfolio-barfoot.jpg" alt="Marketing Collateral" loading="lazy" />
+            <span class="bt-work__img-label">Marketing Collateral</span>
+          </div>
+        </div>
+
+        <div class="bt-work__item" data-category="marketing">
+          <div class="bt-work__img-wrap">
+            <img src="assets/Books-BT2.jpg" alt="Marketing Materials" loading="lazy" />
+            <span class="bt-work__img-label">Marketing Materials</span>
+          </div>
+        </div>
+
+        <div class="bt-work__item" data-category="commercial">
+          <div class="bt-work__img-wrap">
+            <img src="assets/Office-Options-Report.jpg" alt="Commercial Report" loading="lazy" />
+            <span class="bt-work__img-label">Commercial Report</span>
+          </div>
+        </div>
+
+        <div class="bt-work__item" data-category="events">
+          <div class="bt-work__img-wrap">
+            <img src="assets/Books-ALM2.jpg" alt="Events" loading="lazy" />
+            <span class="bt-work__img-label">Events Collateral</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 4: TESTIMONIAL -->
+  <section class="bt-tq">
+    <div class="bt-tq__inner">
+      <div class="bt-tq__avatar" aria-hidden="true">NM</div>
+      <div class="bt-tq__content">
+        <p class="bt-tq__open">&ldquo;</p>
+        <blockquote class="bt-tq__quote">Rosh has served as a key strategic partner to Barfoot &amp; Thompson's marketing team, enhancing our workflow with a consistent and high-calibre design resource. Their work safeguards our brand integrity and ensures consistency across a large and complex organisation.</blockquote>
+        <p class="bt-tq__name">Neal Morshead</p>
+        <p class="bt-tq__role">Head of Design and Production, Barfoot &amp; Thompson</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION 5: CTA -->
+  <section class="bt-cta" id="contact">
+    <div class="bt-cta__inner">
+      <div class="bt-cta__text">
+        <h2 class="bt-cta__headline">See how this could work for your business</h2>
+        <p class="bt-cta__sub">Start with a Rundown — a focused 45-minute call to look at your current design setup.</p>
+      </div>
+      <a href="mailto:hello@handled.studio" class="btn bt-cta__btn">Book a Rundown</a>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <a href="index.html" class="footer__logo">
+          <img src="assets/logomark.svg" alt="" class="nav__logomark" />
+          <span class="nav__logotype">Handled.Studio</span>
+        </a>
+        <h2 class="footer__tagline">Senior. Local. <span class="hl">Handled.</span></h2>
+        <p class="footer__ack">We acknowledge the Wurundjeri Woi-wurrung people as the Traditional Owners of Nillumbik and pay respect to Elders past, present and emerging.</p>
+      </div>
+      <div>
+        <h3 class="footer__nl-heading">Handled weekly.</h3>
+        <p class="footer__nl-sub">Subscribe to our newsletter for the latest updates on Handled.Studio.</p>
+        <form class="footer__form" onsubmit="return false;">
+          <label class="footer__label" for="bt-email">Email *</label>
+          <input class="footer__input" type="email" id="bt-email" placeholder="" />
+          <label class="footer__check"><input type="checkbox" /> Yes, subscribe me to your newsletter.</label>
+          <button type="submit" class="btn btn-gold footer__submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer__nav">
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <ul>
+          <li><a href="index.html"         class="footer__link">Home</a></li>
+          <li><a href="fully-handled.html" class="footer__link">Fully Handled</a></li>
+          <li><a href="work.html"          class="footer__link footer__link-active">Work</a></li>
+          <li><a href="about.html"         class="footer__link">About</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Blog</div>
+        <ul>
+          <li><a href="journal.html" class="footer__link">Journal</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Social</div>
+        <ul>
+          <li><a href="#" class="footer__link">LinkedIn</a></li>
+          <li><a href="#" class="footer__link">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <a href="privacy.html">Privacy Policy</a>
+      <span>© 2026 by Handled.Studio</span>
+    </div>
+  </footer>
+
+  <script>
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+    const menu = document.getElementById('menu');
+    document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
+
+    // Gallery filter
+    const filters = document.querySelectorAll('.bt-filter');
+    const items   = document.querySelectorAll('.bt-work__item');
+
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const cat = btn.dataset.filter;
+        items.forEach(item => {
+          if (cat === 'all' || item.dataset.category === cat) {
+            item.style.display = '';
+            requestAnimationFrame(() => { item.style.opacity = '1'; });
+          } else {
+            item.style.opacity = '0';
+            item.addEventListener('transitionend', function hide() {
+              if (item.style.opacity === '0') item.style.display = 'none';
+              item.removeEventListener('transitionend', hide);
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
