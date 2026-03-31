@@ -509,6 +509,10 @@ em { font-style: italic; }
   /* Logos: 3 on first row, 2 centered on second */
   .logos { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1.5rem 1rem; }
   .logos__item { flex: 0 0 calc(33.33% - 0.75rem); display: flex; justify-content: center; align-items: center; }
+  /* Handled banners: more breathing room between wrapped lines */
+  .services__line { line-height: 1.55; padding: 0.45rem 0; }
+  /* Journal: lighter background so navy text is legible */
+  .journal { background: linear-gradient(to bottom, #2d6840 0%, var(--green) 100%); }
 }
 
 
@@ -1574,7 +1578,8 @@ em { font-style: italic; }
   /* FH page */
   .fh-hero__top { padding: 60px var(--pad) 40px; flex-direction: column; align-items: flex-start; }
   .fh-built__inner { grid-template-columns: 1fr; }
-  .fh-built__image { height: 260px; }
+  .fh-built__image { height: auto; }
+  .fh-built__image img { max-height: none; }
   .fh-support__inner { grid-template-columns: 1fr; }
   .fh-support__cards { grid-template-columns: 1fr 1fr; }
   .fh-why__inner { grid-template-columns: 1fr; }
