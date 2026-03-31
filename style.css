@@ -1590,6 +1590,15 @@ em { font-style: italic; }
   .conn-line { width: 40px; height: 2px; }
   .conn-label { writing-mode: horizontal-tb; transform: none; }
   .conn-arrow { transform: rotate(-90deg); }
+  /* FH Handled banner: more breathing room between lines */
+  .fh-handled-list__lines li { line-height: 1.55; margin-bottom: 0.3rem; }
+  /* FH images: consistent 4/3 aspect ratio on mobile */
+  .fh-built__image,
+  .fh-support__image,
+  .fh-why__image { aspect-ratio: 4/3; height: auto; }
+  .fh-built__image img,
+  .fh-support__image img,
+  .fh-why__image img { width: 100%; height: 100%; object-fit: cover; min-height: unset; }
 
   /* About page */
   .ab-hero__inner { grid-template-columns: 1fr; }
