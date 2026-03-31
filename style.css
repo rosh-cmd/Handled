@@ -2367,6 +2367,7 @@ em { font-style: italic; }
   color: var(--white);
   line-height: 1.1;
   margin-bottom: 2rem;
+  padding-top: 2rem;
 }
 .rd-info__lead {
   font-family: var(--serif);
