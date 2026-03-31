@@ -2354,7 +2354,62 @@ em { font-style: italic; }
 }
 
 /* ============================================================
-   BOOK A RUNDOWN PAGE  (rd-)
+   JOURNAL PAGE  (jnl-)
+   ============================================================ */
+
+.jnl-hero {
+  background: var(--navy);
+  padding: 120px var(--pad) 70px;
+}
+.jnl-hero__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 4rem;
+}
+.jnl-hero__heading {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.jnl-hero__text { flex: 1; padding-bottom: 0.5rem; }
+.jnl-hero__lead {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+.jnl-hero__sub {
+  font-size: 0.97rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+}
+
+.jnl-articles {
+  background: var(--navy);
+  padding: 0 var(--pad) 100px;
+}
+.jnl-articles__inner { max-width: var(--max); margin: 0 auto; }
+
+/* Card links — override journal colours for standalone page */
+.jnl-card {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+.jnl-card .journal__meta  { color: rgba(255,255,255,0.45); }
+.jnl-card .journal__title { color: var(--white); transition: color 0.2s; }
+.jnl-card .journal__excerpt { color: rgba(255,255,255,0.6); }
+.jnl-card:hover .journal__title { color: var(--green); }
+
+@media (max-width: 680px) {
+  .jnl-hero__inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+}
    ============================================================ */
 
 /* Section 1 — Info (navy) */

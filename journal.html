@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journal — Handled Studio</title>
+  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+  <link rel="stylesheet" href="style.css?v=67" />
+</head>
+<body>
+
+  <!-- MOBILE MENU -->
+  <div class="menu" id="menu">
+    <div class="menu__top">
+      <a href="index.html" class="menu__logo">
+        <img src="assets/logomark.svg" alt="" class="menu__logomark" />
+        <span class="nav__logotype">Handled.Studio</span>
+      </a>
+      <button class="menu__close" id="menuClose">✕</button>
+    </div>
+    <nav class="menu__nav">
+      <a href="index.html"         class="menu__link">Home</a>
+      <a href="fully-handled.html" class="menu__link">Fully Handled</a>
+      <a href="work.html"          class="menu__link">Work</a>
+      <a href="about.html"         class="menu__link">About</a>
+      <a href="journal.html"       class="menu__link active">Journal</a>
+    </nav>
+    <a href="rundown.html" class="btn btn-gold menu__cta">Book a Rundown</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/logomark.svg" alt="" class="nav__logomark" />
+        <span class="nav__logotype">Handled.Studio</span>
+      </a>
+      <div class="nav__right">
+        <a href="rundown.html" class="btn btn-gold">Book a Rundown</a>
+        <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="jnl-hero">
+    <div class="jnl-hero__inner">
+      <h1 class="jnl-hero__heading">Journal</h1>
+      <div class="jnl-hero__text">
+        <p class="jnl-hero__lead">Honest thinking on design production, brand consistency and what it takes to keep your output running properly.</p>
+        <p class="jnl-hero__sub">We write about the problems growing businesses face with design output and the systems that fix them.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ARTICLES -->
+  <section class="jnl-articles">
+    <div class="jnl-articles__inner">
+      <hr class="journal__rule" style="margin: 0 0 2.5rem;" />
+      <div class="journal__grid">
+
+        <a href="#" class="jnl-card">
+          <div class="journal__img"><img src="assets/journal-1.avif" alt="Colourful umbrellas" /></div>
+          <div class="journal__meta">22 hours ago · 3 min read</div>
+          <h2 class="journal__title">Why Your Marketing Looks Different Every Time (and How to Fix It)</h2>
+          <p class="journal__excerpt">If your business marketing looks inconsistent across channels, there's usually one underlying cause. Here's why it happens and how to fix it.</p>
+        </a>
+
+        <a href="#" class="jnl-card">
+          <div class="journal__img"><img src="assets/journal-2.avif" alt="Architectural arches" /></div>
+          <div class="journal__meta">1 day ago · 3 min read</div>
+          <h2 class="journal__title">Hiring a Designer vs a Design Retainer: Which Is Right for Your Business?</h2>
+          <p class="journal__excerpt">Should you hire an in-house designer or use a design retainer? An honest comparison of cost, quality, and flexibility for growing businesses.</p>
+        </a>
+
+        <a href="#" class="jnl-card">
+          <div class="journal__img"><img src="assets/journal-3.avif" alt="Abstract coral sculpture" /></div>
+          <div class="journal__meta">2 days ago · 3 min read</div>
+          <h2 class="journal__title">5 Signs Your Business Has Outgrown Its Design Setup</h2>
+          <p class="journal__excerpt">Not sure if your design setup is keeping up? Here are 5 signals that your business has outgrown how it handles design — and what to do about it.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <a href="index.html" class="footer__logo">
+          <img src="assets/logomark.svg" alt="" class="nav__logomark" />
+          <span class="nav__logotype">Handled.Studio</span>
+        </a>
+        <h2 class="footer__tagline">Senior. Local. <span class="hl">Handled.</span></h2>
+        <p class="footer__ack">We acknowledge the Wurundjeri Woi-wurrung people as the Traditional Owners of Nillumbik and pay respect to Elders past, present and emerging.</p>
+      </div>
+      <div>
+        <h3 class="footer__nl-heading">Handled weekly.</h3>
+        <p class="footer__nl-sub">Subscribe to our newsletter for the latest updates on Handled.Studio.</p>
+        <form class="footer__form" onsubmit="return false;">
+          <label class="footer__label" for="jnl-email">Email *</label>
+          <input class="footer__input" type="email" id="jnl-email" placeholder="" />
+          <label class="footer__check"><input type="checkbox" /> Yes, subscribe me to your newsletter.</label>
+          <button type="submit" class="btn btn-gold footer__submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer__nav">
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <ul>
+          <li><a href="index.html"         class="footer__link">Home</a></li>
+          <li><a href="fully-handled.html" class="footer__link">Fully Handled</a></li>
+          <li><a href="work.html"          class="footer__link">Work</a></li>
+          <li><a href="about.html"         class="footer__link">About</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Blog</div>
+        <ul><li><a href="journal.html" class="footer__link footer__link-active">Journal</a></li></ul>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Social</div>
+        <ul>
+          <li><a href="#" class="footer__link">LinkedIn</a></li>
+          <li><a href="#" class="footer__link">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <a href="privacy.html">Privacy Policy</a>
+      <span>© 2026 by Handled.Studio</span>
+    </div>
+  </footer>
+
+  <script>
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+    const menu = document.getElementById('menu');
+    document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
+    document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
+  </script>
+</body>
+</html>
