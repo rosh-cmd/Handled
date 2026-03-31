@@ -126,7 +126,7 @@ em { font-style: italic; }
   inset: 0;
   z-index: 300;
   max-width: 460px;
-  background: linear-gradient(135deg, #1a5c30 0%, #3ddb57 100%);
+  background: linear-gradient(135deg, #1E3D51 0%, #1a5c30 45%, #3ddb57 100%);
   padding: 2rem var(--pad);
   display: flex;
   flex-direction: column;
