@@ -136,11 +136,11 @@ em { font-style: italic; }
   transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
 }
 .menu.open { transform: translateX(0); }
-.menu__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; }
+.menu__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; gap: 1.5rem; }
 .menu__logo { display: flex; align-items: center; gap: 10px; color: var(--white); font-family: var(--sans); font-weight: 700; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; flex: 1; }
 .menu__logomark { height: 36px; width: auto; display: block; filter: brightness(0) invert(1); }
 .menu__close { background: none; border: none; color: var(--white); font-size: 1.3rem; cursor: pointer; }
-.menu__nav { display: flex; flex-direction: column; flex: 1; }
+.menu__nav { display: flex; flex-direction: column; }
 .menu__link { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; color: var(--white); padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.2); letter-spacing: 0.02em; }
 .menu__link.active { color: var(--yellow); }
 .menu__link:hover { color: var(--yellow); }
@@ -416,6 +416,8 @@ em { font-style: italic; }
 .journal__meta { font-size: 0.78rem; color: var(--navy); margin-bottom: 0.6rem; }
 .journal__title { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--navy); line-height: 1.35; margin-bottom: 0.75rem; }
 .journal__excerpt { font-size: 0.88rem; color: var(--navy); line-height: 1.7; opacity: 0.8; }
+.journal__card-link { display: block; text-decoration: none; }
+.journal__card-link:hover .journal__title { color: var(--green); }
 
 
 /* ============================================================
@@ -2413,7 +2415,7 @@ em { font-style: italic; }
    ============================================================ */
 
 /* Section 1 — Info (navy) */
-.rd-info { background: var(--navy); padding: 100px var(--pad) 90px; }
+.rd-info { background: var(--navy); padding: 120px var(--pad) 90px; }
 .rd-info__inner { max-width: 860px; margin: 0 auto; }
 .rd-info__heading {
   font-family: var(--serif);
