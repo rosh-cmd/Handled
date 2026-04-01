@@ -47,6 +47,8 @@ em { font-style: italic; }
 }
 .hl   { background: var(--green);  color: var(--navy); }
 .hl-y { background: var(--yellow); color: var(--navy); }
+/* White-text variant for use inside light-on-dark headings */
+.hl-w { background: var(--green); color: inherit; display: inline; padding: 0 0.2em 0.08em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 
 /* ── Buttons — same text size, reduced height ────────────── */
 .btn {
