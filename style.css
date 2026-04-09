@@ -3084,24 +3084,22 @@ em { font-style: italic; }
 
 /* ── FH RHYTHM BLOCK ── */
 .fh-rhythm {
-  max-width: 700px;
-  margin: 3rem auto 0;
-  padding: 2.5rem;
-  background: rgba(30,61,81,0.04);
-  border-left: 3px solid var(--green);
-  border-radius: 0 8px 8px 0;
+  background: var(--green);
+  border-radius: 12px;
+  padding: 3rem;
+  margin: 3rem 0 0;
 }
 .fh-rhythm__heading {
   font-family: var(--serif);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 1rem;
 }
 .fh-rhythm__body {
   font-family: var(--sans);
-  font-size: 0.95rem;
-  color: rgba(30,61,81,0.75);
+  font-size: 0.97rem;
+  color: rgba(30,61,81,0.8);
   line-height: 1.7;
   margin-bottom: 0.85rem;
 }
