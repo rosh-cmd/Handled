@@ -2919,3 +2919,197 @@ em { font-style: italic; }
   .inc__fixes { padding: 1.5rem; }
   .inc__fixes-grid { grid-template-columns: 1fr; gap: 1rem; }
 }
+
+
+/* ── THE HANDOFF PILOT SECTION ── */
+.handoff-pilot {
+  background: var(--yellow);
+  padding: 100px var(--pad);
+}
+.handoff-pilot__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.handoff-pilot__label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(30,61,81,0.5);
+  display: block;
+  margin-bottom: 1.25rem;
+}
+.handoff-pilot__headline {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--navy);
+  margin-bottom: 1.75rem;
+}
+.handoff-pilot__headline em {
+  font-style: italic;
+}
+.handoff-pilot__body {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  color: var(--navy);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+.handoff-pilot__body--close {
+  margin-bottom: 2rem;
+}
+.handoff-pilot .btn-dark {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* Card */
+.handoff-pilot__card {
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 12px;
+  padding: 2.25rem;
+}
+.handoff-pilot__card-header {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 1rem;
+}
+.handoff-pilot__pill {
+  display: inline-block;
+  background: var(--green);
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.3em 0.75em;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+}
+.handoff-pilot__price {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.handoff-pilot__price-num {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--white);
+}
+.handoff-pilot__price-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding-bottom: 0.4rem;
+}
+.handoff-pilot__currency {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.handoff-pilot__rate {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+}
+.handoff-pilot__sub {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1.5rem;
+}
+.handoff-pilot__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.handoff-pilot__list li {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--white);
+  padding-left: 1.75rem;
+  position: relative;
+}
+.handoff-pilot__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 17px;
+  height: 17px;
+  background: var(--green);
+  border-radius: 50%;
+  color: var(--navy);
+  font-size: 0.6rem;
+  font-weight: 900;
+  line-height: 17px;
+  text-align: center;
+}
+.handoff-pilot__footer {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+}
+
+@media (max-width: 800px) {
+  .handoff-pilot { padding: 70px var(--pad); }
+  .handoff-pilot__inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+
+/* ── FH RHYTHM BLOCK ── */
+.fh-rhythm {
+  max-width: 700px;
+  margin: 3rem auto 0;
+  padding: 2.5rem;
+  background: rgba(30,61,81,0.04);
+  border-left: 3px solid var(--green);
+  border-radius: 0 8px 8px 0;
+}
+.fh-rhythm__heading {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+.fh-rhythm__body {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: rgba(30,61,81,0.75);
+  line-height: 1.7;
+  margin-bottom: 0.85rem;
+}
+.fh-rhythm__close {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+}
