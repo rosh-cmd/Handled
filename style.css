@@ -419,7 +419,7 @@ em { font-style: italic; }
 .journal__title { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--navy); line-height: 1.35; margin-bottom: 0.75rem; }
 .journal__excerpt { font-size: 0.88rem; color: var(--navy); line-height: 1.7; opacity: 0.8; }
 .journal__card-link { display: block; text-decoration: none; }
-.journal__card-link:hover .journal__title { color: var(--green); }
+.journal__card-link:hover .journal__title { color: #2d5a77; }
 
 
 /* ============================================================
