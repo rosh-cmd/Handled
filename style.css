@@ -2470,12 +2470,8 @@ em { font-style: italic; }
 /* Section 2 — Booking (yellow) */
 .rd-book { background: var(--yellow); padding: 80px var(--pad); }
 .rd-book__inner {
-  max-width: var(--max);
+  max-width: 900px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
 }
 .rd-book__heading {
   font-family: var(--serif);
@@ -2483,11 +2479,10 @@ em { font-style: italic; }
   font-weight: 700;
   color: var(--navy);
   line-height: 1.2;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 .rd-book__right {
-  border-radius: 8px;
-  overflow: hidden;
+  display: none;
 }
 .rd-book__right img {
   width: 100%;
@@ -2541,8 +2536,7 @@ em { font-style: italic; }
 
 /* Responsive */
 @media (max-width: 860px) {
-  .rd-book__inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .rd-book__right { max-height: 320px; }
+  .rd-book__inner { max-width: 100%; }
 }
 @media (max-width: 480px) {
   .rd-form__row { grid-template-columns: 1fr; }
