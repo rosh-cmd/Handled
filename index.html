@@ -9,7 +9,7 @@
   <meta property="og:description" content="A monthly design partnership for businesses producing more than their current setup can handle. Listings, social, proposals, documents — handled." />
   <meta property="og:type" content="website" />
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="style.css?v=75" />
+  <link rel="stylesheet" href="style.css?v=76" />
 </head>
 <body>
 
@@ -642,7 +642,7 @@
         current = Math.max(0, Math.min(n, pageCount() - 1));
         const cardW = cards[0].getBoundingClientRect().width;
         const gap = 14;
-        track.style.transform = 'translateX(-' + (current * perPage() * (cardW + gap)) + 'px)';
+        wrap.scrollTo({ left: current * perPage() * (cardW + gap), behavior: 'smooth' });
         dotsWrap.querySelectorAll('.tq-dot').forEach((d, i) => d.classList.toggle('active', i === current));
       }
 
