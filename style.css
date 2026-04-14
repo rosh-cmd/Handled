@@ -2592,6 +2592,7 @@ em { font-style: italic; }
 /* Body */
 .art-body {
   background: #f5f3ef;
+  color: #2A2520;
   padding: 70px var(--pad) 100px;
 }
 .art-body__inner {
