@@ -3127,6 +3127,7 @@ em { font-style: italic; }
   border-radius: 10px;
   padding: 28px;
   margin: 2.5rem 0;
+  color: #2A2520;
 }
 .visual-block h4 {
   font-family: var(--sans);
@@ -3155,7 +3156,7 @@ em { font-style: italic; }
 /* BREAKDOWN TABLE + TAGS */
 .breakdown-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
 .breakdown-table th { background: var(--navy); color: #fff; padding: 10px 14px; text-align: left; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
-.breakdown-table td { padding: 11px 14px; border-bottom: 1px solid #DDD8CE; vertical-align: top; line-height: 1.5; }
+.breakdown-table td { padding: 11px 14px; border-bottom: 1px solid #DDD8CE; vertical-align: top; line-height: 1.5; color: #2A2520; }
 .breakdown-table tr:last-child td { border-bottom: none; }
 .breakdown-table tr:nth-child(even) td { background: #FAFAF8; }
 .tag { display: inline-block; font-size: 0.69rem; font-weight: 600; padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
@@ -3218,7 +3219,7 @@ em { font-style: italic; }
 .comp-table th { padding: 10px 14px; text-align: left; font-size: 0.69rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 2px solid #DDD8CE; }
 .comp-table th:first-child { color: #7A7367; }
 .comp-table th.winner { color: #3A7050; }
-.comp-table td { padding: 11px 14px; border-bottom: 1px solid #DDD8CE; vertical-align: top; line-height: 1.5; color: #7A7367; }
+.comp-table td { padding: 11px 14px; border-bottom: 1px solid #DDD8CE; vertical-align: top; line-height: 1.5; color: #2A2520; }
 .comp-table td:first-child { font-weight: 500; color: #181410; }
 .comp-table td.win  { color: #3A7050; font-weight: 500; }
 .comp-table td.mid  { color: #C4820A; }
@@ -3239,7 +3240,7 @@ em { font-style: italic; }
 .cb-row { display: grid; grid-template-columns: 1fr 100px 100px; gap: 0; border-bottom: 1px solid #DDD8CE; }
 .cb-row:last-child { border-bottom: none; }
 .cb-row.header { background: var(--navy); border-radius: 6px 6px 0 0; border-bottom: none; }
-.cb-cell { padding: 12px 14px; font-size: 0.84rem; line-height: 1.4; }
+.cb-cell { padding: 12px 14px; font-size: 0.84rem; line-height: 1.4; color: #2A2520; }
 .cb-row.header .cb-cell { font-size: 0.69rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
 .cb-row.header .cb-cell:first-child { color: #fff; }
 .cb-label     { font-weight: 500; color: #181410; }
