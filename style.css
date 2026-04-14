@@ -3216,7 +3216,7 @@ em { font-style: italic; }
 
 /* COMPARISON TABLE (article-5) */
 .comp-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
-.comp-table th { padding: 10px 14px; text-align: left; font-size: 0.69rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 2px solid #DDD8CE; }
+.comp-table th { padding: 10px 14px; text-align: left; font-size: 0.69rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 2px solid #DDD8CE; color: #2A2520; }
 .comp-table th:first-child { color: #7A7367; }
 .comp-table th.winner { color: #3A7050; }
 .comp-table td { padding: 11px 14px; border-bottom: 1px solid #DDD8CE; vertical-align: top; line-height: 1.5; color: #2A2520; }
