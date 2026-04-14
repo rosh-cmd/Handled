@@ -50,6 +50,68 @@ em { font-style: italic; }
 /* White-text variant for use inside light-on-dark headings */
 .hl-w { background: var(--green); color: inherit; display: inline; padding: 0 0.2em 0.08em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 
+/* ── Stacked CTA button ──────────────────────────────────── */
+.btn-cta {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  text-decoration: none;
+}
+.btn-kicker {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-left: 4px;
+  margin-bottom: 5px;
+  display: block;
+}
+.btn-main {
+  background: #69DE5F;
+  color: #1E3D51;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 12px 10px 22px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.btn-cta:hover .btn-main { background: #52cc49; }
+.btn-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1E3D51;
+  color: #69DE5F;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.btn-cta:hover .btn-dot { background: #0F1F2B; }
+/* Reversed — for sections with green (#69DE5F) background */
+.btn-cta--rev .btn-main { background: #1E3D51; color: #fff; }
+.btn-cta--rev .btn-dot { background: #69DE5F; color: #1E3D51; }
+.btn-cta--rev:hover .btn-main { background: #0F1F2B; }
+.btn-cta--rev:hover .btn-dot { background: #52cc49; }
+
 /* ── Buttons — same text size, reduced height ────────────── */
 .btn {
   display: inline-flex;
