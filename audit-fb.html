@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Does Your Venue Look As Good On Paper As In Person? | Handled Studio</title>
+  <meta name="description" content="Find out if your menus, social, and venue marketing are consistent with the experience you deliver. A free 5-minute audit for restaurants, cafés, bars, and hospitality businesses." />
+  <meta property="og:title" content="Food & Hospitality Brand Audit — Handled Studio" />
+  <meta property="og:description" content="Seven questions. Instant score. Find out where your brand is inconsistent across your venue's touchpoints." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1E3D51;
+      --card:   rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.1);
+      --green:  #69DE5F;
+      --gold:   #F4C85A;
+      --white:  #ffffff;
+      --red:    #E05252;
+      --amber:  #F4A94A;
+      --serif:  'Gloock', Georgia, serif;
+      --sans:   'Barlow', system-ui, sans-serif;
+      --text:   rgba(255,255,255,0.85);
+      --muted:  rgba(255,255,255,0.5);
+      --radius: 14px;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .prog-track {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: rgba(255,255,255,0.1);
+      z-index: 200;
+      transition: opacity 0.4s;
+    }
+    .prog-track.hidden { opacity: 0; pointer-events: none; }
+    .prog-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 0 2px 2px 0;
+      transition: width 0.45s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ── SHARED LOGO ── */
+    .audit-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--white);
+    }
+    .audit-logomark {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    .audit-logotype {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    /* ── STAGE 0 — INTRO ── */
+    #introScreen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem clamp(1.5rem, 6vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+    #introScreen.hidden { display: none; }
+
+    #introScreen::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+    #introScreen::after {
+      content: '';
+      position: absolute;
+      top: 60px; right: 80px;
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+      pointer-events: none;
+    }
+
+    .intro-header { padding: 0.25rem 0 0; }
+
+    .intro-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 720px;
+      padding: 4rem 0 3rem;
+    }
+
+    .intro-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.25rem;
+    }
+
+    .intro-headline {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .intro-headline .gold { color: var(--gold); }
+
+    .intro-sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+    }
+
+    .intro-hint {
+      display: inline-block;
+      padding: 1rem 1.4rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+
+    .intro-start {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: var(--green);
+      color: var(--navy);
+      border: none;
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      align-self: flex-start;
+    }
+    .intro-start:hover { background: #7ef574; transform: translateY(-1px); }
+    .intro-start-arrow { font-size: 1.1rem; line-height: 1; }
+
+    /* ── STAGES 1–3 — CARD ── */
+    #auditWrap {
+      display: none;
+      min-height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5.5rem 1.25rem 2.5rem;
+    }
+    #auditWrap.active { display: flex; }
+
+    .audit-topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      background: rgba(30,61,81,0.9);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 560px;
+      overflow: hidden;
+    }
+
+    .card-accent {
+      height: 3px;
+      background: transparent;
+      transition: background 0.5s;
+    }
+    .card-accent.red   { background: var(--red); }
+    .card-accent.amber { background: var(--gold); }
+    .card-accent.green { background: var(--green); }
+
+    .card-body { padding: clamp(1.75rem, 6vw, 2.75rem); }
+
+    .stage {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .stage.active  { display: block; }
+    .stage.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── STAGE 1 — QUIZ ── */
+    .q-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .q-counter {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .q-pips { display: flex; gap: 5px; }
+    .q-pip {
+      width: 20px; height: 3px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.12);
+      transition: background 0.3s;
+    }
+    .q-pip.done   { background: var(--green); }
+    .q-pip.active { background: rgba(105,222,95,0.4); }
+
+    .q-text {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--white);
+      margin-bottom: 1.75rem;
+    }
+
+    .q-options { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .q-opt {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.85rem 1.1rem;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 9px;
+      cursor: pointer;
+      background: rgba(255,255,255,0.04);
+      text-align: left;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--text);
+      width: 100%;
+      transition: border-color 0.18s, background 0.18s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .q-opt:hover {
+      border-color: rgba(105,222,95,0.5);
+      background: rgba(105,222,95,0.07);
+    }
+    .q-opt.chosen {
+      border-color: var(--green);
+      background: rgba(105,222,95,0.12);
+    }
+
+    .q-radio {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .q-opt.chosen .q-radio { border-color: var(--green); background: var(--green); }
+    .q-radio-inner {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--navy);
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+    .q-opt.chosen .q-radio-inner { opacity: 1; transform: scale(1); }
+    .q-opt-text { flex: 1; line-height: 1.4; }
+
+    /* ── STAGE 2 — GATE ── */
+    .gate-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.85rem;
+    }
+    .gate-headline {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 5vw, 2.1rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 0.65rem;
+    }
+    .gate-sub {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    .gate-form { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .gate-input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 1rem;
+      color: var(--white);
+      background: rgba(255,255,255,0.07);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .gate-input:focus {
+      border-color: rgba(105,222,95,0.6);
+      box-shadow: 0 0 0 3px rgba(105,222,95,0.1);
+    }
+    .gate-input::placeholder { color: rgba(255,255,255,0.28); }
+    .gate-input.error { border-color: var(--red); }
+
+    .gate-btn {
+      padding: 0.88rem 1.5rem;
+      background: var(--green);
+      color: var(--navy);
+      border: none;
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 0.97rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, opacity 0.2s;
+    }
+    .gate-btn:hover:not(:disabled) { background: #7ef574; transform: translateY(-1px); }
+    .gate-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .gate-reassure {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+    }
+
+    /* ── STAGE 3 — RESULT ── */
+    .result-score-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
+      margin-bottom: 1.1rem;
+    }
+    .result-num {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 12vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .result-denom {
+      font-size: 1.1rem;
+      color: var(--muted);
+      font-weight: 400;
+      align-self: flex-end;
+      padding-bottom: 0.55rem;
+    }
+
+    .result-pill {
+      display: inline-block;
+      padding: 0.3em 0.85em;
+      border-radius: 5px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+    .result-pill.red   { background: rgba(224,82,82,0.2);   color: #ff8f8f; }
+    .result-pill.amber { background: rgba(244,201,74,0.2);  color: var(--gold); }
+    .result-pill.green { background: rgba(105,222,95,0.18); color: var(--green); }
+
+    .result-name {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 4.5vw, 2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 0.9rem;
+    }
+    .result-desc {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+    .result-rule { height: 1px; background: var(--border); margin-bottom: 1.5rem; }
+    .result-next-label {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 0.55rem;
+    }
+    .result-cta-text {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .result-btn {
+      display: inline-block;
+      padding: 0.88rem 1.75rem;
+      background: var(--white);
+      color: var(--navy);
+      border: none;
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .result-btn:hover { background: #e8e8e8; transform: translateY(-1px); }
+
+    @media (max-width: 540px) {
+      .intro-body { padding: 3rem 0 2rem; }
+      .q-pips { display: none; }
+      #auditWrap { padding-top: 5rem; }
+      #introScreen::before { width: 300px; height: 300px; top: -80px; right: -80px; }
+      #introScreen::after  { width: 200px; height: 200px; top: 40px;  right: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="prog-track hidden" id="progTrack">
+    <div class="prog-fill" id="progFill" style="width:0%"></div>
+  </div>
+
+  <!-- STAGE 0 — INTRO -->
+  <div id="introScreen">
+    <header class="intro-header">
+      <a href="index.html" class="audit-logo">
+        <img src="assets/logomark.svg" alt="" class="audit-logomark" />
+        <span class="audit-logotype">Handled.Studio</span>
+      </a>
+    </header>
+    <div class="intro-body">
+      <p class="intro-eyebrow">Food &amp; Hospitality edition</p>
+      <h1 class="intro-headline">
+        Does Your Venue Look As<br>
+        <span class="gold">Good On Paper As In Person?</span>
+      </h1>
+      <p class="intro-sub">A 5-minute brand consistency audit for restaurants, cafés, bars, and hospitality businesses.</p>
+      <div class="intro-hint">
+        Seven questions. Answer honestly. Get your score and find out where your brand is inconsistent across your venue's touchpoints.
+      </div>
+      <button class="intro-start" id="introStartBtn">
+        Start the audit
+        <span class="intro-start-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- STAGES 1–3 — CARD -->
+  <div id="auditWrap">
+    <div class="audit-topbar">
+      <a href="index.html" class="audit-logo">
+        <img src="assets/logomark.svg" alt="" class="audit-logomark" />
+        <span class="audit-logotype">Handled.Studio</span>
+      </a>
+    </div>
+
+    <div class="card" id="auditCard">
+      <div class="card-accent" id="cardAccent"></div>
+      <div class="card-body">
+
+        <!-- STAGE 1: QUIZ -->
+        <div class="stage" id="stageQuiz">
+          <div class="q-meta">
+            <span class="q-counter" id="qCounter">Question 1 of 7</span>
+            <div class="q-pips" id="qPips"></div>
+          </div>
+          <p class="q-text" id="qText"></p>
+          <div class="q-options" id="qOptions"></div>
+        </div>
+
+        <!-- STAGE 2: GATE -->
+        <div class="stage" id="stageGate">
+          <p class="gate-eyebrow">Audit complete</p>
+          <h2 class="gate-headline">Your result is ready.</h2>
+          <p class="gate-sub">Enter your email to see your score and find out where your brand is inconsistent across your venue's touchpoints.</p>
+          <form class="gate-form" id="gateForm" novalidate>
+            <input type="email" class="gate-input" id="emailInput" placeholder="your@email.com" autocomplete="email" required />
+            <button type="submit" class="gate-btn" id="gateBtn">See my result</button>
+            <p class="gate-reassure">No spam. Just your result and what it means.</p>
+          </form>
+        </div>
+
+        <!-- STAGE 3: RESULT -->
+        <div class="stage" id="stageResult">
+          <div class="result-score-row">
+            <span class="result-num" id="rNum"></span>
+            <span class="result-denom">/ 21</span>
+          </div>
+          <span class="result-pill" id="rPill"></span>
+          <h2 class="result-name" id="rName"></h2>
+          <p class="result-desc" id="rDesc"></p>
+          <div class="result-rule"></div>
+          <p class="result-next-label">Next step</p>
+          <p class="result-cta-text" id="rCta"></p>
+          <a href="rundown.html" class="result-btn">Book a Rundown</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    'use strict';
+
+    const QUESTIONS = [
+      {
+        text: "How consistent does your brand look across your menus, social media, signage, and website?",
+        options: ["Quite different across each", "Roughly similar but not tight", "Consistent across everything"]
+      },
+      {
+        text: "When you update your menu or launch a seasonal campaign, how does the new material look compared to everything else?",
+        options: ["Often looks like a different brand", "Close but not quite matched", "Always consistent with the brand"]
+      },
+      {
+        text: "Who currently handles your design — menus, socials, event collateral, promotions?",
+        options: ["Whoever's available, often in Canva", "A mix of freelancers and in-house", "A dedicated designer who knows our brand"]
+      },
+      {
+        text: "When you open a new venue or run a major event, how prepared is your design and marketing collateral?",
+        options: ["Always a scramble at the last minute", "Usually ready but stressful to get there", "Planned, prepared, and on-brand"]
+      },
+      {
+        text: "How does the quality of your social media content reflect the actual experience of your venue?",
+        options: ["The venue is better than the content suggests", "Roughly matches", "Content matches or elevates the experience"]
+      },
+      {
+        text: "How long does it typically take to get a menu update, promotional graphic, or event flyer produced?",
+        options: ["Days or longer — always feels urgent", "A day or two, sometimes stressful", "Fast and predictable"]
+      },
+      {
+        text: "If you opened a second venue tomorrow, how confident are you that the branding would look consistent across both?",
+        options: ["Not confident at all", "Somewhat — it would take real effort", "Very confident — the system is there"]
+      }
+    ];
+
+    const BANDS = [
+      {
+        range: [7, 11],
+        key: 'red',
+        label: 'Flat out',
+        name: 'Flat out',
+        desc: "Your brand is inconsistent across your venue's touchpoints and nobody owns it. Your space is probably better than your marketing suggests. This is what Handled was built for.",
+        cta: "Book a free Rundown call. 20 minutes, no pitch. We'll show you where your brand is breaking down."
+      },
+      {
+        range: [12, 16],
+        key: 'amber',
+        label: 'Patchy',
+        name: 'Patchy',
+        desc: "Some things work, others don't. Your marketing doesn't consistently reflect the experience you actually deliver. A 30-day pilot could sort this.",
+        cta: "Book a free Rundown call. 20 minutes, no pitch. We'll show you where your brand is breaking down."
+      },
+      {
+        range: [17, 21],
+        key: 'green',
+        label: 'Sorted',
+        name: 'Sorted',
+        desc: "Your output is consistent and working well. As you grow or open new venues, maintaining this standard gets harder without a proper system.",
+        cta: "Let's make sure it scales as you grow or open new venues."
+      }
+    ];
+
+    const EMAILJS_PUBLIC_KEY  = 'qpwKhTqzAJ3UKxGb1';
+    const EMAILJS_SERVICE_ID  = 'service_jtps204';
+    const EMAILJS_TEMPLATE_ID = 'template_ts2k91g';
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    let currentQ = 0;
+    const scores = [];
+
+    const introScreen = document.getElementById('introScreen');
+    const auditWrap   = document.getElementById('auditWrap');
+    const progTrack   = document.getElementById('progTrack');
+    const progFill    = document.getElementById('progFill');
+    const cardAccent  = document.getElementById('cardAccent');
+
+    const stageQuiz   = document.getElementById('stageQuiz');
+    const stageGate   = document.getElementById('stageGate');
+    const stageResult = document.getElementById('stageResult');
+    const ALL_STAGES  = [stageQuiz, stageGate, stageResult];
+
+    function showStage(stage) {
+      ALL_STAGES.forEach(s => s.classList.remove('active', 'visible'));
+      stage.classList.add('active');
+      requestAnimationFrame(() => requestAnimationFrame(() => stage.classList.add('visible')));
+    }
+
+    function fadeOutThen(el, cb) {
+      el.classList.remove('visible');
+      setTimeout(cb, 270);
+    }
+
+    function setProgress(answered) {
+      progFill.style.width = Math.round((answered / QUESTIONS.length) * 100) + '%';
+    }
+
+    function buildPips() {
+      const row = document.getElementById('qPips');
+      row.innerHTML = '';
+      QUESTIONS.forEach(() => {
+        const pip = document.createElement('span');
+        pip.className = 'q-pip';
+        row.appendChild(pip);
+      });
+    }
+
+    function updatePips() {
+      document.querySelectorAll('.q-pip').forEach((pip, i) => {
+        pip.classList.remove('done', 'active');
+        if (i < currentQ)        pip.classList.add('done');
+        else if (i === currentQ) pip.classList.add('active');
+      });
+    }
+
+    document.getElementById('introStartBtn').addEventListener('click', () => {
+      introScreen.classList.add('hidden');
+      auditWrap.classList.add('active');
+      progTrack.classList.remove('hidden');
+      buildPips();
+      showStage(stageQuiz);
+      renderQuestion();
+    });
+
+    function renderQuestion() {
+      const q = QUESTIONS[currentQ];
+      document.getElementById('qCounter').textContent = `Question ${currentQ + 1} of ${QUESTIONS.length}`;
+      document.getElementById('qText').textContent = q.text;
+
+      const opts = document.getElementById('qOptions');
+      opts.innerHTML = '';
+      q.options.forEach((label, i) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'q-opt';
+        btn.innerHTML =
+          `<span class="q-radio"><span class="q-radio-inner"></span></span>` +
+          `<span class="q-opt-text">${label}</span>`;
+        btn.addEventListener('click', () => handleAnswer(btn, i + 1), { once: true });
+        opts.appendChild(btn);
+      });
+
+      setProgress(currentQ);
+      updatePips();
+    }
+
+    function handleAnswer(btn, score) {
+      document.querySelectorAll('.q-opt').forEach(b => (b.style.pointerEvents = 'none'));
+      btn.classList.add('chosen');
+      scores.push(score);
+
+      if (currentQ < QUESTIONS.length - 1) {
+        setTimeout(() => {
+          fadeOutThen(stageQuiz, () => {
+            currentQ++;
+            renderQuestion();
+            requestAnimationFrame(() => requestAnimationFrame(() => stageQuiz.classList.add('visible')));
+          });
+        }, 420);
+      } else {
+        setTimeout(() => {
+          setProgress(QUESTIONS.length);
+          setTimeout(() => {
+            progTrack.classList.add('hidden');
+            showStage(stageGate);
+          }, 350);
+        }, 420);
+      }
+    }
+
+    document.getElementById('gateForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const emailEl = document.getElementById('emailInput');
+      const btn     = document.getElementById('gateBtn');
+      const email   = emailEl.value.trim();
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailEl.classList.add('error');
+        emailEl.focus();
+        emailEl.addEventListener('input', () => emailEl.classList.remove('error'), { once: true });
+        return;
+      }
+
+      btn.textContent = 'Loading…';
+      btn.disabled = true;
+
+      const total = scores.reduce((a, b) => a + b, 0);
+      const band  = BANDS.find(b => total >= b.range[0] && total <= b.range[1]);
+
+      try {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          user_email:  email,
+          industry:    'Food and Hospitality',
+          score:       `${total} / 21`,
+          band:        band ? band.label : '—',
+          band_desc:   band ? band.desc  : '—',
+          q1: scores[0], q2: scores[1], q3: scores[2],
+          q4: scores[3], q5: scores[4], q6: scores[5], q7: scores[6]
+        });
+      } catch (_) { /* fail silently — result still shown */ }
+
+      renderResult(total, band);
+    });
+
+    function renderResult(total, band) {
+      cardAccent.className = 'card-accent ' + (band ? band.key : '');
+      document.getElementById('rNum').textContent = total;
+
+      const pill = document.getElementById('rPill');
+      pill.textContent = band ? band.label : '—';
+      pill.className   = 'result-pill ' + (band ? band.key : '');
+
+      document.getElementById('rName').textContent = band ? band.name : '—';
+      document.getElementById('rDesc').textContent = band ? band.desc : '—';
+      document.getElementById('rCta').textContent  = band ? band.cta  : '—';
+
+      showStage(stageResult);
+    }
+
+  </script>
+</body>
+</html>
