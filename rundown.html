@@ -15,7 +15,7 @@
   <link rel="dns-prefetch" href="https://assets.calendly.com" />
   <link rel="dns-prefetch" href="https://calendly.com" />
   <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script" />
-  <link rel="stylesheet" href="style.css?v=72" />
+  <link rel="stylesheet" href="style.css?v=75" />
 </head>
 <body>
 
@@ -53,32 +53,32 @@
   </nav>
 
 
-  <!-- SECTION 1: INFO -->
-  <section class="rd-info" style="background:#1E3D51;padding:130px clamp(1.5rem,5vw,80px) 90px;">
-    <div class="rd-info__inner">
-      <h1 class="rd-info__heading" style="color:#ffffff;font-size:clamp(2rem,4vw,3.5rem);font-family:'Gloock',Georgia,serif;font-weight:700;line-height:1.1;margin-bottom:2rem;">Book a <span style="background:#69DE5F;padding:0 0.2em 0.08em;color:#1E3D51;">Rundown</span></h1>
-      <p class="rd-info__lead">A focused 20-minute call to assess your current design setup — where it's inconsistent, where it's slowing you down, and what to fix.</p>
-      <p class="rd-info__sub-label">What you'll get:</p>
-      <ul class="rd-info__list">
-        <li>A clear view of where your output is inconsistent</li>
-        <li>What's causing it (not just symptoms)</li>
-        <li>What it would take to get it properly handled</li>
-      </ul>
-      <p class="rd-info__body">We'll walk through your current setup together. If there's a fit, we'll show you how a Handoff would work for your business. If not, you'll still leave with clarity on what to fix.</p>
-      <p class="rd-info__kicker">We take on one new Handoff each month. This call is the first step.</p>
-    </div>
-  </section>
+  <!-- BOOKING: side-by-side info + calendar -->
+  <section class="rd-split">
+    <div class="rd-split__inner">
 
+      <!-- Left: info -->
+      <div class="rd-split__info">
+        <h1 class="rd-info__heading">Book a <span style="background:#69DE5F;padding:0 0.2em 0.08em;color:#1E3D51;">Rundown</span></h1>
+        <p class="rd-info__lead">A focused 20-minute call to assess your current design setup — where it's inconsistent, where it's slowing you down, and what to fix.</p>
+        <p class="rd-info__sub-label">What you'll get:</p>
+        <ul class="rd-info__list">
+          <li>A clear view of where your output is inconsistent</li>
+          <li>What's causing it (not just symptoms)</li>
+          <li>What it would take to get it properly handled</li>
+        </ul>
+        <p class="rd-info__body">We'll walk through your current setup together. If there's a fit, we'll show you how a Handoff would work for your business. If not, you'll still leave with clarity on what to fix.</p>
+        <p class="rd-info__kicker">We take on one new Handoff each month. This call is the first step.</p>
+      </div>
 
-  <!-- SECTION 2: BOOKING -->
-  <section class="rd-book">
-    <div class="rd-book__inner">
-      <h2 class="rd-book__heading">Everything that leaves your business. <span class="hl">Handled.</span></h2>
+      <!-- Right: Calendly -->
+      <div class="rd-split__cal">
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/rosh-handledstudio/30min?background_color=1e3d51&text_color=f9f9f9&primary_color=69de5f" style="min-width:280px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly inline widget end -->
+      </div>
 
-      <!-- Calendly inline widget begin -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/rosh-handledstudio/30min?background_color=1e3d51&text_color=f9f9f9&primary_color=69de5f" style="min-width:320px;height:700px;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-      <!-- Calendly inline widget end -->
     </div>
   </section>
 

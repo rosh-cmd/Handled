@@ -57,12 +57,12 @@ em { font-style: italic; }
   justify-content: center;
   font-family: var(--sans);
   font-weight: 700;
-  font-size: 0.936rem;
+  font-size: 1.06rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   min-width: 195px;
-  height: 47px;
-  padding: 0 1.625rem;
+  height: 50px;
+  padding: 0 1.75rem;
   border-radius: 100px;
   transition: background 0.2s, color 0.2s, transform 0.15s;
   cursor: pointer;
@@ -879,12 +879,12 @@ em { font-style: italic; }
   color: var(--navy);
   font-family: var(--sans);
   font-weight: 700;
-  font-size: 0.936rem;
+  font-size: 1.06rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0 1.625rem;
-  height: 47px;
+  padding: 0 1.75rem;
+  height: 50px;
   border-radius: 100px;
   border: none;
   cursor: pointer;
@@ -1257,12 +1257,12 @@ em { font-style: italic; }
   justify-content: center;
   width: 100%;
   font-family: var(--sans);
-  font-size: 0.936rem;
+  font-size: 1.06rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0 1.625rem;
-  height: 47px;
+  padding: 0 1.75rem;
+  height: 50px;
   border-radius: 100px;
   border: none;
   cursor: pointer;
@@ -2122,9 +2122,9 @@ em { font-style: italic; }
   flex-shrink: 0;
   background: #162a3a;
   color: var(--white);
-  font-size: 1.14rem;
+  font-size: 1.27rem;
   font-weight: 600;
-  padding: 0.975rem 2.275rem;
+  padding: 1.05rem 2.4rem;
   border-radius: 100px;
   transition: background 0.2s;
   white-space: nowrap;
@@ -2431,6 +2431,32 @@ em { font-style: italic; }
    ============================================================ */
 
 /* Section 1 — Info (navy) */
+/* Side-by-side split layout */
+.rd-split {
+  background: var(--navy);
+  padding: 120px var(--pad) 90px;
+}
+.rd-split__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+}
+.rd-split__info {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.5rem;
+}
+.rd-split__cal {
+  flex: 0 0 min(580px, 52%);
+}
+@media (max-width: 960px) {
+  .rd-split__inner { flex-direction: column; }
+  .rd-split__cal { width: 100%; flex: none; }
+}
+
+/* Legacy stacked layout (kept for fallback) */
 .rd-info { background: var(--navy); padding: 120px var(--pad) 90px; }
 .rd-info__inner { max-width: 860px; margin: 0 auto; }
 .rd-info__heading {
