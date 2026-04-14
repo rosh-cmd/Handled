@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Real Estate Agency Marketing Looks Inconsistent (And What To Do About It) | Handled Studio</title>
+<meta name="description" content="Real estate agency marketing inconsistency is almost always caused by the same thing. Here's what's breaking down across your listings, proposals, and social — and how to fix it.">
+<meta name="keywords" content="real estate agency marketing, real estate brand consistency, property agency design, real estate marketing problems, real estate listing design">
+<style>
+  :root {
+    --teal:#1E3D51; --green:#69DE5F; --gold:#F4C85A;
+    --bg:#F3F0EA; --surface:#fff; --ink:#181410;
+    --mid:#7A7367; --warm:#EAE5DC; --rule:#DDD8CE;
+    --red:#B83B2A; --amber:#C4820A; --sage:#3A7050;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:16px}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* NAV */
+  .nav{background:var(--teal);padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+  .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+  .nav-logo-dot{width:24px;height:24px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--teal)}
+  .nav-logo-name{font-size:13px;font-weight:600;color:#fff;letter-spacing:0.02em}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a{font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;transition:color .15s}
+  .nav-links a:hover{color:#fff}
+  .nav-cta{background:var(--green);color:var(--teal)!important;font-weight:600!important;padding:8px 16px;border-radius:4px;font-size:12px!important}
+  @media(max-width:680px){.nav-links{display:none}}
+
+  /* ARTICLE SHELL */
+  .article-wrap{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+  .back-link{font-size:13px;color:var(--mid);display:inline-flex;align-items:center;gap:6px;margin-bottom:24px;text-decoration:none}
+  .back-link:hover{color:var(--teal)}
+  .read-time{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:16px}
+  .article-wrap h1{font-size:clamp(24px,4vw,36px);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:24px}
+  .hero-img{width:100%;height:280px;object-fit:cover;border-radius:8px;margin-bottom:36px;background:var(--warm)}
+  .hero-placeholder{width:100%;height:280px;border-radius:8px;margin-bottom:36px;background:linear-gradient(135deg,var(--teal) 0%,#2A5472 100%);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:13px}
+
+  /* BODY */
+  .article-body h2{font-size:22px;font-weight:700;color:var(--ink);margin:40px 0 14px;line-height:1.3}
+  .article-body h3{font-size:17px;font-weight:600;color:var(--ink);margin:28px 0 10px}
+  .article-body p{margin-bottom:18px;color:#2A2520}
+  .article-body ul,.article-body ol{margin:0 0 18px 20px;color:#2A2520}
+  .article-body li{margin-bottom:8px;line-height:1.65}
+  .article-body strong{color:var(--ink)}
+
+  /* INLINE VISUALS */
+  .visual-block{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:28px;margin:36px 0}
+  .visual-block h4{font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:20px}
+
+  /* TOUCHPOINT CONSISTENCY CHART */
+  .consistency-chart{display:flex;flex-direction:column;gap:12px}
+  .cc-row{display:grid;grid-template-columns:140px 1fr 52px;gap:12px;align-items:center}
+  @media(max-width:500px){.cc-row{grid-template-columns:100px 1fr 40px;gap:8px}}
+  .cc-label{font-size:13px;color:var(--mid);font-weight:500}
+  .cc-bar-track{height:10px;background:var(--warm);border-radius:5px;overflow:hidden}
+  .cc-bar-fill{height:100%;border-radius:5px;transition:width .5s}
+  .cc-pct{font-size:12px;font-weight:600;text-align:right}
+
+  /* BREAKDOWN TABLE */
+  .breakdown-table{width:100%;border-collapse:collapse;font-size:14px}
+  .breakdown-table th{background:var(--teal);color:#fff;padding:10px 14px;text-align:left;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
+  .breakdown-table td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+  .breakdown-table tr:last-child td{border-bottom:none}
+  .breakdown-table tr:nth-child(even) td{background:#FAFAF8}
+  .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:3px;white-space:nowrap}
+  .tag-red{background:rgba(184,59,42,0.1);color:var(--red)}
+  .tag-amber{background:rgba(196,130,10,0.1);color:var(--amber)}
+  .tag-green{background:rgba(58,112,80,0.1);color:var(--sage)}
+
+  /* SCENARIO FLOW */
+  .scenario{background:var(--bg);border-left:4px solid var(--gold);padding:16px 20px;border-radius:0 6px 6px 0;margin:24px 0;font-size:14px;color:#3A3028;line-height:1.65}
+  .scenario strong{color:var(--ink);display:block;margin-bottom:4px;font-size:13px;letter-spacing:0.06em;text-transform:uppercase}
+
+  /* COST CALLOUT */
+  .cost-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+  @media(max-width:500px){.cost-grid{grid-template-columns:1fr}}
+  .cost-card{border-radius:6px;padding:16px;text-align:center}
+  .cost-card .cost-val{font-size:22px;font-weight:700;margin-bottom:4px}
+  .cost-card .cost-lbl{font-size:12px;color:var(--mid);line-height:1.4}
+
+  /* PULL QUOTE */
+  .pull-quote{border-top:3px solid var(--teal);padding:20px 0 0;margin:36px 0;font-size:19px;font-weight:600;color:var(--teal);line-height:1.4}
+
+  /* CTA */
+  .article-cta{background:var(--teal);border-radius:10px;padding:36px;margin:48px 0 0;text-align:center}
+  .article-cta h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:10px}
+  .article-cta p{font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:24px;max-width:420px;margin-left:auto;margin-right:auto}
+  .article-cta a{display:inline-block;background:var(--green);color:var(--teal);font-size:14px;font-weight:700;padding:13px 28px;border-radius:5px;text-decoration:none}
+  .article-cta a:hover{opacity:0.9}
+
+  /* FOOTER */
+  .footer{background:var(--teal);padding:48px 40px 32px;margin-top:0}
+  .footer-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  @media(max-width:640px){.footer-top{grid-template-columns:1fr;gap:24px}}
+  .footer-brand p{font-size:13px;color:rgba(255,255,255,0.55);margin-top:8px;line-height:1.6}
+  .footer-logo{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+  .footer-logo-dot{width:24px;height:24px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--teal)}
+  .footer-logo-name{font-size:13px;font-weight:600;color:#fff}
+  .footer-col h5{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px}
+  .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.65);text-decoration:none;margin-bottom:8px}
+  .footer-col a:hover{color:#fff}
+  .footer-newsletter input{width:100%;padding:9px 12px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:#fff;border-radius:4px;font-size:13px;margin-bottom:8px}
+  .footer-newsletter button{background:var(--green);color:var(--teal);border:none;padding:9px 16px;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;width:100%}
+  .footer-bottom{max-width:1100px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .footer-bottom p{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6}
+  .footer-bottom a{font-size:12px;color:rgba(255,255,255,0.35)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/Handled/index.html" class="nav-logo">
+    <div class="nav-logo-dot">H</div>
+    <span class="nav-logo-name">Handled.Studio</span>
+  </a>
+  <div class="nav-links">
+    <a href="/Handled/index.html">Home</a>
+    <a href="/Handled/fully-handled.html">Fully Handled</a>
+    <a href="/Handled/work.html">Work</a>
+    <a href="/Handled/about.html">About</a>
+    <a href="/Handled/journal.html">Journal</a>
+    <a href="/Handled/rundown.html" class="nav-cta">Book a Rundown</a>
+  </div>
+</nav>
+
+<div class="article-wrap">
+  <a href="/Handled/journal.html" class="back-link">← Journal</a>
+  <div class="read-time">5 min read</div>
+  <h1>Why Real Estate Agency Marketing Looks Inconsistent (And What To Do About It)</h1>
+  <div class="hero-placeholder">[ Replace with journal hero image ]</div>
+
+  <div class="article-body">
+
+    <p>You know what it looks like. The listing brochure a senior agent produced last Tuesday looks completely different from the one a new agent put together on Friday afternoon. The agency's Instagram feed has three different logo placements across this month's posts. A proposal that went to a significant vendor had the old brand colours — because someone used a file from two years ago and nobody caught it.</p>
+
+    <p>It's not that your team doesn't care. They do. It's that they're producing high volumes of marketing collateral under time pressure, without a system governing how everything should look. And in real estate, volume is relentless.</p>
+
+    <p>The result is a brand that looks like it belongs to three different companies depending on where a client is looking.</p>
+
+    <h2>Why real estate agencies have a harder time with this than most</h2>
+
+    <p>Most industries produce marketing in concentrated bursts — a campaign here, a brochure there. Real estate doesn't work like that. A mid-sized agency might produce 20–40 listing kits per week, social content daily, proposals for every appraisal, EDMs to a database, open home flyers, sold stickers, window cards, and agent profile pieces — all simultaneously, all under deadline.</p>
+
+    <p>That volume means more people touching design. More tools being used. More files being modified. More opportunities for the brand to drift — and more moments where a prospect sees something that doesn't quite look right.</p>
+
+    <!-- VISUAL: Touchpoint consistency chart -->
+    <div class="visual-block">
+      <h4>Where brand inconsistency shows up most in real estate agencies</h4>
+      <div class="consistency-chart">
+        <div class="cc-row">
+          <div class="cc-label">Listing kits</div>
+          <div class="cc-bar-track"><div class="cc-bar-fill" style="width:82%;background:#B83B2A"></div></div>
+          <div class="cc-pct" style="color:#B83B2A">High</div>
+        </div>
+        <div class="cc-row">
+          <div class="cc-label">Social media</div>
+          <div class="cc-bar-track"><div class="cc-bar-fill" style="width:78%;background:#B83B2A"></div></div>
+          <div class="cc-pct" style="color:#B83B2A">High</div>
+        </div>
+        <div class="cc-row">
+          <div class="cc-label">Proposals</div>
+          <div class="cc-bar-track"><div class="cc-bar-fill" style="width:65%;background:#C4820A"></div></div>
+          <div class="cc-pct" style="color:#C4820A">Med</div>
+        </div>
+        <div class="cc-row">
+          <div class="cc-label">EDMs</div>
+          <div class="cc-bar-track"><div class="cc-bar-fill" style="width:55%;background:#C4820A"></div></div>
+          <div class="cc-pct" style="color:#C4820A">Med</div>
+        </div>
+        <div class="cc-row">
+          <div class="cc-label">Print / signage</div>
+          <div class="cc-bar-track"><div class="cc-bar-fill" style="width:38%;background:#3A7050"></div></div>
+          <div class="cc-pct" style="color:#3A7050">Low</div>
+        </div>
+        <div class="cc-row">
+          <div class="cc-label">Website</div>
+          <div class="cc-bar-track"><div class="cc-bar-fill" style="width:22%;background:#3A7050"></div></div>
+          <div class="cc-pct" style="color:#3A7050">Low</div>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--mid);margin-top:14px;margin-bottom:0">Inconsistency risk by touchpoint — higher volume and more people involved = higher drift risk. Print and website are typically set-and-forget; daily production output is where brand breaks down.</p>
+    </div>
+
+    <h2>The four places it breaks down</h2>
+
+    <h3>1. Multiple people producing the same type of output</h3>
+    <p>In most agencies, listing collateral is produced by a mix of agents, PAs, and whoever's available. Each person has their own version of "what looks right." They're all working from slightly different files, slightly different memories of the brand, and slightly different standards for what's good enough to go out.</p>
+    <p>No individual is doing anything wrong. The problem is structural — there's no single source of truth, and no one person who owns the output.</p>
+
+    <h3>2. Canva drift</h3>
+    <p>Canva has made it easy for anyone to produce design without a designer. That's useful for small, fast jobs. The problem is that without locked templates and a brand kit that's actively managed, Canva becomes a creative free-for-all. Someone changes a font because they think it looks better. Someone uses a slightly different blue because it's what came up first. Someone creates a template "improvement" and shares it with the team.</p>
+    <p>Over three months, the Canva library is a graveyard of variations, none of which are wrong enough to flag but all of which are different enough to make the brand look patchy.</p>
+
+    <div class="scenario">
+      <strong>What this looks like in practice</strong>
+      A vendor receives a listing kit that looks sharp. They accept your appraisal. Their neighbour — who's been watching your signs go up on the street — gets a different agent's listing kit two weeks later. Same agency, noticeably different look. The neighbour can't articulate why, but the first impression is: this agency doesn't quite have its act together.
+    </div>
+
+    <h3>3. Files stored across too many places</h3>
+    <p>The logo is in three places: on the shared drive, on someone's desktop, and in an email someone sent in 2022. The current version is the one on the shared drive — but not everyone knows that, and the email version is the one that keeps getting used because it's faster to find.</p>
+    <p>Asset management is boring. It's also the foundation of brand consistency. Without one source of truth for logos, colours, fonts, and templates, every piece of output is a gamble.</p>
+
+    <h3>4. Freelancers and VAs executing without context</h3>
+    <p>A freelance designer gets briefed on a flyer. The brief says "make it look on-brand." The designer has never been to your office, hasn't seen your competitor's marketing, doesn't know your area, and doesn't know which agent this is for. They produce something technically correct — right colours, right logo — but it feels generic. It doesn't look like you.</p>
+    <p>This isn't the designer's fault. The brief is the ceiling. And a brief written in five minutes can only produce work that was worth five minutes of thinking.</p>
+
+    <!-- VISUAL: The breakdown table -->
+    <div class="visual-block">
+      <h4>Common real estate design problems — cause and impact</h4>
+      <table class="breakdown-table">
+        <thead>
+          <tr>
+            <th>What you notice</th>
+            <th>What's actually causing it</th>
+            <th>Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Listing kits look different agent-to-agent</td>
+            <td>No locked templates; agents self-producing</td>
+            <td><span class="tag tag-red">Vendor trust</span></td>
+          </tr>
+          <tr>
+            <td>Social posts don't match the website</td>
+            <td>Different tools, no brand kit governance</td>
+            <td><span class="tag tag-amber">Brand perception</span></td>
+          </tr>
+          <tr>
+            <td>Old logo appearing on new collateral</td>
+            <td>No single asset source of truth</td>
+            <td><span class="tag tag-red">Professionalism</span></td>
+          </tr>
+          <tr>
+            <td>Proposals vary in quality</td>
+            <td>No template; written from scratch each time</td>
+            <td><span class="tag tag-red">Conversion rate</span></td>
+          </tr>
+          <tr>
+            <td>Freelancer work feels generic</td>
+            <td>Brief is too thin; no embedded brand knowledge</td>
+            <td><span class="tag tag-amber">Brand differentiation</span></td>
+          </tr>
+          <tr>
+            <td>Design takes longer than it should</td>
+            <td>No system; every job starts from scratch</td>
+            <td><span class="tag tag-amber">Team time overhead</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>What it's actually costing you</h2>
+
+    <p>Inconsistent marketing doesn't show up on a P&L. It shows up in subtler, more expensive ways.</p>
+
+    <p>A vendor researching agents looks at your website, your recent social posts, and the listing kit from a property they noticed down the street — and each one looks like it came from a slightly different agency. Their subconscious reads this as: they're not quite as together as they appear. The conscious version of that thought is: maybe I should get another appraisal.</p>
+
+    <p>Internally, the cost is management time. Every job that starts from scratch takes longer than it should. Every revision cycle that catches an off-brand detail is a cycle that shouldn't have been necessary. Every principal who's double-checking design before it goes out is spending time on something that should be owned by someone else.</p>
+
+    <div class="visual-block">
+      <h4>The real cost of unmanaged design in a real estate agency</h4>
+      <div class="cost-grid">
+        <div class="cost-card" style="background:rgba(184,59,42,0.07);border:1px solid rgba(184,59,42,0.15)">
+          <div class="cost-val" style="color:var(--red)">3–5 hrs</div>
+          <div class="cost-lbl">Principal time per week spent reviewing, fixing, or chasing design output</div>
+        </div>
+        <div class="cost-card" style="background:rgba(196,130,10,0.07);border:1px solid rgba(196,130,10,0.15)">
+          <div class="cost-val" style="color:var(--amber)">4–6×</div>
+          <div class="cost-lbl">How much longer a job takes when there's no template or established system</div>
+        </div>
+        <div class="cost-card" style="background:rgba(30,61,81,0.07);border:1px solid rgba(30,61,81,0.15)">
+          <div class="cost-val" style="color:var(--teal)">$0</div>
+          <div class="cost-lbl">What inconsistent branding costs on a P&L — and why it never gets fixed</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>What fixing it actually looks like</h2>
+
+    <p>The solution isn't a brand workshop or a new set of guidelines. Guidelines don't produce output. People and systems produce output.</p>
+
+    <p>What actually fixes real estate marketing inconsistency is one designer who knows your brand — your fonts, your colours, your tone, your agents, your area — and owns the production of everything that goes out every month. Not a VA executing against a brief. Not a freelancer who turns up when you need them. A designer embedded in your output, month after month, who gets faster and better at producing your work the longer they do it.</p>
+
+    <p>In month one, they learn the brand and fix the asset library. In month two, they start building the templates that make every subsequent job faster. By month three, your output looks like it came from one place — because it does.</p>
+
+    <div class="pull-quote">
+      "Your brand looks inconsistent because nobody owns how it shows up day to day. That's an operational problem, not a design problem."
+    </div>
+
+    <p>The Handoff is how we start — a 30-day pilot at $1,500 AUD where we take on your real production, learn your brand, and show you what consistent output actually looks like. No lock-in, no long-term commitment required.</p>
+
+    <p>If you're not sure whether this is the right fit, start with the Rundown — a free 20-minute call where we look at your current setup, identify where things are breaking down, and tell you honestly whether Handled makes sense for your agency.</p>
+
+  </div><!-- /article-body -->
+
+  <!-- AUDIT CTA -->
+  <div class="visual-block" style="background:rgba(244,200,90,0.12);border-color:rgba(244,200,90,0.4);text-align:center;padding:32px">
+    <h4 style="color:var(--teal);margin-bottom:8px;font-size:14px">NOT SURE WHERE YOUR SETUP IS AT?</h4>
+    <p style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px">Take the Real Estate Marketing Consistency Audit</p>
+    <p style="font-size:14px;color:var(--mid);margin-bottom:20px">7 questions. 5 minutes. Find out exactly where your brand is breaking down — and what to do about it.</p>
+    <a href="/Handled/audit.html" style="display:inline-block;background:var(--teal);color:#fff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:5px;text-decoration:none">Take the free audit →</a>
+  </div>
+
+  <div class="article-cta">
+    <h3>Ready to get your agency's output sorted?</h3>
+    <p>Book a free Rundown call — 20 minutes to look at your current design setup and identify exactly where things are breaking down.</p>
+    <a href="/Handled/rundown.html">Book a Rundown</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-dot">H</div>
+        <span class="footer-logo-name">Handled.Studio</span>
+      </div>
+      <p>Senior. Local. Handled.</p>
+      <p style="margin-top:12px;font-size:11px">We acknowledge the Wurundjeri Woi-wurrung people as the Traditional Owners of Nillumbik and pay respect to Elders past, present and emerging.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="/Handled/index.html">Home</a>
+      <a href="/Handled/fully-handled.html">Fully Handled</a>
+      <a href="/Handled/work.html">Work</a>
+      <a href="/Handled/about.html">About</a>
+      <a href="/Handled/journal.html">Journal</a>
+    </div>
+    <div class="footer-col">
+      <h5>Handled weekly</h5>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Your email">
+        <button>Subscribe</button>
+      </div>
+      <a href="https://www.linkedin.com/in/rosh-java-aa990830/" style="margin-top:12px">LinkedIn</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 by Handled.Studio</p>
+    <a href="/Handled/privacy.html">Privacy Policy</a>
+  </div>
+</footer>
+</body>
+</html>
