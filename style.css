@@ -111,6 +111,12 @@ em { font-style: italic; }
 .btn-cta--rev .btn-dot { background: #69DE5F; color: #1E3D51; }
 .btn-cta--rev:hover .btn-main { background: #0F1F2B; }
 .btn-cta--rev:hover .btn-dot { background: #52cc49; }
+/* Kicker colour by background context */
+.btn-cta--dark .btn-kicker { color: rgba(255,255,255,0.4); }
+.btn-cta--light .btn-kicker { color: rgba(30,61,81,0.5); }
+.btn-cta--rev .btn-kicker { color: rgba(30,61,81,0.5); }
+/* Menu position */
+.menu .btn-cta { margin-top: 2.5rem; align-self: flex-start; }
 
 /* ── Buttons — same text size, reduced height ────────────── */
 .btn {
