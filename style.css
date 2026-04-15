@@ -2565,11 +2565,18 @@ em { font-style: italic; }
 /* Single-column stacked layout */
 .rd-split {
   background: var(--navy);
-  padding: 160px clamp(1.75rem, 5vw, 4rem) 110px;
+  padding-top: 90px;
+  padding-bottom: 110px;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
 }
 .rd-split__inner {
   max-width: 860px;
   margin: 0 auto;
+}
+/* Explicit top breathing room so heading is always clear of the fixed nav */
+.rd-split .rd-info__heading {
+  padding-top: 4rem;
 }
 .rd-split__cal {
   margin: 2.5rem 0 3rem;
@@ -2579,7 +2586,13 @@ em { font-style: italic; }
   max-width: 680px;
 }
 @media (max-width: 680px) {
-  .rd-split { padding: 120px 1.75rem 60px; }
+  .rd-split {
+    padding-top: 80px;
+    padding-bottom: 60px;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+  .rd-split .rd-info__heading { padding-top: 2.5rem; }
 }
 
 /* Legacy stacked layout (kept for fallback) */
