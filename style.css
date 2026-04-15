@@ -1430,6 +1430,7 @@ em { font-style: italic; }
   padding: 0.75em 2.5rem;
   margin-top: 1.5rem;
 }
+.offers__proof .btn-cta { margin-top: 2rem; }
 
 
 /* ── FH Responsive ───────────────────────────────────────── */
@@ -2580,6 +2581,9 @@ em { font-style: italic; }
 }
 .rd-split__cal {
   flex: 0 0 min(580px, 52%);
+  position: sticky;
+  top: 90px;
+  align-self: flex-start;
 }
 @media (max-width: 960px) {
   .rd-split__inner { flex-direction: column; }
