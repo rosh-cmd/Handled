@@ -2565,7 +2565,7 @@ em { font-style: italic; }
 /* Side-by-side split layout */
 .rd-split {
   background: var(--navy);
-  padding: 180px var(--pad) 110px;
+  padding: 140px var(--pad) 110px;
 }
 .rd-split__inner {
   max-width: var(--max);
@@ -2577,7 +2577,7 @@ em { font-style: italic; }
 .rd-split__info {
   flex: 1;
   min-width: 0;
-  padding-top: 0.5rem;
+  padding-top: 6rem;
 }
 .rd-split__cal {
   flex: 0 0 min(580px, 52%);
@@ -2587,10 +2587,10 @@ em { font-style: italic; }
 }
 @media (max-width: 960px) {
   .rd-split__inner { flex-direction: column; }
-  .rd-split__cal { width: 100%; flex: none; }
+  .rd-split__cal { width: 100%; flex: none; position: static; top: auto; }
 }
 @media (max-width: 680px) {
-  .rd-split { padding: 120px 1.75rem 60px; }
+  .rd-split { padding: 110px 1.75rem 60px; }
 }
 
 /* Legacy stacked layout (kept for fallback) */
