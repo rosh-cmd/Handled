@@ -12,7 +12,7 @@
   <!-- Preconnect to Calendly so the iframe loads without DNS/TLS delay -->
   <link rel="preconnect" href="https://calendly.com" crossorigin />
   <link rel="dns-prefetch" href="https://calendly.com" />
-  <link rel="stylesheet" href="style.css?v=82" />
+  <link rel="stylesheet" href="style.css?v=83" />
 </head>
 <body>
 
@@ -50,25 +50,15 @@
   </nav>
 
 
-  <!-- BOOKING: side-by-side info + calendar -->
+  <!-- BOOKING -->
   <section class="rd-split">
     <div class="rd-split__inner">
 
-      <!-- Left: info -->
-      <div class="rd-split__info">
-        <h1 class="rd-info__heading">Book a <span style="background:#69DE5F;padding:0 0.2em 0.08em;color:#1E3D51;">Rundown</span></h1>
-        <p class="rd-info__lead">A focused 20-minute call to assess your current design setup — where it's inconsistent, where it's slowing you down, and what to fix.</p>
-        <p class="rd-info__sub-label">What you'll get:</p>
-        <ul class="rd-info__list">
-          <li>A clear view of where your output is inconsistent</li>
-          <li>What's causing it (not just symptoms)</li>
-          <li>What it would take to get it properly handled</li>
-        </ul>
-        <p class="rd-info__body">We'll walk through your current setup together. If there's a fit, we'll show you how a Handoff would work for your business. If not, you'll still leave with clarity on what to fix.</p>
-        <p class="rd-info__kicker">We take on one new Handoff each month. This call is the first step.</p>
-      </div>
+      <!-- Heading + lead -->
+      <h1 class="rd-info__heading">Book a <span style="background:#69DE5F;padding:0 0.2em 0.08em;color:#1E3D51;">Rundown</span></h1>
+      <p class="rd-info__lead">A focused 20-minute call to assess your current design setup — where it's inconsistent, where it's slowing you down, and what to fix.</p>
 
-      <!-- Right: Calendly -->
+      <!-- Calendar -->
       <div class="rd-split__cal">
         <iframe
           src="https://calendly.com/rosh-handledstudio/30min?background_color=1e3d51&text_color=f9f9f9&primary_color=69de5f&hide_gdpr_banner=1"
@@ -77,6 +67,18 @@
           frameborder="0"
           title="Book a Rundown — Handled Studio"
           style="border:none;border-radius:8px;display:block;"></iframe>
+      </div>
+
+      <!-- Body text below calendar -->
+      <div class="rd-split__body">
+        <p class="rd-info__sub-label">What you'll get:</p>
+        <ul class="rd-info__list">
+          <li>A clear view of where your output is inconsistent</li>
+          <li>What's causing it (not just symptoms)</li>
+          <li>What it would take to get it properly handled</li>
+        </ul>
+        <p class="rd-info__body">We'll walk through your current setup together. If there's a fit, we'll show you how a Handoff would work for your business. If not, you'll still leave with clarity on what to fix.</p>
+        <p class="rd-info__kicker">We take on one new Handoff each month. This call is the first step.</p>
       </div>
 
     </div>

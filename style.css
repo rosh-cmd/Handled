@@ -2562,35 +2562,24 @@ em { font-style: italic; }
    ============================================================ */
 
 /* Section 1 — Info (navy) */
-/* Side-by-side split layout */
+/* Single-column stacked layout */
 .rd-split {
   background: var(--navy);
-  padding: 140px var(--pad) 110px;
+  padding: 160px clamp(1.75rem, 5vw, 4rem) 110px;
 }
 .rd-split__inner {
-  max-width: var(--max);
+  max-width: 860px;
   margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
-  gap: 4rem;
-}
-.rd-split__info {
-  flex: 1;
-  min-width: 0;
-  padding-top: 6rem;
 }
 .rd-split__cal {
-  flex: 0 0 min(580px, 52%);
-  position: sticky;
-  top: 90px;
-  align-self: flex-start;
+  margin: 2.5rem 0 3rem;
+  width: 100%;
 }
-@media (max-width: 960px) {
-  .rd-split__inner { flex-direction: column; }
-  .rd-split__cal { width: 100%; flex: none; position: static; top: auto; }
+.rd-split__body {
+  max-width: 680px;
 }
 @media (max-width: 680px) {
-  .rd-split { padding: 110px 1.75rem 60px; }
+  .rd-split { padding: 120px 1.75rem 60px; }
 }
 
 /* Legacy stacked layout (kept for fallback) */
