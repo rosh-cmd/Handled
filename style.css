@@ -68,7 +68,7 @@ em { font-style: italic; }
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding-left: 4px;
+  padding-left: 22px;
   margin-bottom: 5px;
   display: block;
 }
@@ -117,6 +117,12 @@ em { font-style: italic; }
 .btn-cta--rev .btn-kicker { color: rgba(30,61,81,0.5); }
 /* Menu position */
 .menu .btn-cta { margin-top: 2.5rem; align-self: flex-start; }
+/* Hide kicker in top nav bar (compact) */
+.nav .btn-cta .btn-kicker { display: none; }
+/* Offers card btn-cta positioning */
+.offers__card .btn-cta { margin-top: 1.25rem; }
+/* Work page case study btn-cta spacing */
+.wk-work .btn-cta { margin-top: 1.5rem; }
 
 /* ── Buttons — same text size, reduced height ────────────── */
 .btn {
@@ -2525,7 +2531,7 @@ em { font-style: italic; }
 /* Side-by-side split layout */
 .rd-split {
   background: var(--navy);
-  padding: 120px var(--pad) 90px;
+  padding: 155px var(--pad) 110px;
 }
 .rd-split__inner {
   max-width: var(--max);
