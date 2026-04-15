@@ -2576,7 +2576,7 @@ em { font-style: italic; }
 }
 /* Explicit top breathing room so heading is always clear of the fixed nav */
 .rd-split .rd-info__heading {
-  padding-top: 4rem;
+  padding-top: 7rem;
 }
 .rd-split__cal {
   margin: 2.5rem 0 3rem;
