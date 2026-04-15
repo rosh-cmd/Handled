@@ -9,7 +9,7 @@
   <meta property="og:description" content="A monthly design partnership for businesses producing more than their current setup can handle. Listings, social, proposals, documents — handled." />
   <meta property="og:type" content="website" />
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="style.css?v=79" />
+  <link rel="stylesheet" href="style.css?v=80" />
 </head>
 <body>
 
@@ -154,9 +154,10 @@
   <!-- PLUG AND PLAY -->
   <section class="plug">
     <div class="plug__inner">
-      <h2 class="plug__headline">Handled is your <span class="hl">plug-and-play design team</span></h2>
+      <h2 class="plug__headline"><span class="hl">Senior. Local. Handled.</span></h2>
       <div class="plug__cols">
         <div>
+          <p class="plug__subtitle">Handled is your plug-and-play design team</p>
           <p class="plug__body">When your design is handled properly, everything becomes more consistent, more efficient, and easier to manage.</p>
           <p class="plug__body">The work moves faster. The brand holds together.<br>And you're no longer the one keeping it all in check.</p>
           <p class="plug__kicker">Handled.</p>
@@ -371,8 +372,12 @@
         </div>
       </div>
 
-      <!-- Dots -->
-      <div class="tq-dots" id="tqDots"></div>
+      <!-- Controls: prev arrow · dots · next arrow -->
+      <div class="tq-controls">
+        <button class="tq-arrow" id="tqPrev" aria-label="Previous testimonials">&#8592;</button>
+        <div class="tq-dots" id="tqDots"></div>
+        <button class="tq-arrow" id="tqNext" aria-label="Next testimonials">&#8594;</button>
+      </div>
 
       <div class="logos">
         <div class="logos__item"><img src="assets/logo-barfoot.svg" alt="Barfoot &amp; Thompson" /></div>
@@ -389,7 +394,7 @@
   <section class="journal">
     <div class="journal__header">
       <h2 class="journal__heading">Journal</h2>
-      <a href="journal.html" class="btn btn-green">Read More</a>
+      <a href="journal.html" class="btn-cta btn-cta--dark"><span class="btn-kicker">Journal</span><span class="btn-main">Read More <span class="btn-dot">→</span></span></a>
     </div>
     <hr class="journal__rule" />
     <div class="journal__grid">
@@ -619,6 +624,8 @@
     (function() {
       const track = document.getElementById('tqTrack');
       const dotsWrap = document.getElementById('tqDots');
+      const prevBtn = document.getElementById('tqPrev');
+      const nextBtn = document.getElementById('tqNext');
       if (!track || !dotsWrap) return;
       const wrap = track.parentElement;
 
@@ -645,6 +652,10 @@
         wrap.scrollTo({ left: current * perPage() * (cardW + gap), behavior: 'smooth' });
         dotsWrap.querySelectorAll('.tq-dot').forEach((d, i) => d.classList.toggle('active', i === current));
       }
+
+      // Arrow buttons
+      if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
 
       // Touch swipe — on wrapper, with horizontal-intent detection
       let tx = 0, ty = 0;
