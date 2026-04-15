@@ -70,7 +70,7 @@ em { font-style: italic; }
   text-transform: uppercase;
   padding-left: 22px;
   margin-bottom: 5px;
-  display: block;
+  display: none;
 }
 .btn-main {
   background: #69DE5F;
@@ -117,10 +117,11 @@ em { font-style: italic; }
 .btn-cta--rev .btn-kicker { color: rgba(30,61,81,0.5); }
 /* Menu position */
 .menu .btn-cta { margin-top: 2.5rem; align-self: flex-start; }
-/* Hide kicker in top nav bar (compact) */
-.nav .btn-cta .btn-kicker { display: none; }
-/* Offers card btn-cta positioning */
-.offers__card .btn-cta { margin-top: 1.25rem; }
+/* Show kicker only in mobile menu popup */
+.menu .btn-cta .btn-kicker { display: block; }
+/* Offers card btn-cta — full width, centred pill */
+.offers__card .btn-cta { margin-top: 1.25rem; align-self: stretch; }
+.offers__card .btn-cta .btn-main { width: 100%; justify-content: center; }
 /* Work page case study btn-cta spacing */
 .wk-work .btn-cta { margin-top: 1.5rem; }
 
@@ -383,6 +384,7 @@ em { font-style: italic; }
 .plug__inner { max-width: var(--max); margin: 0 auto; }
 .plug__headline { font-family: var(--serif); font-size: clamp(1.7rem, 3.8vw, 3.7rem); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 65px; }
 .plug__cols { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: center; }
+.plug__subtitle { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
 .plug__body { font-size: 0.97rem; color: rgba(255,255,255,0.68); line-height: 1.8; margin-bottom: 1.2rem; }
 .plug__kicker { font-size: 0.97rem; font-weight: 700; font-style: italic; color: var(--white); margin-bottom: 2.5rem; }
 .plug__img { border-radius: 6px; overflow: hidden; background: #2a5060; aspect-ratio: 4/3; }
@@ -476,7 +478,30 @@ em { font-style: italic; }
 .tq-card__name { font-size: 19px; font-weight: 600; color: var(--white); }
 .tq-card__company { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.4); font-style: italic; }
 
-.tq-dots { display: none; justify-content: center; gap: 8px; margin-top: 20px; }
+.tq-dots { display: flex; justify-content: center; gap: 8px; }
+.tq-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 24px;
+}
+.tq-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.7);
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+.tq-arrow:hover { background: rgba(255,255,255,0.18); color: #fff; }
 .tq-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.15); border: none; cursor: pointer; transition: background 0.25s ease; padding: 0; }
 .tq-dot.active { background: #8aff6c; }
 
@@ -591,9 +616,8 @@ em { font-style: italic; }
   .production-stats__divider { width: 100%; height: 1px; align-self: auto; margin: 16px 0; }
   .production-stats__block { text-align: center; }
   .portfolio__grid { grid-template-columns: 1fr; }
-  /* tq-card: single column on mobile, show dots for navigation hint */
+  /* tq-card: single column on mobile */
   .tq-card { width: 85vw; }
-  .tq-dots { display: flex; }
   .journal__grid { grid-template-columns: 1fr 1fr; }
   .footer__nav { grid-template-columns: repeat(3, 1fr); }
 }
@@ -1677,7 +1701,6 @@ em { font-style: italic; }
     padding: 9px 10px 9px 16px;
     gap: 10px;
   }
-  .btn-kicker { padding-left: 16px; font-size: 9px; }
   .btn-dot { width: 24px; height: 24px; font-size: 13px; }
 
   /* Hero (homepage) */
@@ -2541,7 +2564,7 @@ em { font-style: italic; }
 /* Side-by-side split layout */
 .rd-split {
   background: var(--navy);
-  padding: 155px var(--pad) 110px;
+  padding: 180px var(--pad) 110px;
 }
 .rd-split__inner {
   max-width: var(--max);
@@ -2561,6 +2584,9 @@ em { font-style: italic; }
 @media (max-width: 960px) {
   .rd-split__inner { flex-direction: column; }
   .rd-split__cal { width: 100%; flex: none; }
+}
+@media (max-width: 680px) {
+  .rd-split { padding: 120px 1.75rem 60px; }
 }
 
 /* Legacy stacked layout (kept for fallback) */
