@@ -1667,8 +1667,18 @@ em { font-style: italic; }
    ============================================================ */
 @media (max-width: 767px) {
 
-  /* Nav */
+  /* Nav — hide CTA button on mobile (hamburger menu takes over) */
   .nav__right .btn { display: none; }
+  .nav__right .btn-cta { display: none; }
+
+  /* btn-cta — scale down on small screens */
+  .btn-main {
+    font-size: 12px;
+    padding: 9px 10px 9px 16px;
+    gap: 10px;
+  }
+  .btn-kicker { padding-left: 16px; font-size: 9px; }
+  .btn-dot { width: 24px; height: 24px; font-size: 13px; }
 
   /* Hero (homepage) */
   .hero__top { padding: 60px var(--pad) 40px; }
