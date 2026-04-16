@@ -81,7 +81,7 @@ em { font-style: italic; }
   letter-spacing: 0.02em;
   text-transform: none;
   padding: 10px 12px 10px 22px;
-  border-radius: 4px;
+  border-radius: 14px;
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -1103,7 +1103,7 @@ em { font-style: italic; }
 
 /* ── Real production experience ──────────────────────────── */
 .fh-experience { background: var(--yellow); padding: 90px var(--pad); text-align: center; }
-.fh-experience__inner { max-width: 780px; margin: 0 auto; }
+.fh-experience__inner { max-width: 940px; margin: 0 auto; }
 .fh-experience__headline {
   font-family: var(--serif);
   font-size: clamp(1.7rem, 3.8vw, 4.1rem);
@@ -1111,6 +1111,10 @@ em { font-style: italic; }
   color: var(--navy);
   line-height: 1.1;
   margin-bottom: 1.5rem;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .fh-experience__headline { white-space: normal; }
 }
 .fh-experience__body {
   font-size: 1rem;
