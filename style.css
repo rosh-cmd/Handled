@@ -75,10 +75,11 @@ em { font-style: italic; }
 .btn-main {
   background: #69DE5F;
   color: #1E3D51;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
   padding: 10px 12px 10px 22px;
   border-radius: 4px;
   display: inline-flex;
@@ -87,8 +88,8 @@ em { font-style: italic; }
   border: none;
   cursor: pointer;
   transition: background 0.15s;
-  font-family: inherit;
   white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 .btn-cta:hover .btn-main { background: #52cc49; }
 .btn-dot {
