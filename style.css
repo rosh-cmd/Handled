@@ -2163,23 +2163,23 @@ em { font-style: italic; }
 /* Testimonial */
 .bt-tq {
   background: linear-gradient(180deg,
-    #1E3D51 0%,
-    #1c3e50 8%,
-    #194049 17%,
-    #164141 26%,
-    #164539 35%,
-    #1a4d33 44%,
-    #255931 52%,
-    #306c33 61%,
-    #3e8338 70%,
-    #509d3f 79%,
-    #60bf4b 89%,
-    #69DE5F 100%
+    #0e2130 0%,
+    #0c2130 8%,
+    #0d2530 17%,
+    #0d2a2a 26%,
+    #0d2e24 35%,
+    #10341e 44%,
+    #184020 52%,
+    #215224 61%,
+    #2d6428 70%,
+    #3d7c2e 79%,
+    #4fa038 89%,
+    #5ac44f 100%
   );
   padding: 90px var(--pad);
 }
 .bt-tq__inner {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -2187,8 +2187,8 @@ em { font-style: italic; }
 }
 .bt-tq__avatar {
   flex-shrink: 0;
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid rgba(255,255,255,0.25);
