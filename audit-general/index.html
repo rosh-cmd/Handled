@@ -473,6 +473,51 @@
       #introScreen::before { width: 300px; height: 300px; top: -80px; right: -80px; }
       #introScreen::after  { width: 200px; height: 200px; top: 40px;  right: 30px; }
     }
+
+    /* ── RESULT SECTIONS ── */
+    #resultSections { display: none; }
+    .rs { padding: 80px clamp(1.5rem,5vw,80px); }
+    .rs__inner { max-width: 900px; margin: 0 auto; }
+    .rs__inner--wide { max-width: 1100px; }
+
+    .rs-validate { background: #162d3d; }
+    .rs-validate__eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 1rem; }
+    .rs-validate__headline { font-family: var(--serif); font-size: clamp(1.5rem,3.5vw,2.8rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 1.5rem; }
+    .rs-validate__body { font-size: 1rem; color: var(--text); line-height: 1.85; }
+    .rs-validate__closer { font-size: 1rem; color: var(--white); font-weight: 600; margin-top: 1.25rem; }
+
+    .rs-trust { background: #1a3545; }
+    .rs-trust__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .rs-trust__body { font-size: 1rem; color: var(--text); line-height: 1.85; }
+    .rs-trust__body + .rs-trust__body { margin-top: 1.25rem; }
+    .rs-trust__stats { display: flex; flex-direction: column; gap: 1.25rem; }
+    .rs-trust__stat { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem 1.5rem; }
+    .rs-trust__stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--green); line-height: 1; margin-bottom: 0.3rem; }
+    .rs-trust__stat-label { font-size: 0.88rem; color: var(--text); line-height: 1.5; }
+
+    .rs-bridge { background: var(--gold); }
+    .rs-bridge__inner { max-width: 820px; margin: 0 auto; text-align: center; }
+    .rs-bridge__headline { font-family: var(--serif); font-size: clamp(1.5rem,3vw,2.6rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 1.5rem; }
+    .rs-bridge__body { font-size: 1rem; color: rgba(22,42,58,0.8); line-height: 1.85; }
+    .rs-bridge__body + .rs-bridge__body { margin-top: 1rem; }
+    .rs-bridge__closer { font-size: 1rem; color: var(--navy); font-weight: 600; margin-top: 1.5rem; line-height: 1.7; }
+
+    .rs-cta { background: var(--navy); text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
+    .rs-cta__headline { font-family: var(--serif); font-size: clamp(1.6rem,3.5vw,3rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 1rem; }
+    .rs-cta__body { font-size: 1rem; color: var(--text); line-height: 1.85; max-width: 600px; margin: 0 auto 2rem; }
+    .rs-cta__btn { display: inline-flex; align-items: center; gap: 12px; background: var(--green); color: var(--navy); font-family: var(--serif); font-size: 1rem; font-weight: 500; letter-spacing: 0.02em; padding: 14px 28px; border-radius: 14px; text-decoration: none; white-space: nowrap; box-shadow: 0 2px 10px rgba(0,0,0,0.15); transition: background 0.15s; }
+    .rs-cta__btn:hover { background: #52cc49; }
+    .rs-cta__btn-dot { width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: var(--green); display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; }
+
+    .rs-secondary { background: var(--navy); text-align: center; padding-top: 0; padding-bottom: 80px; padding-left: clamp(1.5rem,5vw,80px); padding-right: clamp(1.5rem,5vw,80px); }
+    .rs-secondary__text { font-size: 0.95rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .rs-secondary__btn { display: inline-flex; align-items: center; gap: 12px; background: transparent; color: var(--white); font-family: var(--serif); font-size: 1rem; font-weight: 500; padding: 12px 28px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.25); text-decoration: none; transition: border-color 0.15s; }
+    .rs-secondary__btn:hover { border-color: rgba(255,255,255,0.6); }
+    .rs-secondary__btn-dot { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.1); display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+
+    @media (max-width: 680px) {
+      .rs-trust__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -559,6 +604,72 @@
       </div>
     </div>
   </div>
+
+
+  <div id="resultSections">
+
+    <!-- S1: VALIDATION -->
+    <section class="rs rs-validate">
+      <div class="rs__inner">
+        <p class="rs-validate__eyebrow">Your results</p>
+        <h2 class="rs-validate__headline">Your results show there may be gaps in your current production process.</h2>
+        <p class="rs-validate__body">Whether that's showing up as inconsistent output, workflow bottlenecks, or rushed last-minute work, these issues are common in growing businesses where design has become reactive rather than structured.</p>
+        <p class="rs-validate__closer">Handled was built to solve exactly that.</p>
+      </div>
+    </section>
+
+    <!-- S2: TRUST -->
+    <section class="rs rs-trust">
+      <div class="rs__inner rs__inner--wide">
+        <div class="rs-trust__grid">
+          <div>
+            <p class="rs-trust__body">We've supported businesses managing thousands of assets across growing teams, sales functions, and multi-location operations.</p>
+            <p class="rs-trust__body">From campaign rollouts and proposals to internal documents and branded collateral, Handled helps businesses create consistency and remove production bottlenecks at scale.</p>
+          </div>
+          <div class="rs-trust__stats">
+            <div class="rs-trust__stat">
+              <div class="rs-trust__stat-num">70+</div>
+              <div class="rs-trust__stat-label">Locations and teams supported</div>
+            </div>
+            <div class="rs-trust__stat">
+              <div class="rs-trust__stat-num">15+</div>
+              <div class="rs-trust__stat-label">Years production experience</div>
+            </div>
+            <div class="rs-trust__stat">
+              <div class="rs-trust__stat-num">Trusted</div>
+              <div class="rs-trust__stat-label">By brands across property, finance and service sectors</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3: BRIDGE -->
+    <section class="rs rs-bridge">
+      <div class="rs-bridge__inner">
+        <h2 class="rs-bridge__headline">The good news? Most of these issues are fixable with the right production structure.</h2>
+        <p class="rs-bridge__body">In many cases, businesses don't need more staff.</p>
+        <p class="rs-bridge__body">They simply need a reliable system and someone to take ownership of the work.</p>
+        <p class="rs-bridge__closer">Handled becomes your embedded production partner. Keeping design moving, maintaining consistency, and removing the burden from your internal team.</p>
+      </div>
+    </section>
+
+    <!-- S4: PRIMARY CTA -->
+    <section class="rs rs-cta">
+      <div class="rs__inner">
+        <h2 class="rs-cta__headline">Want help unpacking your results?</h2>
+        <p class="rs-cta__body">Book a free 20-minute Rundown and we'll walk through your audit, discuss where the friction is coming from, and show you what improving it could look like.</p>
+        <a href="/rundown" class="rs-cta__btn">Book Your Rundown <span class="rs-cta__btn-dot">→</span></a>
+      </div>
+    </section>
+
+    <!-- S5: SECONDARY CTA -->
+    <section class="rs-secondary">
+      <p class="rs-secondary__text">Prefer to explore the service first?</p>
+      <a href="/fully-handled" class="rs-secondary__btn">View Fully Handled <span class="rs-secondary__btn-dot">→</span></a>
+    </section>
+
+  </div><!-- /resultSections -->
 
   <script>
     'use strict';
@@ -775,6 +886,7 @@
       document.getElementById('rCta').textContent  = band ? band.cta  : '—';
 
       showStage(stageResult);
+      document.getElementById('resultSections').style.display = 'block';
     }
 
   </script>
