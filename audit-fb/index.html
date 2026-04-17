@@ -631,9 +631,9 @@
     <section class="rs rs-validate">
       <div class="rs__inner">
         <p class="rs-validate__eyebrow">Your results</p>
-        <h2 class="rs-validate__headline">Your results show there may be gaps in your current production process.</h2>
-        <p class="rs-validate__body">Whether that's showing up as inconsistent output, workflow bottlenecks, or rushed last-minute work, these issues are common in growing businesses where design has become reactive rather than structured.</p>
-        <p class="rs-validate__closer">Handled was built to solve exactly that.</p>
+        <h2 class="rs-validate__headline" id="rsValHeadline">Your results show there may be gaps in your current production process.</h2>
+        <p class="rs-validate__body" id="rsValBody">Whether that's showing up as inconsistent output, workflow bottlenecks, or rushed last-minute work, these issues are common in growing businesses where design has become reactive rather than structured.</p>
+        <p class="rs-validate__closer" id="rsValCloser">Handled was built to solve exactly that.</p>
       </div>
     </section>
 
@@ -906,6 +906,11 @@
 
       showStage(stageResult);
       document.getElementById('resultSections').style.display = 'block';
+      if (band && band.key === 'green') {
+        document.getElementById('rsValHeadline').textContent = 'Your production is already in a strong place — with room to refine and scale further.';
+        document.getElementById('rsValBody').textContent = 'Your production is well handled, but there are opportunities to strengthen consistency, efficiency, and long-term scalability.';
+        document.getElementById('rsValCloser').style.display = 'none';
+      }
     }
 
   </script>
