@@ -722,10 +722,10 @@
     <!-- S3: BRIDGE -->
     <section class="rs rs-bridge">
       <div class="rs-bridge__inner">
-        <h2 class="rs-bridge__headline">The good news? Most of these issues are fixable with the right production structure.</h2>
-        <p class="rs-bridge__body">In many cases, businesses don't need more staff.</p>
-        <p class="rs-bridge__body">They simply need a reliable system and someone to take ownership of the work.</p>
-        <p class="rs-bridge__closer">Handled becomes your embedded production partner. Keeping design moving, maintaining consistency, and removing the burden from your internal team.</p>
+        <h2 class="rs-bridge__headline" id="rsBridgeHeadline">The good news? Most of these issues are fixable with the right production structure.</h2>
+        <p class="rs-bridge__body" id="rsBridgeBody1">In many cases, businesses don't need more staff.</p>
+        <p class="rs-bridge__body" id="rsBridgeBody2">They simply need a reliable system and someone to take ownership of the work.</p>
+        <p class="rs-bridge__closer" id="rsBridgeCloser">Handled becomes your embedded production partner. Keeping design moving, maintaining consistency, and removing the burden from your internal team.</p>
       </div>
     </section>
 
@@ -982,6 +982,10 @@
         document.getElementById('rsValHeadline').textContent = 'Your production is already in a strong place — with room to refine and scale further.';
         document.getElementById('rsValBody').textContent = 'Your production is well handled, but there are opportunities to strengthen consistency, efficiency, and long-term scalability.';
         document.getElementById('rsValCloser').style.display = 'none';
+        document.getElementById('rsBridgeHeadline').textContent = 'The focus now is scale and consistency.';
+        document.getElementById('rsBridgeBody1').textContent = 'You’re already operating at a strong level. The next step is ensuring that standard holds as volume increases.';
+        document.getElementById('rsBridgeBody2').textContent = 'Handled provides ongoing production support — keeping output consistent, reducing internal pressure, and allowing your team to stay focused on higher-value work.';
+        document.getElementById('rsBridgeCloser').style.display = 'none';
       }
     }
 
