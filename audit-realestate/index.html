@@ -959,6 +959,18 @@
         });
       } catch (_) { /* fail silently — result still shown */ }
 
+      // User-facing result email
+      try {
+        await emailjs.send(EMAILJS_SERVICE_ID, 'template_ghvsvhg', {
+          user_email: email,
+          score:      `${total} / 21`,
+          band:       band ? band.label : '—',
+          band_desc:  band ? band.desc  : '—',
+          band_key:   band ? band.key   : '—',
+          band_cta:   band ? band.cta   : '—',
+        });
+      } catch (_) { /* fail silently — result still shown */ }
+
       renderResult(total, band);
     });
 
