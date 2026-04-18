@@ -901,6 +901,25 @@
         });
       } catch (_) { /* fail silently — result still shown */ }
 
+      // Kit drip sequence
+      try {
+        await fetch('https://api.kit.com/v4/subscribers', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Kit-Api-Key': 'kit_d74a728b474dacfa6c6419c1b9fd1ac0'
+          },
+          body: JSON.stringify({
+            email_address: email,
+            fields: {
+              band:     band ? band.key   : '',
+              band_label: band ? band.label : '',
+              score:    `${total} / 21`,
+            }
+          })
+        });
+      } catch (_) { /* fail silently */ }
+
       renderResult(total, band);
     });
 
