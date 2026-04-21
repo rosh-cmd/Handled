@@ -77,11 +77,11 @@ em { font-style: italic; }
   color: #1E3D51;
   font-family: var(--serif);
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: none;
-  padding: 10px 12px 10px 22px;
-  border-radius: 14px;
+  padding: 8px 12px 8px 22px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -1708,7 +1708,7 @@ em { font-style: italic; }
   /* btn-cta — scale down on small screens */
   .btn-main {
     font-size: 12px;
-    padding: 9px 10px 9px 16px;
+    padding: 7px 10px 7px 16px;
     gap: 10px;
   }
   .btn-dot { width: 24px; height: 24px; font-size: 13px; }
