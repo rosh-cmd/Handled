@@ -344,5 +344,28 @@
     <a href="/Handled/privacy.html">Privacy Policy</a>
   </div>
 </footer>
+  <!-- Meta Pixel CTA tracking -->
+  <script>
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('a[href],button');
+    if (!el || !window.fbq) return;
+    var href = el.getAttribute('href') || '';
+    if (href.includes('fit-check')) {
+      fbq('track', 'Lead', {content_name: 'Book Fit Check'});
+    } else if (href.includes('fully-handled')) {
+      fbq('trackCustom', 'ViewFullyHandled');
+    } else if (href.includes('audit-realestate')) {
+      fbq('trackCustom', 'StartAudit', {industry: 'Real Estate'});
+    } else if (href.includes('audit-construction')) {
+      fbq('trackCustom', 'StartAudit', {industry: 'Construction'});
+    } else if (href.includes('audit-fb')) {
+      fbq('trackCustom', 'StartAudit', {industry: 'Food & Hospitality'});
+    } else if (href.includes('audit-general')) {
+      fbq('trackCustom', 'StartAudit', {industry: 'General'});
+    } else if (href === '/audit') {
+      fbq('trackCustom', 'StartAudit', {industry: 'General'});
+    }
+  });
+  </script>
 </body>
 </html>

@@ -954,6 +954,7 @@
 
       showStage(stageResult);
       document.getElementById('resultSections').style.display = 'block';
+      if (window.fbq) fbq('trackCustom', 'AuditResult', {band: band ? band.key : 'unknown', score: total});
       if (band && band.key === 'green') {
         document.getElementById('rsValHeadline').textContent = 'Your production is already in a strong place — with room to refine and scale further.';
         document.getElementById('rsValBody').textContent = 'Your production is well handled, but there are opportunities to strengthen consistency, efficiency, and long-term scalability.';
@@ -965,6 +966,29 @@
       }
     }
 
+  </script>
+  <!-- Meta Pixel CTA tracking -->
+  <script>
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('a[href],button');
+    if (!el || !window.fbq) return;
+    var href = el.getAttribute('href') || '';
+    if (href.includes('fit-check')) {
+      fbq('track', 'Lead', {content_name: 'Book Fit Check'});
+    } else if (href.includes('fully-handled')) {
+      fbq('trackCustom', 'ViewFullyHandled');
+    } else if (href.includes('audit-realestate')) {
+      fbq('trackCustom', 'StartAudit', {industry: 'Real Estate'});
+    } else if (href.includes('audit-construction')) {
+      fbq('trackCustom', 'StartAudit', {industry: 'Construction'});
+    } else if (href.includes('audit-fb')) {
+      fbq('trackCustom', 'StartAudit', {industry: 'Food & Hospitality'});
+    } else if (href.includes('audit-general')) {
+      fbq('trackCustom', 'StartAudit', {industry: 'General'});
+    } else if (href === '/audit') {
+      fbq('trackCustom', 'StartAudit', {industry: 'General'});
+    }
+  });
   </script>
 </body>
 </html>
