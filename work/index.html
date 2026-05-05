@@ -10,7 +10,7 @@
   <meta property="og:description" content="Brand and production design across real estate, construction, retail, F&amp;B, and finance. See how consistency is built, maintained, and scaled." />
   <meta property="og:type" content="website" />
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=104" />
+  <link rel="stylesheet" href="/style.css?v=105" />
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -453,76 +453,100 @@
       }
     });
 
-    // Industries grid — looping slider with drag + swipe
+    // Industries grid — free-scroll lerp, wheel, drag, touch, infinite loop
     (function () {
-      const grid = document.getElementById('wkGrid');
+      const wrap   = document.querySelector('.wk-grid-wrap');
+      const grid   = document.getElementById('wkGrid');
       const btnNext = document.getElementById('wkNext');
       const btnPrev = document.getElementById('wkPrev');
       if (!grid) return;
 
-      // Clone slides for seamless looping
-      const origSlides = Array.from(grid.querySelectorAll('.wk-grid__slide'));
-      origSlides.forEach(s => grid.appendChild(s.cloneNode(true)));
-      origSlides.forEach(s => grid.insertBefore(s.cloneNode(true), grid.firstChild));
+      // Clone slides for seamless loop
+      const orig = Array.from(grid.querySelectorAll('.wk-grid__slide'));
+      orig.forEach(s => grid.appendChild(s.cloneNode(true)));
+      orig.forEach(s => grid.insertBefore(s.cloneNode(true), grid.firstChild));
 
-      const slides = grid.querySelectorAll('.wk-grid__slide');
-      const total = origSlides.length;
+      const N = orig.length;
 
-      function perPage() { return window.innerWidth <= 680 ? 1 : 3; }
-      function pageCount() { return Math.ceil(total / perPage()); }
+      function slideStep() {
+        return (orig[0].getBoundingClientRect().width + 24);
+      }
+      function setW()   { return slideStep() * (window.innerWidth <= 680 ? 1 : 3); }
+      function totalW() { return slideStep() * N; }
+      function startAt(){ return totalW(); } // offset = one full clone set
 
-      let page = pageCount(); // start after the prepended clones
+      let current = startAt();
+      let target  = startAt();
+      let rafId   = null;
 
-      function slideW() { return origSlides[0].getBoundingClientRect().width + 24; }
+      function render(x) { grid.style.transform = `translateX(-${x}px)`; }
 
-      function setPos(animate) {
-        if (!animate) grid.style.transition = 'none';
-        else grid.style.transition = 'transform 0.42s cubic-bezier(0.4,0,0.2,1)';
-        grid.style.transform = 'translateX(-' + (page * perPage() * slideW()) + 'px)';
+      function normalise() {
+        const tw = totalW();
+        if (target > startAt() + tw) { target -= tw; current -= tw; render(current); }
+        if (target < startAt())      { target += tw; current += tw; render(current); }
       }
 
-      function advance(dir) {
-        page += dir;
-        setPos(true);
-        // After transition, silently jump to real section if in clone zone
-        setTimeout(() => {
-          const pc = pageCount();
-          if (page >= pc * 2) { page = pc; setPos(false); }
-          if (page < pc)      { page = pc * 2 - 1; setPos(false); }
-          requestAnimationFrame(() => { grid.style.transition = ''; });
-        }, 450);
+      function tick() {
+        normalise();
+        const diff = target - current;
+        if (Math.abs(diff) < 0.4) { current = target; render(current); rafId = null; return; }
+        current += diff * 0.13;
+        render(current);
+        rafId = requestAnimationFrame(tick);
       }
 
-      btnNext.addEventListener('click', () => advance(1));
-      btnPrev.addEventListener('click', () => advance(-1));
+      function setTarget(v) {
+        target = v;
+        if (!rafId) rafId = requestAnimationFrame(tick);
+      }
 
-      // Touch swipe
-      let tx = 0;
-      grid.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
-      grid.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - tx;
-        if (Math.abs(dx) > 40) advance(dx < 0 ? 1 : -1);
-      }, { passive: true });
+      // Wheel / trackpad horizontal scroll
+      wrap.addEventListener('wheel', e => {
+        const ax = Math.abs(e.deltaX), ay = Math.abs(e.deltaY);
+        if (ax > ay * 0.4 && ax > 2) { e.preventDefault(); setTarget(target + e.deltaX * 1.4); }
+      }, { passive: false });
+
+      // Arrows — step one page
+      btnNext && btnNext.addEventListener('click', () => setTarget(target + setW()));
+      btnPrev && btnPrev.addEventListener('click', () => setTarget(target - setW()));
 
       // Mouse drag
-      let dragging = false, dragStartX = 0, dragMoved = 0;
+      let dragging = false, dStartX = 0, dStartTarget = 0, dLastX = 0, dVel = 0;
       grid.addEventListener('mousedown', e => {
-        dragging = true; dragStartX = e.clientX; dragMoved = 0;
+        dragging = true; dStartX = e.clientX; dStartTarget = target;
+        dLastX = e.clientX; dVel = 0;
         grid.classList.add('is-dragging');
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
       });
       window.addEventListener('mousemove', e => {
         if (!dragging) return;
-        dragMoved = e.clientX - dragStartX;
+        dVel = dLastX - e.clientX; dLastX = e.clientX;
+        current = dStartTarget + (dStartX - e.clientX);
+        target = current; render(current); normalise();
       });
       window.addEventListener('mouseup', () => {
         if (!dragging) return;
-        dragging = false;
-        grid.classList.remove('is-dragging');
-        if (Math.abs(dragMoved) > 60) advance(dragMoved < 0 ? 1 : -1);
+        dragging = false; grid.classList.remove('is-dragging');
+        setTarget(target + dVel * 6);
       });
 
-      setPos(false);
-      window.addEventListener('resize', () => { setPos(false); });
+      // Touch swipe
+      let tStartX = 0, tStartTarget = 0, tLastX = 0, tVel = 0;
+      wrap.addEventListener('touchstart', e => {
+        tStartX = e.touches[0].clientX; tStartTarget = target;
+        tLastX = tStartX; tVel = 0;
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      }, { passive: true });
+      wrap.addEventListener('touchmove', e => {
+        const dx = tStartX - e.touches[0].clientX;
+        tVel = tLastX - e.touches[0].clientX; tLastX = e.touches[0].clientX;
+        current = tStartTarget + dx; target = current; render(current); normalise();
+      }, { passive: true });
+      wrap.addEventListener('touchend', () => { setTarget(target + tVel * 8); }, { passive: true });
+
+      render(current);
+      window.addEventListener('resize', () => { current = startAt(); target = startAt(); render(current); });
     })();
   </script>
   <!-- Meta Pixel CTA tracking -->
