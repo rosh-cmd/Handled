@@ -1836,7 +1836,10 @@ em { font-style: italic; }
   display: flex;
   gap: 24px;
   transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  cursor: grab;
+  user-select: none;
 }
+.wk-grid.is-dragging { cursor: grabbing; transition: none; }
 .wk-grid__slide {
   flex: 0 0 calc((100% - 48px) / 3);
   scroll-snap-align: start;

@@ -10,7 +10,7 @@
   <meta property="og:description" content="Brand and production design across real estate, construction, retail, F&amp;B, and finance. See how consistency is built, maintained, and scaled." />
   <meta property="og:type" content="website" />
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=103" />
+  <link rel="stylesheet" href="/style.css?v=104" />
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -453,44 +453,76 @@
       }
     });
 
-    // Industries grid arrows
+    // Industries grid — looping slider with drag + swipe
     (function () {
       const grid = document.getElementById('wkGrid');
       const btnNext = document.getElementById('wkNext');
       const btnPrev = document.getElementById('wkPrev');
       if (!grid) return;
 
+      // Clone slides for seamless looping
+      const origSlides = Array.from(grid.querySelectorAll('.wk-grid__slide'));
+      origSlides.forEach(s => grid.appendChild(s.cloneNode(true)));
+      origSlides.forEach(s => grid.insertBefore(s.cloneNode(true), grid.firstChild));
+
       const slides = grid.querySelectorAll('.wk-grid__slide');
-      const total = slides.length;
-      let page = 0;
+      const total = origSlides.length;
 
       function perPage() { return window.innerWidth <= 680 ? 1 : 3; }
       function pageCount() { return Math.ceil(total / perPage()); }
 
-      function update() {
-        const pp = perPage();
-        const slideW = slides[0].getBoundingClientRect().width;
-        const gap = 24;
-        grid.style.transform = 'translateX(-' + (page * pp * (slideW + gap)) + 'px)';
-        btnPrev.style.display = page === 0 ? 'none' : 'flex';
-        btnNext.style.display = page >= pageCount() - 1 ? 'none' : 'flex';
+      let page = pageCount(); // start after the prepended clones
+
+      function slideW() { return origSlides[0].getBoundingClientRect().width + 24; }
+
+      function setPos(animate) {
+        if (!animate) grid.style.transition = 'none';
+        else grid.style.transition = 'transform 0.42s cubic-bezier(0.4,0,0.2,1)';
+        grid.style.transform = 'translateX(-' + (page * perPage() * slideW()) + 'px)';
       }
 
-      btnNext.addEventListener('click', () => { if (page < pageCount() - 1) { page++; update(); } });
-      btnPrev.addEventListener('click', () => { if (page > 0) { page--; update(); } });
+      function advance(dir) {
+        page += dir;
+        setPos(true);
+        // After transition, silently jump to real section if in clone zone
+        setTimeout(() => {
+          const pc = pageCount();
+          if (page >= pc * 2) { page = pc; setPos(false); }
+          if (page < pc)      { page = pc * 2 - 1; setPos(false); }
+          requestAnimationFrame(() => { grid.style.transition = ''; });
+        }, 450);
+      }
+
+      btnNext.addEventListener('click', () => advance(1));
+      btnPrev.addEventListener('click', () => advance(-1));
 
       // Touch swipe
       let tx = 0;
       grid.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
       grid.addEventListener('touchend', e => {
         const dx = e.changedTouches[0].clientX - tx;
-        if (Math.abs(dx) > 40) {
-          if (dx < 0 && page < pageCount() - 1) { page++; update(); }
-          if (dx > 0 && page > 0) { page--; update(); }
-        }
+        if (Math.abs(dx) > 40) advance(dx < 0 ? 1 : -1);
       }, { passive: true });
 
-      update();
+      // Mouse drag
+      let dragging = false, dragStartX = 0, dragMoved = 0;
+      grid.addEventListener('mousedown', e => {
+        dragging = true; dragStartX = e.clientX; dragMoved = 0;
+        grid.classList.add('is-dragging');
+      });
+      window.addEventListener('mousemove', e => {
+        if (!dragging) return;
+        dragMoved = e.clientX - dragStartX;
+      });
+      window.addEventListener('mouseup', () => {
+        if (!dragging) return;
+        dragging = false;
+        grid.classList.remove('is-dragging');
+        if (Math.abs(dragMoved) > 60) advance(dragMoved < 0 ? 1 : -1);
+      });
+
+      setPos(false);
+      window.addEventListener('resize', () => { setPos(false); });
     })();
   </script>
   <!-- Meta Pixel CTA tracking -->
