@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="/assets/logomark.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brand Consistency Audit | Handled Studio</title>
-  <meta name="description" content="Find out how consistent your brand really is. A free 2-minute audit from Handled Studio." />
-  <meta property="og:title" content="Brand Consistency Audit — Handled Studio" />
-  <meta property="og:description" content="Seven questions. Instant score. Find out where your design is breaking down." />
+  <title>Real Estate Marketing Audit — Handled Studio</title>
+  <meta name="description" content="7 questions to find out if inconsistent design is costing you listings — and what to do about it." />
+  <meta property="og:title" content="Real Estate Marketing Audit — Handled Studio" />
+  <meta property="og:description" content="7 questions to find out if inconsistent design is costing you listings — and what to do about it." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -615,14 +615,14 @@
     </header>
 
     <div class="intro-body">
-      <p class="intro-eyebrow">Real Estate Edition</p>
+      <p class="intro-eyebrow">Real estate edition</p>
       <h1 class="intro-headline">
-        Is Your Real Estate Marketing<br>
-        <span class="gold">Holding Your Listings Back?</span>
+        Good Agency.<br>
+        <span class="gold">Inconsistent Brand.</span>
       </h1>
-      <p class="intro-sub">A 5-minute brand consistency audit for real estate agencies.</p>
+      <p class="intro-sub">7 questions to find out if your design output is costing you listings — and what to do about it.</p>
       <div class="intro-hint">
-        Seven questions. Answer honestly. Get your score and find out where your design is breaking down.
+        Most agencies know their brand is inconsistent. Most just don't know how far it's spread. Answer honestly — not how you'd like things to be.
       </div>
       <button class="intro-start" id="introStartBtn">
         Start the audit
@@ -662,7 +662,7 @@
         <div class="stage" id="stageGate">
           <p class="gate-eyebrow">Audit complete</p>
           <h2 class="gate-headline">Your result is ready.</h2>
-          <p class="gate-sub">Enter your email to see your brand consistency score and what it means for your business.</p>
+          <p class="gate-sub">Enter your email to see your score breakdown and what it means for your agency — and what to do about it.</p>
           <form class="gate-form" id="gateForm" novalidate>
             <input
               type="email"
@@ -749,9 +749,9 @@
     <!-- S4: PRIMARY CTA -->
     <section class="rs rs-cta">
       <div class="rs__inner">
-        <h2 class="rs-cta__headline">Want help unpacking your results?</h2>
-        <p class="rs-cta__body">Book a free 20-minute Fit Check and we'll walk through your audit, discuss where the friction is coming from, and show you what improving it could look like.</p>
-        <a href="/fit-check" class="rs-cta__btn">Book Your Fit Check <span class="rs-cta__btn-dot">→</span></a>
+        <h2 class="rs-cta__headline">Scored Flat out or Patchy?</h2>
+        <p class="rs-cta__body">Book a free Fit Check. 20 minutes, no pitch. We'll show you exactly where your design is breaking down — and what to fix first.</p>
+        <a href="/fit-check" class="rs-cta__btn">Book a Fit Check <span class="rs-cta__btn-dot">→</span></a>
       </div>
     </section>
 
@@ -770,32 +770,32 @@
 
     const QUESTIONS = [
       {
-        text: "When something goes out — a listing, proposal, or social post — how consistent does it look with your other marketing?",
-        options: ["Almost never consistent", "Sometimes consistent", "Almost always consistent"]
+        text: "When something goes out — a listing, a proposal, a social post — how consistent does it look with everything else?",
+        options: ["Whoever made it used whatever template they could find", "Roughly on-brand when there's time to think about it", "Same look, every time, no matter who does it"]
       },
       {
         text: "Who is responsible for making sure design looks right before it leaves your business?",
-        options: ["No one really owns it", "Whoever has time picks it up", "One person owns it consistently"]
+        options: ["No one really owns it", "Whoever has time picks it up", "One person owns it, consistently"]
       },
       {
         text: "How often do you find yourself fixing or adjusting design work before it goes out?",
-        options: ["Regularly — it's become normal", "Occasionally", "Rarely or never"]
+        options: ["Regularly — it's just become normal", "Occasionally", "Rarely — the system works"]
       },
       {
         text: "How would you describe your current design setup?",
-        options: ["Freelancers we re-brief each time", "A mix of tools and people with no real system", "A consistent process that works"]
+        options: ["Freelancers we re-brief every single time", "A mix of tools and people — no real system", "A consistent process that actually works"]
       },
       {
-        text: "How long does it typically take to get a piece of design turned around?",
-        options: ["Varies wildly and causes delays", "Sometimes slower than we'd like", "Reliably fast and predictable"]
+        text: "How long does it typically take to get a piece of design work turned around?",
+        options: ["Varies wildly and regularly causes delays", "Sometimes slower than it should be", "Reliably fast and predictable"]
       },
       {
-        text: "How confident are you that your brand looks consistent across website, signage, social, and documents?",
-        options: ["Not confident — varies a lot", "Somewhat consistent but not tight", "Very consistent across everything"]
+        text: "How confident are you that your brand looks consistent across your website, signage, social media, and documents?",
+        options: ["Not confident — it varies a lot", "Somewhat consistent but not tight", "Very consistent across everything"]
       },
       {
-        text: "When your business gets busy, what happens to your design output?",
-        options: ["Things go out wrong or not at all", "Quality dips and things slow down", "The system holds up under pressure"]
+        text: "When your agency gets busy, what happens to your design output?",
+        options: ["Things go out wrong — or don't go out at all", "Quality dips and things slow down", "The system holds up under pressure"]
       }
     ];
 
@@ -805,24 +805,24 @@
         key: 'red',
         label: 'Flat out',
         name: 'Flat out',
-        desc: "Your design is reactive and nobody really owns it. Things are going out inconsistently — and it's probably costing you more than you realise in time, rework, and how your brand lands with clients.",
-        cta: "Book a free Fit Check call — we'll show you exactly where it's breaking down and what to do about it."
+        desc: "Design is reactive, nobody owns it, and things are going out wrong — or not going out at all. Listings sit without promo. Posts are late. The brand looks different every week. You know this. You just haven't had the bandwidth to fix it.",
+        cta: "This is what Handled was built for."
       },
       {
         range: [12, 16],
         key: 'amber',
         label: 'Patchy',
         name: 'Patchy',
-        desc: "Some things work, others don't. You've got parts of a system but they're not joined up yet. The inconsistency is noticeable and it's holding your brand back from landing the way it should.",
-        cta: "A 30-day pilot could sort this — real output, no long-term commitment."
+        desc: "Some things look good, others don't. Quality shifts depending on timing and who's working on it. Vendors and buyers are forming an impression from whatever happens to be in front of them — and it's not always your best work.",
+        cta: "A 30-day pilot could sort this."
       },
       {
         range: [17, 21],
         key: 'green',
         label: 'Sorted',
         name: 'Sorted',
-        desc: "Your setup is mostly working. Design goes out consistently and your brand holds together well. The goal now is making sure that holds as your output grows and your business scales.",
-        cta: "Let's make sure it holds as you grow."
+        desc: "Your output is consistent and your process works. As you grow, the standard gets harder to maintain — new agents, higher volume, more channels. Worth getting ahead of it before the cracks appear.",
+        cta: "Let's make sure it scales."
       }
     ];
 
