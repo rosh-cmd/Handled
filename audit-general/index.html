@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="/assets/logomark.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Is Your Design Setup Holding Your Business Back? | Handled Studio</title>
-  <meta name="description" content="Find out if your design setup is reactive, inconsistent, or costing you. A free 5-minute brand consistency audit for growing businesses." />
-  <meta property="og:title" content="Growing Business Brand Audit — Handled Studio" />
-  <meta property="og:description" content="Seven questions. Instant score. Find out where your design is holding your business back." />
+  <title>Growing Business Design Audit — Handled Studio</title>
+  <meta name="description" content="7 questions to find out if your design output is keeping pace with your business — or quietly holding it back." />
+  <meta property="og:title" content="Growing Business Design Audit — Handled Studio" />
+  <meta property="og:description" content="7 questions to find out if your design output is keeping pace with your business — or quietly holding it back." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -574,12 +574,12 @@
     <div class="intro-body">
       <p class="intro-eyebrow">Growing business edition</p>
       <h1 class="intro-headline">
-        Is Your Design Setup<br>
-        <span class="gold">Holding Your Business Back?</span>
+        Your Business Has Outgrown<br>
+        <span class="gold">Your Design Setup.</span>
       </h1>
-      <p class="intro-sub">A 5-minute brand consistency audit for growing businesses.</p>
+      <p class="intro-sub">7 questions to find out if your design output is keeping pace with your business — or quietly holding it back.</p>
       <div class="intro-hint">
-        Seven questions. Answer honestly. Get your score and find out where your design is holding your business back.
+        Most growing businesses hit a point where the brand that got them here stops being good enough for where they're going. This tells you whether you're there yet. Answer honestly.
       </div>
       <button class="intro-start" id="introStartBtn">
         Start the audit
@@ -615,7 +615,7 @@
         <div class="stage" id="stageGate">
           <p class="gate-eyebrow">Audit complete</p>
           <h2 class="gate-headline">Your result is ready.</h2>
-          <p class="gate-sub">Enter your email to see your score and find out where your design is holding your business back.</p>
+          <p class="gate-sub">Enter your email to see your score and what it means for your business — and what to do about it.</p>
           <form class="gate-form" id="gateForm" novalidate>
             <input type="email" class="gate-input" id="emailInput" placeholder="your@email.com" autocomplete="email" required />
             <button type="submit" class="gate-btn" id="gateBtn">See my result</button>
@@ -694,9 +694,9 @@
     <!-- S4: PRIMARY CTA -->
     <section class="rs rs-cta">
       <div class="rs__inner">
-        <h2 class="rs-cta__headline">Want help unpacking your results?</h2>
-        <p class="rs-cta__body">Book a free 20-minute Fit Check and we'll walk through your audit, discuss where the friction is coming from, and show you what improving it could look like.</p>
-        <a href="/fit-check" class="rs-cta__btn">Book Your Fit Check <span class="rs-cta__btn-dot">→</span></a>
+        <h2 class="rs-cta__headline">Scored Flat out or Patchy?</h2>
+        <p class="rs-cta__body">Book a free Fit Check. 20 minutes, no pitch. We'll show you exactly where your design is costing you — and what to fix first.</p>
+        <a href="/fit-check" class="rs-cta__btn">Book a Fit Check <span class="rs-cta__btn-dot">→</span></a>
       </div>
     </section>
 
@@ -713,32 +713,32 @@
 
     const QUESTIONS = [
       {
-        text: "How consistent does your brand look across your website, social media, documents, and any printed collateral?",
-        options: ["Varies a lot across each", "Roughly similar but not tight", "Consistent across everything"]
+        text: "When a potential client or partner looks your business up, how accurately does your brand reflect the actual size and quality of what you do?",
+        options: ["We look smaller than we are", "Roughly accurate but not compelling", "Our brand matches — and reinforces — the business"]
       },
       {
-        text: "Who is responsible for making sure design looks right before it leaves your business?",
-        options: ["No one really owns it", "Whoever has time picks it up", "One person owns it consistently"]
+        text: "How consistent does your brand look across your website, proposals, presentations, and social media?",
+        options: ["Different tools, different people — it varies significantly", "Roughly similar, not polished", "Consistent and professional across all of it"]
       },
       {
-        text: "How often do you find yourself fixing or adjusting design work before it goes out?",
-        options: ["Regularly — it's become normal", "Occasionally", "Rarely or never"]
+        text: "Who is responsible for design output in your business?",
+        options: ["Whoever has time — usually the founder", "A mix of freelancers we re-brief each time", "A dedicated person or partner who owns it"]
       },
       {
-        text: "How would you describe your current design setup?",
-        options: ["Freelancers or VAs we re-brief each time", "A mix of tools and people with no real system", "A consistent process that works"]
+        text: "When you need something designed — a proposal, a deck, a campaign asset — how long does it take?",
+        options: ["Unpredictable — it regularly causes delays", "Manageable but slower than it should be", "Fast and reliable — we have a system"]
       },
       {
-        text: "How long does it typically take to get a piece of design work turned around?",
-        options: ["Varies wildly and causes delays", "Sometimes slower than we'd like", "Reliably fast and predictable"]
+        text: "How much time does your leadership team spend on design-related tasks — briefing, reviewing, fixing, chasing?",
+        options: ["More than it should — it's a hidden time drain", "Some, but it's manageable", "Minimal — design runs without us in the loop"]
       },
       {
-        text: "How accurately does your current marketing reflect the quality of your actual product or service?",
-        options: ["We're better than our marketing suggests", "Roughly matched", "Marketing reflects the quality well"]
+        text: "When you win a new client or close a deal, how much of that comes from how your brand looks versus what you said?",
+        options: ["The brand rarely helps — we win despite it", "The brand is neutral — not hurting, not helping", "The brand does real work — it reinforces our credibility"]
       },
       {
-        text: "When your business gets busy, what happens to your design output?",
-        options: ["Things go out wrong or not at all", "Quality dips and things slow down", "The system holds up under pressure"]
+        text: "When your business gets busy — a big pitch, a product launch, a growth push — what happens to your design output?",
+        options: ["It falls apart — output drops or gets embarrassing", "We manage, but the quality suffers", "The system holds — quality stays consistent"]
       }
     ];
 
@@ -748,24 +748,24 @@
         key: 'red',
         label: 'Flat out',
         name: 'Flat out',
-        desc: "Your design setup is reactive and nobody really owns it. Things are going out inconsistently and it's likely costing you — even if it's hard to measure. This is what Handled was built for.",
-        cta: "Book a free Fit Check call. 20 minutes, no pitch. We'll show you exactly where your design is breaking down."
+        desc: "Your design setup was built for a smaller business than the one you're running now. Output is reactive, nobody really owns it, and your brand is either invisible or actively undermining your credibility. You're winning work on relationships and reputation — but you're leaving a lot on the table.",
+        cta: "This is what Handled was built for."
       },
       {
         range: [12, 16],
         key: 'amber',
         label: 'Patchy',
         name: 'Patchy',
-        desc: "Some things work, others don't. There's no reliable system yet and the inconsistency is noticeable to anyone paying attention. A 30-day pilot could sort this.",
-        cta: "Book a free Fit Check call. 20 minutes, no pitch. We'll show you exactly where your design is breaking down."
+        desc: "Some things look good. Others don't. The inconsistency is the problem — it tells prospects you don't have systems, even if you do. As you scale, patchy output becomes a bigger liability. The gap between how good your business is and how professional it looks will start to matter more.",
+        cta: "A 30-day pilot could sort this."
       },
       {
         range: [17, 21],
         key: 'green',
         label: 'Sorted',
         name: 'Sorted',
-        desc: "Your output is mostly consistent and working well. As you grow, the current setup will be tested — worth making sure it's built to scale.",
-        cta: "Let's make sure it scales as you grow."
+        desc: "Your design setup is working. Brand is consistent, output is reliable, and the process isn't draining your team's time. As your business grows — new markets, new hires, new products — the system needs to scale with you. Worth making sure it's built for what's next.",
+        cta: "Let's make sure it scales."
       }
     ];
 
