@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="/assets/logomark.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Does Your Venue Look As Good On Paper As In Person? | Handled Studio</title>
-  <meta name="description" content="Find out if your menus, social, and venue marketing are consistent with the experience you deliver. A free 5-minute audit for restaurants, cafés, bars, and hospitality businesses." />
-  <meta property="og:title" content="Food & Hospitality Brand Audit — Handled Studio" />
-  <meta property="og:description" content="Seven questions. Instant score. Find out where your brand is inconsistent across your venue's touchpoints." />
+  <title>F&amp;B Marketing Audit — Handled Studio</title>
+  <meta name="description" content="7 questions to find out if your venue's brand is keeping up with the experience you're actually delivering." />
+  <meta property="og:title" content="F&amp;B Marketing Audit — Handled Studio" />
+  <meta property="og:description" content="7 questions to find out if your venue's brand is keeping up with the experience you're actually delivering." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -572,13 +572,13 @@
       </a>
     </header>
     <div class="intro-body">
-      <p class="intro-eyebrow">Food &amp; Hospitality edition</p>
+      <p class="intro-eyebrow">Food &amp; Beverage edition</p>
       <h1 class="intro-headline">
-        Does Your Venue Look As <span class="gold">Good On Paper As In Person?</span>
+        Your Venue Is Full on Friday.<br><span class="gold">Your Brand Is Empty on Monday.</span>
       </h1>
-      <p class="intro-sub">A 5-minute brand consistency audit for restaurants, cafés, bars, and hospitality businesses.</p>
+      <p class="intro-sub">7 questions to find out if your brand is keeping up with the experience you're actually delivering.</p>
       <div class="intro-hint">
-        Seven questions. Answer honestly. Get your score and find out where your brand is inconsistent across your venue's touchpoints.
+        Great venues fail to fill seats — not because the food is wrong, but because the brand doesn't communicate what it's like to be there. This tells you where that gap is. Answer honestly.
       </div>
       <button class="intro-start" id="introStartBtn">
         Start the audit
@@ -614,7 +614,7 @@
         <div class="stage" id="stageGate">
           <p class="gate-eyebrow">Audit complete</p>
           <h2 class="gate-headline">Your result is ready.</h2>
-          <p class="gate-sub">Enter your email to see your score and find out where your brand is inconsistent across your venue's touchpoints.</p>
+          <p class="gate-sub">Enter your email to see your score and what it means for your venue — and what to do about it.</p>
           <form class="gate-form" id="gateForm" novalidate>
             <input type="email" class="gate-input" id="emailInput" placeholder="your@email.com" autocomplete="email" required />
             <button type="submit" class="gate-btn" id="gateBtn">See my result</button>
@@ -693,9 +693,9 @@
     <!-- S4: PRIMARY CTA -->
     <section class="rs rs-cta">
       <div class="rs__inner">
-        <h2 class="rs-cta__headline">Want help unpacking your results?</h2>
-        <p class="rs-cta__body">Book a free 20-minute Fit Check and we'll walk through your audit, discuss where the friction is coming from, and show you what improving it could look like.</p>
-        <a href="/fit-check" class="rs-cta__btn">Book Your Fit Check <span class="rs-cta__btn-dot">→</span></a>
+        <h2 class="rs-cta__headline">Scored Flat out or Patchy?</h2>
+        <p class="rs-cta__body">Book a free Fit Check. 20 minutes, no pitch. We'll show you exactly where your brand is costing you covers.</p>
+        <a href="/fit-check" class="rs-cta__btn">Book a Fit Check <span class="rs-cta__btn-dot">→</span></a>
       </div>
     </section>
 
@@ -712,32 +712,32 @@
 
     const QUESTIONS = [
       {
-        text: "How consistent does your brand look across your menus, social media, signage, and website?",
-        options: ["Quite different across each", "Roughly similar but not tight", "Consistent across everything"]
+        text: "When someone finds you online before visiting, how well does your brand communicate the actual experience of your venue?",
+        options: ["It doesn't — the vibe is lost in translation", "Partly — some things land, others don't", "Clearly — the brand matches the experience"]
       },
       {
-        text: "When you update your menu or launch a seasonal campaign, how does the new material look compared to everything else?",
-        options: ["Often looks like a different brand", "Close but not quite matched", "Always consistent with the brand"]
+        text: "How consistent does your brand look across your menus, signage, social media, and packaging?",
+        options: ["Varies — each piece looks like a different venue", "Roughly similar but not cohesive", "Consistent and recognisable across everything"]
       },
       {
-        text: "Who currently handles your design — menus, socials, event collateral, promotions?",
-        options: ["Whoever's available, often in Canva", "A mix of freelancers and in-house", "A dedicated designer who knows our brand"]
+        text: "When your menu changes or a special event comes up, how does your design output handle it?",
+        options: ["Scrambled — we use whatever we can make quickly", "Managed, but it never quite looks right", "Smooth — we have a process that delivers"]
       },
       {
-        text: "When you open a new venue or run a major event, how prepared is your design and marketing collateral?",
-        options: ["Always a scramble at the last minute", "Usually ready but stressful to get there", "Planned, prepared, and on-brand"]
+        text: "Who handles design and marketing output for your venue?",
+        options: ["Whoever's around — usually front-of-house in a pinch", "A mix of the owner and occasional freelancers", "One reliable person or partner who owns it"]
       },
       {
-        text: "How does the quality of your social media content reflect the actual experience of your venue?",
-        options: ["The venue is better than the content suggests", "Roughly matches", "Content matches or elevates the experience"]
+        text: "How well does your social media content reflect the quality of the food and atmosphere you deliver?",
+        options: ["Poorly — the food is better than what we post", "Okay, but inconsistent", "Well — the content does the venue justice"]
       },
       {
-        text: "How long does it typically take to get a menu update, promotional graphic, or event flyer produced?",
-        options: ["Days or longer — always feels urgent", "A day or two, sometimes stressful", "Fast and predictable"]
+        text: "When you look at your printed materials — menus, packaging, event flyers — how do they make you feel?",
+        options: ["Embarrassed — they don't match the standard we set in the kitchen", "Fine, but they could be sharper", "Proud — they reflect who we are"]
       },
       {
-        text: "If you opened a second venue tomorrow, how confident are you that the branding would look consistent across both?",
-        options: ["Not confident at all", "Somewhat — it would take real effort", "Very confident — the system is there"]
+        text: "When you're busy — a big weekend, a seasonal push, a new menu launch — what happens to your marketing?",
+        options: ["It falls away entirely — operations take over", "We post something, but the quality drops", "The output holds up regardless of how busy we are"]
       }
     ];
 
@@ -747,24 +747,24 @@
         key: 'red',
         label: 'Flat out',
         name: 'Flat out',
-        desc: "Your brand is inconsistent across your venue's touchpoints and nobody owns it. Your space is probably better than your marketing suggests. This is what Handled was built for.",
-        cta: "Book a free Fit Check call. 20 minutes, no pitch. We'll show you where your brand is breaking down."
+        desc: "The experience you deliver in-venue is better than anything your brand communicates outside it. Menus look dated, social is inconsistent, and marketing falls away when service gets busy. You're losing new customers to venues that look better — before anyone's tasted the food.",
+        cta: "This is what Handled was built for."
       },
       {
         range: [12, 16],
         key: 'amber',
         label: 'Patchy',
         name: 'Patchy',
-        desc: "Some things work, others don't. Your marketing doesn't consistently reflect the experience you actually deliver. A 30-day pilot could sort this.",
-        cta: "Book a free Fit Check call. 20 minutes, no pitch. We'll show you where your brand is breaking down."
+        desc: "Some of your output is strong — but it's not consistent enough to build a brand impression. New customers are getting a mixed picture. Regulars stay because they know you. The question is how many people you're not converting because the first impression doesn't land.",
+        cta: "A 30-day pilot could sort this."
       },
       {
         range: [17, 21],
         key: 'green',
         label: 'Sorted',
         name: 'Sorted',
-        desc: "Your output is consistent and working well. As you grow or open new venues, maintaining this standard gets harder without a proper system.",
-        cta: "Let's make sure it scales as you grow or open new venues."
+        desc: "Your brand is working as hard as your kitchen. As you grow — new locations, seasonal menus, events — keeping the standard consistent gets harder. Worth making sure your design setup scales with your ambitions.",
+        cta: "Let's make sure it scales."
       }
     ];
 
