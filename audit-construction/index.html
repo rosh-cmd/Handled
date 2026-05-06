@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="/assets/logomark.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Does Your Design Win or Lose Work Before the Pitch? | Handled Studio</title>
-  <meta name="description" content="Find out if your tender documents and marketing collateral are winning or losing you work. A free 5-minute audit for construction and civil firms." />
+  <title>Construction Marketing Audit — Handled Studio</title>
+  <meta name="description" content="7 questions that show whether your marketing is winning or losing tenders before you even walk in the room." />
   <meta property="og:title" content="Construction Marketing Audit — Handled Studio" />
-  <meta property="og:description" content="Seven questions. Instant score. Find out where your design is costing you tenders." />
+  <meta property="og:description" content="7 questions that show whether your marketing is winning or losing tenders before you even walk in the room." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -572,13 +572,13 @@
       </a>
     </header>
     <div class="intro-body">
-      <p class="intro-eyebrow">Construction edition</p>
+      <p class="intro-eyebrow">Construction &amp; Civil edition</p>
       <h1 class="intro-headline">
-        Does Your Design Win or <span class="gold">Lose Work Before the Pitch?</span>
+        Your Project Quality Is a 9.<br><span class="gold">Your Marketing Is a 5.</span>
       </h1>
-      <p class="intro-sub">A 5-minute marketing audit for construction and civil firms.</p>
+      <p class="intro-sub">7 questions that show whether your marketing is winning or losing tenders before you even walk in the room.</p>
       <div class="intro-hint">
-        Seven questions. Answer honestly. Get your score and find out where your design is costing you tenders.
+        Most builders have a quality gap between the work they do and the work their marketing shows. This tells you how wide yours is. Answer honestly.
       </div>
       <button class="intro-start" id="introStartBtn">
         Start the audit
@@ -614,7 +614,7 @@
         <div class="stage" id="stageGate">
           <p class="gate-eyebrow">Audit complete</p>
           <h2 class="gate-headline">Your result is ready.</h2>
-          <p class="gate-sub">Enter your email to see your score and find out where your design is costing you work.</p>
+          <p class="gate-sub">Enter your email to see your score and what it means for your firm's tender performance — and what to do about it.</p>
           <form class="gate-form" id="gateForm" novalidate>
             <input type="email" class="gate-input" id="emailInput" placeholder="your@email.com" autocomplete="email" required />
             <button type="submit" class="gate-btn" id="gateBtn">See my result</button>
@@ -693,9 +693,9 @@
     <!-- S4: PRIMARY CTA -->
     <section class="rs rs-cta">
       <div class="rs__inner">
-        <h2 class="rs-cta__headline">Want help unpacking your results?</h2>
-        <p class="rs-cta__body">Book a free 20-minute Fit Check and we'll walk through your audit, discuss where the friction is coming from, and show you what improving it could look like.</p>
-        <a href="/fit-check" class="rs-cta__btn">Book Your Fit Check <span class="rs-cta__btn-dot">→</span></a>
+        <h2 class="rs-cta__headline">Scored Flat out or Patchy?</h2>
+        <p class="rs-cta__body">Book a free Fit Check. 20 minutes, no pitch. We'll show you where your design is costing you work.</p>
+        <a href="/fit-check" class="rs-cta__btn">Book a Fit Check <span class="rs-cta__btn-dot">→</span></a>
       </div>
     </section>
 
@@ -712,7 +712,7 @@
 
     const QUESTIONS = [
       {
-        text: "When you submit a tender, how do your documents compare visually to competitors you're aware of?",
+        text: "When you submit a tender, how do your documents look compared to competitors you're aware of?",
         options: ["Ours look noticeably less polished", "Roughly on par", "Ours stand out professionally"]
       },
       {
@@ -720,7 +720,7 @@
         options: ["Assembled internally, no design input", "Designed once, now getting dated", "Professionally designed and kept current"]
       },
       {
-        text: "How consistent does your brand look across tender documents, your website, signage, and social media?",
+        text: "How consistent does your brand look across tender documents, your website, site signage, and social media?",
         options: ["Varies significantly across each", "Roughly similar but not tight", "Consistent across all touchpoints"]
       },
       {
@@ -729,7 +729,7 @@
       },
       {
         text: "When a tender or EOI deadline arrives, what does your document production process look like?",
-        options: ["Rushed — assembled under pressure", "Managed but stressful", "Systematic and reliable"]
+        options: ["Rushed — assembled under pressure every time", "Managed, but it's stressful", "Systematic and reliable"]
       },
       {
         text: "How accurately does your current marketing reflect the scale and quality of work you actually deliver?",
@@ -747,24 +747,24 @@
         key: 'red',
         label: 'Flat out',
         name: 'Flat out',
-        desc: "Your marketing is reactive and nobody owns it. You're likely losing tenders to competitors who look more organised on paper — regardless of the quality of your work.",
-        cta: "Book a free Fit Check call. 20 minutes, no pitch. We'll show you where your design is costing you work."
+        desc: "Your marketing is running on whoever's available. Tender packs are inconsistent, project photography isn't being used properly, and your digital presence doesn't reflect the scale of work you actually do. You're probably losing tenders to firms who look more organised on paper — regardless of which company does better work.",
+        cta: "This is what Handled was built for."
       },
       {
         range: [12, 16],
         key: 'amber',
         label: 'Patchy',
         name: 'Patchy',
-        desc: "Some things look good, others don't. Your tender collateral isn't consistently matching the quality of the work you deliver.",
-        cta: "Book a free Fit Check call. 20 minutes, no pitch. We'll show you where your design is costing you work."
+        desc: "Some collateral is strong, other pieces let you down. Your tender documents aren't consistently matching the quality of the work you deliver. Evaluators are forming a first impression before you've said a word — make sure it's the right one.",
+        cta: "A 30-day pilot could sort this."
       },
       {
         range: [17, 21],
         key: 'green',
         label: 'Sorted',
         name: 'Sorted',
-        desc: "Your marketing is working. As you grow and tender for larger projects, keeping the standard consistent becomes harder — worth staying on top of.",
-        cta: "Let's make sure it scales as you grow and tender for larger projects."
+        desc: "Your marketing is working and your process is reliable. As you tender for larger projects, keeping the standard consistent gets harder. Worth staying ahead of it before the cracks appear.",
+        cta: "Let's make sure it scales."
       }
     ];
 
