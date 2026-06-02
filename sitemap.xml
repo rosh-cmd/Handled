@@ -74,6 +74,12 @@
   </url>
 
   <url>
+    <loc>https://handledstudio.com.au/article-15</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
     <loc>https://handledstudio.com.au/article-14</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
