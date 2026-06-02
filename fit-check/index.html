@@ -84,18 +84,7 @@
       <h1 class="rd-info__heading">Book a <span style="background:#69DE5F;padding:0 0.2em 0.08em;color:#1E3D51;">Fit Check</span></h1>
       <p class="rd-info__lead">A focused 20-minute call to assess your current design setup — where it's inconsistent, where it's slowing you down, and what to fix.</p>
 
-      <!-- Calendar -->
-      <div class="rd-split__cal">
-        <iframe
-          src="https://calendly.com/rosh-handledstudio/30min?background_color=ffffff&text_color=1e3d51&primary_color=69de5f&hide_gdpr_banner=1"
-          width="100%"
-          height="820"
-          frameborder="0"
-          title="Book a Fit Check — Handled Studio"
-          style="border:none;border-radius:8px;display:block;"></iframe>
-      </div>
-
-      <!-- Body text below calendar -->
+      <!-- Value props ABOVE the calendar -->
       <div class="rd-split__body">
         <p class="rd-info__sub-label">What you'll get:</p>
         <ul class="rd-info__list">
@@ -105,6 +94,13 @@
         </ul>
         <p class="rd-info__body">We'll walk through your current setup together. If there's a fit, we'll show you how a Handoff would work for your business. If not, you'll still leave with clarity on what to fix.</p>
         <p class="rd-info__kicker">We take on one new Handoff each month. This call is the first step.</p>
+      </div>
+
+      <!-- Calendly inline widget -->
+      <div class="rd-split__cal">
+        <div class="calendly-inline-widget"
+          data-url="https://calendly.com/rosh-handledstudio/30min?background_color=ffffff&text_color=1e3d51&primary_color=69de5f&hide_gdpr_banner=1"
+          style="min-width:320px;height:700px;"></div>
       </div>
 
     </div>
@@ -181,6 +177,9 @@
       <span>© 2026 by Handled</span>
     </div>
   </footer>
+
+  <!-- Calendly inline widget script -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <script>
     if (location.hash) history.replaceState(null, '', location.pathname + location.search);
