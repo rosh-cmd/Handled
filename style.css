@@ -173,23 +173,10 @@ em { font-style: italic; }
 }
 .nav__logo { display: flex; align-items: center; gap: 10px; color: var(--white); }
 
-@keyframes logoPulse {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.12); }
-}
 .nav__logomark {
-  height: 54px;
+  height: 36px;
   width: auto;
   display: block;
-  animation: logoPulse 2.8s ease-in-out infinite;
-}
-.nav__logotype {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--white);
 }
 .nav__right { display: flex; align-items: center; gap: 1.2rem; }
 .nav__hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
