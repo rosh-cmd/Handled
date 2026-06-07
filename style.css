@@ -345,37 +345,11 @@ em { font-style: italic; }
 .for-you__heading-wrap { position: relative; z-index: 1; text-align: center; padding: 70px var(--pad) 60px; }
 .for-you__heading { font-family: var(--serif); font-size: clamp(1.5rem, 3.3vw, 3.5rem); font-weight: 700; color: var(--navy); }
 
-.for-you__cards { position: relative; z-index: 1; background: var(--navy); margin: 0 var(--pad) 70px; padding: 70px var(--pad) 90px; border-radius: 8px; }
+.for-you__cards { position: relative; z-index: 1; background: var(--navy); margin: 0 var(--pad) 70px; padding: 60px var(--pad) 65px; border-radius: 8px; }
 .for-you__grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5rem; }
-.for-you__card { text-align: center; }
-
-/* Clock icon — conic-gradient slice + radial gradient base */
-.for-you__icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background:
-    conic-gradient(from 280deg at 50% 50%,
-      rgba(255, 235, 195, 0.62) 0deg 58deg,
-      transparent 58deg 360deg
-    ),
-    radial-gradient(circle at 38% 32%, #E0A060, #8B4010);
-  margin: 0 auto 1.5rem;
-  will-change: transform;
-  position: relative;
-}
-/* Centre dot */
-.for-you__icon::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 5px; height: 5px;
-  background: rgba(255,255,255,0.85);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-.for-you__title { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; line-height: 1.3; }
-.for-you__text { font-size: 0.9rem; color: rgba(255,255,255,0.62); line-height: 1.75; }
+.for-you__card { text-align: left; }
+.for-you__title { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--white); min-height: 5.5rem; margin-bottom: 1rem; line-height: 1.3; }
+.for-you__text { font-size: 0.9rem; color: rgba(255,255,255,0.82); line-height: 1.75; }
 
 
 /* ============================================================

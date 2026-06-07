@@ -156,17 +156,14 @@
     <div class="for-you__cards">
       <div class="for-you__grid">
         <div class="for-you__card">
-          <div class="for-you__icon"></div>
           <h3 class="for-you__title">Your listings, appraisals, and campaigns have outgrown your setup</h3>
           <p class="for-you__text">Your agency is producing more than your current design process can reliably handle.</p>
         </div>
         <div class="for-you__card">
-          <div class="for-you__icon"></div>
           <h3 class="for-you__title">Your brand looks inconsistent</h3>
           <p class="for-you__text">Listing kits, social tiles, and appraisal decks look like they came from different agencies.</p>
         </div>
         <div class="for-you__card">
-          <div class="for-you__icon"></div>
           <h3 class="for-you__title">No one owns the output</h3>
           <p class="for-you__text">You or your team are still chasing, fixing, or producing collateral yourselves before anything goes to a client.</p>
         </div>
@@ -553,16 +550,6 @@
         closeMenu();
       }
     });
-
-    // Scroll-driven clock rotation on "For you" icons
-    const icons = document.querySelectorAll('.for-you__icon');
-    function updateIconRotation() {
-      const scrollY = window.scrollY;
-      icons.forEach(icon => {
-        icon.style.transform = `rotate(${scrollY * 0.3}deg)`;
-      });
-    }
-    window.addEventListener('scroll', updateIconRotation, { passive: true });
 
     // Hero slider — smooth lerp, wheel (horizontal only), touch swipe, arrows
     (function() {
