@@ -7,7 +7,7 @@
   <title>Why Your Real Estate Social Media Looks Inconsistent Across Platforms (And How to Fix It) | Handled Studio</title>
   <meta name="description" content="Your real estate social media looks inconsistent because it's being produced by too many hands with no system behind it. Here's what's breaking down — and how to fix it for good." />
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=110" />
+  <link rel="stylesheet" href="/style.css?v=111" />
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -344,6 +344,14 @@
     const menu = document.getElementById('menu');
     document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
     document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
+    // Nav scroll state
+    (function() {
+      var nav = document.querySelector('.nav');
+      if (!nav) return;
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('nav--scrolled', window.scrollY > 10);
+      }, { passive: true });
+    })();
   </script>
   <!-- Meta Pixel CTA tracking -->
   <script>

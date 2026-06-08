@@ -10,7 +10,7 @@
   <meta property="og:description" content="Full brand identity and template system designed for real-world use. Built to hold — across marketing, sales, and day-to-day output." />
   <meta property="og:type" content="website" />
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=110" />
+  <link rel="stylesheet" href="/style.css?v=111" />
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -306,6 +306,15 @@
     const menu = document.getElementById('menu');
     document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
     document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
+
+    // Nav scroll state
+    (function() {
+      var nav = document.querySelector('.nav');
+      if (!nav) return;
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('nav--scrolled', window.scrollY > 10);
+      }, { passive: true });
+    })();
 
     // Gallery filter
     const filters = document.querySelectorAll('.bt-filter');

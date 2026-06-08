@@ -10,7 +10,7 @@
   <meta property="og:description" content="Not sure if your design setup is keeping up with your business? Here are 5 signs Melbourne real estate, construction, and hospitality businesses have outgrown how they handle design." />
   <meta property="og:type" content="article" />
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=110" />
+  <link rel="stylesheet" href="/style.css?v=111" />
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -503,6 +503,15 @@
     const menu = document.getElementById('menu');
     document.getElementById('menuOpen').addEventListener('click',  () => menu.classList.add('open'));
     document.getElementById('menuClose').addEventListener('click', () => menu.classList.remove('open'));
+
+    // Nav scroll state
+    (function() {
+      var nav = document.querySelector('.nav');
+      if (!nav) return;
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('nav--scrolled', window.scrollY > 10);
+      }, { passive: true });
+    })();
 
     // Comparison accordion
     (function () {

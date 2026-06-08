@@ -10,7 +10,7 @@
   <meta property="og:description" content="Handled is a Melbourne design studio offering monthly design support for real estate agencies, mortgage brokers, buyers agents, and property managers across ANZ. Consistent, on-brand output, every month." />
   <meta property="og:type" content="website" />
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=110" />
+  <link rel="stylesheet" href="/style.css?v=111" />
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -547,6 +547,16 @@
         closeMenu();
       }
     });
+
+    // Nav scroll state
+    (function() {
+      var nav = document.querySelector('.nav');
+      if (!nav) return;
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('nav--scrolled', window.scrollY > 10);
+      }, { passive: true });
+    })();
+
 
     // Hero slider — smooth lerp, wheel (horizontal only), touch swipe, arrows
     (function() {

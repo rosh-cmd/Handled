@@ -10,7 +10,7 @@
   <meta property="og:description" content="Brand and production design for real estate agencies and property businesses, built on 15+ years of high-volume production experience. See how consistency is built, maintained, and scaled." />
   <meta property="og:type" content="website" />
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=110" />
+  <link rel="stylesheet" href="/style.css?v=111" />
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -454,6 +454,16 @@
         closeMenu();
       }
     });
+
+    // Nav scroll state
+    (function() {
+      var nav = document.querySelector('.nav');
+      if (!nav) return;
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('nav--scrolled', window.scrollY > 10);
+      }, { passive: true });
+    })();
+
 
     // Industries grid — free-scroll lerp, wheel, drag, touch, infinite loop
     (function () {
