@@ -63,7 +63,7 @@
     /* ── INDUSTRY GRID ── */
     .audit-sel-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 12px;
       margin-bottom: 1.5rem;
     }
@@ -113,6 +113,9 @@
     /* ── FOOTER: strip newsletter ── */
     .audit-footer .footer__top > div:last-child { display: none; }
 
+    @media (max-width: 720px) {
+      .audit-sel-grid { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 540px) {
       .audit-sel-grid { grid-template-columns: 1fr; }
       .audit-sel-main { padding: 40px 1.25rem 60px; }
@@ -200,16 +203,16 @@
           <div class="audit-sel-desc">Listings, proposals, and agency marketing</div>
         </a>
 
+        <a href="/audit-mortgage" class="audit-sel-option">
+          <div class="audit-sel-icon">🏦</div>
+          <div class="audit-sel-label">Mortgage &amp; Property Services</div>
+          <div class="audit-sel-desc">Broker marketing, lender collateral, and property finance branding</div>
+        </a>
+
         <a href="/audit-construction" class="audit-sel-option">
           <div class="audit-sel-icon">🏗️</div>
           <div class="audit-sel-label">Construction</div>
           <div class="audit-sel-desc">Tenders, capability statements, and project collateral</div>
-        </a>
-
-        <a href="/audit-fb" class="audit-sel-option">
-          <div class="audit-sel-icon">🍽️</div>
-          <div class="audit-sel-label">Food &amp; Hospitality</div>
-          <div class="audit-sel-desc">Menus, social, venue and event marketing</div>
         </a>
 
         <a href="/audit-general" class="audit-sel-option">
@@ -292,10 +295,10 @@
       fbq('trackCustom', 'ViewFullyHandled');
     } else if (href.includes('audit-realestate')) {
       fbq('trackCustom', 'StartAudit', {industry: 'Real Estate'});
+    } else if (href.includes('audit-mortgage')) {
+      fbq('trackCustom', 'StartAudit', {industry: 'Mortgage & Property'});
     } else if (href.includes('audit-construction')) {
       fbq('trackCustom', 'StartAudit', {industry: 'Construction'});
-    } else if (href.includes('audit-fb')) {
-      fbq('trackCustom', 'StartAudit', {industry: 'Food & Hospitality'});
     } else if (href.includes('audit-general')) {
       fbq('trackCustom', 'StartAudit', {industry: 'General'});
     } else if (href === '/audit') {
