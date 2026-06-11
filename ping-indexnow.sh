@@ -7,7 +7,7 @@
 #
 # USAGE
 #   ./ping-indexnow.sh                        # submit all journal articles
-#   ./ping-indexnow.sh /article-7 /journal    # submit specific paths
+#   ./ping-indexnow.sh /real-estate-social-media-consistency /journal    # submit specific paths
 #
 # RUN THIS after every deploy that adds or updates a journal article.
 # ─────────────────────────────────────────────────────────────────
@@ -19,21 +19,21 @@ ENDPOINT="https://api.indexnow.org/indexnow"
 
 # Default: all journal article URLs
 DEFAULT_URLS=(
-  "https://${HOST}/article-1"
-  "https://${HOST}/article-2"
-  "https://${HOST}/article-3"
-  "https://${HOST}/article-4"
-  "https://${HOST}/article-5"
-  "https://${HOST}/article-6"
-  "https://${HOST}/article-7"
-  "https://${HOST}/article-8"
-  "https://${HOST}/article-9"
-  "https://${HOST}/article-10"
-  "https://${HOST}/article-11"
-  "https://${HOST}/article-12"
-  "https://${HOST}/article-13"
-  "https://${HOST}/article-14"
-  "https://${HOST}/article-15"
+  "https://${HOST}/why-marketing-looks-inconsistent"
+  "https://${HOST}/hiring-designer-vs-design-retainer"
+  "https://${HOST}/signs-outgrown-design-setup"
+  "https://${HOST}/real-estate-marketing-inconsistent"
+  "https://${HOST}/construction-tender-design-mistakes"
+  "https://${HOST}/real-cost-of-freelancers"
+  "https://${HOST}/real-estate-social-media-consistency"
+  "https://${HOST}/graphic-designer-real-estate-melbourne"
+  "https://${HOST}/consistent-listing-marketing-without-designer"
+  "https://${HOST}/property-marketing-materials-melbourne"
+  "https://${HOST}/real-estate-agent-bio-design"
+  "https://${HOST}/capability-statement-design"
+  "https://${HOST}/tender-document-design-construction"
+  "https://${HOST}/construction-marketing-materials"
+  "https://${HOST}/graphic-designer-construction-companies"
   "https://${HOST}/journal"
 )
 
