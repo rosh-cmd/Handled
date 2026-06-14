@@ -64,6 +64,71 @@
     gtag('js', new Date());
     gtag('config', 'G-DDV47H5Y6R');
   </script>
+  <style>
+    /* ── FAQ (Fully Handled page) ── */
+    .fh-faq { background: var(--navy); padding: clamp(60px,8vw,100px) var(--pad); }
+    .fh-faq__inner { max-width: 780px; margin: 0 auto; }
+    .fh-faq__heading {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      margin: 0 0 2.75rem;
+      line-height: 1.2;
+    }
+    .fh-faq__item { border-top: 1px solid rgba(255,255,255,0.12); }
+    .fh-faq__item:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .fh-faq__q {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-family: var(--serif);
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      font-weight: 700;
+      text-align: left;
+      padding: 1.4rem 0;
+      cursor: pointer;
+      line-height: 1.35;
+      transition: color 0.2s;
+    }
+    .fh-faq__q:hover { color: var(--green); }
+    .fh-faq__icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1;
+      transition: transform 0.25s ease, border-color 0.2s;
+    }
+    .fh-faq__q[aria-expanded="true"] .fh-faq__icon { transform: rotate(45deg); border-color: var(--green); }
+    .fh-faq__a {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease, padding-bottom 0.35s ease;
+      padding-bottom: 0;
+    }
+    .fh-faq__a.is-open { max-height: 800px; padding-bottom: 1.6rem; }
+    .fh-faq__a p {
+      color: rgba(255,255,255,0.72);
+      font-family: var(--sans);
+      font-size: 0.97rem;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .fh-faq__a p + p { margin-top: 0.9rem; }
+  </style>
 </head>
 <body>
 
@@ -675,6 +740,118 @@
   </section>
 
 
+  <!-- FAQ -->
+  <section class="fh-faq">
+    <div class="fh-faq__inner">
+      <h2 class="fh-faq__heading">Questions people ask before they book</h2>
+      <div class="fh-faq__list">
+
+        <div class="fh-faq__item">
+          <button class="fh-faq__q" aria-expanded="false">
+            What does Handled actually do each month?
+            <span class="fh-faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="fh-faq__a">
+            <p>We take on your ongoing design production. The output your business generates week to week. For real estate agencies that means listing presentations, appraisal kits, social tiles, EDMs, signage, proposals, and campaign collateral. For construction businesses it's capability statements, tender documents, team bios, and project photography integration. You brief us on what needs doing, we produce it to your brand standard, you approve it, it goes out. No rebuilding context each time, no chasing availability and less last-minute fixes.</p>
+          </div>
+        </div>
+
+        <div class="fh-faq__item">
+          <button class="fh-faq__q" aria-expanded="false">
+            How is this different from hiring a freelancer?
+            <span class="fh-faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="fh-faq__a">
+            <p>A freelancer does a project-based job. We own your output. The difference is context — after the first month we know your brand the way an in-house designer would. We know which logo version to use, what your preferred layout looks like, what's gone out before and what needs to stay consistent with it. A freelancer starts from your new brief every time. We start from everything we already know about your business. That compounds quickly and has proven to be of higher ROI for our clients.</p>
+          </div>
+        </div>
+
+        <div class="fh-faq__item">
+          <button class="fh-faq__q" aria-expanded="false">
+            I'm not sure I produce enough design work to justify a retainer. How do I know if it's the right fit?
+            <span class="fh-faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="fh-faq__a">
+            <p>Most businesses we work with are surprised by how much they're actually producing once they add it up — listings, appraisals, social content, proposals, campaigns. The other thing worth considering is the invisible cost: the hours you or your team spend briefing, chasing, reviewing, and fixing. A retainer makes sense when the total overhead of managing your current setup outweighs what a dedicated production relationship would cost. The Fit Check is specifically designed to answer this question. 20 minutes looking at your current output and we'll tell you honestly whether a retainer makes sense for where you are right now.</p>
+          </div>
+        </div>
+
+        <div class="fh-faq__item">
+          <button class="fh-faq__q" aria-expanded="false">
+            How does the process actually work day to day?
+            <span class="fh-faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="fh-faq__a">
+            <p>We use a shared task board called Asana — you add jobs, we pick them up. Each brief comes with a turnaround time based on complexity: most standard production tasks (social tiles, document updates, presentation edits) come back within 24 to 48 hours. Larger jobs are scoped at the start of the month. Each piece goes through one round of revisions as standard — we work towards getting it right the first time because the context is already held. You have direct access throughout. No tickets, no account layers, no waiting for a weekly check-in.</p>
+          </div>
+        </div>
+
+        <div class="fh-faq__item">
+          <button class="fh-faq__q" aria-expanded="false">
+            What's the cost?
+            <span class="fh-faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="fh-faq__a">
+            <p>The Handoff — our 30-day pilot — is $1,500 AUD flat, paid at the start of the month. No lock-in, no ongoing commitment. You get real production output, we get to demonstrate what the relationship looks like in practice. If it's working, the ongoing retainer starts from $3,000 AUD per month, scoped to your output volume at the end of the pilot. If it's not, you keep the work and we part ways cleanly. Most clients continue.</p>
+          </div>
+        </div>
+
+        <div class="fh-faq__item">
+          <button class="fh-faq__q" aria-expanded="false">
+            What happens during The Handoff?
+            <span class="fh-faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="fh-faq__a">
+            <p>The first month is about two things: producing real output and building the context that makes everything faster from month two onward. We start with your most pressing design need — whatever is actually on your list right now. While we're working through it, we're learning your brand, your files, your preferences, and your production rhythm. By the end of the month you have the work and a clear picture of what the ongoing relationship would look like. That's the point.</p>
+          </div>
+        </div>
+
+        <div class="fh-faq__item">
+          <button class="fh-faq__q" aria-expanded="false">
+            What types of design work does Handled produce?
+            <span class="fh-faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="fh-faq__a">
+            <p>Listing presentations, appraisal kits, proposal documents, capability statements, tender documents, EDMs, social tiles, signage artwork, print-ready collateral, campaign assets, internal templates, and brand application across new materials. If you're Fully Handled, we also do brand identity from scratch where required (including logo design, brand strategy), especially where firms have shown that their brand assets are slim.</p>
+          </div>
+        </div>
+
+        <div class="fh-faq__item">
+          <button class="fh-faq__q" aria-expanded="false">
+            Do I need to have everything organised before we start?
+            <span class="fh-faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="fh-faq__a">
+            <p>No. Most clients come to us because things aren't organised — that's usually part of the problem. We'll audit what you have, identify what's missing, and set up a working file system as part of the onboarding process. If your brand files are scattered across four Dropbox folders and a WhatsApp thread, we've seen worse. Getting that sorted is part of the job.</p>
+          </div>
+        </div>
+
+        <div class="fh-faq__item">
+          <button class="fh-faq__q" aria-expanded="false">
+            Can Handled work with my existing team?
+            <span class="fh-faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="fh-faq__a">
+            <p>Yes. We work alongside in-house coordinators, PAs, marketing managers, and principals. Most clients have someone internally who manages approvals and briefs — we integrate into their workflow rather than replacing it. The task board makes it easy for multiple people to add jobs and track progress without things falling through the gaps.</p>
+          </div>
+        </div>
+
+        <div class="fh-faq__item">
+          <button class="fh-faq__q" aria-expanded="false">
+            What if I want to stop?
+            <span class="fh-faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="fh-faq__a">
+            <p>The Handoff has no lock-in — if it's not working after 30 days, you keep the output and that's the end of it. The ongoing retainer runs on a 3-month minimum term, with 30 days notice to wrap up after that. When we do, we hand everything back cleanly: files organised, templates documented, your production system ready to hand to whoever comes next.</p>
+            <p>Note: source files, master templates, and reusable assets we build remain Handled's IP — you licence all the output, not the working files. That's how we're able to maintain the standard across every client we work with.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__top">
@@ -801,6 +978,15 @@
       fbq('trackCustom', 'StartAudit', {industry: 'General'});
     }
   });
+  </script>
+  <script>
+    document.querySelectorAll('.fh-faq__q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        btn.nextElementSibling.classList.toggle('is-open', !expanded);
+      });
+    });
   </script>
 </body>
 </html>
