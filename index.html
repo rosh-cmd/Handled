@@ -147,7 +147,7 @@
       <button class="slider__arrow slider__arrow--prev" id="sliderPrev" aria-label="Previous">&#8592;</button>
       <button class="slider__arrow slider__arrow--next" id="sliderNext" aria-label="Next">&#8594;</button>
       <div class="hero__slider-track">
-        <!-- 10 slides -->
+        <!-- slides: each image appears once; JS clones for infinite loop -->
         <div class="hero__slide"><img src="/assets/slide-office.jpg" alt="Office Options Report" loading="lazy" /></div>
         <div class="hero__slide"><img src="/assets/Lewis-Build-Brochure.jpg" alt="Lewis Build Brochure" loading="lazy" /></div>
         <div class="hero__slide"><img src="/assets/BTCOM2.jpg" alt="Barfoot &amp; Thompson Commercial" loading="lazy" /></div>
@@ -158,17 +158,7 @@
         <div class="hero__slide"><img src="/assets/Phase-DLs-2.jpg" alt="Phase DL Flyers" loading="lazy" /></div>
         <div class="hero__slide"><img src="/assets/Books-BT12.jpg" alt="Barfoot &amp; Thompson Book" loading="lazy" /></div>
         <div class="hero__slide"><img src="/assets/SITE-SCOPE-01.jpg" alt="Site Scope" loading="lazy" /></div>
-        <!-- Duplicate for seamless loop -->
-        <div class="hero__slide"><img src="/assets/slide-office.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/Lewis-Build-Brochure.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/BTCOM2.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/status-brand-06.png" alt="" aria-hidden="true" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/bt-5.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/slide-jdw.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/Books-Insite-Mag.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/Phase-DLs-2.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/Books-BT12.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/SITE-SCOPE-01.jpg" alt="" aria-hidden="true" loading="lazy" /></div>
+
       </div>
     </div>
   </section>
@@ -617,78 +607,102 @@
     })();
 
 
-    // Hero slider — smooth lerp, wheel (horizontal only), touch swipe, arrows
+    // Hero slider — infinite looping lerp, wheel, touch, arrows
     (function() {
-      const wrap  = document.querySelector('.hero__slider-wrap');
-      const track = document.querySelector('.hero__slider-track');
+      const wrap    = document.querySelector('.hero__slider-wrap');
+      const track   = document.querySelector('.hero__slider-track');
       const prevBtn = document.getElementById('sliderPrev');
       const nextBtn = document.getElementById('sliderNext');
       if (!wrap || !track) return;
 
-      const SLIDE_COUNT = 10;
-      let current = 0;   // rendered position
-      let target  = 0;   // destination
-      let rafId   = null;
+      // Build 3-set track for seamless loop: [pre-clones][originals][post-clones]
+      const originals = Array.from(track.querySelectorAll('.hero__slide'));
+      const N = originals.length;
+
+      function makeClones() {
+        return originals.map(s => {
+          const c = s.cloneNode(true);
+          c.setAttribute('aria-hidden', 'true');
+          return c;
+        });
+      }
+      makeClones().reverse().forEach(c => track.insertBefore(c, track.firstChild));
+      makeClones().forEach(c => track.appendChild(c));
+
+      let current = 0, target = 0, rafId = null;
 
       function slideW() {
         const s = track.querySelector('.hero__slide');
         return s ? s.offsetWidth + 20 : 420;
       }
-      function maxOffset() { return slideW() * SLIDE_COUNT; }
-      function clamp(v)    { return Math.max(0, Math.min(v, maxOffset())); }
+      function setW() { return slideW() * N; }
 
-      // Lerp render loop — runs only while current ≠ target
+      // Shift both current and target when rendered position drifts out of the middle set
+      function normalise() {
+        const sw = setW();
+        const shift = current > sw * 2 ? -sw : current < sw ? sw : 0;
+        if (shift) { current += shift; target += shift; }
+      }
+
+      function init() {
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        current = target = setW();   // start at first original slide
+        track.style.transform = `translateX(-${current}px)`;
+      }
+      init();
+      window.addEventListener('resize', init, { passive: true });
+
       function tick() {
+        normalise();
         const diff = target - current;
         if (Math.abs(diff) < 0.15) {
           current = target;
+          normalise();
           track.style.transform = `translateX(-${current}px)`;
           rafId = null;
           return;
         }
-        current += diff * 0.13;   // 0.13 = smoothing (higher = snappier)
+        current += diff * 0.13;
         track.style.transform = `translateX(-${current}px)`;
         rafId = requestAnimationFrame(tick);
       }
 
       function setTarget(v) {
-        target = clamp(v);
+        target = v;
         if (!rafId) rafId = requestAnimationFrame(tick);
       }
 
-      // Horizontal wheel / trackpad (vertical falls through to page)
+      // Horizontal wheel / trackpad
       wrap.addEventListener('wheel', e => {
-        const absX = Math.abs(e.deltaX);
-        const absY = Math.abs(e.deltaY);
+        const absX = Math.abs(e.deltaX), absY = Math.abs(e.deltaY);
         if (absX > absY * 0.4 && absX > 2) {
           e.preventDefault();
           setTarget(target + e.deltaX * 1.4);
         }
       }, { passive: false });
 
-      // Arrow buttons — step one slide at a time
+      // Arrow buttons
       prevBtn && prevBtn.addEventListener('click', () => setTarget(target - slideW()));
       nextBtn && nextBtn.addEventListener('click', () => setTarget(target + slideW()));
 
-      // Touch swipe — direct tracking on move, lerp-momentum on end
-      let tStartX = 0, tStartTarget = 0, tLastX = 0, tVel = 0;
+      // Touch swipe — delta-accumulate so normalise never breaks the drag
+      let tLastX = 0, tVel = 0;
       wrap.addEventListener('touchstart', e => {
-        tStartX = e.touches[0].clientX;
-        tStartTarget = target;
-        tLastX = tStartX;
-        tVel = 0;
+        tLastX = e.touches[0].clientX;
+        tVel   = 0;
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
       }, { passive: true });
       wrap.addEventListener('touchmove', e => {
-        const dx = tStartX - e.touches[0].clientX;
-        tVel = tLastX - e.touches[0].clientX;
-        tLastX = e.touches[0].clientX;
-        // Direct during drag for immediacy
-        current = clamp(tStartTarget + dx);
-        target  = current;
+        const newX = e.touches[0].clientX;
+        tVel    = tLastX - newX;
+        tLastX  = newX;
+        current += tVel;
+        target   = current;
+        normalise();
+        target   = current;
         track.style.transform = `translateX(-${current}px)`;
       }, { passive: true });
       wrap.addEventListener('touchend', () => {
-        // Hand off to lerp with remaining velocity
         setTarget(target + tVel * 8);
       }, { passive: true });
     })();
