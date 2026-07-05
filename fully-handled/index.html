@@ -102,19 +102,26 @@
   .fh-how__step-body{font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.75);line-height:1.75;margin:0;}
   .fh-how__close{font-family:var(--sans);font-size:0.95rem;color:rgba(255,255,255,0.75);line-height:1.75;border-top:1px solid rgba(255,255,255,0.14);padding-top:1.5rem;}
   @media(max-width:640px){.fh-how__steps{grid-template-columns:1fr;gap:1.5rem;}}
-  /* ── The menu (S7) ── */
+  /* ── What's handled (S7) ── */
   .fh-menu{background:var(--navy);padding:clamp(60px,8vw,100px) var(--pad);}
   .fh-menu__inner{max-width:1100px;margin:0 auto;}
   .fh-menu__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:#fff;margin:0 0 0.4rem;}
   .fh-menu__sub{font-family:var(--sans);font-size:1rem;color:rgba(255,255,255,0.75);margin:0 0 2.5rem;line-height:1.65;}
-  .fh-menu__cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:2rem;}
-  .fh-menu__col-title{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:1rem;}
+  .fh-menu__clusters{display:grid;grid-template-columns:1fr 1fr;gap:3rem 4rem;margin-bottom:2.5rem;}
+  .fh-menu__cluster-title{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 0.75rem;}
   .fh-menu__list{list-style:none;padding:0;margin:0;}
   .fh-menu__list li{font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.82);padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);line-height:1.55;}
   .fh-menu__list li:last-child{border-bottom:none;}
+  .fh-menu__stages{border-top:1px solid rgba(255,255,255,0.14);padding-top:2rem;margin-bottom:2rem;}
+  .fh-menu__stages-title{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 1rem;}
+  .fh-menu__stages-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .fh-menu__stages-list li{font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.82);line-height:1.6;}
   .fh-menu__note{font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.7;}
   .fh-menu__note+.fh-menu__note{margin-top:0.4rem;}
-  @media(max-width:640px){.fh-menu__cols{grid-template-columns:1fr;gap:2rem;}}
+  @media(max-width:640px){
+    .fh-menu__clusters{grid-template-columns:1fr;gap:2rem;}
+    .fh-menu__stages-list{grid-template-columns:1fr;gap:1rem;}
+  }
   /* ── Seat pricing ── */
   .offers__seat-pricing{background:rgba(105,222,95,0.1);border:1px solid rgba(105,222,95,0.35);border-radius:12px;padding:1.25rem 1.5rem;margin-top:1.25rem;}
   .offers__seat-pricing h4{font-family:var(--serif);font-size:1rem;font-weight:700;color:#fff;margin:0 0 0.5rem;}
@@ -348,41 +355,62 @@
   </section>
 
 
-  <!-- THE MENU (S7) -->
+  <!-- WHAT'S HANDLED (S7) -->
   <section class="fh-menu">
     <div class="fh-menu__inner">
       <h2 class="fh-menu__heading">What's handled</h2>
       <p class="fh-menu__sub">If it goes out under your brand, it's probably here.</p>
-      <div class="fh-menu__cols">
-        <div>
-          <p class="fh-menu__col-title">In your queue (one request each)</p>
+
+      <div class="fh-menu__clusters">
+        <div class="fh-menu__cluster">
+          <p class="fh-menu__cluster-title">Listings &amp; campaigns</p>
           <ul class="fh-menu__list">
             <li>Listing and property marketing assets</li>
-            <li>EDMs and client communications</li>
-            <li>Social graphics [up to five tiles on one theme counts as one request]</li>
-            <li>DL flyers [double-sided still counts as one]</li>
             <li>Press ads</li>
             <li>Adshels and outdoor</li>
-            <li>Signage artwork [per sign design]</li>
             <li>Posters and window cards</li>
+          </ul>
+        </div>
+        <div class="fh-menu__cluster">
+          <p class="fh-menu__cluster-title">Signage &amp; print</p>
+          <ul class="fh-menu__list">
+            <li>Signage artwork</li>
+            <li>DL flyers</li>
             <li>Teardrop flags</li>
-            <li>Vehicle decals [standard sedan set]</li>
-            <li>Sponsorship collateral [per asset]</li>
-            <li>Presentation deck refresh [per section]</li>
+            <li>Vehicle decals</li>
+            <li>Stationery and email signatures</li>
+          </ul>
+        </div>
+        <div class="fh-menu__cluster">
+          <p class="fh-menu__cluster-title">Digital &amp; social</p>
+          <ul class="fh-menu__list">
+            <li>Social graphics [up to five tiles on one theme counts as one request]</li>
+            <li>EDMs and client communications</li>
             <li>Market update and newsletter templates</li>
-            <li>Agent and broker profile cards [per batch]</li>
+          </ul>
+        </div>
+        <div class="fh-menu__cluster">
+          <p class="fh-menu__cluster-title">Documents &amp; guides</p>
+          <ul class="fh-menu__list">
+            <li>Appraisal and presentation deck refreshes</li>
+            <li>Agent and broker profile cards</li>
+            <li>Rate sheets and referral partner marketing</li>
+            <li>Landlord reports and rental appraisal documents</li>
+            <li>Client guides and welcome packs</li>
             <li>Loan process explainers and pre-approval guides</li>
           </ul>
         </div>
-        <div>
-          <p class="fh-menu__col-title">Handled in stages</p>
-          <ul class="fh-menu__list">
-            <li>Appraisal, pre-list and sales kits [delivered in stages... allow four to five business days]</li>
-            <li>Full vehicle wraps [delivered in stages over four to six business days]</li>
-            <li>Campaign suites [two to three business days per format... fast, because your templates already exist]</li>
-          </ul>
-        </div>
       </div>
+
+      <div class="fh-menu__stages">
+        <p class="fh-menu__stages-title">Handled in stages</p>
+        <ul class="fh-menu__stages-list">
+          <li>Appraisal, pre-list and sales kits [delivered in stages... allow four to five business days]</li>
+          <li>Full vehicle wraps</li>
+          <li>Campaign suites [fast, because your templates already exist]</li>
+        </ul>
+      </div>
+
       <p class="fh-menu__note">Development branding, project brochures and webpages are quoted separately. Subscription clients get priority.</p>
       <p class="fh-menu__note">Light copy tidying is included. Full copywriting isn't [we'll tell you before it becomes a problem].</p>
     </div>
@@ -838,7 +866,8 @@
             <span class="fh-faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="fh-faq__a">
-            <p>One asset, one purpose. A DL flyer is one request [both sides]. A social set of up to five tiles on one theme is one. Bigger pieces like appraisal kits are delivered in stages over four to six business days... you'll always know the timeline before we start.</p>
+            <p>One asset, one purpose. A DL flyer counts as one request [both sides]. Social graphics up to five tiles on one theme count as one. Signage is counted per sign design. Vehicle decals are counted as one standard sedan set. Profile cards are counted per batch [one agent or one office]. Presentation deck refreshes are counted per section.</p>
+            <p>Bigger pieces like appraisal kits, vehicle wraps and campaign suites are delivered in stages... typically four to six business days. You'll always know the timeline before we start.</p>
           </div>
         </div>
 
@@ -848,7 +877,7 @@
             <span class="fh-faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="fh-faq__a">
-            <p>Every client gets one queue-jump a month. Auction Saturday doesn't wait, and we've built for that.</p>
+            <p>Every client gets one priority bump a month. Auction Saturday doesn't wait, and we've built for that.</p>
           </div>
         </div>
 
@@ -888,7 +917,7 @@
             <span class="fh-faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="fh-faq__a">
-            <p>The queue keeps moving. Your next request starts, and the one waiting on feedback re-enters the queue the moment you reply. Nothing stalls.</p>
+            <p>Production keeps moving. Your next request starts, and the one waiting on feedback comes straight back the moment you reply. Nothing stalls.</p>
           </div>
         </div>
 
