@@ -65,82 +65,80 @@
     gtag('config', 'G-DDV47H5Y6R');
   </script>
   <style>
-    /* ── FAQ (Fully Handled page) ── */
-    .fh-faq { background: var(--navy); padding: clamp(60px,8vw,100px) var(--pad); }
-    .fh-faq__inner { max-width: 1100px; margin: 0 auto; }
-    .fh-faq__heading {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 700;
-      color: #fff;
-      text-align: center;
-      margin: 0 0 2.75rem;
-      line-height: 1.2;
-    }
-    .fh-faq__list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      align-items: start;
-    }
-    .fh-faq__item {
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 14px;
-      padding: 0 1.5rem;
-      background: rgba(255,255,255,0.04);
-    }
-    .fh-faq__q {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1.25rem;
-      background: none;
-      border: none;
-      color: #fff;
-      font-family: var(--serif);
-      font-size: clamp(0.95rem, 1.8vw, 1.08rem);
-      font-weight: 700;
-      text-align: left;
-      padding: 1.4rem 0;
-      cursor: pointer;
-      line-height: 1.35;
-      transition: color 0.2s;
-    }
-    .fh-faq__q:hover { color: var(--green); }
-    .fh-faq__icon {
-      flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      border: 1.5px solid rgba(255,255,255,0.4);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      font-weight: 300;
-      line-height: 1;
-      transition: transform 0.25s ease, border-color 0.2s;
-    }
-    .fh-faq__q[aria-expanded="true"] .fh-faq__icon { transform: rotate(45deg); border-color: var(--green); }
-    .fh-faq__a {
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.35s ease, padding-bottom 0.35s ease;
-      padding-bottom: 0;
-    }
-    .fh-faq__a.is-open { max-height: 800px; padding-bottom: 1.5rem; }
-    .fh-faq__a p {
-      color: rgba(255,255,255,0.72);
-      font-family: var(--sans);
-      font-size: 0.93rem;
-      line-height: 1.85;
-      margin: 0;
-    }
-    .fh-faq__a p + p { margin-top: 0.9rem; }
-    @media (max-width: 720px) {
-      .fh-faq__list { grid-template-columns: 1fr; }
-    }
+  /* ── Enquiry Modal ── */
+  .enq-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;}
+  .enq-modal[hidden]{display:none;}
+  .enq-modal__backdrop{position:absolute;inset:0;background:rgba(30,61,81,0.72);backdrop-filter:blur(4px);}
+  .enq-modal__card{position:relative;z-index:1;background:#fff;border-radius:20px;padding:clamp(1.75rem,5vw,2.75rem);width:100%;max-width:480px;max-height:90vh;overflow-y:auto;}
+  .enq-modal__close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.25rem;cursor:pointer;color:rgba(30,61,81,0.45);padding:0.25rem 0.5rem;line-height:1;}
+  .enq-modal__close:hover{color:var(--navy);}
+  .enq-modal__title{font-family:var(--serif);font-size:clamp(1.4rem,3vw,1.8rem);font-weight:700;color:var(--navy);margin:0 0 0.6rem;}
+  .enq-modal__promise{font-family:var(--sans);font-size:0.93rem;color:rgba(30,61,81,0.72);line-height:1.7;margin:0 0 1.75rem;}
+  .enq-form{display:flex;flex-direction:column;gap:1rem;}
+  .enq-form__honey{position:absolute;left:-9999px;opacity:0;pointer-events:none;}
+  .enq-form__field{display:flex;flex-direction:column;}
+  .enq-form__label{font-family:var(--sans);font-size:0.82rem;font-weight:600;color:var(--navy);margin-bottom:0.35rem;letter-spacing:0.02em;}
+  .enq-form__input{width:100%;border:1.5px solid rgba(30,61,81,0.22);border-radius:10px;padding:0.75rem 1rem;font-family:var(--sans);font-size:0.95rem;color:var(--navy);background:#fff;outline:none;box-sizing:border-box;transition:border-color 0.2s;}
+  .enq-form__input:focus{border-color:var(--green);}
+  .enq-form__select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231E3D51' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;cursor:pointer;}
+  .enq-form__submit{background:var(--navy);color:#fff;font-family:var(--sans);font-size:0.95rem;font-weight:700;border:none;border-radius:10px;padding:0.9rem 1.5rem;cursor:pointer;margin-top:0.5rem;transition:background 0.2s;}
+  .enq-form__submit:hover{background:#2a5570;}
+  .enq-form__submit:disabled{opacity:0.6;cursor:not-allowed;}
+  .enq-confirm{text-align:center;padding:1rem 0;}
+  .enq-confirm__msg{font-family:var(--sans);font-size:1rem;color:var(--navy);line-height:1.7;margin:0 0 1.25rem;}
+  .enq-confirm__link{display:inline-block;font-family:var(--sans);font-size:0.9rem;color:var(--navy);font-weight:600;text-decoration:underline;}
+  /* ── Secondary CTA link ── */
+  .btn-secondary-link{display:inline-block;font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.72);text-decoration:underline;text-underline-offset:3px;margin-top:0.6rem;transition:color 0.2s;}
+  .btn-secondary-link:hover{color:#fff;}
+  .btn-secondary-link--dark{color:rgba(30,61,81,0.6);}
+  .btn-secondary-link--dark:hover{color:var(--navy);}
+  /* ── How it works (S5) ── */
+  .fh-how{padding:clamp(60px,8vw,100px) var(--pad);background:#f7f9fb;}
+  .fh-how__inner{max-width:900px;margin:0 auto;}
+  .fh-how__heading{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--navy);margin:0 0 0.4rem;}
+  .fh-how__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin:2.5rem 0 2rem;}
+  .fh-how__step-num{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;color:var(--green);text-transform:uppercase;margin-bottom:0.6rem;}
+  .fh-how__step-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--navy);margin:0 0 0.5rem;}
+  .fh-how__step-body{font-family:var(--sans);font-size:0.92rem;color:rgba(30,61,81,0.72);line-height:1.75;margin:0;}
+  .fh-how__close{font-family:var(--sans);font-size:0.95rem;color:rgba(30,61,81,0.72);line-height:1.75;border-top:1px solid rgba(30,61,81,0.1);padding-top:1.5rem;}
+  @media(max-width:640px){.fh-how__steps{grid-template-columns:1fr;gap:1.5rem;}}
+  /* ── The menu (S7) ── */
+  .fh-menu{background:#f7f9fb;padding:clamp(60px,8vw,100px) var(--pad);}
+  .fh-menu__inner{max-width:1100px;margin:0 auto;}
+  .fh-menu__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:var(--navy);margin:0 0 0.4rem;}
+  .fh-menu__sub{font-family:var(--sans);font-size:1rem;color:rgba(30,61,81,0.72);margin:0 0 2.5rem;line-height:1.65;}
+  .fh-menu__cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:2rem;}
+  .fh-menu__col-title{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:1rem;}
+  .fh-menu__list{list-style:none;padding:0;margin:0;}
+  .fh-menu__list li{font-family:var(--sans);font-size:0.92rem;color:rgba(30,61,81,0.82);padding:0.5rem 0;border-bottom:1px solid rgba(30,61,81,0.08);line-height:1.55;}
+  .fh-menu__list li:last-child{border-bottom:none;}
+  .fh-menu__note{font-family:var(--sans);font-size:0.88rem;color:rgba(30,61,81,0.6);line-height:1.7;}
+  .fh-menu__note+.fh-menu__note{margin-top:0.4rem;}
+  @media(max-width:640px){.fh-menu__cols{grid-template-columns:1fr;gap:2rem;}}
+  /* ── Seat pricing ── */
+  .offers__seat-pricing{background:rgba(105,222,95,0.1);border:1px solid rgba(105,222,95,0.35);border-radius:12px;padding:1.25rem 1.5rem;margin-top:1.25rem;}
+  .offers__seat-pricing h4{font-family:var(--serif);font-size:1rem;font-weight:700;color:#fff;margin:0 0 0.5rem;}
+  .offers__seat-pricing p{font-family:var(--sans);font-size:0.87rem;color:rgba(255,255,255,0.72);line-height:1.7;margin:0;}
+  .offers__seat-pricing p+p{margin-top:0.4rem;}
+  /* ── FAQ (white, single-column) ── */
+  .fh-faq{background:#fff;padding:clamp(60px,8vw,100px) var(--pad);}
+  .fh-faq__inner{max-width:800px;margin:0 auto;}
+  .fh-faq__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:var(--navy);text-align:left;margin:0 0 2rem;line-height:1.2;}
+  .fh-faq__list{display:block;}
+  .fh-faq__item{border-bottom:1px solid rgba(30,61,81,0.12);}
+  .fh-faq__q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;color:var(--navy);font-family:var(--sans);font-size:1rem;font-weight:600;text-align:left;padding:1.25rem 0;cursor:pointer;line-height:1.4;transition:color 0.2s;}
+  .fh-faq__q:hover{color:rgba(30,61,81,0.65);}
+  .fh-faq__icon{flex-shrink:0;font-size:1.3rem;font-weight:300;color:var(--green);transition:transform 0.25s ease;}
+  .fh-faq__q[aria-expanded="true"] .fh-faq__icon{transform:rotate(45deg);}
+  .fh-faq__a{overflow:hidden;max-height:0;transition:max-height 0.35s ease,padding-bottom 0.35s ease;padding-bottom:0;}
+  .fh-faq__a.is-open{max-height:600px;padding-bottom:1.25rem;}
+  .fh-faq__a p{color:rgba(30,61,81,0.72);font-family:var(--sans);font-size:0.93rem;line-height:1.85;margin:0;}
+  .fh-faq__a p+p{margin-top:0.8rem;}
+  /* ── Final CTA (S14) ── */
+  .fh-closing{background:var(--navy);padding:clamp(60px,8vw,100px) var(--pad);}
+  .fh-closing__inner{max-width:640px;margin:0 auto;text-align:center;}
+  .fh-closing__body{font-family:var(--sans);font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.8;margin:1.75rem 0 0;}
+  .fh-closing__aside{font-family:var(--sans);font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:0.75rem;}
   </style>
 </head>
 <body>
@@ -160,7 +158,7 @@
       <a href="/about"         class="menu__link">About</a>
       <a href="/journal"       class="menu__link">Journal</a>
     </nav>
-    <a href="/fit-check" class="btn-cta btn-cta--dark menu__cta" onclick="document.getElementById('menu').classList.remove('open')"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+    <a href="#" class="btn-cta btn-cta--dark menu__cta js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
   </div>
 
   <!-- NAV -->
@@ -170,7 +168,7 @@
         <img src="/assets/HandledStudio.png" alt="Handled Studio" class="nav__logomark" />
       </a>
       <div class="nav__right">
-        <a href="/fit-check" class="btn-cta btn-cta--dark"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+        <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
         <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -183,10 +181,12 @@
       <div class="fh-hero__content">
         <h1 class="fh-hero__headline">Your design output, <span class="hl">fully handled.</span></h1>
         <p class="fh-hero__qualifier">For real estate agencies, mortgage brokers, buyers agents, and property managers producing more than their current design setup can handle.</p>
+        <p class="fh-hero__payoff">The work that wins listings and keeps vendors confident... done properly, every time.</p>
       </div>
       <div class="fh-hero__cta-wrap">
-        <a href="/fit-check" class="btn-cta btn-cta--dark"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
-        <p class="fh-hero__scarcity">One new client taken on per month — currently accepting August enquiries.</p>
+        <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
+        <a href="/fit-check" class="btn-secondary-link">Or book a 15-minute Fit Check</a>
+        <p class="fh-hero__scarcity">One new client taken on per month. Five seats in total.</p>
       </div>
     </div>
   </section>
@@ -197,7 +197,7 @@
     <div class="fh-built__inner">
       <div class="fh-built__text">
         <h2 class="fh-built__headline">Built for businesses where the work doesn't stop.</h2>
-        <p class="fh-built__body">You're managing a growing team, a growing brand, and a production load that keeps expanding. You don't need more tools — you need the right people, running the right systems, with full visibility over your output.</p>
+        <p class="fh-built__body">You don't need more tools, and you don't need to manage more people. You need one senior designer running a proper system... with full visibility over everything that goes out, and output that pulls its weight commercially.</p>
 
       </div>
       <div class="fh-built__image">
@@ -210,8 +210,8 @@
   <!-- NOT ALONE -->
   <section class="fh-alone">
     <div class="fh-alone__inner">
-      <h2 class="fh-alone__headline">If you're running a real estate agency, mortgage brokerage, or property business and things feel a bit inconsistent right now — <span class="hl-y">you're not alone.</span></h2>
-      <a href="/fit-check" class="btn-cta btn-cta--light"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+      <h2 class="fh-alone__headline">If you're running a real estate agency, mortgage brokerage, or property business and things feel a bit inconsistent right now... <span class="hl-y">you're not alone.</span></h2>
+      <a href="#" class="btn-cta btn-cta--light js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
     </div>
   </section>
 
@@ -221,19 +221,19 @@
     <div class="fh-pain__inner">
       <div class="fh-pain__col">
         <h3 class="fh-pain__title">Some things look polished. Others feel rushed</h3>
-        <p class="fh-pain__body">The quality shifts depending on timing, pressure, or who's working on it.</p>
+        <p class="fh-pain__body">The quality shifts depending on timing, pressure, or who's working on it. Vendors notice before you do.</p>
       </div>
       <div class="fh-pain__col">
         <h3 class="fh-pain__title">Your brand shows up differently across touchpoints</h3>
-        <p class="fh-pain__body">What goes out isn't always aligned, even when the work itself is strong.</p>
+        <p class="fh-pain__body">What goes out isn't always aligned, even when the work itself is strong. Every inconsistent asset spends a little of the trust your brand has earned.</p>
       </div>
       <div class="fh-pain__col">
         <h3 class="fh-pain__title">You're still catching things before they go out</h3>
-        <p class="fh-pain__body">Fixing, adjusting, or reworking at the last minute has become normal.</p>
+        <p class="fh-pain__body">Fixing, adjusting, or reworking at the last minute has become normal. That checking is hours a week you're not spending on listings or clients.</p>
       </div>
       <div class="fh-pain__col">
         <h3 class="fh-pain__title">You've tried outsourcing, but nothing really holds</h3>
-        <p class="fh-pain__body">Freelancers or VAs help in moments, but nothing stays consistent.</p>
+        <p class="fh-pain__body">Freelancers or VAs help in moments, but nothing stays consistent. So every job starts from zero, and costs like it.</p>
       </div>
     </div>
   </section>
@@ -244,10 +244,34 @@
     <div class="fh-intro__inner">
       <p class="fh-intro__eyebrow">Introducing Fully Handled</p>
       <h2 class="fh-intro__headline">When your output is <span class="hl">properly handled</span> everything changes</h2>
-      <p class="fh-intro__lead">A monthly design partnership that takes ownership of your production.</p>
-      <p class="fh-intro__body">So everything that goes out is consistent, on-brand, and done properly.<br>No freelancers to manage. No starting from scratch. No last-minute fixes.<br>Just a system that keeps your output running the way it should.</p>
+      <p class="fh-intro__body">A monthly design subscription with one simple shape... send unlimited requests from the menu, and they're delivered one at a time, two business days at a time.</p>
+      <p class="fh-intro__body">No briefing from scratch. No freelancers to manage. No scope conversations.<br>Pause when it's a slow month. Pick it back up when it's not.</p>
+      <p class="fh-intro__body">The point isn't prettier collateral. It's winning more of the work you pitch for, and a brand that helps you recruit as well as sell.</p>
       <p class="fh-intro__closer">Everything that leaves your business, fully handled.</p>
-      <a href="/fit-check" class="btn-cta btn-cta--dark"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+      <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
+    </div>
+  </section>
+
+
+  <!-- HOW IT WORKS (S5) -->
+  <section class="fh-how">
+    <div class="fh-how__inner">
+      <h2 class="fh-how__heading">How it works</h2>
+      <div class="fh-how__steps">
+        <div class="fh-how__step">
+          <p class="fh-how__step-num">1. Send it over.</p>
+          <p class="fh-how__step-body">Email your request or drop it in the form. Anything on the menu, as many as you like... they line up in your queue. No new tools to learn.</p>
+        </div>
+        <div class="fh-how__step">
+          <p class="fh-how__step-num">2. One at a time.</p>
+          <p class="fh-how__step-body">Requests are worked through in order, with senior eyes on every single one [no juniors, no handovers].</p>
+        </div>
+        <div class="fh-how__step">
+          <p class="fh-how__step-num">3. Two business days.</p>
+          <p class="fh-how__step-body">Small assets land in two business days. Larger pieces arrive in stages. Revisions until it's right.</p>
+        </div>
+      </div>
+      <p class="fh-how__close">That's the whole system... your listings, kits and campaigns keep moving while you stay on clients and deals, not artwork.</p>
     </div>
   </section>
 
@@ -261,58 +285,45 @@
         <div class="fh-support__cards">
 
           <div class="fh-support__card">
-            <div class="fh-support__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            </div>
-            <p class="fh-support__card-title">Dedicated partner</p>
+            <div class="fh-support__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+            <p class="fh-support__card-title">One senior designer</p>
             <p class="fh-support__card-sub">Knows your brand inside out</p>
           </div>
-
           <div class="fh-support__card">
-            <div class="fh-support__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>
-            </div>
-            <p class="fh-support__card-title">Consistent output</p>
-            <p class="fh-support__card-sub">Every format and channel</p>
+            <div class="fh-support__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <p class="fh-support__card-title">Unlimited requests</p>
+            <p class="fh-support__card-sub">From the menu, one active at a time</p>
           </div>
-
           <div class="fh-support__card">
-            <div class="fh-support__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="12" y1="9" x2="12" y2="21"/></svg>
-            </div>
-            <p class="fh-support__card-title">Structured process</p>
-            <p class="fh-support__card-sub">Briefs, timelines, delivery</p>
+            <div class="fh-support__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <p class="fh-support__card-title">2-day delivery</p>
+            <p class="fh-support__card-sub">Larger pieces in stages</p>
           </div>
-
           <div class="fh-support__card">
-            <div class="fh-support__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="16" x2="13" y2="16"/></svg>
-            </div>
+            <div class="fh-support__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+            <p class="fh-support__card-title">Pause anytime</p>
+            <p class="fh-support__card-sub">Built for seasonal rhythms</p>
+          </div>
+          <div class="fh-support__card">
+            <div class="fh-support__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="16" x2="13" y2="16"/></svg></div>
             <p class="fh-support__card-title">Monthly reporting</p>
             <p class="fh-support__card-sub">Output, turnaround, brand health</p>
           </div>
-
           <div class="fh-support__card">
-            <div class="fh-support__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </div>
-            <p class="fh-support__card-title">Direct access</p>
-            <p class="fh-support__card-sub">Slack or email — no tickets</p>
-          </div>
-
-          <div class="fh-support__card">
-            <div class="fh-support__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="9 12 11 14 15 10"/></svg>
-            </div>
+            <div class="fh-support__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="9 12 11 14 15 10"/></svg></div>
             <p class="fh-support__card-title">Senior eyes only</p>
             <p class="fh-support__card-sub">On everything that goes out</p>
           </div>
 
         </div>
+        <p class="fh-support__sub" style="margin-top:2rem;max-width:600px;">Each of these exists for a commercial reason... work that converts, a brand that compounds, and no salary on the books to get it.</p>
       </div>
       <div class="fh-support__image">
         <img src="/assets/brand-max.jpg" alt="" loading="lazy" />
       </div>
+    </div>
+    <div style="text-align:center;padding:0 var(--pad) clamp(40px,5vw,60px);">
+      <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
     </div>
   </section>
 
@@ -337,12 +348,54 @@
   </section>
 
 
+  <!-- THE MENU (S7) -->
+  <section class="fh-menu">
+    <div class="fh-menu__inner">
+      <h2 class="fh-menu__heading">What's on the menu</h2>
+      <p class="fh-menu__sub">If it goes out under your brand, it's probably here.</p>
+      <div class="fh-menu__cols">
+        <div>
+          <p class="fh-menu__col-title">In your queue (one request each)</p>
+          <ul class="fh-menu__list">
+            <li>Listing and property marketing assets</li>
+            <li>EDMs and client communications</li>
+            <li>Social graphics [up to five tiles on one theme counts as one request]</li>
+            <li>DL flyers [double-sided still counts as one]</li>
+            <li>Press ads</li>
+            <li>Adshels and outdoor</li>
+            <li>Signage artwork [per sign design]</li>
+            <li>Posters and window cards</li>
+            <li>Teardrop flags</li>
+            <li>Vehicle decals [standard sedan set]</li>
+            <li>Sponsorship collateral [per asset]</li>
+            <li>Presentation deck refresh [per section]</li>
+            <li>Market update and newsletter templates</li>
+            <li>Agent and broker profile cards [per batch]</li>
+            <li>Loan process explainers and pre-approval guides</li>
+          </ul>
+        </div>
+        <div>
+          <p class="fh-menu__col-title">Bigger pieces, delivered in stages</p>
+          <ul class="fh-menu__list">
+            <li>Appraisal, pre-list and sales kits [typically two delivery cycles... allow 4 to 5 business days]</li>
+            <li>Full vehicle wraps [two cycles]</li>
+            <li>Campaign suites [one cycle per format... fast, because your templates already exist]</li>
+          </ul>
+        </div>
+      </div>
+      <p class="fh-menu__note">Development branding, project brochures and webpages are quoted separately. Retainer clients get priority.</p>
+      <p class="fh-menu__note">Light copy tidying is included. Full copywriting isn't [we'll tell you before it becomes a problem].</p>
+    </div>
+  </section>
+
+
   <!-- WHAT CHANGES -->
   <section class="fh-changes">
     <div class="fh-changes__inner">
       <h2 class="fh-changes__headline">What changes when it's <span class="hl">fully handled</span></h2>
       <p class="fh-changes__body">You're not chasing designers or following things up. You're not fixing work before it goes out.<br>You're not starting from scratch every time something's needed. Your brand shows up the same way, across everything.</p>
       <p class="fh-changes__body">The work moves faster. And the pressure of "making it look right" disappears.<br>It just gets done. Consistently. Properly.</p>
+      <p class="fh-changes__body">A brand that looks like the strongest office in the suburb recruits like it too. And the hours you were spending fixing artwork go back into appraisals, vendors and deals... which is where they were meant to be.</p>
     </div>
   </section>
 
@@ -411,6 +464,13 @@
               <td><span class="fh-ct__x">✕</span></td>
               <td><span class="fh-ct__m">~</span> At extra cost</td>
               <td class="fh-ct__td--fh"><span class="fh-ct__c">✓</span></td>
+            </tr>
+            <tr class="fh-ct__row">
+              <td class="fh-ct__label">Turnaround</td>
+              <td>When they reply</td>
+              <td>When they're not on leave</td>
+              <td>Varies by project</td>
+              <td class="fh-ct__td--fh"><span class="fh-ct__c">✓</span> 2 business days, every time</td>
             </tr>
 
             <tr class="fh-ct__section-row"><td colspan="5">Cost &amp; overhead</td></tr>
@@ -567,6 +627,19 @@
           </div>
         </div>
 
+        <div class="ca-item">
+          <button class="ca-trigger" aria-expanded="false" aria-controls="ca-body-turnaround">
+            <span class="ca-trigger__label">Turnaround</span>
+            <span class="ca-trigger__arrow" aria-hidden="true">+</span>
+          </button>
+          <div class="ca-body" id="ca-body-turnaround" style="display:none">
+            <div class="ca-card ca-card--fh"><span class="ca-opt">Fully Handled</span><span class="ca-val"><span class="fh-ct__c">✓</span> 2 business days, every time</span></div>
+            <div class="ca-card"><span class="ca-opt">Freelancer</span><span class="ca-val">When they reply</span></div>
+            <div class="ca-card"><span class="ca-opt">Part-time Hire</span><span class="ca-val">When they're not on leave</span></div>
+            <div class="ca-card"><span class="ca-opt">Agency</span><span class="ca-val">Varies by project</span></div>
+          </div>
+        </div>
+
         <div class="ca-section-header" role="presentation">Cost &amp; overhead</div>
 
         <div class="ca-item">
@@ -622,7 +695,7 @@
       </div><!-- /comparison-accordion -->
 
       <div class="fh-ct__cta">
-        <a href="#contact" class="btn-cta btn-cta--dark"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+        <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
       </div>
 
     </div>
@@ -633,9 +706,9 @@
   <section class="fh-experience">
     <div class="fh-experience__inner">
       <h2 class="fh-experience__headline">Built from <span class="hl-y">real production experience</span></h2>
-      <p class="fh-experience__body">Fully Handled comes from 15+ years inside the environments where high-volume design actually happens. Global agencies, in-house teams, and businesses producing work every day under real pressure. Campaigns, property marketing, listings, agency collateral — the kind of work that doesn't stop, and can't fall apart.</p>
+      <p class="fh-experience__body">Fully Handled comes from 15+ years inside the environments where high-volume design actually happens. Global agencies, in-house teams, and businesses producing work every day under real pressure. Campaigns, property marketing, listings, agency collateral... the kind of work that doesn't stop, and can't fall apart.</p>
       <p class="fh-experience__body">Most designers focus on how things look. We focus on how they hold together over time. That's what this model is built for.</p>
-      <a href="/fit-check" class="btn-cta btn-cta--light"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+      <a href="#" class="btn-cta btn-cta--light js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
     </div>
   </section>
 
@@ -650,8 +723,8 @@
         <h2 class="fh-why__headline">Why choose <span class="hl">Handled?</span></h2>
         <div class="fh-why__grid">
           <div class="fh-why__item">
-            <p class="fh-why__item-title">• Senior team, by design</p>
-            <p class="fh-why__item-body">Every member of the team brings 15–25 years of experience. No juniors, no handovers.</p>
+            <p class="fh-why__item-title">• A studio of one, on purpose</p>
+            <p class="fh-why__item-body">You work directly with the designer behind Barfoot &amp; Thompson's brand across 80+ branches and Jarden's publications. No juniors, no handovers, no account managers. Five seats, because that's how many one senior designer can look after properly.</p>
           </div>
           <div class="fh-why__item">
             <p class="fh-why__item-title">• Built for high-volume</p>
@@ -688,21 +761,22 @@
       <!-- Journey grid -->
       <div class="offers__journey">
 
-        <!-- Step 1: The Handoff -->
+        <!-- The Handoff -->
         <div class="offers__card offers__card--handoff">
           <div class="offers__step">
             <span class="offers__step-num">1</span>
             <span class="offers__step-label">Start here</span>
           </div>
           <h3 class="offers__title">The Handoff</h3>
-          <span class="offers__price-pill offers__price-pill--dark">30-day pilot — $1,500</span>
-          <p class="offers__desc">Experience how it works inside your business with real production — not a trial, not a sample.</p>
+          <span class="offers__price-pill offers__price-pill--dark">30-DAY SYSTEM BUILD... FROM $1,500</span>
+          <p class="offers__desc">Month one, productised. We build your brand system and template library with real production from day one... the thing that makes every request fast from then on. Not a trial, not a sample.</p>
           <ul class="offers__features offers__features--dot">
             <li>Real design output from day one</li>
-            <li>Brand familiarisation begins</li>
+            <li>Your template system and asset library, built</li>
             <li>No long-term commitment</li>
           </ul>
-          <p class="offers__avail offers__avail--yellow">Only one new Handoff per month</p>
+          <p class="offers__price-note" style="font-family:var(--sans);font-size:0.88rem;color:rgba(30,61,81,0.7);margin-top:1rem;line-height:1.6;">$1,500 when you continue into Fully Handled. $2,500 standalone [take the system and run].</p>
+          <p class="offers__avail offers__avail--yellow">Only one new Handoff per month.</p>
         </div>
 
         <!-- Connector -->
@@ -713,7 +787,7 @@
           <div class="conn-line"></div>
         </div>
 
-        <!-- Step 2: Fully Handled -->
+        <!-- Fully Handled -->
         <div class="offers__card offers__card--fh">
           <span class="offers__float-badge">Where most clients end up</span>
           <div class="offers__step">
@@ -721,16 +795,23 @@
             <span class="offers__step-label offers__step-label--green">The destination</span>
           </div>
           <h3 class="offers__title offers__title--white">Fully Handled</h3>
-          <span class="offers__price-pill offers__price-pill--green">Ongoing — from $3,000 / month</span>
-          <p class="offers__desc offers__desc--muted">Your design production runs through us — consistently, on-brand, every month.<br>No briefing from scratch. No dropped balls.</p>
+          <span class="offers__price-pill offers__price-pill--green">ONGOING... FROM $3,000 / MONTH</span>
+          <p class="offers__desc offers__desc--muted">Unlimited requests from the menu, one at a time, two business days at a time. Your production runs through one senior designer who already knows your brand... no briefing from scratch, no dropped balls.</p>
+          <p class="offers__desc offers__desc--muted" style="margin-top:0.75rem;">Built to do commercial work: appraisals that win, campaigns that convert, and vendor-facing pieces that earn the marketing spend.</p>
           <ul class="offers__features offers__features--check">
-            <li>Ongoing design support, always on</li>
-            <li>Deep brand understanding built over time</li>
-            <li>Structured partnership, not a vendor relationship</li>
-            <li>Scales up or down with your needs</li>
+            <li>Unlimited requests from the menu</li>
+            <li>One active request, delivered in 2 business days</li>
+            <li>Pause anytime... no lock-in</li>
+            <li>Senior designer on everything</li>
           </ul>
-          <p class="offers__avail offers__avail--green">Designed for businesses where deadlines don't stop</p>
-          <a href="/fit-check" class="btn-cta btn-cta--dark"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+          <div class="offers__seat-pricing">
+            <h4>Five seats. Priced as they fill.</h4>
+            <p>Seats one and two: $3,000/month. Seats three and four: $3,500. The fifth: $4,000.</p>
+            <p>Early seats keep their price. [Less than half the cost of a junior hire... with senior eyes on everything instead.]</p>
+            <p>When seats are full, the waitlist opens.</p>
+          </div>
+          <a href="#" class="btn-cta btn-cta--dark js-enquiry-open" style="margin-top:1.5rem;"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
+          <a href="/fit-check" class="btn-secondary-link" style="display:block;text-align:center;">Or book a 15-minute Fit Check</a>
         </div>
 
       </div><!-- /journey -->
@@ -739,128 +820,94 @@
       <div class="fh-rhythm">
         <h3 class="fh-rhythm__heading">What does a typical month look like?</h3>
         <p class="fh-rhythm__body">Most clients are producing somewhere between 20–30 assets a month — listings, appraisal kits, EDMs, social content, signage, campaign pieces. Some months heavier, some lighter. That's normal.</p>
-        <p class="fh-rhythm__body">Fully Handled is built around your production rhythm, not a fixed deliverable list. In the Fit Check call, we scope the retainer to your actual output — so you're never paying for capacity you don't need, and never short when things get busy.</p>
+        <p class="fh-rhythm__body">There's nothing to scope and nothing to true up. The queue absorbs your rhythm... busy months just mean a fuller queue, and slow months you can simply pause. One flat price, whatever the season is doing... so a big campaign month costs exactly the same as a quiet one, and the upside of a strong season stays yours.</p>
         <p class="fh-rhythm__close">Everything that needs to go out, handled.</p>
-      </div>
-
-      <!-- Social proof -->
-      <div class="offers__proof">
-        <p class="offers__quote"><span class="hl-y">Most clients start with a Handoff</span> then continue once <strong>they see the difference.</strong></p>
-        <a href="/fit-check" class="btn-cta btn-cta--rev"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
       </div>
 
     </div>
   </section>
 
 
-  <!-- FAQ -->
+  <!-- FAQ (S13) -->
   <section class="fh-faq">
     <div class="fh-faq__inner">
-      <h2 class="fh-faq__heading">Questions people ask before they book</h2>
+      <h2 class="fh-faq__heading">Questions worth asking before you decide</h2>
       <div class="fh-faq__list">
 
         <div class="fh-faq__item">
           <button class="fh-faq__q" aria-expanded="false">
-            What does Handled actually do each month?
+            What counts as one request?
             <span class="fh-faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="fh-faq__a">
-            <p>We take on your ongoing design production. The output your business generates week to week. For real estate agencies that means listing presentations, appraisal kits, social tiles, EDMs, signage, proposals, and campaign collateral. For construction businesses it's capability statements, tender documents, team bios, and project photography integration. You brief us on what needs doing, we produce it to your brand standard, you approve it, it goes out. No rebuilding context each time, no chasing availability and less last-minute fixes.</p>
+            <p>One asset, one purpose. A DL flyer is one request [both sides]. A social set of up to five tiles on one theme is one. Bigger pieces like appraisal kits are delivered in stages over two or three cycles... you'll always know which before we start.</p>
           </div>
         </div>
 
         <div class="fh-faq__item">
           <button class="fh-faq__q" aria-expanded="false">
-            How is this different from hiring a freelancer?
+            What if something's urgent?
             <span class="fh-faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="fh-faq__a">
-            <p>A freelancer does a project-based job. We own your output. The difference is context — after the first month we know your brand the way an in-house designer would. We know which logo version to use, what your preferred layout looks like, what's gone out before and what needs to stay consistent with it. A freelancer starts from your new brief every time. We start from everything we already know about your business. That compounds quickly and has proven to be of higher ROI for our clients.</p>
+            <p>Every client gets one queue-jump a month. Auction Saturday doesn't wait, and we've built for that.</p>
           </div>
         </div>
 
         <div class="fh-faq__item">
           <button class="fh-faq__q" aria-expanded="false">
-            I'm not sure I produce enough design work to justify a retainer. How do I know if it's the right fit?
+            Can I pause?
             <span class="fh-faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="fh-faq__a">
-            <p>Most businesses we work with are surprised by how much they're actually producing once they add it up — listings, appraisals, social content, proposals, campaigns. The other thing worth considering is the invisible cost: the hours you or your team spend briefing, chasing, reviewing, and fixing. A retainer makes sense when the total overhead of managing your current setup outweighs what a dedicated production relationship would cost. The Fit Check is specifically designed to answer this question. 20 minutes looking at your current output and we'll tell you honestly whether a retainer makes sense for where you are right now.</p>
+            <p>Anytime, at the end of any month. Winter slowdown, holidays, between campaigns... pause, and your seat and price are held for you.</p>
           </div>
         </div>
 
         <div class="fh-faq__item">
           <button class="fh-faq__q" aria-expanded="false">
-            How does the process actually work day to day?
+            Who actually does the work?
             <span class="fh-faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="fh-faq__a">
-            <p>We use a shared task board called Asana — you add jobs, we pick them up. Each brief comes with a turnaround time based on complexity: most standard production tasks (social tiles, document updates, presentation edits) come back within 24 to 48 hours. Larger jobs are scoped at the start of the month. Each piece goes through one round of revisions as standard — we work towards getting it right the first time because the context is already held. You have direct access throughout. No tickets, no account layers, no waiting for a weekly check-in.</p>
+            <p>One person. The designer behind Barfoot &amp; Thompson's 80+ branch network and Jarden's publications. That's the whole point.</p>
           </div>
         </div>
 
         <div class="fh-faq__item">
           <button class="fh-faq__q" aria-expanded="false">
-            What's the cost?
+            What's not included?
             <span class="fh-faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="fh-faq__a">
-            <p>The Handoff — our 30-day pilot — is $1,500 AUD flat, paid at the start of the month. No lock-in, no ongoing commitment. You get real production output, we get to demonstrate what the relationship looks like in practice. If it's working, the ongoing retainer starts from $3,000 AUD per month, scoped to your output volume at the end of the pilot. If it's not, you keep the work and we part ways cleanly. Most clients continue.</p>
+            <p>Development branding, project brochures, websites and video are quoted separately [retainer clients get priority]. Full copywriting isn't included, light copy tidying is.</p>
           </div>
         </div>
 
         <div class="fh-faq__item">
           <button class="fh-faq__q" aria-expanded="false">
-            What happens during The Handoff?
+            What happens if I haven't given feedback?
             <span class="fh-faq__icon" aria-hidden="true">+</span>
           </button>
           <div class="fh-faq__a">
-            <p>The first month is about two things: producing real output and building the context that makes everything faster from month two onward. We start with your most pressing design need — whatever is actually on your list right now. While we're working through it, we're learning your brand, your files, your preferences, and your production rhythm. By the end of the month you have the work and a clear picture of what the ongoing relationship would look like. That's the point.</p>
-          </div>
-        </div>
-
-        <div class="fh-faq__item">
-          <button class="fh-faq__q" aria-expanded="false">
-            What types of design work does Handled produce?
-            <span class="fh-faq__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="fh-faq__a">
-            <p>Listing presentations, appraisal kits, proposal documents, capability statements, tender documents, EDMs, social tiles, signage artwork, print-ready collateral, campaign assets, internal templates, and brand application across new materials. If you're Fully Handled, we also do brand identity from scratch where required (including logo design, brand strategy), especially where firms have shown that their brand assets are slim.</p>
-          </div>
-        </div>
-
-        <div class="fh-faq__item">
-          <button class="fh-faq__q" aria-expanded="false">
-            Do I need to have everything organised before we start?
-            <span class="fh-faq__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="fh-faq__a">
-            <p>No. Most clients come to us because things aren't organised — that's usually part of the problem. We'll audit what you have, identify what's missing, and set up a working file system as part of the onboarding process. If your brand files are scattered across four Dropbox folders and a WhatsApp thread, we've seen worse. Getting that sorted is part of the job.</p>
-          </div>
-        </div>
-
-        <div class="fh-faq__item">
-          <button class="fh-faq__q" aria-expanded="false">
-            Can Handled work with my existing team?
-            <span class="fh-faq__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="fh-faq__a">
-            <p>Yes. We work alongside in-house coordinators, PAs, marketing managers, and principals. Most clients have someone internally who manages approvals and briefs — we integrate into their workflow rather than replacing it. The task board makes it easy for multiple people to add jobs and track progress without things falling through the gaps.</p>
-          </div>
-        </div>
-
-        <div class="fh-faq__item">
-          <button class="fh-faq__q" aria-expanded="false">
-            What if I want to stop?
-            <span class="fh-faq__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="fh-faq__a">
-            <p>The Handoff has no lock-in — if it's not working after 30 days, you keep the output and that's the end of it. The ongoing retainer runs on a 3-month minimum term, with 30 days notice to wrap up after that. When we do, we hand everything back cleanly: files organised, templates documented, your production system ready to hand to whoever comes next.</p>
-            <p>Note: source files, master templates, and reusable assets we build remain Handled's IP — you licence all the output, not the working files. That's how we're able to maintain the standard across every client we work with.</p>
+            <p>The queue keeps moving. Your next request starts, and the one waiting on feedback re-enters the queue the moment you reply. Nothing stalls.</p>
           </div>
         </div>
 
       </div>
+    </div>
+  </section>
+
+
+  <!-- FINAL CTA (S14) -->
+  <section class="fh-closing">
+    <div class="fh-closing__inner">
+      <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
+      <div class="fh-closing__body">
+        <p>Everything in one document... the menu, how the queue works, pricing, and current seat availability. Sent straight to your inbox.</p>
+      </div>
+      <p class="fh-closing__aside">[Or book a 15-minute Fit Check if you'd rather talk it through. We look at your current output, you'll know if a seat makes sense. No pitch.]</p>
+      <a href="/fit-check" class="btn-secondary-link" style="margin-top:1rem;">Or book a 15-minute Fit Check</a>
     </div>
   </section>
 
@@ -890,11 +937,6 @@
             <a href="/audit-mortgage" class="footer__audit-item">
               <span class="footer__audit-icon"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#69DE5F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 4l4 4-4 4"/><circle cx="8" cy="8" r="6"/></svg></span>
               <span class="footer__audit-item-text"><span class="footer__audit-item-name">Mortgage &amp; Property Services</span><span class="footer__audit-item-desc">Rate sheets, client docs &amp; referral marketing</span></span>
-              <span class="footer__audit-arrow">→</span>
-            </a>
-            <a href="/audit-general" class="footer__audit-item">
-              <span class="footer__audit-icon"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#69DE5F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="12" height="12" rx="2"/><line x1="5" y1="5" x2="11" y2="5"/><line x1="5" y1="8" x2="11" y2="8"/><line x1="5" y1="11" x2="9" y2="11"/></svg></span>
-              <span class="footer__audit-item-text"><span class="footer__audit-item-name">Other business</span><span class="footer__audit-item-desc">Any business with a design output problem</span></span>
               <span class="footer__audit-arrow">→</span>
             </a>
           </div>
@@ -1000,6 +1042,77 @@
         btn.nextElementSibling.classList.toggle('is-open', !expanded);
       });
     });
+  </script>
+
+  <!-- ENQUIRY MODAL (S15) -->
+  <div id="enquiry-modal" class="enq-modal" role="dialog" aria-modal="true" aria-labelledby="enq-modal-title" hidden>
+    <div class="enq-modal__backdrop" id="enquiry-backdrop"></div>
+    <div class="enq-modal__card">
+      <button class="enq-modal__close" id="enquiry-close" aria-label="Close">✕</button>
+      <h2 class="enq-modal__title" id="enq-modal-title">Get the details</h2>
+      <p class="enq-modal__promise">We'll send the full details... the menu, how the queue works, pricing, and current seat availability.</p>
+      <form id="enquiry-form" class="enq-form" novalidate>
+        <div class="enq-form__honey" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off" /></div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-name">Name</label>
+          <input class="enq-form__input" type="text" id="enq-name" name="name" required autocomplete="name" />
+        </div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-business">Business name</label>
+          <input class="enq-form__input" type="text" id="enq-business" name="business" required autocomplete="organization" />
+        </div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-type">What are you producing?</label>
+          <select class="enq-form__input enq-form__select" id="enq-type" name="business_type" required>
+            <option value="" disabled selected>Select...</option>
+            <option value="Real estate agency">Real estate agency</option>
+            <option value="Mortgage broking">Mortgage broking</option>
+            <option value="Buyers agency">Buyers agency</option>
+            <option value="Property management">Property management</option>
+            <option value="Something else">Something else</option>
+          </select>
+        </div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-email">Email</label>
+          <input class="enq-form__input" type="email" id="enq-email" name="email" required autocomplete="email" />
+        </div>
+        <button class="enq-form__submit" type="submit">Send me the info pack</button>
+      </form>
+      <div id="enquiry-confirm" class="enq-confirm" hidden>
+        <p class="enq-confirm__msg">On its way. Check your inbox in the next few minutes... and if you'd rather just talk, the Fit Check link is below.</p>
+        <a href="/fit-check" class="enq-confirm__link">Book a 15-minute Fit Check →</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+  (function(){
+    emailjs.init('qpwKhTqzAJ3UKxGb1');
+    var modal=document.getElementById('enquiry-modal');
+    var form=document.getElementById('enquiry-form');
+    var confirmEl=document.getElementById('enquiry-confirm');
+    var backdrop=document.getElementById('enquiry-backdrop');
+    var closeBtn=document.getElementById('enquiry-close');
+    if(!modal)return;
+    function openModal(){modal.removeAttribute('hidden');document.body.style.overflow='hidden';}
+    function closeModal(){modal.setAttribute('hidden','');document.body.style.overflow='';}
+    document.querySelectorAll('.js-enquiry-open').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();openModal();});});
+    backdrop&&backdrop.addEventListener('click',closeModal);
+    closeBtn&&closeBtn.addEventListener('click',closeModal);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hasAttribute('hidden'))closeModal();});
+    form&&form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(form.querySelector('[name="_honey"]').value)return;
+      var btn=form.querySelector('.enq-form__submit');
+      btn.disabled=true;btn.textContent='Sending...';
+      var p={name:document.getElementById('enq-name').value,business:document.getElementById('enq-business').value,business_type:document.getElementById('enq-type').value,email:document.getElementById('enq-email').value};
+      emailjs.send('service_jtps204','template_enquiry_admin',p)
+        .then(function(){return emailjs.send('service_jtps204','template_enquiry_auto',p);})
+        .then(function(){form.setAttribute('hidden','');confirmEl.removeAttribute('hidden');if(window.fbq)fbq('track','Lead',{content_name:'Info Pack Request'});if(window.gtag)gtag('event','info_pack_requested',{event_category:'Enquiry'});})
+        .catch(function(){btn.disabled=false;btn.textContent='Send me the info pack';});
+    });
+  })();
   </script>
 </body>
 </html>

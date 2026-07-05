@@ -17,6 +17,33 @@
   <meta name="twitter:card" content="summary_large_image" />
 <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
   <link rel="stylesheet" href="/style.css?v=112" />
+  <style>
+  .enq-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;}
+  .enq-modal[hidden]{display:none;}
+  .enq-modal__backdrop{position:absolute;inset:0;background:rgba(30,61,81,0.72);backdrop-filter:blur(4px);}
+  .enq-modal__card{position:relative;z-index:1;background:#fff;border-radius:20px;padding:clamp(1.75rem,5vw,2.75rem);width:100%;max-width:480px;max-height:90vh;overflow-y:auto;}
+  .enq-modal__close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.25rem;cursor:pointer;color:rgba(30,61,81,0.45);padding:0.25rem 0.5rem;line-height:1;}
+  .enq-modal__close:hover{color:#1E3D51;}
+  .enq-modal__title{font-family:var(--serif);font-size:clamp(1.4rem,3vw,1.8rem);font-weight:700;color:#1E3D51;margin:0 0 0.6rem;}
+  .enq-modal__promise{font-family:var(--sans);font-size:0.93rem;color:rgba(30,61,81,0.72);line-height:1.7;margin:0 0 1.75rem;}
+  .enq-form{display:flex;flex-direction:column;gap:1rem;}
+  .enq-form__honey{position:absolute;left:-9999px;opacity:0;pointer-events:none;}
+  .enq-form__field{display:flex;flex-direction:column;}
+  .enq-form__label{font-family:var(--sans);font-size:0.82rem;font-weight:600;color:#1E3D51;margin-bottom:0.35rem;letter-spacing:0.02em;}
+  .enq-form__input{width:100%;border:1.5px solid rgba(30,61,81,0.22);border-radius:10px;padding:0.75rem 1rem;font-family:var(--sans);font-size:0.95rem;color:#1E3D51;background:#fff;outline:none;box-sizing:border-box;transition:border-color 0.2s;}
+  .enq-form__input:focus{border-color:#69DE5F;}
+  .enq-form__select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231E3D51' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;cursor:pointer;}
+  .enq-form__submit{background:#1E3D51;color:#fff;font-family:var(--sans);font-size:0.95rem;font-weight:700;border:none;border-radius:10px;padding:0.9rem 1.5rem;cursor:pointer;margin-top:0.5rem;transition:background 0.2s;}
+  .enq-form__submit:hover{background:#2a5570;}
+  .enq-form__submit:disabled{opacity:0.6;cursor:not-allowed;}
+  .enq-confirm{text-align:center;padding:1rem 0;}
+  .enq-confirm__msg{font-family:var(--sans);font-size:1rem;color:#1E3D51;line-height:1.7;margin:0 0 1.25rem;}
+  .enq-confirm__link{display:inline-block;font-family:var(--sans);font-size:0.9rem;color:#1E3D51;font-weight:600;text-decoration:underline;}
+  .btn-secondary-link{display:inline-block;font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.72);text-decoration:underline;text-underline-offset:3px;margin-top:0.6rem;transition:color 0.2s;}
+  .btn-secondary-link:hover{color:#fff;}
+  .btn-secondary-link--dark{color:rgba(30,61,81,0.6);}
+  .btn-secondary-link--dark:hover{color:#1E3D51;}
+  </style>
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -114,7 +141,7 @@
       <a href="/about"         class="menu__link">About</a>
       <a href="/journal"       class="menu__link">Journal</a>
     </nav>
-    <a href="/fit-check" class="btn-cta btn-cta--dark menu__cta" onclick="document.getElementById('menu').classList.remove('open')"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+    <a href="#" class="btn-cta btn-cta--dark menu__cta js-enquiry-open" onclick="document.getElementById('menu').classList.remove('open')"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
   </div>
 
   <!-- NAV -->
@@ -124,7 +151,7 @@
         <img src="/assets/HandledStudio.png" alt="Handled Studio" class="nav__logomark" />
       </a>
       <div class="nav__right">
-        <a href="/fit-check" class="btn-cta btn-cta--dark"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+        <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
         <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -137,10 +164,11 @@
       <h1 class="hero__headline">Your design output, <span class="hl">handled</span></h1>
       <div class="hero__aside">
         <p>Your listings go out every week.<br>Your brand doesn't always go with them.</p>
-        <a href="/fit-check" class="btn-cta btn-cta--dark"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+        <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
+        <a href="/fit-check" class="btn-secondary-link--dark" style="display:block;margin-top:0.5rem;">Or book a 15-minute Fit Check</a>
       </div>
       <div class="hero__body">
-        <p>Things are getting out the door but not consistently, not properly, and not at the level your brand should be operating at. Handled is your plug-and-play design team. We learn your brand, match your production rhythm, and keep everything aligned, every month.</p>
+        <p>Things are getting out the door but not consistently, not properly, and not at the level your brand should be operating at. Handled is your senior design partner. We learn your brand, match your production rhythm, and keep everything aligned, every month.</p>
       </div>
     </div>
     <div class="hero__slider-wrap">
@@ -177,7 +205,8 @@
           <p class="brand__body">Some days it looks polished, other days it looks rushed. A listing goes out with the wrong logo, social disappears for weeks, proposals don't match, and something always needs fixing after it's already live. You've tried freelancers, VAs, or having someone internally "handle it" — but nothing really holds.</p>
           <p class="brand__body">The work keeps moving, the output gets inconsistent, and you're the one catching it at the last minute. It's not a design issue. No one <em>owns</em> the output.</p>
           <p class="brand__closer">That's the gap. <em>Handled.</em></p>
-          <a href="/fit-check" class="btn-cta btn-cta--dark"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+          <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
+          <a href="/fit-check" class="btn-secondary-link--dark" style="display:block;margin-top:0.5rem;">Or book a 15-minute Fit Check</a>
         </div>
         <div class="brand__img">
           <img src="/assets/Books-BT9.png" alt="Barfoot &amp; Thompson design" loading="lazy" />
@@ -190,7 +219,8 @@
   <!-- ONE TEAM -->
   <section class="one-team">
     <h2 class="one-team__headline">A monthly design retainer for real estate and property businesses.</h2>
-    <p class="one-team__body">We take ownership of your production so everything that goes out — listings, appraisal kits, EDMs, social, signage — is consistent, on-brand, and done properly. No chasing freelancers, no starting from scratch, no last-minute fixes. Just a team that knows your business and keeps your output running the way it should.</p>
+    <p class="one-team__body">Handled takes ownership of your production so everything that goes out, listings, appraisal kits, EDMs, social, signage, is consistent, on-brand, and done properly. No chasing freelancers, no starting from scratch, no last-minute fixes. One senior designer who knows your business and keeps your output running the way it should.</p>
+    <p class="one-team__body">Unlimited requests from a set menu, delivered one at a time... two business days at a time. Pause whenever you need.</p>
     <p class="one-team__kicker">Your production. <em>Handled.</em></p>
     <a href="/fully-handled" class="btn-cta btn-cta--light"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">See How This Works <span class="btn-dot">→</span></span></a>
   </section>
@@ -226,11 +256,12 @@
       <h2 class="plug__headline">Senior. Local. <span class="hl">Handled.</span></h2>
       <div class="plug__cols">
         <div>
-          <p class="plug__subtitle">Handled is your plug-and-play design team</p>
+          <p class="plug__subtitle">Handled is your senior design partner</p>
           <p class="plug__body">When your design is handled properly, everything becomes more consistent, more efficient, and easier to manage.</p>
           <p class="plug__body">The work moves faster. The brand holds together.<br>And you're no longer the one keeping it all in check.</p>
           <p class="plug__kicker">Handled.</p>
-          <a href="/fit-check" class="btn-cta btn-cta--dark"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+          <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
+          <a href="/fit-check" class="btn-secondary-link--dark" style="display:block;margin-top:0.5rem;">Or book a 15-minute Fit Check</a>
         </div>
         <div class="plug__img">
           <img src="/assets/Books-BT2.jpg" alt="Barfoot &amp; Thompson design" loading="lazy" />
@@ -269,13 +300,13 @@
           <div class="how__img-wrap"><img src="/assets/step-handoff.avif" alt="The Handoff" loading="lazy" /></div>
           <div class="how__num">Step Two</div>
           <h3 class="how__step-title">The Handoff</h3>
-          <p class="how__step-body">A 30-day pilot. Real work, real output. So you can experience what it's like to have your design properly handled before committing to anything ongoing.</p>
+          <p class="how__step-body">Month one, productised. Real output from day one, plus the brand system and templates that make every request fast from then on.</p>
         </div>
         <div>
           <div class="how__img-wrap"><img src="/assets/step-handled.avif" alt="Fully Handled" loading="lazy" /></div>
           <div class="how__num">Step Three</div>
           <h3 class="how__step-title">Fully Handled</h3>
-          <p class="how__step-body">Ongoing monthly support. Your design production runs through us — consistently, on-brand, every month.</p>
+          <p class="how__step-body">Ongoing monthly support. Unlimited requests from the menu, delivered one at a time... two business days at a time.</p>
         </div>
       </div>
     </div>
@@ -288,13 +319,13 @@
       <div class="handoff-pilot__left">
         <span class="handoff-pilot__label">START HERE</span>
         <h2 class="handoff-pilot__headline">Not sure yet?<br><em>Start with The Handoff</em></h2>
-        <p class="handoff-pilot__body">A 30-day pilot at a flat rate. Real work, real output — so you can experience what it actually feels like to have your design properly handled before committing to anything ongoing.</p>
+        <p class="handoff-pilot__body">Month one, productised. Your brand system and template library, built with real production from day one.</p>
         <p class="handoff-pilot__body handoff-pilot__body--close">Most clients never look back.</p>
         <a href="/fully-handled" class="btn-cta btn-cta--light"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">See How This Works <span class="btn-dot">→</span></span></a>
       </div>
       <div class="handoff-pilot__right">
         <div class="handoff-pilot__card">
-          <p class="handoff-pilot__card-header">THE HANDOFF — 30-DAY PILOT</p>
+          <p class="handoff-pilot__card-header">THE HANDOFF... 30-DAY SYSTEM BUILD</p>
           <span class="handoff-pilot__pill">One new client per month</span>
           <div class="handoff-pilot__price">
             <span class="handoff-pilot__price-num">$1,500</span>
@@ -321,15 +352,16 @@
   <section class="production-top">
     <h2 class="production-top__headline">Built on <span class="hl">real production experience</span></h2>
     <p class="production-top__body">Handled isn't a new idea. It's the model we've built after 15 years inside agencies and in-house teams where high-volume design <em>actually</em> happens. Campaigns, listings, mailers, documents, retail rollouts — work that needs to be produced consistently, at scale, under pressure.</p>
-    <a href="/fit-check" class="btn-cta btn-cta--light"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+    <a href="#" class="btn-cta btn-cta--light js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
+    <a href="/fit-check" class="btn-secondary-link--dark" style="display:block;text-align:center;margin-top:0.5rem;">Or book a 15-minute Fit Check</a>
   </section>
 
   <section class="production-stats">
     <div class="production-stats__inner">
       <div class="production-stats__block">
-        <p class="production-stats__num">15+</p>
-        <p class="production-stats__label">Years experience</p>
-        <p class="production-stats__qual">Agency, in-house, independent</p>
+        <p class="production-stats__num">80+</p>
+        <p class="production-stats__label">Branch networks served</p>
+        <p class="production-stats__qual">From single-site to national scale</p>
       </div>
       <div class="production-stats__divider" aria-hidden="true"></div>
       <div class="production-stats__block">
@@ -339,9 +371,9 @@
       </div>
       <div class="production-stats__divider" aria-hidden="true"></div>
       <div class="production-stats__block">
-        <p class="production-stats__num">80+</p>
-        <p class="production-stats__label">Branch networks served</p>
-        <p class="production-stats__qual">From single-site to national scale</p>
+        <p class="production-stats__num">15+</p>
+        <p class="production-stats__label">Years experience</p>
+        <p class="production-stats__qual">Agency, in-house, independent</p>
       </div>
     </div>
   </section>
@@ -371,11 +403,11 @@
 
       <!-- Featured quote -->
       <div class="tq-featured">
-        <p class="tq-featured__quote">&ldquo;I feel armed, ready, and proud of my brand.&rdquo;</p>
+        <p class="tq-featured__quote">&ldquo;Rosh has served as a key strategic partner to Barfoot &amp; Thompson&rsquo;s marketing team, enhancing our workflow with a consistent and high-calibre design resource.&rdquo;</p>
         <div class="tq-featured__foot">
           <div>
-            <p class="tq-featured__name">AJ Hazelhurst</p>
-            <p class="tq-featured__company">Status Realty</p>
+            <p class="tq-featured__name">Neal Morshead</p>
+            <p class="tq-featured__company">Barfoot &amp; Thompson</p>
           </div>
         </div>
       </div>
@@ -383,24 +415,6 @@
       <!-- Card slider -->
       <div class="tq-slider-wrap">
         <div class="tq-track" id="tqTrack">
-
-          <div class="tq-card">
-            <span class="tq-pill">Property</span>
-            <p class="tq-card__quote">&ldquo;I was guided by experts who were genuinely in tune with my vision from day one, taking the time to deeply understand my market and how to help me stand out. I feel armed, ready, and proud of my brand.&rdquo;</p>
-            <div class="tq-card__attr">
-              <p class="tq-card__name">AJ Hazelhurst</p>
-              <p class="tq-card__company">Status Realty</p>
-            </div>
-          </div>
-
-          <div class="tq-card">
-            <span class="tq-pill">Construction</span>
-            <p class="tq-card__quote">&ldquo;She really understood our target audience, and the new digital and print brochures have helped us win work and grow our business ever since. Rosh and her team are our go-to for design.&rdquo;</p>
-            <div class="tq-card__attr">
-              <p class="tq-card__name">Ben Lewis</p>
-              <p class="tq-card__company">Lewis Build</p>
-            </div>
-          </div>
 
           <div class="tq-card">
             <span class="tq-pill">Property</span>
@@ -417,6 +431,24 @@
             <div class="tq-card__attr">
               <p class="tq-card__name">Tim Agar</p>
               <p class="tq-card__company">Jarden</p>
+            </div>
+          </div>
+
+          <div class="tq-card">
+            <span class="tq-pill">Property</span>
+            <p class="tq-card__quote">&ldquo;I was guided by experts who were genuinely in tune with my vision from day one, taking the time to deeply understand my market and how to help me stand out. I feel armed, ready, and proud of my brand.&rdquo;</p>
+            <div class="tq-card__attr">
+              <p class="tq-card__name">AJ Hazelhurst</p>
+              <p class="tq-card__company">Status Realty</p>
+            </div>
+          </div>
+
+          <div class="tq-card">
+            <span class="tq-pill">Property</span>
+            <p class="tq-card__quote">&ldquo;She really understood our target audience, and the new digital and print brochures have helped us win work and grow our business ever since. Rosh and her team are our go-to for design.&rdquo;</p>
+            <div class="tq-card__attr">
+              <p class="tq-card__name">Ben Lewis</p>
+              <p class="tq-card__company">Lewis Build</p>
             </div>
           </div>
 
@@ -493,12 +525,13 @@
   <section class="cta" id="contact">
     <div class="cta__inner">
       <div>
-        <h2 class="cta__headline">Start with <span class="hl-y">a Fit Check.</span></h2>
-        <p class="cta__body">A focused 20-minute call to look at your current design setup, where it's breaking down, where it's inconsistent, and what to fix. If it looks like a fit, we'll show you how <em>Handled</em> would work for your business. If not, you'll still leave with a clear view of what's happening across your output.</p>
+        <h2 class="cta__headline">See how this could work for <span class="hl-y">your business.</span></h2>
+        <p class="cta__body">We'll send the full details... the menu, how the queue works, pricing, and current seat availability. One document, straight to your inbox. If you'd rather talk it through first, there's a Fit Check link at the bottom.</p>
       </div>
       <div class="cta__right">
         <p class="cta__kicker">Let's get it <em>handled.</em></p>
-        <a href="/fit-check" class="btn-cta btn-cta--rev"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+        <a href="#" class="btn-cta btn-cta--rev js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
+        <a href="/fit-check" class="btn-secondary-link" style="display:block;text-align:center;margin-top:0.5rem;">Or book a 15-minute Fit Check</a>
       </div>
     </div>
   </section>
@@ -529,11 +562,6 @@
             <a href="/audit-mortgage" class="footer__audit-item">
               <span class="footer__audit-icon"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#69DE5F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 4l4 4-4 4"/><circle cx="8" cy="8" r="6"/></svg></span>
               <span class="footer__audit-item-text"><span class="footer__audit-item-name">Mortgage &amp; Property Services</span><span class="footer__audit-item-desc">Rate sheets, client docs &amp; referral marketing</span></span>
-              <span class="footer__audit-arrow">→</span>
-            </a>
-            <a href="/audit-general" class="footer__audit-item">
-              <span class="footer__audit-icon"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#69DE5F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="12" height="12" rx="2"/><line x1="5" y1="5" x2="11" y2="5"/><line x1="5" y1="8" x2="11" y2="8"/><line x1="5" y1="11" x2="9" y2="11"/></svg></span>
-              <span class="footer__audit-item-text"><span class="footer__audit-item-name">Other business</span><span class="footer__audit-item-desc">Any business with a design output problem</span></span>
               <span class="footer__audit-arrow">→</span>
             </a>
           </div>
@@ -779,6 +807,77 @@
       fbq('trackCustom', 'StartAudit', {industry: 'General'});
     }
   });
+  </script>
+
+  <!-- ENQUIRY MODAL -->
+  <div id="enquiry-modal" class="enq-modal" role="dialog" aria-modal="true" aria-labelledby="enq-modal-title" hidden>
+    <div class="enq-modal__backdrop" id="enquiry-backdrop"></div>
+    <div class="enq-modal__card">
+      <button class="enq-modal__close" id="enquiry-close" aria-label="Close">✕</button>
+      <h2 class="enq-modal__title" id="enq-modal-title">Get the details</h2>
+      <p class="enq-modal__promise">We'll send the full details... the menu, how the queue works, pricing, and current seat availability.</p>
+      <form id="enquiry-form" class="enq-form" novalidate>
+        <div class="enq-form__honey" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off" /></div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-name">Name</label>
+          <input class="enq-form__input" type="text" id="enq-name" name="name" required autocomplete="name" />
+        </div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-business">Business name</label>
+          <input class="enq-form__input" type="text" id="enq-business" name="business" required autocomplete="organization" />
+        </div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-type">What are you producing?</label>
+          <select class="enq-form__input enq-form__select" id="enq-type" name="business_type" required>
+            <option value="" disabled selected>Select...</option>
+            <option value="Real estate agency">Real estate agency</option>
+            <option value="Mortgage broking">Mortgage broking</option>
+            <option value="Buyers agency">Buyers agency</option>
+            <option value="Property management">Property management</option>
+            <option value="Something else">Something else</option>
+          </select>
+        </div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-email">Email</label>
+          <input class="enq-form__input" type="email" id="enq-email" name="email" required autocomplete="email" />
+        </div>
+        <button class="enq-form__submit" type="submit">Send me the info pack</button>
+      </form>
+      <div id="enquiry-confirm" class="enq-confirm" hidden>
+        <p class="enq-confirm__msg">On its way. Check your inbox in the next few minutes... and if you'd rather just talk, the Fit Check link is below.</p>
+        <a href="/fit-check" class="enq-confirm__link">Book a 15-minute Fit Check →</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+  (function(){
+    emailjs.init('qpwKhTqzAJ3UKxGb1');
+    var modal=document.getElementById('enquiry-modal');
+    var form=document.getElementById('enquiry-form');
+    var confirmEl=document.getElementById('enquiry-confirm');
+    var backdrop=document.getElementById('enquiry-backdrop');
+    var closeBtn=document.getElementById('enquiry-close');
+    if(!modal)return;
+    function openModal(){modal.removeAttribute('hidden');document.body.style.overflow='hidden';}
+    function closeModal(){modal.setAttribute('hidden','');document.body.style.overflow='';}
+    document.querySelectorAll('.js-enquiry-open').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();openModal();});});
+    backdrop&&backdrop.addEventListener('click',closeModal);
+    closeBtn&&closeBtn.addEventListener('click',closeModal);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hasAttribute('hidden'))closeModal();});
+    form&&form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(form.querySelector('[name="_honey"]').value)return;
+      var btn=form.querySelector('.enq-form__submit');
+      btn.disabled=true;btn.textContent='Sending...';
+      var p={name:document.getElementById('enq-name').value,business:document.getElementById('enq-business').value,business_type:document.getElementById('enq-type').value,email:document.getElementById('enq-email').value};
+      emailjs.send('service_jtps204','template_enquiry_admin',p)
+        .then(function(){return emailjs.send('service_jtps204','template_enquiry_auto',p);})
+        .then(function(){form.setAttribute('hidden','');confirmEl.removeAttribute('hidden');if(window.fbq)fbq('track','Lead',{content_name:'Info Pack Request'});if(window.gtag)gtag('event','info_pack_requested',{event_category:'Enquiry'});})
+        .catch(function(){btn.disabled=false;btn.textContent='Send me the info pack';});
+    });
+  })();
   </script>
 </body>
 </html>
