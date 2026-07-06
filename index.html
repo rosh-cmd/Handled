@@ -82,8 +82,11 @@
   .hc__pills-outer::before{left:0;background:linear-gradient(to right,#1E3548 55%,transparent);}
   .hc__pills-outer::after{right:0;background:linear-gradient(to left,#1E3548 55%,transparent);}
   .hc__pill-row{display:flex;gap:0.6rem;width:max-content;}
-  .hc__pill-row--1,.hc__pill-row--3{animation:hcScrollL 28s linear infinite;}
-  .hc__pill-row--2{animation:hcScrollR 26s linear infinite;}
+  .hc__pill-row--1{animation:hcScrollL 28s -4s linear infinite;}
+  .hc__pill-row--2{animation:hcScrollR 26s -11s linear infinite;}
+  .hc__pill-row--3{animation:hcScrollL 30s -19s linear infinite;}
+  .hc__pill-row--4{animation:hcScrollR 25s -7s linear infinite;}
+  .hc__pill-row--5{animation:hcScrollL 27s -22s linear infinite;}
   .hc:hover .hc__pill-row{animation-play-state:paused;}
   @keyframes hcScrollL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @keyframes hcScrollR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
@@ -317,6 +320,12 @@
               </div>
               <div class="hc__pill-row hc__pill-row--3">
                 <span class="hc__pill hc__pill--wht">Agent profiles</span><span class="hc__pill hc__pill--lime">Client guides</span><span class="hc__pill hc__pill--out">Vehicle decals</span><span class="hc__pill hc__pill--wht">Landlord reports</span><span class="hc__pill hc__pill--out">Posters</span><span class="hc__pill hc__pill--wht">Agent profiles</span><span class="hc__pill hc__pill--lime">Client guides</span><span class="hc__pill hc__pill--out">Vehicle decals</span><span class="hc__pill hc__pill--wht">Landlord reports</span><span class="hc__pill hc__pill--out">Posters</span>
+              </div>
+              <div class="hc__pill-row hc__pill-row--4">
+                <span class="hc__pill hc__pill--out">Stationery</span><span class="hc__pill hc__pill--wht">DL flyers</span><span class="hc__pill hc__pill--lime">Appraisal decks</span><span class="hc__pill hc__pill--out">Teardrop flags</span><span class="hc__pill hc__pill--wht">Email signatures</span><span class="hc__pill hc__pill--out">Stationery</span><span class="hc__pill hc__pill--wht">DL flyers</span><span class="hc__pill hc__pill--lime">Appraisal decks</span><span class="hc__pill hc__pill--out">Teardrop flags</span><span class="hc__pill hc__pill--wht">Email signatures</span>
+              </div>
+              <div class="hc__pill-row hc__pill-row--5">
+                <span class="hc__pill hc__pill--wht">Welcome packs</span><span class="hc__pill hc__pill--out">Pitch decks</span><span class="hc__pill hc__pill--wht">Rental appraisals</span><span class="hc__pill hc__pill--lime">Campaign suites</span><span class="hc__pill hc__pill--out">Newsletter templates</span><span class="hc__pill hc__pill--wht">Welcome packs</span><span class="hc__pill hc__pill--out">Pitch decks</span><span class="hc__pill hc__pill--wht">Rental appraisals</span><span class="hc__pill hc__pill--lime">Campaign suites</span><span class="hc__pill hc__pill--out">Newsletter templates</span>
               </div>
             </div>
           </div>
