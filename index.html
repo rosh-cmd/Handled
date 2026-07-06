@@ -45,11 +45,12 @@
   .btn-secondary-link{display:inline-block;font-family:var(--sans);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.85);text-decoration:none;border:1.5px solid rgba(255,255,255,0.35);border-radius:8px;padding:9px 18px;transition:border-color 0.2s,color 0.2s;cursor:pointer;}
   .btn-secondary-link:hover{border-color:#fff;color:#fff;}
   /* Carousel strip */
-  .carousel-strip{overflow:hidden;background:var(--navy);padding:0;line-height:0;}
-  .cs-track{display:flex;gap:12px;width:max-content;animation:cs-scroll 44s linear infinite;padding:0 6px;}
+  .carousel-strip{overflow-x:auto;overflow-y:hidden;background:var(--navy);padding:0;line-height:0;cursor:grab;scrollbar-width:none;}
+  .carousel-strip::-webkit-scrollbar{display:none;}
+  .carousel-strip:active{cursor:grabbing;}
+  .cs-track{display:flex;gap:12px;width:max-content;padding:0 6px;}
   .cs-slide{flex:0 0 280px;height:210px;border-radius:10px;overflow:hidden;flex-shrink:0;}
   .cs-slide img{width:100%;height:100%;object-fit:cover;display:block;}
-  @keyframes cs-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   /* Problem */
   .hp-problem{background:var(--navy);padding:clamp(64px,8vw,100px) var(--pad) clamp(32px,4vw,48px);}
   .hp-problem__inner{max-width:860px;margin:0 auto;}
@@ -89,16 +90,8 @@
   .hp-chip--w{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.9);}
   .hp-chip--g{background:rgba(105,222,95,0.18);color:var(--green);}
   .hp-handy{position:absolute;bottom:1rem;right:1.25rem;width:48px;height:auto;opacity:0.45;pointer-events:none;}
-  /* Case studies */
-  .hp-cases{background:var(--navy);padding:clamp(64px,8vw,100px) var(--pad);border-top:1px solid rgba(255,255,255,0.08);}
-  .hp-cases__inner{max-width:var(--max);margin:0 auto;}
-  .hp-cases__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:#fff;margin:0 0 2rem;}
-  .hp-cases__grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-  @media(max-width:640px){.hp-cases__grid{grid-template-columns:1fr;}}
-  .hp-case{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;display:flex;flex-direction:column;}
-  .hp-case__client{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:#fff;margin:0 0 0.75rem;}
-  .hp-case__summary{font-family:var(--sans);font-size:0.95rem;color:rgba(255,255,255,0.65);line-height:1.65;margin:0 0 1.5rem;flex:1;}
-  .hp-cases__browse{font-family:var(--sans);font-size:0.88rem;text-align:center;margin-top:1.5rem;}
+  /* Case studies browse link */
+  .hp-cases__browse{font-family:var(--sans);font-size:0.88rem;text-align:center;margin-top:2rem;}
   .hp-cases__browse a{color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
   .hp-cases__browse a:hover{color:rgba(255,255,255,0.8);}
   /* Proof stats */
@@ -288,17 +281,6 @@
       <div class="cs-slide"><img src="/assets/Phase-DLs-2.jpg" alt="" /></div>
       <div class="cs-slide"><img src="/assets/Books-BT12.jpg" alt="" /></div>
       <div class="cs-slide"><img src="/assets/SITE-SCOPE-01.jpg" alt="" /></div>
-      <!-- Duplicated for seamless loop -->
-      <div class="cs-slide"><img src="/assets/slide-office.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/Lewis-Build-Brochure.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/BTCOM2.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/status-brand-06.png" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/bt-5.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/slide-jdw.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/Books-Insite-Mag.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/Phase-DLs-2.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/Books-BT12.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/SITE-SCOPE-01.jpg" alt="" /></div>
     </div>
   </div>
 
@@ -403,21 +385,69 @@
 
 
   <!-- 7. CASE STUDIES -->
-  <section class="hp-cases">
-    <div class="hp-cases__inner">
-      <h2 class="hp-cases__heading">What it looks like in practice</h2>
-      <div class="hp-cases__grid">
+  <section class="wk-work" style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="wk-work__inner">
+      <h2 class="wk-work__heading">What it looks like in practice</h2>
+      <div class="wk-work__grid">
 
-        <div class="hp-case">
-          <p class="hp-case__client">Barfoot &amp; Thompson</p>
-          <p class="hp-case__summary">Consistent, on-brand output across 80+ branches and 1,800+ salespeople. Supporting an in-house marketing team at scale, without the handover friction.</p>
-          <a href="/barfoot" class="btn-secondary-link">Read the case study &#8594;</a>
+        <div class="wk-work__item">
+          <div class="wk-work__imgwrap">
+            <a href="/barfoot"><img src="/assets/Books-BT2.jpg" alt="Barfoot &amp; Thompson" loading="lazy" /></a>
+          </div>
+          <div class="wk-work__meta">
+            <span class="wk-work__tag">Property</span>
+            <span class="wk-work__loc">New Zealand</span>
+          </div>
+          <h3 class="wk-work__name">Barfoot &amp; Thompson</h3>
+          <p class="wk-work__tagline">Consistency at scale across 80+ branches.</p>
+          <p class="wk-work__desc">Ongoing production support across one of New Zealand's largest real estate brands, maintaining consistent output across 1,800+ salespeople and multiple teams.</p>
+          <div class="wk-work__stats">
+            <div class="wk-work__stat">
+              <span class="wk-work__stat-val">80+</span>
+              <span class="wk-work__stat-label">Branches</span>
+            </div>
+            <div class="wk-work__stat-div"></div>
+            <div class="wk-work__stat">
+              <span class="wk-work__stat-val">1800+</span>
+              <span class="wk-work__stat-label">Salespeople</span>
+            </div>
+            <div class="wk-work__stat-div"></div>
+            <div class="wk-work__stat">
+              <span class="wk-work__stat-val">5yr+</span>
+              <span class="wk-work__stat-label">Returning</span>
+            </div>
+          </div>
+          <a href="/barfoot" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">&#8594;</span></span></a>
         </div>
 
-        <div class="hp-case">
-          <p class="hp-case__client">Status Realty</p>
-          <p class="hp-case__summary">Brand identity, template system, and ongoing production support built for consistency from day one. A brand designed to hold across marketing, sales, and day-to-day output.</p>
-          <a href="/status" class="btn-secondary-link">Read the case study &#8594;</a>
+        <div class="wk-work__item">
+          <div class="wk-work__imgwrap">
+            <a href="/status"><img src="/assets/Status-Brand-03.jpg" alt="Status Realty" loading="lazy" /></a>
+          </div>
+          <div class="wk-work__meta">
+            <span class="wk-work__tag">Property</span>
+            <span class="wk-work__loc">Gold Coast</span>
+          </div>
+          <h3 class="wk-work__name">Status Realty</h3>
+          <p class="wk-work__tagline">Brand system designed for real-world use.</p>
+          <p class="wk-work__desc">Full brand identity, template suite, and ongoing support, ensuring the brand holds consistently across every touchpoint.</p>
+          <div class="wk-work__stats">
+            <div class="wk-work__stat">
+              <span class="wk-work__stat-val">Full</span>
+              <span class="wk-work__stat-label">Brand system</span>
+            </div>
+            <div class="wk-work__stat-div"></div>
+            <div class="wk-work__stat">
+              <span class="wk-work__stat-val">20+</span>
+              <span class="wk-work__stat-label">Templates</span>
+            </div>
+            <div class="wk-work__stat-div"></div>
+            <div class="wk-work__stat">
+              <span class="wk-work__stat-val">Ongoing</span>
+              <span class="wk-work__stat-label">Support</span>
+            </div>
+          </div>
+          <a href="/status" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">&#8594;</span></span></a>
         </div>
 
       </div>
@@ -829,6 +859,17 @@
       var nav = document.querySelector('.nav');
       if (!nav) return;
       window.addEventListener('scroll', function() { nav.classList.toggle('nav--scrolled', window.scrollY > 10); }, { passive: true });
+    })();
+
+    // Carousel strip — drag to scroll
+    (function() {
+      var strip = document.querySelector('.carousel-strip');
+      if (!strip) return;
+      var isDragging = false, startX = 0, scrollLeft = 0;
+      strip.addEventListener('mousedown', function(e) { isDragging = true; startX = e.pageX - strip.offsetLeft; scrollLeft = strip.scrollLeft; });
+      strip.addEventListener('mouseleave', function() { isDragging = false; });
+      strip.addEventListener('mouseup', function() { isDragging = false; });
+      strip.addEventListener('mousemove', function(e) { if (!isDragging) return; e.preventDefault(); var x = e.pageX - strip.offsetLeft; strip.scrollLeft = scrollLeft - (x - startX); });
     })();
 
     // Mobile menu
