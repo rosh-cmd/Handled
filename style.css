@@ -1701,13 +1701,13 @@ em { font-style: italic; }
   .nav__right .btn { display: none; }
   .nav__right .btn-cta { display: none; }
 
-  /* btn-cta — scale down on small screens */
+  /* btn-cta — mobile: no arrow, comfortable touch target */
   .btn-main {
-    font-size: 14px;
-    padding: 11px 12px 11px 19px;
-    gap: 12px;
+    font-size: 15px;
+    padding: 12px 22px;
+    gap: 0;
   }
-  .btn-dot { width: 28px; height: 28px; font-size: 15px; }
+  .btn-dot { display: none; }
 
   /* Hero (homepage) */
   .hero__top { padding: 60px var(--pad) 40px; }
