@@ -415,7 +415,7 @@ em { font-style: italic; }
    TESTIMONIALS
    ============================================================ */
 /* ── Testimonials pull-quote strip ───────────────────────── */
-.testimonials { background: var(--navy); padding: 60px var(--pad); }
+.testimonials { background: var(--navy); padding: 0 var(--pad) 60px; }
 .testimonials__inner { max-width: var(--max); margin: 0 auto; }
 .testimonials__heading { font-family: var(--serif); font-size: clamp(1.3rem, 3.3vw, 3.1rem); font-weight: 700; color: var(--white); margin-bottom: 2rem; line-height: 1.2; }
 .tq-hl { background: #8aff6c; color: #162a3a; padding: 2px 8px; }
