@@ -16,7 +16,7 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
 <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=112" />
+  <link rel="stylesheet" href="/style.css?v=113" />
   <style>
   /* Enquiry Modal */
   .enq-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;}
@@ -41,13 +41,27 @@
   .enq-confirm__mascot{width:72px;height:auto;margin:0 auto 1rem;display:block;}
   .enq-confirm__msg{font-family:var(--sans);font-size:1rem;color:#1E3D51;line-height:1.7;margin:0 0 1.25rem;}
   .enq-confirm__link{display:inline-block;font-family:var(--sans);font-size:0.9rem;color:#1E3D51;font-weight:600;text-decoration:underline;}
-  /* Secondary button — outlined pill */
-  .btn-secondary-link{display:inline-block;font-family:var(--sans);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.85);text-decoration:none;border:1.5px solid rgba(255,255,255,0.4);border-radius:8px;padding:8px 18px;margin-top:0.6rem;transition:border-color 0.2s,color 0.2s;text-align:center;cursor:pointer;}
+  /* Secondary button — outlined */
+  .btn-secondary-link{display:inline-block;font-family:var(--sans);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.85);text-decoration:none;border:1.5px solid rgba(255,255,255,0.35);border-radius:8px;padding:9px 18px;transition:border-color 0.2s,color 0.2s;cursor:pointer;}
   .btn-secondary-link:hover{border-color:#fff;color:#fff;}
-  .btn-secondary-link--dark{color:rgba(30,61,81,0.7);border-color:rgba(30,61,81,0.3);}
-  .btn-secondary-link--dark:hover{color:#1E3D51;border-color:rgba(30,61,81,0.7);}
-/* How it works */
-  .hp-how{padding:clamp(24px,3vw,40px) var(--pad) clamp(40px,5vw,60px);background:var(--navy);}
+  /* Carousel strip */
+  .carousel-strip{overflow:hidden;background:var(--navy);padding:0;line-height:0;}
+  .cs-track{display:flex;gap:12px;width:max-content;animation:cs-scroll 44s linear infinite;padding:0 6px;}
+  .cs-slide{flex:0 0 280px;height:210px;border-radius:10px;overflow:hidden;flex-shrink:0;}
+  .cs-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+  @keyframes cs-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* Problem */
+  .hp-problem{background:var(--navy);padding:clamp(64px,8vw,100px) var(--pad) clamp(32px,4vw,48px);}
+  .hp-problem__inner{max-width:860px;margin:0 auto;}
+  .hp-problem__heading{font-family:var(--serif);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:#fff;margin:0 0 1.5rem;line-height:1.1;}
+  .hp-problem__staccato{font-family:var(--sans);font-size:clamp(1rem,1.8vw,1.2rem);color:rgba(255,255,255,0.6);line-height:2;margin:0;}
+  /* Solution */
+  .hp-solution{background:var(--navy);padding:clamp(32px,4vw,48px) var(--pad) clamp(64px,8vw,100px);border-top:1px solid rgba(255,255,255,0.08);}
+  .hp-solution__inner{max-width:860px;margin:0 auto;}
+  .hp-solution__heading{font-family:var(--serif);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:#fff;margin:0 0 1.25rem;line-height:1.1;}
+  .hp-solution__body{font-family:var(--sans);font-size:clamp(1rem,1.8vw,1.2rem);color:rgba(255,255,255,0.6);line-height:1.85;margin:0;}
+  /* How it works */
+  .hp-how{padding:clamp(64px,8vw,100px) var(--pad);background:var(--navy);}
   .hp-how__inner{max-width:1160px;margin:0 auto;}
   .hp-how__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:#fff;margin:0 0 2rem;}
   .hw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
@@ -57,17 +71,38 @@
   .hw-body{font-family:var(--sans);font-size:0.95rem;color:rgba(255,255,255,0.58);line-height:1.65;margin:0;}
   @media(max-width:860px){.hw-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:500px){.hw-grid{grid-template-columns:1fr;}}
-  /* Work strip */
-  .wk-strip{padding:clamp(40px,5vw,60px) var(--pad);background:var(--navy);}
-  .wk-strip__inner{max-width:var(--max);margin:0 auto;}
-  .wk-strip__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;}
-  .wk-strip__item{aspect-ratio:4/3;overflow:hidden;display:block;border-radius:6px;}
-  .wk-strip__item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s ease;}
-  .wk-strip__item:hover img{transform:scale(1.03);}
-  .wk-strip__cta{text-align:center;margin-top:2rem;}
-  @media(max-width:640px){.wk-strip__grid{grid-template-columns:repeat(2,1fr);}}
-  /* Proof */
-  .hp-proof{padding:clamp(60px,8vw,100px) var(--pad) clamp(20px,3vw,32px);background:var(--navy);}
+  /* What's included */
+  .hp-included{background:var(--navy);padding:clamp(64px,8vw,100px) var(--pad);border-top:1px solid rgba(255,255,255,0.08);}
+  .hp-included__inner{max-width:var(--max);margin:0 auto;}
+  .hp-included__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:#fff;margin:0 0 2rem;}
+  .hp-included__grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;}
+  @media(max-width:720px){.hp-included__grid{grid-template-columns:1fr;}}
+  .hp-scope{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;}
+  .hp-scope__label{font-family:var(--sans);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 1.25rem;}
+  .hp-scope__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.85rem;}
+  .hp-scope__list li{font-family:var(--sans);font-size:0.95rem;color:rgba(255,255,255,0.75);padding-left:1.5rem;position:relative;line-height:1.5;}
+  .hp-scope__list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;}
+  .hp-chips-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;position:relative;overflow:hidden;}
+  .hp-chips-label{font-family:var(--sans);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 1.25rem;}
+  .hp-chips{display:flex;flex-wrap:wrap;gap:0.5rem;padding-bottom:3.5rem;}
+  .hp-chip{font-family:var(--sans);font-size:0.8rem;font-weight:600;border-radius:100px;padding:0.3rem 0.85rem;white-space:nowrap;}
+  .hp-chip--w{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.9);}
+  .hp-chip--g{background:rgba(105,222,95,0.18);color:var(--green);}
+  .hp-handy{position:absolute;bottom:1rem;right:1.25rem;width:48px;height:auto;opacity:0.45;pointer-events:none;}
+  /* Case studies */
+  .hp-cases{background:var(--navy);padding:clamp(64px,8vw,100px) var(--pad);border-top:1px solid rgba(255,255,255,0.08);}
+  .hp-cases__inner{max-width:var(--max);margin:0 auto;}
+  .hp-cases__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:#fff;margin:0 0 2rem;}
+  .hp-cases__grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+  @media(max-width:640px){.hp-cases__grid{grid-template-columns:1fr;}}
+  .hp-case{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;display:flex;flex-direction:column;}
+  .hp-case__client{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:#fff;margin:0 0 0.75rem;}
+  .hp-case__summary{font-family:var(--sans);font-size:0.95rem;color:rgba(255,255,255,0.65);line-height:1.65;margin:0 0 1.5rem;flex:1;}
+  .hp-cases__browse{font-family:var(--sans);font-size:0.88rem;text-align:center;margin-top:1.5rem;}
+  .hp-cases__browse a{color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
+  .hp-cases__browse a:hover{color:rgba(255,255,255,0.8);}
+  /* Proof stats */
+  .hp-proof{padding:clamp(64px,8vw,100px) var(--pad) clamp(20px,3vw,32px);background:var(--navy);}
   .hp-proof__inner{max-width:900px;margin:0 auto;}
   .hp-proof__stats{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;margin-bottom:3.5rem;}
   .hp-proof__stat{text-align:center;padding:0 2rem;}
@@ -98,6 +133,11 @@
   .hp-faq__a.is-open{max-height:600px;padding-bottom:1.25rem;}
   .hp-faq__a p{color:rgba(255,255,255,0.72);font-family:var(--sans);font-size:0.93rem;line-height:1.85;margin:0;}
   .hp-faq__a p+p{margin-top:0.8rem;}
+  /* Final CTA */
+  .cta-final{background:var(--navy);padding:clamp(64px,8vw,100px) var(--pad);border-top:1px solid rgba(255,255,255,0.08);}
+  .cta-final__inner{max-width:640px;margin:0 auto;text-align:center;}
+  .cta-final__heading{font-family:var(--serif);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:#fff;margin:0 0 1.25rem;line-height:1.1;}
+  .cta-final__body{font-family:var(--sans);font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.85;margin:0 0 2.25rem;}
   </style>
   <!-- Meta Pixel Code -->
   <script>
@@ -181,6 +221,23 @@
 </head>
 <body>
 
+  <!-- MOBILE MENU -->
+  <div class="menu" id="menu">
+    <div class="menu__top">
+      <a href="/" class="menu__logo">
+        <img src="/assets/HandledStudio.png" alt="Handled Studio" class="menu__logomark" />
+      </a>
+      <button class="menu__close" id="menuClose">&#x2715;</button>
+    </div>
+    <nav class="menu__nav">
+      <a href="/"       class="menu__link">Home</a>
+      <a href="/work"   class="menu__link">Work</a>
+      <a href="/about"  class="menu__link">About</a>
+      <a href="/journal" class="menu__link">Journal</a>
+    </nav>
+    <button class="btn-cta btn-cta--dark menu__cta js-enquiry-open"><span class="btn-main">Get the details <span class="btn-dot">&#8594;</span></span></button>
+  </div>
+
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
@@ -189,12 +246,13 @@
       </a>
       <div class="nav__right">
         <nav class="nav__links">
-          <a href="/" class="nav__link active">Home</a>
-          <a href="/work" class="nav__link">Work</a>
-          <a href="/about" class="nav__link">About</a>
+          <a href="/"       class="nav__link active">Home</a>
+          <a href="/work"   class="nav__link">Work</a>
+          <a href="/about"  class="nav__link">About</a>
           <a href="/journal" class="nav__link">Journal</a>
         </nav>
-        <button class="btn-nav-cta js-enquiry-open">Get the details →</button>
+        <button class="btn-nav-cta js-enquiry-open">Get the details &#8594;</button>
+        <button class="nav__hamburger" id="menuOpen" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -209,31 +267,61 @@
         <p>Design that keeps pace with your business. One queue, two-day turnaround, no briefs lost in email.</p>
       </div>
       <div class="hero__cta-row">
-        <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
+        <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-main">Get the details <span class="btn-dot">&#8594;</span></span></a>
         <span class="hero__cta-label">Send an enquiry, then we book a call</span>
       </div>
       <p class="hero__trust">Trusted by Barfoot &amp; Thompson. Work delivered across 80+ branches.</p>
     </div>
-    <div class="hero__slider-wrap">
-      <button class="slider__arrow slider__arrow--prev" id="sliderPrev" aria-label="Previous">&#8592;</button>
-      <button class="slider__arrow slider__arrow--next" id="sliderNext" aria-label="Next">&#8594;</button>
-      <div class="hero__slider-track">
-        <div class="hero__slide"><img src="/assets/slide-office.jpg" alt="Office Options Report" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/Lewis-Build-Brochure.jpg" alt="Lewis Build Brochure" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/BTCOM2.jpg" alt="Barfoot &amp; Thompson Commercial" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/status-brand-06.png" alt="Status Realty Brand" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/bt-5.jpg" alt="Barfoot &amp; Thompson" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/slide-jdw.jpg" alt="JDW Lead Magnet" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/Books-Insite-Mag.jpg" alt="Barfoot &amp; Thompson Insite Magazine" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/Phase-DLs-2.jpg" alt="Phase DL Flyers" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/Books-BT12.jpg" alt="Barfoot &amp; Thompson Book" loading="lazy" /></div>
-        <div class="hero__slide"><img src="/assets/SITE-SCOPE-01.jpg" alt="Site Scope" loading="lazy" /></div>
-      </div>
+  </section>
+
+
+  <!-- 2. CAROUSEL STRIP -->
+  <div class="carousel-strip" aria-hidden="true">
+    <div class="cs-track">
+      <div class="cs-slide"><img src="/assets/slide-office.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/Lewis-Build-Brochure.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/BTCOM2.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/status-brand-06.png" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/bt-5.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/slide-jdw.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/Books-Insite-Mag.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/Phase-DLs-2.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/Books-BT12.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/SITE-SCOPE-01.jpg" alt="" /></div>
+      <!-- Duplicated for seamless loop -->
+      <div class="cs-slide"><img src="/assets/slide-office.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/Lewis-Build-Brochure.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/BTCOM2.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/status-brand-06.png" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/bt-5.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/slide-jdw.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/Books-Insite-Mag.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/Phase-DLs-2.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/Books-BT12.jpg" alt="" /></div>
+      <div class="cs-slide"><img src="/assets/SITE-SCOPE-01.jpg" alt="" /></div>
+    </div>
+  </div>
+
+
+  <!-- 3. PROBLEM -->
+  <section class="hp-problem">
+    <div class="hp-problem__inner">
+      <h2 class="hp-problem__heading">Built for businesses where the work never stops.</h2>
+      <p class="hp-problem__staccato">Listings. Proposals. Signage. Campaigns. Reports. The output keeps moving. Handled keeps it consistent.</p>
     </div>
   </section>
 
 
-  <!-- 2. HOW IT WORKS -->
+  <!-- 4. SOLUTION -->
+  <section class="hp-solution">
+    <div class="hp-solution__inner">
+      <h2 class="hp-solution__heading">Get Fully Handled.</h2>
+      <p class="hp-solution__body">Everything your business needs to stay on brand, delivered by one senior designer who knows your business.</p>
+    </div>
+  </section>
+
+
+  <!-- 5. HOW IT WORKS -->
   <section class="hp-how">
     <div class="hp-how__inner">
       <h2 class="hp-how__heading">How it works</h2>
@@ -263,27 +351,82 @@
   </section>
 
 
+  <!-- 6. WHAT'S INCLUDED -->
+  <section class="hp-included">
+    <div class="hp-included__inner">
+      <h2 class="hp-included__heading">What's included</h2>
+      <div class="hp-included__grid">
 
+        <!-- Left: scope -->
+        <div class="hp-scope">
+          <p class="hp-scope__label">Fully Handled covers</p>
+          <ul class="hp-scope__list">
+            <li>Unlimited requests</li>
+            <li>One active request at a time</li>
+            <li>Avg. 2-day delivery</li>
+            <li>Revisions included</li>
+            <li>Pause anytime</li>
+            <li>Senior designer on every project</li>
+            <li>One priority queue-jump per month</li>
+          </ul>
+        </div>
 
-  <!-- 4. WORK STRIP -->
-  <section class="wk-strip">
-    <div class="wk-strip__inner">
-      <div class="wk-strip__grid">
-        <a href="/work" class="wk-strip__item"><img src="/assets/portfolio-barfoot.jpg" alt="Barfoot and Thompson" loading="lazy" /></a>
-        <a href="/work" class="wk-strip__item"><img src="/assets/portfolio-status.jpg" alt="Status Realty" loading="lazy" /></a>
-        <a href="/work" class="wk-strip__item"><img src="/assets/Lewis-Build-Brochure.jpg" alt="Lewis Build" loading="lazy" /></a>
-        <a href="/work" class="wk-strip__item"><img src="/assets/BTCOM2.jpg" alt="Barfoot &amp; Thompson Commercial" loading="lazy" /></a>
-        <a href="/work" class="wk-strip__item"><img src="/assets/Jarden6web.jpg" alt="Jarden" loading="lazy" /></a>
-        <a href="/work" class="wk-strip__item"><img src="/assets/Phase-DLs-2.jpg" alt="Phase DL Flyers" loading="lazy" /></a>
-      </div>
-      <div class="wk-strip__cta">
-        <a href="/work" class="btn-cta btn-cta--dark"><span class="btn-kicker">Selected projects</span><span class="btn-main">View My Work <span class="btn-dot">→</span></span></a>
+        <!-- Right: deliverables cloud -->
+        <div class="hp-chips-wrap">
+          <p class="hp-chips-label">What we produce</p>
+          <div class="hp-chips">
+            <span class="hp-chip hp-chip--w">Listing suites</span>
+            <span class="hp-chip hp-chip--g">Appraisal decks</span>
+            <span class="hp-chip hp-chip--w">Signage</span>
+            <span class="hp-chip hp-chip--g">Rate sheets</span>
+            <span class="hp-chip hp-chip--w">Window cards</span>
+            <span class="hp-chip hp-chip--g">DL flyers</span>
+            <span class="hp-chip hp-chip--w">Agent profiles</span>
+            <span class="hp-chip hp-chip--g">Press ads</span>
+            <span class="hp-chip hp-chip--w">Social graphics</span>
+            <span class="hp-chip hp-chip--g">Teardrop flags</span>
+            <span class="hp-chip hp-chip--w">Vehicle decals</span>
+            <span class="hp-chip hp-chip--g">Presentation decks</span>
+            <span class="hp-chip hp-chip--w">Email headers</span>
+            <span class="hp-chip hp-chip--g">Pull-up banners</span>
+            <span class="hp-chip hp-chip--w">Stationery</span>
+            <span class="hp-chip hp-chip--g">Name badges</span>
+            <span class="hp-chip hp-chip--w">Property brochures</span>
+            <span class="hp-chip hp-chip--g">Letterhead</span>
+          </div>
+          <img src="/assets/handled-octo-2.png" alt="" class="hp-handy" aria-hidden="true" />
+        </div>
+
       </div>
     </div>
   </section>
 
 
-  <!-- 5. OFFERS -->
+  <!-- 7. CASE STUDIES -->
+  <section class="hp-cases">
+    <div class="hp-cases__inner">
+      <h2 class="hp-cases__heading">What it looks like in practice</h2>
+      <div class="hp-cases__grid">
+
+        <div class="hp-case">
+          <p class="hp-case__client">Barfoot &amp; Thompson</p>
+          <p class="hp-case__summary">Consistent, on-brand output across 80+ branches and 1,800+ salespeople. Supporting an in-house marketing team at scale, without the handover friction.</p>
+          <a href="/barfoot" class="btn-secondary-link">Read the case study &#8594;</a>
+        </div>
+
+        <div class="hp-case">
+          <p class="hp-case__client">Status Realty</p>
+          <p class="hp-case__summary">Brand identity, template system, and ongoing production support built for consistency from day one. A brand designed to hold across marketing, sales, and day-to-day output.</p>
+          <a href="/status" class="btn-secondary-link">Read the case study &#8594;</a>
+        </div>
+
+      </div>
+      <p class="hp-cases__browse"><a href="/work">or browse all work &#8594;</a></p>
+    </div>
+  </section>
+
+
+  <!-- 8. PRICING -->
   <section class="offers">
     <div class="offers__inner">
 
@@ -305,7 +448,7 @@
             <span class="offers__step-label">Start here</span>
           </div>
           <h3 class="offers__title">The Handoff</h3>
-          <span class="offers__price-pill offers__price-pill--dark">30-DAY SETUP • FROM $1,500</span>
+          <span class="offers__price-pill offers__price-pill--dark">30-DAY SETUP &#8226; FROM $1,500</span>
           <p class="offers__desc">One focused month to build the foundations. Templates, assets and a production system you can keep using long after.</p>
           <ul class="offers__features offers__features--dot">
             <li>Real design work from day one</li>
@@ -320,7 +463,7 @@
         <!-- Connector -->
         <div class="offers__connector">
           <div class="conn-line"></div>
-          <span class="conn-arrow">▼</span>
+          <span class="conn-arrow">&#9660;</span>
           <span class="conn-label">then</span>
           <div class="conn-line"></div>
         </div>
@@ -333,7 +476,7 @@
             <span class="offers__step-label offers__step-label--green">The destination</span>
           </div>
           <h3 class="offers__title offers__title--white">Fully Handled</h3>
-          <span class="offers__price-pill offers__price-pill--green">ONGOING • FROM $3,000/MONTH</span>
+          <span class="offers__price-pill offers__price-pill--green">ONGOING &#8226; FROM $3,000/MONTH</span>
           <p class="offers__desc offers__desc--muted">Your ongoing design partner. One monthly subscription for the work your business never stops producing.</p>
           <p class="offers__desc offers__desc--muted" style="margin-top:0.75rem;">Most of this work has a job: winning the listing. It should look like it.</p>
           <ul class="offers__features offers__features--check">
@@ -343,17 +486,17 @@
             <li>Pause anytime</li>
             <li>Senior designer on every project</li>
           </ul>
-          <a href="/fully-handled" class="btn-cta btn-cta--dark" style="margin-top:1.5rem;"><span class="btn-kicker">Details</span><span class="btn-main">View the details <span class="btn-dot">→</span></span></a>
+          <a href="/fully-handled" class="btn-cta btn-cta--dark" style="margin-top:1.5rem;"><span class="btn-kicker">Details</span><span class="btn-main">View the details <span class="btn-dot">&#8594;</span></span></a>
           <p style="font-family:var(--sans);font-size:0.9rem;color:rgba(255,255,255,0.45);text-align:center;margin:0.75rem 0 0;">or</p>
           <a href="/fit-check" class="btn-secondary-link" style="display:block;text-align:center;margin-top:0.5rem;">Book a 15-minute Fit Check</a>
         </div>
 
-      </div><!-- /journey -->
+      </div>
     </div>
   </section>
 
 
-  <!-- 6. PROOF -->
+  <!-- STATS -->
   <section class="hp-proof">
     <div class="hp-proof__inner">
       <div class="hp-proof__stats">
@@ -384,7 +527,6 @@
     <div class="testimonials__inner">
       <h2 class="testimonials__heading">In my <span class="tq-hl">clients' words</span></h2>
 
-      <!-- Featured quote -->
       <div class="tq-featured">
         <p class="tq-featured__quote">&ldquo;Rosh has served as a key strategic partner to Barfoot &amp; Thompson&rsquo;s marketing team, enhancing our workflow with a consistent and high-calibre design resource.&rdquo;</p>
         <div class="tq-featured__foot">
@@ -395,7 +537,6 @@
         </div>
       </div>
 
-      <!-- Card slider -->
       <div class="tq-slider-wrap">
         <div class="tq-track" id="tqTrack">
 
@@ -456,7 +597,6 @@
         </div>
       </div>
 
-      <!-- Controls -->
       <div class="tq-controls">
         <button class="tq-arrow" id="tqPrev" aria-label="Previous testimonials">&#8592;</button>
         <div class="tq-dots" id="tqDots"></div>
@@ -474,20 +614,20 @@
   </section>
 
 
-  <!-- 7. THE PERSON -->
+  <!-- THE PERSON -->
   <section class="hp-person">
     <div class="hp-person__inner">
       <img src="/assets/Rosh.png" alt="Rosh Java" class="hp-person__img" loading="lazy" />
       <div class="hp-person__text">
         <p class="hp-person__eyebrow">The person behind it</p>
         <p class="hp-person__body">I'm Rosh Java. After 15+ years designing for agencies and some of Australasia's largest brands, I started Handled to become the design partner businesses keep.</p>
-        <a href="/about" class="hp-person__link">More about how I work →</a>
+        <a href="/about" class="hp-person__link">More about how I work &#8594;</a>
       </div>
     </div>
   </section>
 
 
-  <!-- 8. FAQ -->
+  <!-- FAQ -->
   <section class="hp-faq">
     <div class="hp-faq__inner">
       <h2 class="hp-faq__heading">Questions worth asking before you decide</h2>
@@ -559,7 +699,7 @@
           <span class="hp-faq__icon" aria-hidden="true">+</span>
         </button>
         <div class="hp-faq__a">
-          <p>Real estate agencies, mortgage brokers, buyers agents, and property managers. Most clients are in the property sector — it's where the volume of production output actually demands this kind of setup, and where I've spent the last 15 years.</p>
+          <p>Real estate agencies, mortgage brokers, buyers agents, and property managers. Most clients are in the property sector... it's where the volume of production output actually demands this kind of setup, and where I've spent the last 15 years.</p>
         </div>
       </div>
 
@@ -569,7 +709,7 @@
           <span class="hp-faq__icon" aria-hidden="true">+</span>
         </button>
         <div class="hp-faq__a">
-          <p>No. Most clients come in with something to work with — a logo, some templates, a look and feel — even if it's inconsistent. Part of The Handoff is pulling that together into something that actually holds. If you genuinely have nothing, we'll talk through it in the Fit Check.</p>
+          <p>No. Most clients come in with something to work with... a logo, some templates, a look and feel... even if it's inconsistent. Part of The Handoff is pulling that together into something that actually holds. If you genuinely have nothing, we'll talk through it in the Fit Check.</p>
         </div>
       </div>
 
@@ -589,7 +729,7 @@
           <span class="hp-faq__icon" aria-hidden="true">+</span>
         </button>
         <div class="hp-faq__a">
-          <p>Yes. <a href="/work" style="color:var(--green);font-weight:600;">View my work →</a></p>
+          <p>Yes. <a href="/work" style="color:var(--green);font-weight:600;">View my work &#8594;</a></p>
         </div>
       </div>
 
@@ -599,7 +739,7 @@
           <span class="hp-faq__icon" aria-hidden="true">+</span>
         </button>
         <div class="hp-faq__a">
-          <p>That depends on availability. I take one new client per month — when a spot is open, we can usually start at the next renewal date. The Fit Check is how you check current availability.</p>
+          <p>That depends on availability. I take one new client per month... when a spot is open, we can usually start at the next renewal date. The Fit Check is how you check current availability.</p>
         </div>
       </div>
 
@@ -608,16 +748,11 @@
 
 
   <!-- 9. FINAL CTA -->
-  <section class="cta" id="contact">
-    <div class="cta__inner">
-      <div>
-        <h2 class="cta__headline">See how this could work for <span class="hl-y">your business.</span></h2>
-        <p class="cta__body">I'll send the full details... what's handled, how it works, pricing, and current availability. One document, straight to your inbox. If you'd rather talk it through first, there's a Fit Check link at the bottom.</p>
-      </div>
-      <div class="cta__right">
-        <p class="cta__kicker">Let's get it <em>handled.</em></p>
-        <a href="#" class="btn-cta btn-cta--rev js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
-      </div>
+  <section class="cta-final" id="contact">
+    <div class="cta-final__inner">
+      <h2 class="cta-final__heading">Get your design output handled</h2>
+      <p class="cta-final__body">Send an enquiry with what you need. We'll come back with the info pack and book a call.</p>
+      <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-main">Get the details <span class="btn-dot">&#8594;</span></span></a>
     </div>
   </section>
 
@@ -642,15 +777,15 @@
             <a href="/audit-realestate" class="footer__audit-item">
               <span class="footer__audit-icon"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#69DE5F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7L8 2l6 5v7a1 1 0 01-1 1H3a1 1 0 01-1-1V7z"/><path d="M6 14V9h4v5"/></svg></span>
               <span class="footer__audit-item-text"><span class="footer__audit-item-name">Real Estate</span><span class="footer__audit-item-desc">Listings, proposals &amp; agency marketing</span></span>
-              <span class="footer__audit-arrow">→</span>
+              <span class="footer__audit-arrow">&#8594;</span>
             </a>
             <a href="/audit-mortgage" class="footer__audit-item">
               <span class="footer__audit-icon"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#69DE5F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M8 4l4 4-4 4"/><circle cx="8" cy="8" r="6"/></svg></span>
               <span class="footer__audit-item-text"><span class="footer__audit-item-name">Mortgage &amp; Property Services</span><span class="footer__audit-item-desc">Rate sheets, client docs &amp; referral marketing</span></span>
-              <span class="footer__audit-arrow">→</span>
+              <span class="footer__audit-arrow">&#8594;</span>
             </a>
           </div>
-          <p class="footer__audit-note">Free · No login · Takes 5 minutes</p>
+          <p class="footer__audit-note">Free &#183; No login &#183; Takes 5 minutes</p>
         </div>
       </div>
     </div>
@@ -681,7 +816,7 @@
 
     <div class="footer__bottom">
       <a href="/privacy">Privacy Policy</a>
-      <span>© 2026 by Handled</span>
+      <span>&#169; 2026 by Handled</span>
     </div>
   </footer>
 
@@ -689,83 +824,57 @@
     if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     window.scrollTo(0, 0);
 
-(function() {
+    // Nav scroll state
+    (function() {
       var nav = document.querySelector('.nav');
       if (!nav) return;
       window.addEventListener('scroll', function() { nav.classList.toggle('nav--scrolled', window.scrollY > 10); }, { passive: true });
     })();
 
-    // Hero slider
+    // Mobile menu
     (function() {
-      const wrap    = document.querySelector('.hero__slider-wrap');
-      const track   = document.querySelector('.hero__slider-track');
-      const prevBtn = document.getElementById('sliderPrev');
-      const nextBtn = document.getElementById('sliderNext');
-      if (!wrap || !track) return;
-      const originals = Array.from(track.querySelectorAll('.hero__slide'));
-      const N = originals.length;
-      function makeClones() { return originals.map(s => { const c = s.cloneNode(true); c.setAttribute('aria-hidden', 'true'); return c; }); }
-      makeClones().reverse().forEach(c => track.insertBefore(c, track.firstChild));
-      makeClones().forEach(c => track.appendChild(c));
-      let current = 0, target = 0, rafId = null;
-      function slideW() { const s = track.querySelector('.hero__slide'); return s ? s.offsetWidth + 20 : 420; }
-      function setW() { return slideW() * N; }
-      function normalise() { const sw = setW(); const shift = current > sw * 2 ? -sw : current < sw ? sw : 0; if (shift) { current += shift; target += shift; } }
-      function init() { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } current = target = setW(); track.style.transform = `translateX(-${current}px)`; }
-      init();
-      window.addEventListener('resize', init, { passive: true });
-      function tick() {
-        normalise();
-        const diff = target - current;
-        if (Math.abs(diff) < 0.15) { current = target; normalise(); track.style.transform = `translateX(-${current}px)`; rafId = null; return; }
-        current += diff * 0.13;
-        track.style.transform = `translateX(-${current}px)`;
-        rafId = requestAnimationFrame(tick);
-      }
-      function setTarget(v) { target = v; if (!rafId) rafId = requestAnimationFrame(tick); }
-      wrap.addEventListener('wheel', e => { const absX = Math.abs(e.deltaX), absY = Math.abs(e.deltaY); if (absX > absY * 0.4 && absX > 2) { e.preventDefault(); setTarget(target + e.deltaX * 1.4); } }, { passive: false });
-      prevBtn && prevBtn.addEventListener('click', () => setTarget(target - slideW()));
-      nextBtn && nextBtn.addEventListener('click', () => setTarget(target + slideW()));
-      let tLastX = 0, tVel = 0;
-      wrap.addEventListener('touchstart', e => { tLastX = e.touches[0].clientX; tVel = 0; if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }, { passive: true });
-      wrap.addEventListener('touchmove', e => { const newX = e.touches[0].clientX; tVel = tLastX - newX; tLastX = newX; current += tVel; target = current; normalise(); target = current; track.style.transform = `translateX(-${current}px)`; }, { passive: true });
-      wrap.addEventListener('touchend', () => { setTarget(target + tVel * 8); }, { passive: true });
+      var menu = document.getElementById('menu');
+      var openBtn = document.getElementById('menuOpen');
+      var closeBtn = document.getElementById('menuClose');
+      if (!menu || !openBtn) return;
+      openBtn.addEventListener('click', function() { menu.classList.add('open'); });
+      closeBtn && closeBtn.addEventListener('click', function() { menu.classList.remove('open'); });
     })();
 
     // Testimonial card slider
     (function() {
-      const track = document.getElementById('tqTrack');
-      const dotsWrap = document.getElementById('tqDots');
-      const prevBtn = document.getElementById('tqPrev');
-      const nextBtn = document.getElementById('tqNext');
+      var track = document.getElementById('tqTrack');
+      var dotsWrap = document.getElementById('tqDots');
+      var prevBtn = document.getElementById('tqPrev');
+      var nextBtn = document.getElementById('tqNext');
       if (!track || !dotsWrap) return;
-      const wrap = track.parentElement;
-      const cards = track.querySelectorAll('.tq-card');
-      const total = cards.length;
-      let current = 0;
+      var wrap = track.parentElement;
+      var cards = track.querySelectorAll('.tq-card');
+      var total = cards.length;
+      var current = 0;
       function perPage() { return window.innerWidth <= 768 ? 1 : 3; }
       function pageCount() { return Math.ceil(total / perPage()); }
-      for (let i = 0; i < pageCount(); i++) {
-        const d = document.createElement('button');
+      for (var i = 0; i < pageCount(); i++) {
+        var d = document.createElement('button');
         d.className = 'tq-dot' + (i === 0 ? ' active' : '');
         d.setAttribute('aria-label', 'Go to page ' + (i + 1));
-        d.addEventListener('click', () => goTo(i));
+        (function(idx) { d.addEventListener('click', function() { goTo(idx); }); })(i);
         dotsWrap.appendChild(d);
       }
       function goTo(n) {
         current = Math.max(0, Math.min(n, pageCount() - 1));
-        const cardW = cards[0].getBoundingClientRect().width;
-        const gap = 14;
+        var cardW = cards[0].getBoundingClientRect().width;
+        var gap = 14;
         wrap.scrollTo({ left: current * perPage() * (cardW + gap), behavior: 'smooth' });
-        dotsWrap.querySelectorAll('.tq-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+        dotsWrap.querySelectorAll('.tq-dot').forEach(function(dot, i) { dot.classList.toggle('active', i === current); });
       }
-      if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
-      if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
-      let tx = 0, ty = 0;
-      wrap.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
-      wrap.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - tx;
-        const dy = e.changedTouches[0].clientY - ty;
+      if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+      var tx = 0, ty = 0;
+      wrap.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+      wrap.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - tx;
+        var dy = e.changedTouches[0].clientY - ty;
         if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
       }, { passive: true });
     })();
@@ -779,6 +888,7 @@
       });
     });
   </script>
+
   <!-- Meta Pixel CTA tracking -->
   <script>
   document.addEventListener('click', function(e) {
@@ -787,6 +897,8 @@
     var href = el.getAttribute('href') || '';
     if (href.includes('fit-check')) {
       fbq('track', 'Lead', {content_name: 'Book Fit Check'});
+    } else if (href.includes('barfoot') || href.includes('status')) {
+      fbq('trackCustom', 'ViewCaseStudy', {client: href.includes('barfoot') ? 'Barfoot' : 'Status'});
     } else if (href.includes('audit-realestate')) {
       fbq('trackCustom', 'StartAudit', {industry: 'Real Estate'});
     } else if (href.includes('audit-mortgage')) {
@@ -803,7 +915,7 @@
   <div id="enquiry-modal" class="enq-modal" role="dialog" aria-modal="true" aria-labelledby="enq-modal-title" hidden>
     <div class="enq-modal__backdrop" id="enquiry-backdrop"></div>
     <div class="enq-modal__card">
-      <button class="enq-modal__close" id="enquiry-close" aria-label="Close">✕</button>
+      <button class="enq-modal__close" id="enquiry-close" aria-label="Close">&#x2715;</button>
       <h2 class="enq-modal__title" id="enq-modal-title">Get the details</h2>
       <p class="enq-modal__promise">I'll send the full details... what's handled, how it works, pricing, and current availability.</p>
       <form id="enquiry-form" class="enq-form" novalidate>
@@ -836,7 +948,7 @@
       <div id="enquiry-confirm" class="enq-confirm" hidden>
         <img src="/assets/handled-octo-2.png" alt="" class="enq-confirm__mascot" aria-hidden="true" />
         <p class="enq-confirm__msg">On its way. Check your inbox in the next few minutes... and if you'd rather just talk, the Fit Check link is below.</p>
-        <a href="/fit-check" class="enq-confirm__link">Book a 15-minute Fit Check →</a>
+        <a href="/fit-check" class="enq-confirm__link">Book a 15-minute Fit Check &#8594;</a>
       </div>
     </div>
   </div>
@@ -845,28 +957,38 @@
   <script>
   (function(){
     emailjs.init('qpwKhTqzAJ3UKxGb1');
-    var modal=document.getElementById('enquiry-modal');
-    var form=document.getElementById('enquiry-form');
-    var confirmEl=document.getElementById('enquiry-confirm');
-    var backdrop=document.getElementById('enquiry-backdrop');
-    var closeBtn=document.getElementById('enquiry-close');
-    if(!modal)return;
-    function openModal(){modal.removeAttribute('hidden');document.body.style.overflow='hidden';}
-    function closeModal(){modal.setAttribute('hidden','');document.body.style.overflow='';}
-    document.querySelectorAll('.js-enquiry-open').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();openModal();});});
-    backdrop&&backdrop.addEventListener('click',closeModal);
-    closeBtn&&closeBtn.addEventListener('click',closeModal);
-    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hasAttribute('hidden'))closeModal();});
-    form&&form.addEventListener('submit',function(e){
+    var modal = document.getElementById('enquiry-modal');
+    var form = document.getElementById('enquiry-form');
+    var confirmEl = document.getElementById('enquiry-confirm');
+    var backdrop = document.getElementById('enquiry-backdrop');
+    var closeBtn = document.getElementById('enquiry-close');
+    if (!modal) return;
+    function openModal() { modal.removeAttribute('hidden'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { modal.setAttribute('hidden', ''); document.body.style.overflow = ''; }
+    document.querySelectorAll('.js-enquiry-open').forEach(function(el) { el.addEventListener('click', function(e) { e.preventDefault(); openModal(); }); });
+    backdrop && backdrop.addEventListener('click', closeModal);
+    closeBtn && closeBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal(); });
+    form && form.addEventListener('submit', function(e) {
       e.preventDefault();
-      if(form.querySelector('[name="_honey"]').value)return;
-      var btn=form.querySelector('.enq-form__submit');
-      btn.disabled=true;btn.textContent='Sending...';
-      var p={name:document.getElementById('enq-name').value,business:document.getElementById('enq-business').value,business_type:document.getElementById('enq-type').value,email:document.getElementById('enq-email').value};
-      emailjs.send('service_jtps204','template_enquiry_admin',p)
-        .then(function(){return emailjs.send('service_jtps204','template_enquiry_auto',p);})
-        .then(function(){form.setAttribute('hidden','');confirmEl.removeAttribute('hidden');if(window.fbq)fbq('track','Lead',{content_name:'Info Pack Request'});if(window.gtag)gtag('event','info_pack_requested',{event_category:'Enquiry'});})
-        .catch(function(){btn.disabled=false;btn.textContent='Send me the info pack';});
+      if (form.querySelector('[name="_honey"]').value) return;
+      var btn = form.querySelector('.enq-form__submit');
+      btn.disabled = true; btn.textContent = 'Sending...';
+      var p = {
+        name: document.getElementById('enq-name').value,
+        business: document.getElementById('enq-business').value,
+        business_type: document.getElementById('enq-type').value,
+        email: document.getElementById('enq-email').value
+      };
+      emailjs.send('service_jtps204', 'template_enquiry_admin', p)
+        .then(function() { return emailjs.send('service_jtps204', 'template_enquiry_auto', p); })
+        .then(function() {
+          form.setAttribute('hidden', '');
+          confirmEl.removeAttribute('hidden');
+          if (window.fbq) fbq('track', 'Lead', {content_name: 'Info Pack Request'});
+          if (window.gtag) gtag('event', 'info_pack_requested', {event_category: 'Enquiry'});
+        })
+        .catch(function() { btn.disabled = false; btn.textContent = 'Send me the info pack'; });
     });
   })();
   </script>
