@@ -16,7 +16,7 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
 <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=115" />
+  <link rel="stylesheet" href="/style.css?v=116" />
   <style>
   /* Enquiry Modal */
   .enq-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;}
@@ -92,12 +92,24 @@
   .hp-compare__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:#fff;margin:0 0 2.5rem;}
   .hp-compare__scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .hp-compare__table{display:grid;grid-template-columns:minmax(120px,1.1fr) 1fr 1fr 1fr;min-width:560px;}
-  .hpc-head{font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.85rem 1.25rem 1rem;color:rgba(255,255,255,0.35);}
+  .hpc-head{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.85rem 1.25rem 1rem;color:rgba(255,255,255,0.6);}
   .hpc-head--handled{background:var(--green);color:var(--navy);border-radius:12px 12px 0 0;}
-  .hpc-label{font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.38);padding:1.1rem 1rem 1.1rem 0;border-top:1px solid rgba(255,255,255,0.1);}
-  .hpc-cell{font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.62);padding:1.1rem 1.25rem;border-top:1px solid rgba(255,255,255,0.1);line-height:1.45;}
-  .hpc-cell--handled{background:var(--green);color:var(--navy);font-weight:600;border-top:1px solid rgba(30,61,81,0.1)!important;}
+  .hpc-label{font-family:var(--sans);font-size:0.9rem;font-weight:600;color:rgba(255,255,255,0.7);padding:1.1rem 1rem 1.1rem 0;border-top:1px solid rgba(255,255,255,0.12);}
+  .hpc-cell{font-family:var(--sans);font-size:0.95rem;color:rgba(255,255,255,0.88);padding:1.1rem 1.25rem;border-top:1px solid rgba(255,255,255,0.12);line-height:1.45;}
+  .hpc-cell--handled{background:var(--green);color:var(--navy);font-weight:600;border-top:1px solid rgba(30,61,81,0.12)!important;}
   .hpc-cell--handled.hpc-cell--last{border-radius:0 0 12px 12px;}
+  /* Comparison table — mobile stacked layout */
+  @media(max-width:600px){
+    .hp-compare__scroll{overflow-x:visible;}
+    .hp-compare__table{display:block;min-width:0;}
+    .hpc-head{display:none;}
+    .hpc-label{display:block;font-size:0.72rem;letter-spacing:0.09em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.45);padding:1.5rem 0 0.4rem;border-top:1px solid rgba(255,255,255,0.12);}
+    .hpc-cell{display:flex;justify-content:space-between;align-items:center;padding:0.6rem 0;border:none;font-size:0.9rem;color:rgba(255,255,255,0.78);}
+    .hpc-cell::before{content:attr(data-col);font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.38);flex-shrink:0;margin-right:1rem;min-width:72px;}
+    .hpc-cell--handled{border-radius:8px;padding:0.6rem 0.75rem;margin:0.2rem 0;}
+    .hpc-cell--handled.hpc-cell--last{border-radius:8px;}
+    .hpc-cell--handled::before{color:rgba(30,61,81,0.6);}
+  }
   /* Case studies browse link */
   .hp-cases__browse{font-family:var(--sans);font-size:0.88rem;text-align:center;margin-top:2rem;}
   .hp-cases__browse a{color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
@@ -577,29 +589,29 @@
           <div class="hpc-head">Freelancer</div>
           <div class="hpc-head hpc-head--handled">Handled</div>
           <div class="hpc-label">Pricing</div>
-          <div class="hpc-cell">Per project</div>
-          <div class="hpc-cell">Hourly</div>
-          <div class="hpc-cell hpc-cell--handled">Fixed monthly</div>
+          <div class="hpc-cell" data-col="Agency">Per project</div>
+          <div class="hpc-cell" data-col="Freelancer">Hourly</div>
+          <div class="hpc-cell hpc-cell--handled" data-col="Handled">Fixed monthly</div>
           <div class="hpc-label">Getting started</div>
-          <div class="hpc-cell">Proposal &amp; scope</div>
-          <div class="hpc-cell">Depends on availability</div>
-          <div class="hpc-cell hpc-cell--handled">Start this week</div>
+          <div class="hpc-cell" data-col="Agency">Proposal &amp; scope</div>
+          <div class="hpc-cell" data-col="Freelancer">Depends on availability</div>
+          <div class="hpc-cell hpc-cell--handled" data-col="Handled">Start this week</div>
           <div class="hpc-label">Turnaround</div>
-          <div class="hpc-cell">Weeks</div>
-          <div class="hpc-cell">Depends on workload</div>
-          <div class="hpc-cell hpc-cell--handled">~2 business days</div>
+          <div class="hpc-cell" data-col="Agency">Weeks</div>
+          <div class="hpc-cell" data-col="Freelancer">Depends on workload</div>
+          <div class="hpc-cell hpc-cell--handled" data-col="Handled">~2 business days</div>
           <div class="hpc-label">Consistency</div>
-          <div class="hpc-cell">Varies by team</div>
-          <div class="hpc-cell">Varies</div>
-          <div class="hpc-cell hpc-cell--handled">Same designer, every time</div>
+          <div class="hpc-cell" data-col="Agency">Varies by team</div>
+          <div class="hpc-cell" data-col="Freelancer">Varies</div>
+          <div class="hpc-cell hpc-cell--handled" data-col="Handled">Same designer, every time</div>
           <div class="hpc-label">Brand knowledge</div>
-          <div class="hpc-cell">Re-explained each project</div>
-          <div class="hpc-cell">Varies</div>
-          <div class="hpc-cell hpc-cell--handled">Already knows your brand</div>
+          <div class="hpc-cell" data-col="Agency">Re-explained each project</div>
+          <div class="hpc-cell" data-col="Freelancer">Varies</div>
+          <div class="hpc-cell hpc-cell--handled" data-col="Handled">Already knows your brand</div>
           <div class="hpc-label">Commitment</div>
-          <div class="hpc-cell">Contract</div>
-          <div class="hpc-cell">Project</div>
-          <div class="hpc-cell hpc-cell--handled hpc-cell--last">Pause anytime</div>
+          <div class="hpc-cell" data-col="Agency">Contract</div>
+          <div class="hpc-cell" data-col="Freelancer">Project</div>
+          <div class="hpc-cell hpc-cell--handled hpc-cell--last" data-col="Handled">Pause anytime</div>
         </div>
       </div>
     </div>
