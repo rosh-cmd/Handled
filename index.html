@@ -46,17 +46,12 @@
   .btn-secondary-link:hover{border-color:#fff;color:#fff;}
   .btn-secondary-link--dark{color:rgba(30,61,81,0.7);border-color:rgba(30,61,81,0.3);}
   .btn-secondary-link--dark:hover{color:#1E3D51;border-color:rgba(30,61,81,0.7);}
-  /* Inline nav links */
-  .nav__links{display:flex;align-items:center;gap:2.25rem;}
-  .nav__link{font-family:var(--sans);font-size:0.95rem;font-weight:600;color:rgba(255,255,255,0.72);text-decoration:none;letter-spacing:0.01em;transition:color 0.2s;}
-  .nav__link:hover,.nav__link.active{color:#fff;}
-  @media(max-width:768px){.nav__links{display:none;}}
-  /* How it works — three card */
+/* How it works — three card */
   .hp-how{padding:clamp(60px,8vw,100px) var(--pad);background:var(--navy);}
   .hp-how__inner{max-width:1160px;margin:0 auto;}
   .hp-how__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:#fff;margin:0 0 2.5rem;}
   .hp-how__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;align-items:stretch;}
-  .hc{border-radius:20px;overflow:hidden;display:flex;flex-direction:column;min-height:560px;transition:transform 0.25s ease,box-shadow 0.25s ease;}
+  .hc{border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.25s ease,box-shadow 0.25s ease;}
   .hc:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.3);}
   .hc--yellow{background:#EDC661;}
   .hc--navy{background:#1E3548;border:1px solid rgba(255,255,255,0.13);}
@@ -78,9 +73,7 @@
   .hc__check{color:#69DE5F;font-size:0.9rem;flex-shrink:0;}
   /* Card 2: scrolling pills */
   .hc__pills-outer{width:100%;align-self:stretch;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:center;gap:0.45rem;padding:1.5rem 0;}
-  .hc__logo-sq{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;background:rgba(30,61,81,0.55);backdrop-filter:blur(4px);border-radius:16px;display:flex;align-items:center;justify-content:center;z-index:10;box-shadow:0 8px 28px rgba(0,0,0,0.35);}
-  .hc__logo-sq img{width:54px;height:auto;}
-  .hc__pills-outer::before,.hc__pills-outer::after{content:'';position:absolute;top:0;bottom:0;width:48px;z-index:2;pointer-events:none;}
+.hc__pills-outer::before,.hc__pills-outer::after{content:'';position:absolute;top:0;bottom:0;width:48px;z-index:2;pointer-events:none;}
   .hc__pills-outer::before{left:0;background:linear-gradient(to right,#1E3548 55%,transparent);}
   .hc__pills-outer::after{right:0;background:linear-gradient(to left,#1E3548 55%,transparent);}
   .hc__pill-row{display:flex;gap:0.6rem;width:max-content;}
@@ -98,7 +91,7 @@
   .hc__pill--lime{background:#69DE5F;color:#1E3548;}
   @media(prefers-reduced-motion:reduce){.hc__pill-row{animation:none;flex-wrap:wrap;width:auto;}.hc__pills-outer{overflow:visible;}}
   /* Card 3: fanned portfolio cards */
-  .hc__sheet-wrap{position:relative;width:92%;max-width:none;height:340px;}
+  .hc__sheet-wrap{position:relative;width:80%;max-width:none;height:300px;margin:0 auto;}
   .hc__card{position:absolute;top:50%;width:58%;height:84%;border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.25);}
   .hc__card img{width:100%;height:100%;object-fit:cover;display:block;}
   .hc__card--3{left:2%;transform:translateY(-52%) rotate(-11deg);opacity:0.55;z-index:1;}
@@ -312,9 +305,6 @@
         <!-- Card 2: Request -->
         <div class="hc hc--navy">
           <div class="hc__visual">
-            <div class="hc__logo-sq">
-              <img src="/assets/handled-octo-2.png" alt="Handled Studio" />
-            </div>
             <div class="hc__pills-outer">
               <div class="hc__pill-row hc__pill-row--1">
                 <span class="hc__pill hc__pill--wht">Listing suites</span><span class="hc__pill hc__pill--out">EDMs</span><span class="hc__pill hc__pill--lime">Appraisal kits</span><span class="hc__pill hc__pill--out">Signage</span><span class="hc__pill hc__pill--wht">Press ads</span><span class="hc__pill hc__pill--wht">Listing suites</span><span class="hc__pill hc__pill--out">EDMs</span><span class="hc__pill hc__pill--lime">Appraisal kits</span><span class="hc__pill hc__pill--out">Signage</span><span class="hc__pill hc__pill--wht">Press ads</span>
@@ -408,15 +398,16 @@
             <span class="offers__step-label">Start here</span>
           </div>
           <h3 class="offers__title">The Handoff</h3>
-          <span class="offers__price-pill offers__price-pill--dark">30-DAY SYSTEM BUILD... FROM $1,500</span>
-          <p class="offers__desc">One month, one job: get you set up. Your brand system and template library, built with real production from day one. Not a trial, not a sample.</p>
+          <span class="offers__price-pill offers__price-pill--dark">30-DAY SETUP • FROM $1,500</span>
+          <p class="offers__desc">One focused month to build the foundations. Templates, assets and a production system you can keep using long after.</p>
           <ul class="offers__features offers__features--dot">
-            <li>Real design output from day one</li>
-            <li>Your template system and asset library, built</li>
+            <li>Real design work from day one</li>
+            <li>Templates and asset library, built as we go</li>
             <li>No long-term commitment</li>
+            <li>Continue into Fully Handled and receive a $1,500 credit</li>
+            <li>Yours to keep, whether you continue or not</li>
           </ul>
-          <p class="offers__price-note" style="font-family:var(--sans);font-size:0.88rem;color:rgba(30,61,81,0.7);margin-top:1rem;line-height:1.6;">$1,500 when you continue into Fully Handled. $2,500 standalone [the system is yours to keep].</p>
-          <p class="offers__avail offers__avail--yellow">Only one new Handoff per month.</p>
+          <p class="offers__avail offers__avail--yellow">One new Handoff each month.</p>
         </div>
 
         <!-- Connector -->
@@ -435,17 +426,19 @@
             <span class="offers__step-label offers__step-label--green">The destination</span>
           </div>
           <h3 class="offers__title offers__title--white">Fully Handled</h3>
-          <span class="offers__price-pill offers__price-pill--green">ONGOING... FROM $3,000 / MONTH</span>
-          <p class="offers__desc offers__desc--muted">Unlimited requests from the list, one at a time, two business days at a time. Your production runs through one senior designer who already knows your brand... no briefing from scratch, no dropped balls.</p>
+          <span class="offers__price-pill offers__price-pill--green">ONGOING • FROM $3,000/MONTH</span>
+          <p class="offers__desc offers__desc--muted">Your ongoing design partner. One monthly subscription for the work your business never stops producing.</p>
           <p class="offers__desc offers__desc--muted" style="margin-top:0.75rem;">Most of this work has a job: winning the listing. It should look like it.</p>
           <ul class="offers__features offers__features--check">
-            <li>Unlimited requests from the list</li>
-            <li>One active request, delivered in 2 business days</li>
-            <li>Pause anytime... your spot is held</li>
-            <li>Senior designer on everything</li>
+            <li>Unlimited requests</li>
+            <li>One active request at a time</li>
+            <li>Most requests delivered within 2 business days</li>
+            <li>Pause anytime</li>
+            <li>Senior designer on every project</li>
           </ul>
-          <a href="#" class="btn-cta btn-cta--dark js-enquiry-open" style="margin-top:1.5rem;"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
-          <a href="/fit-check" class="btn-secondary-link" style="display:block;text-align:center;">Or book a 15-minute Fit Check</a>
+          <a href="/fully-handled" class="btn-cta btn-cta--dark" style="margin-top:1.5rem;"><span class="btn-kicker">Details</span><span class="btn-main">View the details <span class="btn-dot">→</span></span></a>
+          <p style="font-family:var(--sans);font-size:0.9rem;color:rgba(255,255,255,0.45);text-align:center;margin:0.75rem 0 0;">or</p>
+          <a href="/fit-check" class="btn-secondary-link" style="display:block;text-align:center;margin-top:0.5rem;">Book a 15-minute Fit Check</a>
         </div>
 
       </div><!-- /journey -->
@@ -509,15 +502,6 @@
           </div>
 
           <div class="tq-card">
-            <span class="tq-pill">Finance</span>
-            <p class="tq-card__quote">&ldquo;Rosh has been instrumental in the production of our flagship Investment Outlook publication distributed quarterly to clients and industry professionals. She has continually lifted the standard over the years through communication, production, attention to detail, and implementing improvements.&rdquo;</p>
-            <div class="tq-card__attr">
-              <p class="tq-card__name">Tim Agar</p>
-              <p class="tq-card__company">Jarden</p>
-            </div>
-          </div>
-
-          <div class="tq-card">
             <span class="tq-pill">Property</span>
             <p class="tq-card__quote">&ldquo;I was guided by experts who were genuinely in tune with my vision from day one, taking the time to deeply understand my market and how to help me stand out. I feel armed, ready, and proud of my brand.&rdquo;</p>
             <div class="tq-card__attr">
@@ -532,6 +516,15 @@
             <div class="tq-card__attr">
               <p class="tq-card__name">Ben Lewis</p>
               <p class="tq-card__company">Lewis Build</p>
+            </div>
+          </div>
+
+          <div class="tq-card">
+            <span class="tq-pill">Finance</span>
+            <p class="tq-card__quote">&ldquo;Rosh has been instrumental in the production of our flagship Investment Outlook publication distributed quarterly to clients and industry professionals. She has continually lifted the standard over the years through communication, production, attention to detail, and implementing improvements.&rdquo;</p>
+            <div class="tq-card__attr">
+              <p class="tq-card__name">Tim Agar</p>
+              <p class="tq-card__company">Jarden</p>
             </div>
           </div>
 
@@ -577,7 +570,7 @@
   <!-- 7. THE PERSON -->
   <section class="hp-person">
     <div class="hp-person__inner">
-      <img src="/assets/Homepage-AboutRosh.png" alt="Rosh Java" class="hp-person__img" loading="lazy" />
+      <img src="/assets/Rosh.png" alt="Rosh Java" class="hp-person__img" loading="lazy" />
       <div class="hp-person__text">
         <p class="hp-person__eyebrow">The person behind it</p>
         <p class="hp-person__body">I'm Rosh Java. After 15+ years designing for agencies and some of Australasia's largest brands, I started Handled to become the design partner businesses keep.</p>
@@ -717,7 +710,6 @@
       <div class="cta__right">
         <p class="cta__kicker">Let's get it <em>handled.</em></p>
         <a href="#" class="btn-cta btn-cta--rev js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
-        <a href="/fit-check" class="btn-secondary-link btn-secondary-link--dark" style="display:block;text-align:right;margin-top:0.5rem;">Or book a 15-minute Fit Check</a>
       </div>
     </div>
   </section>

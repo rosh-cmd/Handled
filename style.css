@@ -177,8 +177,12 @@ em { font-style: italic; }
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 .nav__right { display: flex; align-items: center; gap: 1.2rem; }
-.nav__hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav__hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
 .nav__hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+/* Inline nav links — desktop only */
+.nav__links { display: flex; align-items: center; gap: 2.25rem; }
+.nav__link { font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.72); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
+.nav__link:hover, .nav__link.active { color: #fff; }
 
 
 /* ============================================================
@@ -222,7 +226,7 @@ em { font-style: italic; }
   display: grid;
   grid-template-columns: 1fr 280px;
   grid-template-areas:
-    "headline aside"
+    "headline ."
     "body     aside";
   column-gap: 2rem;
   row-gap: 1.75rem;
@@ -242,8 +246,7 @@ em { font-style: italic; }
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: flex-end;
-  align-self: end;
+  justify-content: flex-start;
 }
 .hero__aside p { font-size: 1rem; color: rgba(255,255,255,0.75); line-height: 1.55; margin-bottom: 1.4rem; }
 .hero__body {
@@ -553,6 +556,11 @@ em { font-style: italic; }
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (max-width: 768px) {
+  .nav__hamburger { display: flex; }
+  .nav__links { display: none; }
+}
+
 @media (max-width: 1024px) {
   /* Hero: headline → body → aside on mobile */
   .hero__top {
