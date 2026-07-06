@@ -222,7 +222,7 @@ em { font-style: italic; }
   display: grid;
   grid-template-columns: 1fr 280px;
   grid-template-areas:
-    "headline ."
+    "headline aside"
     "body     aside";
   column-gap: 2rem;
   row-gap: 1.75rem;

@@ -61,15 +61,15 @@
   .hc--yellow{background:#EDC661;}
   .hc--navy{background:#1E3548;border:1px solid rgba(255,255,255,0.13);}
   .hc--green{background:#8CD867;}
-  .hc__visual{flex:0 0 62%;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
-  .hc__caption{flex:1;padding:1.5rem 1.75rem 2rem;}
+  .hc__visual{flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+  .hc__caption{flex:0 0 auto;padding:1.5rem 1.75rem 2rem;}
   .hc__step{font-family:var(--sans);font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#69DE5F;margin:0 0 0.5rem;}
   .hc--yellow .hc__step,.hc--green .hc__step{color:#1E3D51;}
   .hc__body{font-family:var(--sans);font-size:1rem;line-height:1.65;margin:0;}
   .hc--navy .hc__body{color:rgba(255,255,255,0.8);}
   .hc--yellow .hc__body,.hc--green .hc__body{color:rgba(30,61,81,0.85);}
   /* Card 1: plan card */
-  .hc__plan{background:#1E3D51;border-radius:16px;padding:1.75rem 1.6rem;width:75%;max-width:280px;}
+  .hc__plan{background:#1E3D51;border-radius:16px;padding:1.75rem 1.6rem;width:calc(100% - 2.5rem);max-width:none;}
   .hc__plan-title{font-family:var(--serif);font-size:1.55rem;font-weight:700;color:#fff;margin:0 0 0.7rem;}
   .hc__plan-tag{display:inline-block;background:#69DE5F;color:#1E3D51;font-family:var(--sans);font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border-radius:5px;padding:4px 10px;margin-bottom:1rem;}
   .hc__plan-list{list-style:none;padding:0;margin:0;}
@@ -77,7 +77,7 @@
   .hc__plan-list li:last-child{border-bottom:none;}
   .hc__check{color:#69DE5F;font-size:0.9rem;flex-shrink:0;}
   /* Card 2: scrolling pills */
-  .hc__pills-outer{width:100%;overflow:hidden;position:relative;display:flex;flex-direction:column;gap:0.75rem;padding:1.5rem 0;}
+  .hc__pills-outer{width:100%;align-self:stretch;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:space-evenly;gap:0;padding:0;}
   .hc__pills-outer::before,.hc__pills-outer::after{content:'';position:absolute;top:0;bottom:0;width:48px;z-index:2;pointer-events:none;}
   .hc__pills-outer::before{left:0;background:linear-gradient(to right,#1E3548 55%,transparent);}
   .hc__pills-outer::after{right:0;background:linear-gradient(to left,#1E3548 55%,transparent);}
@@ -93,32 +93,15 @@
   .hc__pill--lime{background:#69DE5F;color:#1E3548;}
   @media(prefers-reduced-motion:reduce){.hc__pill-row{animation:none;flex-wrap:wrap;width:auto;}.hc__pills-outer{overflow:visible;}}
   /* Card 3: asset sheet */
-  .hc__sheet-wrap{position:relative;width:72%;max-width:260px;height:280px;}
+  .hc__sheet-wrap{position:relative;width:82%;max-width:none;height:340px;}
   .hc__sheet{position:absolute;background:#fff;border-radius:10px;box-shadow:0 6px 28px rgba(0,0,0,0.14);}
-  .hc__sheet--back{width:90%;height:92%;top:14px;left:50%;transform:translateX(-50%) rotate(6deg);opacity:0.4;}
-  .hc__sheet--front{width:100%;height:93%;top:0;left:50%;transform:translateX(-50%);padding:1.6rem;}
+  .hc__sheet--back{width:90%;height:92%;top:16px;left:50%;transform:translateX(-50%) rotate(6deg);opacity:0.4;}
+  .hc__sheet--front{width:100%;height:93%;top:0;left:50%;transform:translateX(-50%);padding:1.75rem;}
   .hc__sheet-title-bar{height:16px;background:#1E3D51;border-radius:4px;margin-bottom:1.25rem;}
   .hc__sheet-line{height:10px;background:#e0e0e0;border-radius:4px;margin-bottom:0.7rem;}
   .hc__sheet-line--short{width:58%;}
   .hc__badge{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:#1E3D51;color:#fff;font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.1rem;border-radius:100px;white-space:nowrap;display:flex;align-items:center;gap:0.4rem;}
   @media(max-width:860px){.hp-how__grid{grid-template-columns:1fr;}.hc{min-height:auto;}.hc__visual{min-height:300px;}}
-  /* What's handled */
-  .fh-menu{background:var(--navy);padding:clamp(60px,8vw,100px) var(--pad);}
-  .fh-menu__inner{max-width:1100px;margin:0 auto;}
-  .fh-menu__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:#fff;margin:0 0 0.4rem;}
-  .fh-menu__sub{font-family:var(--sans);font-size:1rem;color:rgba(255,255,255,0.75);margin:0 0 2.5rem;line-height:1.65;}
-  .fh-menu__clusters{display:grid;grid-template-columns:1fr 1fr;gap:3rem 4rem;margin-bottom:2.5rem;}
-  .fh-menu__cluster-title{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 0.75rem;}
-  .fh-menu__list{list-style:none;padding:0;margin:0;}
-  .fh-menu__list li{font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.82);padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);line-height:1.55;}
-  .fh-menu__list li:last-child{border-bottom:none;}
-  .fh-menu__stages{border-top:1px solid rgba(255,255,255,0.14);padding-top:2rem;margin-bottom:2rem;}
-  .fh-menu__stages-title{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 1rem;}
-  .fh-menu__stages-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-  .fh-menu__stages-list li{font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.82);line-height:1.6;}
-  .fh-menu__note{font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.7;}
-  .fh-menu__note+.fh-menu__note{margin-top:0.4rem;}
-  @media(max-width:640px){.fh-menu__clusters{grid-template-columns:1fr;gap:2rem;}.fh-menu__stages-list{grid-template-columns:1fr;gap:1rem;}}
   /* Work strip */
   .wk-strip{padding:clamp(40px,5vw,60px) var(--pad);background:var(--navy);}
   .wk-strip__inner{max-width:var(--max);margin:0 auto;}
@@ -369,66 +352,6 @@
   </section>
 
 
-  <!-- 3. WHAT'S HANDLED -->
-  <section class="fh-menu">
-    <div class="fh-menu__inner">
-      <h2 class="fh-menu__heading">What's handled</h2>
-      <p class="fh-menu__sub">If it goes out under your brand, it's probably here.</p>
-
-      <div class="fh-menu__clusters">
-        <div class="fh-menu__cluster">
-          <p class="fh-menu__cluster-title">Listings &amp; campaigns</p>
-          <ul class="fh-menu__list">
-            <li>Listing and property marketing assets</li>
-            <li>Press ads</li>
-            <li>Adshels and outdoor</li>
-            <li>Posters and window cards</li>
-          </ul>
-        </div>
-        <div class="fh-menu__cluster">
-          <p class="fh-menu__cluster-title">Signage &amp; print</p>
-          <ul class="fh-menu__list">
-            <li>Signage artwork</li>
-            <li>DL flyers</li>
-            <li>Teardrop flags</li>
-            <li>Vehicle decals</li>
-            <li>Stationery and email signatures</li>
-          </ul>
-        </div>
-        <div class="fh-menu__cluster">
-          <p class="fh-menu__cluster-title">Digital &amp; social</p>
-          <ul class="fh-menu__list">
-            <li>Social graphics [up to five tiles on one theme counts as one request]</li>
-            <li>EDMs and client communications</li>
-            <li>Market update and newsletter templates</li>
-          </ul>
-        </div>
-        <div class="fh-menu__cluster">
-          <p class="fh-menu__cluster-title">Documents &amp; guides</p>
-          <ul class="fh-menu__list">
-            <li>Appraisal and presentation deck refreshes</li>
-            <li>Agent and broker profile cards</li>
-            <li>Rate sheets and referral partner marketing</li>
-            <li>Landlord reports and rental appraisal documents</li>
-            <li>Client guides and welcome packs</li>
-            <li>Loan process explainers and pre-approval guides</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="fh-menu__stages">
-        <p class="fh-menu__stages-title">Handled in stages</p>
-        <ul class="fh-menu__stages-list">
-          <li>Appraisal, pre-list and sales kits [delivered in stages... allow four to five business days]</li>
-          <li>Full vehicle wraps</li>
-          <li>Campaign suites [fast, because your templates already exist]</li>
-        </ul>
-      </div>
-
-      <p class="fh-menu__note">Development branding, project brochures and webpages are quoted separately. Subscription clients get priority.</p>
-      <p class="fh-menu__note">Light copy tidying is included. Full copywriting isn't [I'll tell you before it becomes a problem].</p>
-    </div>
-  </section>
 
 
   <!-- 4. WORK STRIP -->
