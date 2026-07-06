@@ -967,6 +967,11 @@
       if (!menu || !openBtn) return;
       openBtn.addEventListener('click', function() { menu.classList.add('open'); });
       closeBtn && closeBtn.addEventListener('click', function() { menu.classList.remove('open'); });
+      document.addEventListener('click', function(e) {
+        if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== openBtn) {
+          menu.classList.remove('open');
+        }
+      });
     })();
 
     // Testimonial card slider
