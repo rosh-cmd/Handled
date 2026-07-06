@@ -77,7 +77,9 @@
   .hc__plan-list li:last-child{border-bottom:none;}
   .hc__check{color:#69DE5F;font-size:0.9rem;flex-shrink:0;}
   /* Card 2: scrolling pills */
-  .hc__pills-outer{width:100%;align-self:stretch;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:space-evenly;gap:0;padding:0;}
+  .hc__pills-outer{width:100%;align-self:stretch;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:center;gap:0.45rem;padding:1.5rem 0;}
+  .hc__logo-sq{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;background:#0d1c28;border-radius:16px;display:flex;align-items:center;justify-content:center;z-index:10;box-shadow:0 8px 28px rgba(0,0,0,0.45);}
+  .hc__logo-sq img{width:42px;height:auto;filter:brightness(0) invert(1);}
   .hc__pills-outer::before,.hc__pills-outer::after{content:'';position:absolute;top:0;bottom:0;width:48px;z-index:2;pointer-events:none;}
   .hc__pills-outer::before{left:0;background:linear-gradient(to right,#1E3548 55%,transparent);}
   .hc__pills-outer::after{right:0;background:linear-gradient(to left,#1E3548 55%,transparent);}
@@ -310,6 +312,9 @@
         <!-- Card 2: Request -->
         <div class="hc hc--navy">
           <div class="hc__visual">
+            <div class="hc__logo-sq">
+              <img src="/assets/logomark-ss.png" alt="Handled Studio" />
+            </div>
             <div class="hc__pills-outer">
               <div class="hc__pill-row hc__pill-row--1">
                 <span class="hc__pill hc__pill--wht">Listing suites</span><span class="hc__pill hc__pill--out">EDMs</span><span class="hc__pill hc__pill--lime">Appraisal kits</span><span class="hc__pill hc__pill--out">Signage</span><span class="hc__pill hc__pill--wht">Press ads</span><span class="hc__pill hc__pill--wht">Listing suites</span><span class="hc__pill hc__pill--out">EDMs</span><span class="hc__pill hc__pill--lime">Appraisal kits</span><span class="hc__pill hc__pill--out">Signage</span><span class="hc__pill hc__pill--wht">Press ads</span>
