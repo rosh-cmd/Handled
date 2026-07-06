@@ -18,6 +18,7 @@
 <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
   <link rel="stylesheet" href="/style.css?v=112" />
   <style>
+  /* Enquiry Modal */
   .enq-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;}
   .enq-modal[hidden]{display:none;}
   .enq-modal__backdrop{position:absolute;inset:0;background:rgba(30,61,81,0.72);backdrop-filter:blur(4px);}
@@ -37,12 +38,108 @@
   .enq-form__submit:hover{background:#2a5570;}
   .enq-form__submit:disabled{opacity:0.6;cursor:not-allowed;}
   .enq-confirm{text-align:center;padding:1rem 0;}
+  .enq-confirm__mascot{width:72px;height:auto;margin:0 auto 1rem;display:block;}
   .enq-confirm__msg{font-family:var(--sans);font-size:1rem;color:#1E3D51;line-height:1.7;margin:0 0 1.25rem;}
   .enq-confirm__link{display:inline-block;font-family:var(--sans);font-size:0.9rem;color:#1E3D51;font-weight:600;text-decoration:underline;}
+  /* Secondary link */
   .btn-secondary-link{display:inline-block;font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.72);text-decoration:underline;text-underline-offset:3px;margin-top:0.6rem;transition:color 0.2s;}
   .btn-secondary-link:hover{color:#fff;}
   .btn-secondary-link--dark{color:rgba(30,61,81,0.6);}
   .btn-secondary-link--dark:hover{color:#1E3D51;}
+  /* How it works */
+  .hp-how{padding:clamp(60px,8vw,100px) var(--pad);background:var(--navy);}
+  .hp-how__inner{max-width:1000px;margin:0 auto;}
+  .hp-how__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:#fff;margin:0 0 2.5rem;}
+  .hp-how__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-bottom:2.5rem;}
+  .hp-how__step-num{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;color:var(--green);text-transform:uppercase;margin:0 0 0.6rem;}
+  .hp-how__step-body{font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.75);line-height:1.75;margin:0;}
+  .hp-how__mascot-row{display:flex;align-items:center;gap:2rem;border-top:1px solid rgba(255,255,255,0.14);padding-top:2rem;}
+  .hp-how__mascot-img{width:72px;height:auto;flex-shrink:0;}
+  .hp-how__mascot-text{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.5;}
+  @media(max-width:640px){.hp-how__steps{grid-template-columns:1fr;gap:1.75rem;}.hp-how__mascot-row{flex-direction:column;gap:1rem;text-align:center;}}
+  /* What's handled */
+  .fh-menu{background:var(--navy);padding:clamp(60px,8vw,100px) var(--pad);}
+  .fh-menu__inner{max-width:1100px;margin:0 auto;}
+  .fh-menu__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:#fff;margin:0 0 0.4rem;}
+  .fh-menu__sub{font-family:var(--sans);font-size:1rem;color:rgba(255,255,255,0.75);margin:0 0 2.5rem;line-height:1.65;}
+  .fh-menu__clusters{display:grid;grid-template-columns:1fr 1fr;gap:3rem 4rem;margin-bottom:2.5rem;}
+  .fh-menu__cluster-title{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 0.75rem;}
+  .fh-menu__list{list-style:none;padding:0;margin:0;}
+  .fh-menu__list li{font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.82);padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.1);line-height:1.55;}
+  .fh-menu__list li:last-child{border-bottom:none;}
+  .fh-menu__stages{border-top:1px solid rgba(255,255,255,0.14);padding-top:2rem;margin-bottom:2rem;}
+  .fh-menu__stages-title{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 1rem;}
+  .fh-menu__stages-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .fh-menu__stages-list li{font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.82);line-height:1.6;}
+  .fh-menu__note{font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.7;}
+  .fh-menu__note+.fh-menu__note{margin-top:0.4rem;}
+  @media(max-width:640px){.fh-menu__clusters{grid-template-columns:1fr;gap:2rem;}.fh-menu__stages-list{grid-template-columns:1fr;gap:1rem;}}
+  /* Work strip */
+  .wk-strip{padding:clamp(40px,5vw,60px) var(--pad);background:#fff;}
+  .wk-strip__inner{max-width:var(--max);margin:0 auto;}
+  .wk-strip__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;}
+  .wk-strip__item{aspect-ratio:4/3;overflow:hidden;display:block;border-radius:6px;}
+  .wk-strip__item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s ease;}
+  .wk-strip__item:hover img{transform:scale(1.03);}
+  .wk-strip__cta{text-align:center;margin-top:2rem;}
+  @media(max-width:640px){.wk-strip__grid{grid-template-columns:repeat(2,1fr);}}
+  /* Offers */
+  .hp-offers{padding:clamp(60px,8vw,100px) var(--pad);background:#f7f9fb;}
+  .hp-offers__inner{max-width:960px;margin:0 auto;}
+  .hp-offers__head{text-align:center;margin-bottom:2.5rem;}
+  .hp-offers__eyebrow{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 0.5rem;}
+  .hp-offers__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:var(--navy);margin:0 0 0.4rem;}
+  .hp-offers__sub{font-family:var(--sans);font-size:0.93rem;color:rgba(30,61,81,0.65);margin:0;}
+  .hp-offers__grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
+  .hp-offers__card{border-radius:16px;padding:2rem;border:1px solid rgba(30,61,81,0.1);background:#fff;}
+  .hp-offers__card--fh{background:var(--navy);border-color:transparent;}
+  .hp-offers__pill{display:inline-block;font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;border-radius:100px;padding:0.3rem 0.85rem;margin-bottom:0.75rem;}
+  .hp-offers__card .hp-offers__pill{background:rgba(105,222,95,0.12);color:var(--navy);border:1px solid rgba(105,222,95,0.4);}
+  .hp-offers__card--fh .hp-offers__pill{background:rgba(105,222,95,0.18);color:var(--green);border:1px solid rgba(105,222,95,0.35);}
+  .hp-offers__title{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--navy);margin:0 0 0.4rem;}
+  .hp-offers__card--fh .hp-offers__title{color:#fff;}
+  .hp-offers__price{font-family:var(--sans);font-size:0.82rem;font-weight:600;letter-spacing:0.04em;color:rgba(30,61,81,0.5);margin:0 0 1rem;}
+  .hp-offers__card--fh .hp-offers__price{color:rgba(255,255,255,0.45);}
+  .hp-offers__desc{font-family:var(--sans);font-size:0.93rem;color:rgba(30,61,81,0.75);line-height:1.75;margin:0 0 0.6rem;}
+  .hp-offers__card--fh .hp-offers__desc{color:rgba(255,255,255,0.75);}
+  .hp-offers__note{font-family:var(--sans);font-size:0.82rem;color:rgba(30,61,81,0.45);font-style:italic;margin:0.75rem 0 0;}
+  .hp-offers__card--fh .hp-offers__note{color:rgba(255,255,255,0.4);}
+  @media(max-width:640px){.hp-offers__grid{grid-template-columns:1fr;}}
+  /* Proof */
+  .hp-proof{padding:clamp(60px,8vw,100px) var(--pad);background:var(--navy);}
+  .hp-proof__inner{max-width:900px;margin:0 auto;}
+  .hp-proof__stats{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;margin-bottom:3.5rem;}
+  .hp-proof__stat{text-align:center;padding:0 2rem;}
+  .hp-proof__stat-divider{background:rgba(255,255,255,0.14);}
+  .hp-proof__stat-num{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;color:#fff;margin:0 0 0.25rem;line-height:1;}
+  .hp-proof__stat-label{font-family:var(--sans);font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;margin:0 0 0.2rem;}
+  .hp-proof__stat-qual{font-family:var(--sans);font-size:0.75rem;color:rgba(255,255,255,0.4);margin:0;}
+  .hp-proof__quote-wrap{text-align:center;margin-bottom:2.5rem;}
+  .hp-proof__quote{font-family:var(--serif);font-size:clamp(1.05rem,2.5vw,1.3rem);font-style:italic;color:rgba(255,255,255,0.9);line-height:1.65;margin:0 0 1.25rem;}
+  .hp-proof__attr-name{font-family:var(--sans);font-size:0.88rem;font-weight:700;color:#fff;margin:0;}
+  .hp-proof__attr-co{font-family:var(--sans);font-size:0.82rem;color:rgba(255,255,255,0.5);margin:0;}
+  .hp-proof__logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.14);}
+  .hp-proof__logos img{height:26px;width:auto;opacity:0.5;filter:brightness(10);}
+  @media(max-width:640px){.hp-proof__stats{grid-template-columns:1fr;}.hp-proof__stat-divider{display:none;}.hp-proof__stat{padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.1);}.hp-proof__stat:last-child{border-bottom:none;}}
+  /* The person */
+  .hp-person{padding:clamp(60px,8vw,100px) var(--pad);background:#fff;}
+  .hp-person__inner{max-width:680px;margin:0 auto;text-align:center;}
+  .hp-person__eyebrow{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin:0 0 0.75rem;}
+  .hp-person__body{font-family:var(--sans);font-size:1rem;color:rgba(30,61,81,0.75);line-height:1.8;margin:0 0 1.25rem;}
+  .hp-person__link{font-family:var(--sans);font-size:0.9rem;font-weight:600;color:var(--navy);text-decoration:underline;text-underline-offset:3px;}
+  /* FAQ */
+  .hp-faq{background:var(--navy);padding:clamp(60px,8vw,100px) var(--pad);}
+  .hp-faq__inner{max-width:800px;margin:0 auto;}
+  .hp-faq__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:#fff;margin:0 0 2rem;line-height:1.2;}
+  .hp-faq__item{border-bottom:1px solid rgba(255,255,255,0.14);}
+  .hp-faq__q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;color:#fff;font-family:var(--sans);font-size:1rem;font-weight:600;text-align:left;padding:1.25rem 0;cursor:pointer;line-height:1.4;transition:color 0.2s;}
+  .hp-faq__q:hover{color:rgba(255,255,255,0.7);}
+  .hp-faq__icon{flex-shrink:0;font-size:1.3rem;font-weight:300;color:var(--green);transition:transform 0.25s ease;}
+  .hp-faq__q[aria-expanded="true"] .hp-faq__icon{transform:rotate(45deg);}
+  .hp-faq__a{overflow:hidden;max-height:0;transition:max-height 0.35s ease,padding-bottom 0.35s ease;padding-bottom:0;}
+  .hp-faq__a.is-open{max-height:600px;padding-bottom:1.25rem;}
+  .hp-faq__a p{color:rgba(255,255,255,0.72);font-family:var(--sans);font-size:0.93rem;line-height:1.85;margin:0;}
+  .hp-faq__a p+p{margin-top:0.8rem;}
   </style>
   <!-- Meta Pixel Code -->
   <script>
@@ -135,8 +232,7 @@
       <button class="menu__close" id="menuClose">✕</button>
     </div>
     <nav class="menu__nav">
-      <a href="/"         class="menu__link active">Home</a>
-      <a href="/fully-handled" class="menu__link">Fully Handled</a>
+      <a href="/"              class="menu__link active">Home</a>
       <a href="/work"          class="menu__link">Work</a>
       <a href="/about"         class="menu__link">About</a>
       <a href="/journal"       class="menu__link">Journal</a>
@@ -158,7 +254,7 @@
   </nav>
 
 
-  <!-- HERO -->
+  <!-- 1. HERO -->
   <section class="hero">
     <div class="hero__top">
       <h1 class="hero__headline">Your design output, <span class="hl">handled</span></h1>
@@ -166,16 +262,16 @@
         <p>Your listings go out every week.<br>Your brand doesn't always go with them.</p>
         <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
         <a href="/fit-check" class="btn-secondary-link--dark" style="display:block;margin-top:0.5rem;">Or book a 15-minute Fit Check</a>
+        <p style="font-family:var(--sans);font-size:0.82rem;color:rgba(30,61,81,0.5);margin:1rem 0 0;line-height:1.5;">I take five clients at a time... one new client per month.</p>
       </div>
       <div class="hero__body">
-        <p>Things are getting out the door but not consistently, not properly, and not at the level your brand should be operating at. Handled is your senior design partner... learning your brand, matching your production rhythm, keeping everything aligned, every month.</p>
+        <p>Things are getting out the door but not consistently, not properly, and not at the level your brand should be operating at.</p>
       </div>
     </div>
     <div class="hero__slider-wrap">
       <button class="slider__arrow slider__arrow--prev" id="sliderPrev" aria-label="Previous">&#8592;</button>
       <button class="slider__arrow slider__arrow--next" id="sliderNext" aria-label="Next">&#8594;</button>
       <div class="hero__slider-track">
-        <!-- slides: each image appears once; JS clones for infinite loop -->
         <div class="hero__slide"><img src="/assets/slide-office.jpg" alt="Office Options Report" loading="lazy" /></div>
         <div class="hero__slide"><img src="/assets/Lewis-Build-Brochure.jpg" alt="Lewis Build Brochure" loading="lazy" /></div>
         <div class="hero__slide"><img src="/assets/BTCOM2.jpg" alt="Barfoot &amp; Thompson Commercial" loading="lazy" /></div>
@@ -186,342 +282,317 @@
         <div class="hero__slide"><img src="/assets/Phase-DLs-2.jpg" alt="Phase DL Flyers" loading="lazy" /></div>
         <div class="hero__slide"><img src="/assets/Books-BT12.jpg" alt="Barfoot &amp; Thompson Book" loading="lazy" /></div>
         <div class="hero__slide"><img src="/assets/SITE-SCOPE-01.jpg" alt="Site Scope" loading="lazy" /></div>
-
       </div>
     </div>
   </section>
 
 
-  <!-- BRAND PROBLEM -->
-  <section class="brand">
-    <div class="brand__inner">
-      <h2 class="brand__headline">
-        Your brand isn't the problem.<br>
-        <span class="hl">The way it's being executed is.</span>
-      </h2>
-      <div class="brand__cols">
-        <div>
-          <p class="brand__lead">Your brand isn't the problem, the way it's being executed is.</p>
-          <p class="brand__body">Some days it looks polished, other days it looks rushed. A listing goes out with the wrong logo, social disappears for weeks, proposals don't match, and something always needs fixing after it's already live. You've tried freelancers, VAs, or having someone internally "handle it"... but nothing really holds.</p>
-          <p class="brand__body">The work keeps moving, the output gets inconsistent, and you're the one catching it at the last minute. It's not a design issue. No one <em>owns</em> the output.</p>
-          <p class="brand__closer">That's the gap. <em>Handled.</em></p>
-          <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
-          <a href="/fit-check" class="btn-secondary-link--dark" style="display:block;margin-top:0.5rem;">Or book a 15-minute Fit Check</a>
+  <!-- 2. HOW IT WORKS -->
+  <section class="hp-how">
+    <div class="hp-how__inner">
+      <h2 class="hp-how__heading">How it works</h2>
+      <div class="hp-how__steps">
+        <div class="hp-how__step">
+          <p class="hp-how__step-num">1. Send it over.</p>
+          <p class="hp-how__step-body">Email your request or drop it in the form. Anything on the list, as many as you like... they line up. No new tools to learn.</p>
         </div>
-        <div class="brand__img">
-          <img src="/assets/Books-BT9.png" alt="Barfoot &amp; Thompson design" loading="lazy" />
+        <div class="hp-how__step">
+          <p class="hp-how__step-num">2. One at a time.</p>
+          <p class="hp-how__step-body">Requests are worked through in order, with senior eyes on every single one [no juniors, no handovers].</p>
         </div>
+        <div class="hp-how__step">
+          <p class="hp-how__step-num">3. Two business days.</p>
+          <p class="hp-how__step-body">Small assets land in two business days. Larger pieces arrive in stages. Revisions until it's right.</p>
+        </div>
+      </div>
+      <div class="hp-how__mascot-row">
+        <img src="/assets/handled-octo-2.png" alt="" class="hp-how__mascot-img" loading="lazy" aria-hidden="true" />
+        <p class="hp-how__mascot-text">One designer. Eight arms.</p>
       </div>
     </div>
   </section>
 
 
-  <!-- ONE TEAM -->
-  <section class="one-team">
-    <h2 class="one-team__headline">A monthly design subscription for real estate and property businesses.</h2>
-    <p class="one-team__body">Handled takes ownership of your production so everything that goes out, listings, appraisal kits, EDMs, social, signage, is consistent, on-brand, and done properly. No chasing freelancers, no starting from scratch, no last-minute fixes. One senior designer who knows your business and keeps your output running the way it should.</p>
-    <p class="one-team__body">Unlimited requests from the list, delivered one at a time... two business days at a time. Pause whenever you need.</p>
-    <p class="one-team__kicker">Your production. <em>Handled.</em></p>
-    <a href="/fully-handled" class="btn-cta btn-cta--light"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">See How This Works <span class="btn-dot">→</span></span></a>
-  </section>
+  <!-- 3. WHAT'S HANDLED -->
+  <section class="fh-menu">
+    <div class="fh-menu__inner">
+      <h2 class="fh-menu__heading">What's handled</h2>
+      <p class="fh-menu__sub">If it goes out under your brand, it's probably here.</p>
 
-
-  <!-- FOR YOU IF -->
-  <section class="for-you">
-    <div class="for-you__heading-wrap">
-      <h2 class="for-you__heading">This is for you if...</h2>
-    </div>
-    <div class="for-you__cards">
-      <div class="for-you__grid">
-        <div class="for-you__card">
-          <h3 class="for-you__title">Your listings, appraisals, and campaigns have outgrown your setup</h3>
-          <p class="for-you__text">Your agency is producing more than your current design process can reliably handle.</p>
-        </div>
-        <div class="for-you__card">
-          <h3 class="for-you__title">Your brand looks inconsistent</h3>
-          <p class="for-you__text">Listing kits, social tiles, and appraisal decks look like they came from different agencies.</p>
-        </div>
-        <div class="for-you__card">
-          <h3 class="for-you__title">No one owns the output</h3>
-          <p class="for-you__text">You or your team are still chasing, fixing, or producing collateral yourselves before anything goes to a client.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- PLUG AND PLAY -->
-  <section class="plug">
-    <div class="plug__inner">
-      <h2 class="plug__headline">Senior. Local. <span class="hl">Handled.</span></h2>
-      <div class="plug__cols">
-        <div>
-          <p class="plug__subtitle">Handled is your senior design partner</p>
-          <p class="plug__body">When your design is handled properly, everything becomes more consistent, more efficient, and easier to manage.</p>
-          <p class="plug__body">The work moves faster. The brand holds together.<br>And you're no longer the one keeping it all in check.</p>
-          <p class="plug__kicker">Handled.</p>
-          <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
-          <a href="/fit-check" class="btn-secondary-link--dark" style="display:block;margin-top:0.5rem;">Or book a 15-minute Fit Check</a>
-        </div>
-        <div class="plug__img">
-          <img src="/assets/Books-BT2.jpg" alt="Barfoot &amp; Thompson design" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- SERVICES -->
-  <section class="services">
-    <div class="services__inner">
-      <div class="services__line">Listings, campaigns, social. <span class="hl">Handled.</span></div>
-      <div class="services__line">Proposals, documents, presentations. <span class="hl">Handled.</span></div>
-      <div class="services__line">Print, signage, everything in between. <span class="hl">Handled.</span></div>
-    </div>
-  </section>
-
-
-  <!-- HOW IT WORKS -->
-  <section class="how">
-    <div class="how__inner">
-      <div class="how__left">
-        <h2>How it <span class="hl">works</span></h2>
-        <p class="how__subtext">Start without commitment.<br>Continue with confidence.</p>
-        <a href="/fully-handled" class="btn-cta btn-cta--dark"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">See How This Works <span class="btn-dot">→</span></span></a>
-      </div>
-      <div class="how__steps">
-        <div>
-          <div class="how__img-wrap"><img src="/assets/step-fit-check.avif" alt="The Fit Check" loading="lazy" /></div>
-          <div class="how__num">Step One</div>
-          <h3 class="how__step-title">The Fit Check</h3>
-          <p class="how__step-body">A free 20-minute call. I'll look at your current setup and show you exactly where your design is breaking down, and what to fix.</p>
-        </div>
-        <div>
-          <div class="how__img-wrap"><img src="/assets/step-handoff.avif" alt="The Handoff" loading="lazy" /></div>
-          <div class="how__num">Step Two</div>
-          <h3 class="how__step-title">The Handoff</h3>
-          <p class="how__step-body">One month, one job: get you set up. Real output from day one, plus the brand system and templates that make every request fast from then on.</p>
-        </div>
-        <div>
-          <div class="how__img-wrap"><img src="/assets/step-handled.avif" alt="Fully Handled" loading="lazy" /></div>
-          <div class="how__num">Step Three</div>
-          <h3 class="how__step-title">Fully Handled</h3>
-          <p class="how__step-body">Ongoing monthly support. Unlimited requests from the list, delivered one at a time... two business days at a time.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- THE HANDOFF PILOT -->
-  <section class="handoff-pilot">
-    <div class="handoff-pilot__inner">
-      <div class="handoff-pilot__left">
-        <span class="handoff-pilot__label">START HERE</span>
-        <h2 class="handoff-pilot__headline">Not sure yet?<br><em>Start with The Handoff</em></h2>
-        <p class="handoff-pilot__body">One month, one job: get you set up. Your brand system and template library, built with real production from day one.</p>
-        <p class="handoff-pilot__body handoff-pilot__body--close">Most clients never look back.</p>
-        <a href="/fully-handled" class="btn-cta btn-cta--light"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">See How This Works <span class="btn-dot">→</span></span></a>
-      </div>
-      <div class="handoff-pilot__right">
-        <div class="handoff-pilot__card">
-          <p class="handoff-pilot__card-header">THE HANDOFF... 30-DAY SYSTEM BUILD</p>
-          <span class="handoff-pilot__pill">One new client per month</span>
-          <div class="handoff-pilot__price">
-            <span class="handoff-pilot__price-num">$1,500</span>
-            <div class="handoff-pilot__price-meta">
-              <span class="handoff-pilot__currency">AUD</span>
-              <span class="handoff-pilot__rate">flat rate</span>
-            </div>
-          </div>
-          <p class="handoff-pilot__sub">30 days · no lock-in · no ongoing commitment</p>
-          <ul class="handoff-pilot__list">
-            <li>Real production output from day one</li>
-            <li>Brand familiarisation built in</li>
-            <li>Direct access... no tickets, no account layers</li>
-            <li>Full visibility before any ongoing commitment</li>
+      <div class="fh-menu__clusters">
+        <div class="fh-menu__cluster">
+          <p class="fh-menu__cluster-title">Listings &amp; campaigns</p>
+          <ul class="fh-menu__list">
+            <li>Listing and property marketing assets</li>
+            <li>Press ads</li>
+            <li>Adshels and outdoor</li>
+            <li>Posters and window cards</li>
           </ul>
-          <p class="handoff-pilot__footer">No lock-in. Cancel any time. Continue with confidence.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- PRODUCTION EXPERIENCE -->
-  <section class="production-top">
-    <h2 class="production-top__headline">Built on <span class="hl">real production experience</span></h2>
-    <p class="production-top__body">Handled isn't a new idea. It's the model I've built after 15 years inside agencies and in-house teams where high-volume design <em>actually</em> happens. Campaigns, listings, mailers, documents, retail rollouts... work that needs to be produced consistently, at scale, under pressure.</p>
-    <a href="#" class="btn-cta btn-cta--light js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
-    <a href="/fit-check" class="btn-secondary-link--dark" style="display:block;text-align:center;margin-top:0.5rem;">Or book a 15-minute Fit Check</a>
-  </section>
-
-  <section class="production-stats">
-    <div class="production-stats__inner">
-      <div class="production-stats__block">
-        <p class="production-stats__num">80+</p>
-        <p class="production-stats__label">Branch networks served</p>
-        <p class="production-stats__qual">From single-site to national scale</p>
-      </div>
-      <div class="production-stats__divider" aria-hidden="true"></div>
-      <div class="production-stats__block">
-        <p class="production-stats__num">1,000s</p>
-        <p class="production-stats__label">of listing &amp; property assets produced</p>
-        <p class="production-stats__qual">Listings, appraisals, campaigns, signage</p>
-      </div>
-      <div class="production-stats__divider" aria-hidden="true"></div>
-      <div class="production-stats__block">
-        <p class="production-stats__num">15+</p>
-        <p class="production-stats__label">Years experience</p>
-        <p class="production-stats__qual">Agency, in-house, independent</p>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- PORTFOLIO -->
-  <section class="portfolio">
-    <h2 class="portfolio__headline">What this looks like <span class="hl">in practice</span></h2>
-    <div class="portfolio__cta"><a href="/work" class="btn-cta btn-cta--dark"><span class="btn-kicker">Selected projects</span><span class="btn-main">View My Work <span class="btn-dot">→</span></span></a></div>
-    <div class="portfolio__grid">
-      <a href="/barfoot" class="portfolio__item">
-        <img src="/assets/portfolio-barfoot.jpg" alt="Barfoot and Thompson, Commercial Insite" loading="lazy" />
-        <p class="portfolio__caption">Barfoot and Thompson</p>
-      </a>
-      <a href="/status" class="portfolio__item">
-        <img src="/assets/portfolio-status.jpg" alt="Status Realty, For Sale signage" loading="lazy" />
-        <p class="portfolio__caption">Status Realty</p>
-      </a>
-    </div>
-  </section>
-
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="testimonials__inner">
-      <h2 class="testimonials__heading">In my <span class="tq-hl">clients' words</span></h2>
-
-      <!-- Featured quote -->
-      <div class="tq-featured">
-        <p class="tq-featured__quote">&ldquo;Rosh has served as a key strategic partner to Barfoot &amp; Thompson&rsquo;s marketing team, enhancing our workflow with a consistent and high-calibre design resource.&rdquo;</p>
-        <div class="tq-featured__foot">
-          <div>
-            <p class="tq-featured__name">Neal Morshead</p>
-            <p class="tq-featured__company">Barfoot &amp; Thompson</p>
-          </div>
+        <div class="fh-menu__cluster">
+          <p class="fh-menu__cluster-title">Signage &amp; print</p>
+          <ul class="fh-menu__list">
+            <li>Signage artwork</li>
+            <li>DL flyers</li>
+            <li>Teardrop flags</li>
+            <li>Vehicle decals</li>
+            <li>Stationery and email signatures</li>
+          </ul>
+        </div>
+        <div class="fh-menu__cluster">
+          <p class="fh-menu__cluster-title">Digital &amp; social</p>
+          <ul class="fh-menu__list">
+            <li>Social graphics [up to five tiles on one theme counts as one request]</li>
+            <li>EDMs and client communications</li>
+            <li>Market update and newsletter templates</li>
+          </ul>
+        </div>
+        <div class="fh-menu__cluster">
+          <p class="fh-menu__cluster-title">Documents &amp; guides</p>
+          <ul class="fh-menu__list">
+            <li>Appraisal and presentation deck refreshes</li>
+            <li>Agent and broker profile cards</li>
+            <li>Rate sheets and referral partner marketing</li>
+            <li>Landlord reports and rental appraisal documents</li>
+            <li>Client guides and welcome packs</li>
+            <li>Loan process explainers and pre-approval guides</li>
+          </ul>
         </div>
       </div>
 
-      <!-- Card slider -->
-      <div class="tq-slider-wrap">
-        <div class="tq-track" id="tqTrack">
+      <div class="fh-menu__stages">
+        <p class="fh-menu__stages-title">Handled in stages</p>
+        <ul class="fh-menu__stages-list">
+          <li>Appraisal, pre-list and sales kits [delivered in stages... allow four to five business days]</li>
+          <li>Full vehicle wraps</li>
+          <li>Campaign suites [fast, because your templates already exist]</li>
+        </ul>
+      </div>
 
-          <div class="tq-card">
-            <span class="tq-pill">Property</span>
-            <p class="tq-card__quote">&ldquo;Rosh has served as a key strategic partner to Barfoot &amp; Thompson&rsquo;s marketing team, enhancing our workflow with a consistent and high-calibre design resource. Their work safeguards our brand integrity and ensures consistency across a large and complex organisation.&rdquo;</p>
-            <div class="tq-card__attr">
-              <p class="tq-card__name">Neal Morshead</p>
-              <p class="tq-card__company">Barfoot &amp; Thompson</p>
-            </div>
-          </div>
+      <p class="fh-menu__note">Development branding, project brochures and webpages are quoted separately. Subscription clients get priority.</p>
+      <p class="fh-menu__note">Light copy tidying is included. Full copywriting isn't [I'll tell you before it becomes a problem].</p>
+    </div>
+  </section>
 
-          <div class="tq-card">
-            <span class="tq-pill">Finance</span>
-            <p class="tq-card__quote">&ldquo;Rosh has been instrumental in the production of our flagship Investment Outlook publication distributed quarterly to clients and industry professionals. She has continually lifted the standard over the years through communication, production, attention to detail, and implementing improvements.&rdquo;</p>
-            <div class="tq-card__attr">
-              <p class="tq-card__name">Tim Agar</p>
-              <p class="tq-card__company">Jarden</p>
-            </div>
-          </div>
 
-          <div class="tq-card">
-            <span class="tq-pill">Property</span>
-            <p class="tq-card__quote">&ldquo;I was guided by experts who were genuinely in tune with my vision from day one, taking the time to deeply understand my market and how to help me stand out. I feel armed, ready, and proud of my brand.&rdquo;</p>
-            <div class="tq-card__attr">
-              <p class="tq-card__name">AJ Hazelhurst</p>
-              <p class="tq-card__company">Status Realty</p>
-            </div>
-          </div>
+  <!-- 4. WORK STRIP -->
+  <section class="wk-strip">
+    <div class="wk-strip__inner">
+      <div class="wk-strip__grid">
+        <a href="/work" class="wk-strip__item"><img src="/assets/portfolio-barfoot.jpg" alt="Barfoot and Thompson" loading="lazy" /></a>
+        <a href="/work" class="wk-strip__item"><img src="/assets/portfolio-status.jpg" alt="Status Realty" loading="lazy" /></a>
+        <a href="/work" class="wk-strip__item"><img src="/assets/Lewis-Build-Brochure.jpg" alt="Lewis Build" loading="lazy" /></a>
+        <a href="/work" class="wk-strip__item"><img src="/assets/BTCOM2.jpg" alt="Barfoot &amp; Thompson Commercial" loading="lazy" /></a>
+        <a href="/work" class="wk-strip__item"><img src="/assets/Books-Insite-Mag.jpg" alt="Barfoot &amp; Thompson Insite Magazine" loading="lazy" /></a>
+        <a href="/work" class="wk-strip__item"><img src="/assets/Phase-DLs-2.jpg" alt="Phase DL Flyers" loading="lazy" /></a>
+      </div>
+      <div class="wk-strip__cta">
+        <a href="/work" class="btn-cta btn-cta--dark"><span class="btn-kicker">Selected projects</span><span class="btn-main">View My Work <span class="btn-dot">→</span></span></a>
+      </div>
+    </div>
+  </section>
 
-          <div class="tq-card">
-            <span class="tq-pill">Property</span>
-            <p class="tq-card__quote">&ldquo;She really understood our target audience, and the new digital and print brochures have helped us win work and grow our business ever since. Rosh and her team are our go-to for design.&rdquo;</p>
-            <div class="tq-card__attr">
-              <p class="tq-card__name">Ben Lewis</p>
-              <p class="tq-card__company">Lewis Build</p>
-            </div>
-          </div>
 
-          <div class="tq-card">
-            <span class="tq-pill">Publishing</span>
-            <p class="tq-card__quote">&ldquo;I worked closely with Rosh for nearly 3 years to publish 4 books I have written in this time. She was prompt, efficient, and accurate in the details of her work, including great design and illustration. She also liaised with the printers for me, and I can thoroughly recommend her for the quality of her work.&rdquo;</p>
-            <div class="tq-card__attr">
-              <p class="tq-card__name">Chris Barfoot</p>
-              <p class="tq-card__company">Author, QSM</p>
-            </div>
-          </div>
+  <!-- 5. OFFERS -->
+  <section class="hp-offers">
+    <div class="hp-offers__inner">
+      <div class="hp-offers__head">
+        <p class="hp-offers__eyebrow">Two ways in. One destination.</p>
+        <h2 class="hp-offers__heading">Start with a Handoff.<br>Continue with Fully Handled.</h2>
+        <p class="hp-offers__sub">No long-term commitment to begin. Most clients never look back.</p>
+      </div>
+      <div class="hp-offers__grid">
 
-          <div class="tq-card">
-            <span class="tq-pill">Multi-sector</span>
-            <p class="tq-card__quote">&ldquo;I engaged Rosh to design signage, brochures, and booklets, and she delivered outstanding results on time. Great vision and ideas. I engaged her again on another restaurant project, and she excelled again. I would highly recommend her for any project.&rdquo;</p>
-            <div class="tq-card__attr">
-              <p class="tq-card__name">Bruce Rule</p>
-              <p class="tq-card__company">Artist / Real Estate Salesperson</p>
-            </div>
-          </div>
+        <div class="hp-offers__card">
+          <span class="hp-offers__pill">Start here</span>
+          <h3 class="hp-offers__title">The Handoff</h3>
+          <p class="hp-offers__price">30-day system build... from $1,500</p>
+          <p class="hp-offers__desc">One month, one job: get you set up. Your brand system and template library, built with real production from day one. Not a trial, not a sample.</p>
+          <p class="hp-offers__note">One new Handoff per month.</p>
+        </div>
 
+        <div class="hp-offers__card hp-offers__card--fh">
+          <span class="hp-offers__pill">Where most clients end up</span>
+          <h3 class="hp-offers__title">Fully Handled</h3>
+          <p class="hp-offers__price">Monthly design subscription... from $3,000</p>
+          <p class="hp-offers__desc">Unlimited requests from the list, one at a time, two business days at a time. Pause anytime. Most clients start with a Handoff and continue.</p>
+          <p class="hp-offers__note">Your spot is held when you pause.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 6. PROOF -->
+  <section class="hp-proof">
+    <div class="hp-proof__inner">
+      <div class="hp-proof__stats">
+        <div class="hp-proof__stat">
+          <p class="hp-proof__stat-num">80+</p>
+          <p class="hp-proof__stat-label">Branch networks served</p>
+          <p class="hp-proof__stat-qual">From single-site to national scale</p>
+        </div>
+        <div class="hp-proof__stat-divider" aria-hidden="true"></div>
+        <div class="hp-proof__stat">
+          <p class="hp-proof__stat-num">1,000s</p>
+          <p class="hp-proof__stat-label">of listing &amp; property assets produced</p>
+          <p class="hp-proof__stat-qual">Listings, appraisals, campaigns, signage</p>
+        </div>
+        <div class="hp-proof__stat-divider" aria-hidden="true"></div>
+        <div class="hp-proof__stat">
+          <p class="hp-proof__stat-num">15+</p>
+          <p class="hp-proof__stat-label">Years experience</p>
+          <p class="hp-proof__stat-qual">Agency, in-house, independent</p>
+        </div>
+      </div>
+      <div class="hp-proof__quote-wrap">
+        <p class="hp-proof__quote">&ldquo;Rosh has served as a key strategic partner to Barfoot &amp; Thompson&rsquo;s marketing team, enhancing our workflow with a consistent and high-calibre design resource. Their work safeguards our brand integrity and ensures consistency across a large and complex organisation.&rdquo;</p>
+        <p class="hp-proof__attr-name">Neal Morshead</p>
+        <p class="hp-proof__attr-co">Barfoot &amp; Thompson</p>
+      </div>
+      <div class="hp-proof__logos">
+        <img src="/assets/logo-barfoot.svg" alt="Barfoot &amp; Thompson" loading="lazy" />
+        <img src="/assets/logo-nfl.svg" alt="Non Fungible Labs" loading="lazy" />
+        <img src="/assets/logo-jarden.svg" alt="Jarden" loading="lazy" />
+        <img src="/assets/logo-status.svg" alt="Status" loading="lazy" />
+        <img src="/assets/logo-lb.svg" alt="Lewis Build" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 7. THE PERSON -->
+  <section class="hp-person">
+    <div class="hp-person__inner">
+      <p class="hp-person__eyebrow">The person behind it</p>
+      <p class="hp-person__body">I'm Rosh Java. 15+ years across Ogilvy, M&amp;C Saatchi, Barfoot &amp; Thompson and Jarden. Handled is a studio of one, on purpose.</p>
+      <a href="/about" class="hp-person__link">More about how I work →</a>
+    </div>
+  </section>
+
+
+  <!-- 8. FAQ -->
+  <section class="hp-faq">
+    <div class="hp-faq__inner">
+      <h2 class="hp-faq__heading">Questions worth asking before you decide</h2>
+
+      <div class="hp-faq__item">
+        <button class="hp-faq__q" aria-expanded="false">
+          What counts as one request?
+          <span class="hp-faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="hp-faq__a">
+          <p>One asset, one purpose. A DL flyer counts as one request [both sides]. Social graphics up to five tiles on one theme count as one. Signage is counted per sign design. Vehicle decals are counted as one standard sedan set. Profile cards are counted per batch [one agent or one office]. Presentation deck refreshes are counted per section.</p>
+          <p>Bigger pieces like appraisal kits, vehicle wraps and campaign suites are delivered in stages... typically four to six business days. You'll always know the timeline before I start.</p>
         </div>
       </div>
 
-      <!-- Controls: prev arrow · dots · next arrow -->
-      <div class="tq-controls">
-        <button class="tq-arrow" id="tqPrev" aria-label="Previous testimonials">&#8592;</button>
-        <div class="tq-dots" id="tqDots"></div>
-        <button class="tq-arrow" id="tqNext" aria-label="Next testimonials">&#8594;</button>
+      <div class="hp-faq__item">
+        <button class="hp-faq__q" aria-expanded="false">
+          What if something's urgent?
+          <span class="hp-faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="hp-faq__a">
+          <p>Every client gets one priority queue-jump a month. Auction Saturday doesn't wait, and I've built for that.</p>
+        </div>
       </div>
 
-      <div class="logos">
-        <div class="logos__item"><img src="/assets/logo-barfoot.svg" alt="Barfoot &amp; Thompson" loading="lazy" /></div>
-        <div class="logos__item"><img src="/assets/logo-nfl.svg" alt="Non Fungible Labs" loading="lazy" /></div>
-        <div class="logos__item"><img src="/assets/logo-jarden.svg" alt="Jarden" loading="lazy" /></div>
-        <div class="logos__item"><img src="/assets/logo-status.svg" alt="Status" loading="lazy" /></div>
-        <div class="logos__item"><img src="/assets/logo-lb.svg" alt="Lewis Build" loading="lazy" /></div>
+      <div class="hp-faq__item">
+        <button class="hp-faq__q" aria-expanded="false">
+          Can I pause?
+          <span class="hp-faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="hp-faq__a">
+          <p>Yes... with two weeks' notice before your renewal date. Winter slowdown, holidays, between campaigns. Your spot is held, and when you come back, paused clients get first priority on the next opening. [Inside the two weeks? The pause starts at the following renewal instead.]</p>
+        </div>
       </div>
+
+      <div class="hp-faq__item">
+        <button class="hp-faq__q" aria-expanded="false">
+          Who actually does the work?
+          <span class="hp-faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="hp-faq__a">
+          <p>Me. The designer behind Barfoot &amp; Thompson's 80+ branch network and Jarden's publications.</p>
+        </div>
+      </div>
+
+      <div class="hp-faq__item">
+        <button class="hp-faq__q" aria-expanded="false">
+          What's not included?
+          <span class="hp-faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="hp-faq__a">
+          <p>Development branding, project brochures, websites and video are quoted separately [subscription clients get priority]. Full copywriting isn't included, light copy tidying is.</p>
+        </div>
+      </div>
+
+      <div class="hp-faq__item">
+        <button class="hp-faq__q" aria-expanded="false">
+          What happens if I haven't given feedback?
+          <span class="hp-faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="hp-faq__a">
+          <p>Production keeps moving. Your next request starts, and the one waiting on feedback comes straight back the moment you reply. Nothing stalls.</p>
+        </div>
+      </div>
+
+      <div class="hp-faq__item">
+        <button class="hp-faq__q" aria-expanded="false">
+          What industries do you work with?
+          <span class="hp-faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="hp-faq__a">
+          <p>Real estate agencies, mortgage brokers, buyers agents, and property managers. Most clients are in the property sector — it's where the volume of production output actually demands this kind of setup, and where I've spent the last 15 years.</p>
+        </div>
+      </div>
+
+      <div class="hp-faq__item">
+        <button class="hp-faq__q" aria-expanded="false">
+          Do I need to have my brand sorted first?
+          <span class="hp-faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="hp-faq__a">
+          <p>No. Most clients come in with something to work with — a logo, some templates, a look and feel — even if it's inconsistent. Part of The Handoff is pulling that together into something that actually holds. If you genuinely have nothing, we'll talk through it in the Fit Check.</p>
+        </div>
+      </div>
+
+      <div class="hp-faq__item">
+        <button class="hp-faq__q" aria-expanded="false">
+          What's the difference between The Handoff and Fully Handled?
+          <span class="hp-faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="hp-faq__a">
+          <p>The Handoff is how you start. One month, one job: get you set up. Your brand system and template library built, with real production from day one. Fully Handled is the ongoing monthly subscription that keeps everything moving after that. Most clients do both, in that order.</p>
+        </div>
+      </div>
+
+      <div class="hp-faq__item">
+        <button class="hp-faq__q" aria-expanded="false">
+          Can I see examples first?
+          <span class="hp-faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="hp-faq__a">
+          <p>Yes. <a href="/work" style="color:var(--green);font-weight:600;">View my work →</a></p>
+        </div>
+      </div>
+
+      <div class="hp-faq__item">
+        <button class="hp-faq__q" aria-expanded="false">
+          How quickly can I start?
+          <span class="hp-faq__icon" aria-hidden="true">+</span>
+        </button>
+        <div class="hp-faq__a">
+          <p>That depends on availability. I take one new client per month — when a spot is open, we can usually start at the next renewal date. The Fit Check is how you check current availability.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
 
-  <!-- JOURNAL -->
-  <section class="journal">
-    <div class="journal__header">
-      <h2 class="journal__heading">Journal</h2>
-      <a href="/journal" class="btn-cta btn-cta--dark"><span class="btn-kicker">Journal</span><span class="btn-main">Read More <span class="btn-dot">→</span></span></a>
-    </div>
-    <hr class="journal__rule" />
-    <div class="journal__grid">
-      <a href="/real-estate-marketing-inconsistent" class="journal__card-link">
-        <div class="journal__img"><img src="/assets/why-real-estate-marketing-inconsistent.jpg" alt="Why Real Estate Agency Marketing Looks Inconsistent" loading="lazy" /></div>
-        <div class="journal__meta">14 Apr 2026 · 5 min read</div>
-        <h3 class="journal__title">Why Real Estate Agency Marketing Looks Inconsistent (And What To Do About It)</h3>
-        <p class="journal__excerpt">Real estate agency marketing inconsistency is almost always caused by the same thing. Here's what's breaking down, and how to fix it.</p>
-      </a>
-      <a href="/hiring-designer-vs-design-retainer" class="journal__card-link">
-        <div class="journal__img"><img src="/assets/journal-2.avif" alt="Architectural arches" loading="lazy" /></div>
-        <div class="journal__meta">21 Mar 2026 · 3 min read</div>
-        <h3 class="journal__title">Hiring a Designer vs a Design Retainer: Which Is Right for Your Business?</h3>
-        <p class="journal__excerpt">Should you hire an in-house designer or use a design retainer? An honest comparison of cost, quality, and flexibility for growing businesses.</p>
-      </a>
-      <a href="/signs-outgrown-design-setup" class="journal__card-link">
-        <div class="journal__img"><img src="/assets/journal-3.avif" alt="Abstract coral sculpture" loading="lazy" /></div>
-        <div class="journal__meta">14 Mar 2026 · 3 min read</div>
-        <h3 class="journal__title">5 Signs Your Business Has Outgrown Its Design Setup</h3>
-        <p class="journal__excerpt">Not sure if your design setup is keeping up? Here are 5 signals that your business has outgrown how it handles design, and what to do about it.</p>
-      </a>
-    </div>
-  </section>
-
-
-  <!-- CTA -->
+  <!-- 9. FINAL CTA -->
   <section class="cta" id="contact">
     <div class="cta__inner">
       <div>
@@ -574,10 +645,9 @@
       <div class="footer__col">
         <div class="footer__col-title">Company</div>
         <ul>
-          <li><a href="/"         class="footer__link footer__link-active">Home</a></li>
-          <li><a href="/fully-handled" class="footer__link">Fully Handled</a></li>
-          <li><a href="/work"          class="footer__link">Work</a></li>
-          <li><a href="/about"         class="footer__link">About</a></li>
+          <li><a href="/"      class="footer__link footer__link-active">Home</a></li>
+          <li><a href="/work"  class="footer__link">Work</a></li>
+          <li><a href="/about" class="footer__link">About</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -602,190 +672,69 @@
   </footer>
 
   <script>
-    // Strip any hash from URL and ensure page starts at top
     if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     window.scrollTo(0, 0);
 
-    // Mobile menu
     const menu = document.getElementById('menu');
-    function openMenu() {
-      menu.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenu() {
-      menu.classList.remove('open');
-      document.body.style.overflow = '';
-    }
+    function openMenu() { menu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { menu.classList.remove('open'); document.body.style.overflow = ''; }
     document.getElementById('menuOpen').addEventListener('click', openMenu);
     document.getElementById('menuClose').addEventListener('click', closeMenu);
-    // Close when clicking outside the menu panel
     document.addEventListener('click', e => {
-      if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== document.getElementById('menuOpen')) {
-        closeMenu();
-      }
+      if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== document.getElementById('menuOpen')) closeMenu();
     });
 
-    // Nav scroll state
     (function() {
       var nav = document.querySelector('.nav');
       if (!nav) return;
-      window.addEventListener('scroll', function() {
-        nav.classList.toggle('nav--scrolled', window.scrollY > 10);
-      }, { passive: true });
+      window.addEventListener('scroll', function() { nav.classList.toggle('nav--scrolled', window.scrollY > 10); }, { passive: true });
     })();
 
-
-    // Hero slider — infinite looping lerp, wheel, touch, arrows
+    // Hero slider
     (function() {
       const wrap    = document.querySelector('.hero__slider-wrap');
       const track   = document.querySelector('.hero__slider-track');
       const prevBtn = document.getElementById('sliderPrev');
       const nextBtn = document.getElementById('sliderNext');
       if (!wrap || !track) return;
-
-      // Build 3-set track for seamless loop: [pre-clones][originals][post-clones]
       const originals = Array.from(track.querySelectorAll('.hero__slide'));
       const N = originals.length;
-
-      function makeClones() {
-        return originals.map(s => {
-          const c = s.cloneNode(true);
-          c.setAttribute('aria-hidden', 'true');
-          return c;
-        });
-      }
+      function makeClones() { return originals.map(s => { const c = s.cloneNode(true); c.setAttribute('aria-hidden', 'true'); return c; }); }
       makeClones().reverse().forEach(c => track.insertBefore(c, track.firstChild));
       makeClones().forEach(c => track.appendChild(c));
-
       let current = 0, target = 0, rafId = null;
-
-      function slideW() {
-        const s = track.querySelector('.hero__slide');
-        return s ? s.offsetWidth + 20 : 420;
-      }
+      function slideW() { const s = track.querySelector('.hero__slide'); return s ? s.offsetWidth + 20 : 420; }
       function setW() { return slideW() * N; }
-
-      // Shift both current and target when rendered position drifts out of the middle set
-      function normalise() {
-        const sw = setW();
-        const shift = current > sw * 2 ? -sw : current < sw ? sw : 0;
-        if (shift) { current += shift; target += shift; }
-      }
-
-      function init() {
-        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-        current = target = setW();   // start at first original slide
-        track.style.transform = `translateX(-${current}px)`;
-      }
+      function normalise() { const sw = setW(); const shift = current > sw * 2 ? -sw : current < sw ? sw : 0; if (shift) { current += shift; target += shift; } }
+      function init() { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } current = target = setW(); track.style.transform = `translateX(-${current}px)`; }
       init();
       window.addEventListener('resize', init, { passive: true });
-
       function tick() {
         normalise();
         const diff = target - current;
-        if (Math.abs(diff) < 0.15) {
-          current = target;
-          normalise();
-          track.style.transform = `translateX(-${current}px)`;
-          rafId = null;
-          return;
-        }
+        if (Math.abs(diff) < 0.15) { current = target; normalise(); track.style.transform = `translateX(-${current}px)`; rafId = null; return; }
         current += diff * 0.13;
         track.style.transform = `translateX(-${current}px)`;
         rafId = requestAnimationFrame(tick);
       }
-
-      function setTarget(v) {
-        target = v;
-        if (!rafId) rafId = requestAnimationFrame(tick);
-      }
-
-      // Horizontal wheel / trackpad
-      wrap.addEventListener('wheel', e => {
-        const absX = Math.abs(e.deltaX), absY = Math.abs(e.deltaY);
-        if (absX > absY * 0.4 && absX > 2) {
-          e.preventDefault();
-          setTarget(target + e.deltaX * 1.4);
-        }
-      }, { passive: false });
-
-      // Arrow buttons
+      function setTarget(v) { target = v; if (!rafId) rafId = requestAnimationFrame(tick); }
+      wrap.addEventListener('wheel', e => { const absX = Math.abs(e.deltaX), absY = Math.abs(e.deltaY); if (absX > absY * 0.4 && absX > 2) { e.preventDefault(); setTarget(target + e.deltaX * 1.4); } }, { passive: false });
       prevBtn && prevBtn.addEventListener('click', () => setTarget(target - slideW()));
       nextBtn && nextBtn.addEventListener('click', () => setTarget(target + slideW()));
-
-      // Touch swipe — delta-accumulate so normalise never breaks the drag
       let tLastX = 0, tVel = 0;
-      wrap.addEventListener('touchstart', e => {
-        tLastX = e.touches[0].clientX;
-        tVel   = 0;
-        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-      }, { passive: true });
-      wrap.addEventListener('touchmove', e => {
-        const newX = e.touches[0].clientX;
-        tVel    = tLastX - newX;
-        tLastX  = newX;
-        current += tVel;
-        target   = current;
-        normalise();
-        target   = current;
-        track.style.transform = `translateX(-${current}px)`;
-      }, { passive: true });
-      wrap.addEventListener('touchend', () => {
-        setTarget(target + tVel * 8);
-      }, { passive: true });
+      wrap.addEventListener('touchstart', e => { tLastX = e.touches[0].clientX; tVel = 0; if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }, { passive: true });
+      wrap.addEventListener('touchmove', e => { const newX = e.touches[0].clientX; tVel = tLastX - newX; tLastX = newX; current += tVel; target = current; normalise(); target = current; track.style.transform = `translateX(-${current}px)`; }, { passive: true });
+      wrap.addEventListener('touchend', () => { setTarget(target + tVel * 8); }, { passive: true });
     })();
 
-    // Testimonial card slider
-    (function() {
-      const track = document.getElementById('tqTrack');
-      const dotsWrap = document.getElementById('tqDots');
-      const prevBtn = document.getElementById('tqPrev');
-      const nextBtn = document.getElementById('tqNext');
-      if (!track || !dotsWrap) return;
-      const wrap = track.parentElement;
-
-      const cards = track.querySelectorAll('.tq-card');
-      const total = cards.length;
-      let current = 0;
-
-      function perPage() { return window.innerWidth <= 768 ? 1 : 3; }
-      function pageCount() { return Math.ceil(total / perPage()); }
-
-      // Build dots
-      for (let i = 0; i < pageCount(); i++) {
-        const d = document.createElement('button');
-        d.className = 'tq-dot' + (i === 0 ? ' active' : '');
-        d.setAttribute('aria-label', 'Go to page ' + (i + 1));
-        d.addEventListener('click', () => goTo(i));
-        dotsWrap.appendChild(d);
-      }
-
-      function goTo(n) {
-        current = Math.max(0, Math.min(n, pageCount() - 1));
-        const cardW = cards[0].getBoundingClientRect().width;
-        const gap = 14;
-        wrap.scrollTo({ left: current * perPage() * (cardW + gap), behavior: 'smooth' });
-        dotsWrap.querySelectorAll('.tq-dot').forEach((d, i) => d.classList.toggle('active', i === current));
-      }
-
-      // Arrow buttons
-      if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
-      if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
-
-      // Touch swipe — on wrapper, with horizontal-intent detection
-      let tx = 0, ty = 0;
-      wrap.addEventListener('touchstart', e => {
-        tx = e.touches[0].clientX;
-        ty = e.touches[0].clientY;
-      }, { passive: true });
-      wrap.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - tx;
-        const dy = e.changedTouches[0].clientY - ty;
-        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-          goTo(current + (dx < 0 ? 1 : -1));
-        }
-      }, { passive: true });
-    })();
+    // FAQ accordion
+    document.querySelectorAll('.hp-faq__q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        btn.nextElementSibling.classList.toggle('is-open', !expanded);
+      });
+    });
   </script>
   <!-- Meta Pixel CTA tracking -->
   <script>
@@ -795,8 +744,6 @@
     var href = el.getAttribute('href') || '';
     if (href.includes('fit-check')) {
       fbq('track', 'Lead', {content_name: 'Book Fit Check'});
-    } else if (href.includes('fully-handled')) {
-      fbq('trackCustom', 'ViewFullyHandled');
     } else if (href.includes('audit-realestate')) {
       fbq('trackCustom', 'StartAudit', {industry: 'Real Estate'});
     } else if (href.includes('audit-mortgage')) {
@@ -844,6 +791,7 @@
         <button class="enq-form__submit" type="submit">Send me the info pack</button>
       </form>
       <div id="enquiry-confirm" class="enq-confirm" hidden>
+        <img src="/assets/handled-octo-2.png" alt="" class="enq-confirm__mascot" aria-hidden="true" />
         <p class="enq-confirm__msg">On its way. Check your inbox in the next few minutes... and if you'd rather just talk, the Fit Check link is below.</p>
         <a href="/fit-check" class="enq-confirm__link">Book a 15-minute Fit Check →</a>
       </div>
