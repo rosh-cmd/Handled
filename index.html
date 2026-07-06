@@ -68,24 +68,22 @@
   .hw-body{font-family:var(--sans);font-size:0.95rem;color:rgba(255,255,255,0.58);line-height:1.65;margin:0;}
   @media(max-width:860px){.hw-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:500px){.hw-grid{grid-template-columns:1fr;}}
-  /* What's included */
+  /* What's included — rate card */
   .hp-included{background:var(--navy);padding:clamp(64px,8vw,100px) var(--pad);border-top:1px solid rgba(255,255,255,0.08);}
   .hp-included__inner{max-width:var(--max);margin:0 auto;}
-  .hp-included__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:#fff;margin:0 0 2rem;}
-  .hp-included__grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;}
-  @media(max-width:720px){.hp-included__grid{grid-template-columns:1fr;}}
-  .hp-scope{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;}
-  .hp-scope__label{font-family:var(--sans);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 1.25rem;}
-  .hp-scope__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.85rem;}
-  .hp-scope__list li{font-family:var(--sans);font-size:0.95rem;color:rgba(255,255,255,0.75);padding-left:1.5rem;position:relative;line-height:1.5;}
-  .hp-scope__list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;}
-  .hp-chips-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;position:relative;overflow:hidden;}
-  .hp-chips-label{font-family:var(--sans);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 1.25rem;}
-  .hp-chips{display:flex;flex-wrap:wrap;gap:0.5rem;padding-bottom:3.5rem;}
-  .hp-chip{font-family:var(--sans);font-size:0.8rem;font-weight:600;border-radius:100px;padding:0.3rem 0.85rem;white-space:nowrap;}
-  .hp-chip--w{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.9);}
-  .hp-chip--g{background:rgba(105,222,95,0.18);color:var(--green);}
-  .hp-handy{position:absolute;bottom:1rem;right:1.25rem;width:48px;height:auto;opacity:0.45;pointer-events:none;}
+  .hp-included__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:#fff;margin:0 0 3rem;}
+  .hp-included__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:start;}
+  @media(max-width:720px){.hp-included__grid{grid-template-columns:1fr;gap:3rem;}}
+  .hp-spec__label,.hp-produce__label{font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin:0 0 0;}
+  .hp-spec__rows{margin-top:1.25rem;}
+  .hp-spec__row{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;border-top:1px solid rgba(255,255,255,0.1);padding:0.95rem 0;}
+  .hp-spec__row:last-child{border-bottom:1px solid rgba(255,255,255,0.1);}
+  .hp-spec__key{font-family:var(--sans);font-size:0.85rem;color:rgba(255,255,255,0.38);font-weight:400;flex-shrink:0;}
+  .hp-spec__val{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:#fff;text-align:right;}
+  .hp-produce__label{margin:0 0 1.25rem;}
+  .hp-produce__lines{list-style:none;margin:0;padding:0;}
+  .hp-produce__line{font-family:var(--serif);font-size:clamp(0.95rem,1.4vw,1.1rem);font-weight:700;color:#fff;line-height:1.75;white-space:nowrap;}
+  .hp-produce__micro{font-family:var(--sans);font-size:0.8rem;color:rgba(255,255,255,0.32);margin:1.1rem 0 0;font-style:italic;}
   /* Case studies browse link */
   .hp-cases__browse{font-family:var(--sans);font-size:0.88rem;text-align:center;margin-top:2rem;}
   .hp-cases__browse a{color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
@@ -357,44 +355,49 @@
       <h2 class="hp-included__heading">What's included</h2>
       <div class="hp-included__grid">
 
-        <!-- Left: scope -->
-        <div class="hp-scope">
-          <p class="hp-scope__label">Fully Handled covers</p>
-          <ul class="hp-scope__list">
-            <li>Unlimited requests</li>
-            <li>One active request at a time</li>
-            <li>Avg. 2-day delivery</li>
-            <li>Revisions included</li>
-            <li>Pause anytime</li>
-            <li>Senior designer on every project</li>
-            <li>One priority queue-jump per month</li>
-          </ul>
+        <!-- Left: spec sheet -->
+        <div class="hp-spec">
+          <p class="hp-spec__label">Fully Handled covers</p>
+          <div class="hp-spec__rows">
+            <div class="hp-spec__row">
+              <span class="hp-spec__key">Requests</span>
+              <span class="hp-spec__val">Unlimited, queued one at a time</span>
+            </div>
+            <div class="hp-spec__row">
+              <span class="hp-spec__key">Delivery</span>
+              <span class="hp-spec__val">Two business days, on average</span>
+            </div>
+            <div class="hp-spec__row">
+              <span class="hp-spec__key">Revisions</span>
+              <span class="hp-spec__val">Included</span>
+            </div>
+            <div class="hp-spec__row">
+              <span class="hp-spec__key">Priority</span>
+              <span class="hp-spec__val">One queue-jump a month</span>
+            </div>
+            <div class="hp-spec__row">
+              <span class="hp-spec__key">Your designer</span>
+              <span class="hp-spec__val">Senior, on every project</span>
+            </div>
+            <div class="hp-spec__row">
+              <span class="hp-spec__key">Commitment</span>
+              <span class="hp-spec__val">Pause anytime</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Right: deliverables cloud -->
-        <div class="hp-chips-wrap">
-          <p class="hp-chips-label">What we produce</p>
-          <div class="hp-chips">
-            <span class="hp-chip hp-chip--w">Listing suites</span>
-            <span class="hp-chip hp-chip--g">Appraisal decks</span>
-            <span class="hp-chip hp-chip--w">Signage</span>
-            <span class="hp-chip hp-chip--g">Rate sheets</span>
-            <span class="hp-chip hp-chip--w">Window cards</span>
-            <span class="hp-chip hp-chip--g">DL flyers</span>
-            <span class="hp-chip hp-chip--w">Agent profiles</span>
-            <span class="hp-chip hp-chip--g">Press ads</span>
-            <span class="hp-chip hp-chip--w">Social graphics</span>
-            <span class="hp-chip hp-chip--g">Teardrop flags</span>
-            <span class="hp-chip hp-chip--w">Vehicle decals</span>
-            <span class="hp-chip hp-chip--g">Presentation decks</span>
-            <span class="hp-chip hp-chip--w">Email headers</span>
-            <span class="hp-chip hp-chip--g">Pull-up banners</span>
-            <span class="hp-chip hp-chip--w">Stationery</span>
-            <span class="hp-chip hp-chip--g">Name badges</span>
-            <span class="hp-chip hp-chip--w">Property brochures</span>
-            <span class="hp-chip hp-chip--g">Letterhead</span>
-          </div>
-          <img src="/assets/handled-octo-2.png" alt="" class="hp-handy" aria-hidden="true" />
+        <!-- Right: deliverable lines -->
+        <div class="hp-produce">
+          <p class="hp-produce__label">What we produce</p>
+          <ul class="hp-produce__lines">
+            <li class="hp-produce__line">Listing suites. Window cards. Property brochures. <span class="hl">Handled</span></li>
+            <li class="hp-produce__line">Appraisal decks. Presentation decks. Rate sheets. <span class="hl">Handled</span></li>
+            <li class="hp-produce__line">DL flyers. Press ads. Pull-up banners. <span class="hl">Handled</span></li>
+            <li class="hp-produce__line">Signage. Teardrop flags. Vehicle decals. <span class="hl">Handled</span></li>
+            <li class="hp-produce__line">Social graphics. Email headers. Agent profiles. <span class="hl">Handled</span></li>
+            <li class="hp-produce__line">Letterhead. Stationery. Name badges. <span class="hl">Handled</span></li>
+          </ul>
+          <p class="hp-produce__micro">If it carries your brand, it goes in the queue.</p>
         </div>
 
       </div>
