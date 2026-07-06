@@ -906,26 +906,54 @@
       window.addEventListener('scroll', function() { nav.classList.toggle('nav--scrolled', window.scrollY > 10); }, { passive: true });
     })();
 
-    // Carousel strip — drag to scroll
+    // Carousel — infinite loop, drag, arrows
     (function() {
       var strip = document.querySelector('.carousel-strip');
-      if (!strip) return;
-      var isDragging = false, startX = 0, scrollLeft = 0;
-      strip.addEventListener('mousedown', function(e) { isDragging = true; startX = e.pageX - strip.offsetLeft; scrollLeft = strip.scrollLeft; });
-      strip.addEventListener('mouseleave', function() { isDragging = false; });
-      strip.addEventListener('mouseup', function() { isDragging = false; });
-      strip.addEventListener('mousemove', function(e) { if (!isDragging) return; e.preventDefault(); var x = e.pageX - strip.offsetLeft; strip.scrollLeft = scrollLeft - (x - startX); });
-    })();
+      var track = strip ? strip.querySelector('.cs-track') : null;
+      if (!strip || !track) return;
 
-    // Carousel arrow nav
-    (function() {
-      var strip = document.querySelector('.carousel-strip');
+      // Clone all slides for infinite forward loop
+      var origSlides = Array.prototype.slice.call(track.querySelectorAll('.cs-slide'));
+      origSlides.forEach(function(s) { track.appendChild(s.cloneNode(true)); });
+
+      var SLIDE_W = 292; // 280px slide + 12px gap
+      var LOOP_W = origSlides.length * SLIDE_W; // 2920px — one full set
+      var AMT = SLIDE_W * 2; // scroll 2 slides per click
+
+      // Forward loop on scroll
+      var _skip = false;
+      strip.addEventListener('scroll', function() {
+        if (_skip) return;
+        if (strip.scrollLeft >= LOOP_W) strip.scrollLeft -= LOOP_W;
+      }, { passive: true });
+
+      // Drag to scroll
+      var drag = false, dragX = 0, dragSL = 0;
+      strip.addEventListener('mousedown', function(e) { drag = true; dragX = e.pageX - strip.offsetLeft; dragSL = strip.scrollLeft; });
+      strip.addEventListener('mouseleave', function() { drag = false; });
+      strip.addEventListener('mouseup', function() { drag = false; });
+      strip.addEventListener('mousemove', function(e) {
+        if (!drag) return;
+        e.preventDefault();
+        strip.scrollLeft = dragSL - (e.pageX - strip.offsetLeft - dragX);
+      });
+
+      // Arrow nav
       var prev = document.querySelector('.cs-arrow--prev');
       var next = document.querySelector('.cs-arrow--next');
-      if (!strip || !prev || !next) return;
-      var slideW = 280 + 12;
-      prev.addEventListener('click', function() { strip.scrollBy({ left: -slideW * 2, behavior: 'smooth' }); });
-      next.addEventListener('click', function() { strip.scrollBy({ left: slideW * 2, behavior: 'smooth' }); });
+      if (!prev || !next) return;
+      next.addEventListener('click', function() {
+        strip.scrollBy({ left: AMT, behavior: 'smooth' });
+      });
+      prev.addEventListener('click', function() {
+        if (strip.scrollLeft < AMT) {
+          _skip = true;
+          strip.scrollLeft = LOOP_W + strip.scrollLeft;
+          requestAnimationFrame(function() { _skip = false; strip.scrollBy({ left: -AMT, behavior: 'smooth' }); });
+        } else {
+          strip.scrollBy({ left: -AMT, behavior: 'smooth' });
+        }
+      });
     })();
 
     // Mobile menu
