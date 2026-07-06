@@ -46,6 +46,11 @@
   .btn-secondary-link:hover{color:#fff;}
   .btn-secondary-link--dark{color:rgba(30,61,81,0.6);}
   .btn-secondary-link--dark:hover{color:#1E3D51;}
+  /* Inline nav links */
+  .nav__links{display:flex;align-items:center;gap:2rem;}
+  .nav__link{font-family:var(--sans);font-size:0.88rem;font-weight:500;color:rgba(255,255,255,0.7);text-decoration:none;letter-spacing:0.01em;transition:color 0.2s;}
+  .nav__link:hover,.nav__link.active{color:#fff;}
+  @media(max-width:768px){.nav__links{display:none;}}
   /* How it works */
   .hp-how{padding:clamp(60px,8vw,100px) var(--pad);background:var(--navy);}
   .hp-how__inner{max-width:1000px;margin:0 auto;}
@@ -192,23 +197,6 @@
 </head>
 <body>
 
-  <!-- MOBILE MENU -->
-  <div class="menu" id="menu">
-    <div class="menu__top">
-      <a href="/" class="menu__logo">
-        <img src="/assets/HandledStudio.png" alt="Handled Studio" class="menu__logomark" />
-      </a>
-      <button class="menu__close" id="menuClose">✕</button>
-    </div>
-    <nav class="menu__nav">
-      <a href="/"              class="menu__link active">Home</a>
-      <a href="/work"          class="menu__link">Work</a>
-      <a href="/about"         class="menu__link">About</a>
-      <a href="/journal"       class="menu__link">Journal</a>
-    </nav>
-    <a href="#" class="btn-cta btn-cta--dark menu__cta js-enquiry-open" onclick="document.getElementById('menu').classList.remove('open')"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
-  </div>
-
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
@@ -216,8 +204,13 @@
         <img src="/assets/HandledStudio.png" alt="Handled Studio" class="nav__logomark" />
       </a>
       <div class="nav__right">
+        <nav class="nav__links">
+          <a href="/" class="nav__link active">Home</a>
+          <a href="/work" class="nav__link">Work</a>
+          <a href="/about" class="nav__link">About</a>
+          <a href="/journal" class="nav__link">Journal</a>
+        </nav>
         <a href="#" class="btn-cta btn-cta--dark js-enquiry-open"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
-        <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -234,7 +227,7 @@
         <p style="font-family:var(--sans);font-size:0.82rem;color:rgba(30,61,81,0.5);margin:1rem 0 0;line-height:1.5;">I take five clients at a time... one new client per month.</p>
       </div>
       <div class="hero__body">
-        <p>Things are getting out the door but not consistently, not properly, and not at the level your brand should be operating at.</p>
+        <p>Design that keeps pace with your business.</p>
       </div>
     </div>
     <div class="hero__slider-wrap">
@@ -759,16 +752,7 @@
     if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     window.scrollTo(0, 0);
 
-    const menu = document.getElementById('menu');
-    function openMenu() { menu.classList.add('open'); document.body.style.overflow = 'hidden'; }
-    function closeMenu() { menu.classList.remove('open'); document.body.style.overflow = ''; }
-    document.getElementById('menuOpen').addEventListener('click', openMenu);
-    document.getElementById('menuClose').addEventListener('click', closeMenu);
-    document.addEventListener('click', e => {
-      if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== document.getElementById('menuOpen')) closeMenu();
-    });
-
-    (function() {
+(function() {
       var nav = document.querySelector('.nav');
       if (!nav) return;
       window.addEventListener('scroll', function() { nav.classList.toggle('nav--scrolled', window.scrollY > 10); }, { passive: true });
