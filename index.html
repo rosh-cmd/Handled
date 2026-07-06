@@ -83,28 +83,6 @@
   .wk-strip__item:hover img{transform:scale(1.03);}
   .wk-strip__cta{text-align:center;margin-top:2rem;}
   @media(max-width:640px){.wk-strip__grid{grid-template-columns:repeat(2,1fr);}}
-  /* Offers */
-  .hp-offers{padding:clamp(60px,8vw,100px) var(--pad);background:#f7f9fb;}
-  .hp-offers__inner{max-width:960px;margin:0 auto;}
-  .hp-offers__head{text-align:center;margin-bottom:2.5rem;}
-  .hp-offers__eyebrow{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin:0 0 0.5rem;}
-  .hp-offers__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:var(--navy);margin:0 0 0.4rem;}
-  .hp-offers__sub{font-family:var(--sans);font-size:0.93rem;color:rgba(30,61,81,0.65);margin:0;}
-  .hp-offers__grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
-  .hp-offers__card{border-radius:16px;padding:2rem;border:1px solid rgba(30,61,81,0.1);background:#fff;}
-  .hp-offers__card--fh{background:var(--navy);border-color:transparent;}
-  .hp-offers__pill{display:inline-block;font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;border-radius:100px;padding:0.3rem 0.85rem;margin-bottom:0.75rem;}
-  .hp-offers__card .hp-offers__pill{background:rgba(105,222,95,0.12);color:var(--navy);border:1px solid rgba(105,222,95,0.4);}
-  .hp-offers__card--fh .hp-offers__pill{background:rgba(105,222,95,0.18);color:var(--green);border:1px solid rgba(105,222,95,0.35);}
-  .hp-offers__title{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--navy);margin:0 0 0.4rem;}
-  .hp-offers__card--fh .hp-offers__title{color:#fff;}
-  .hp-offers__price{font-family:var(--sans);font-size:0.82rem;font-weight:600;letter-spacing:0.04em;color:rgba(30,61,81,0.5);margin:0 0 1rem;}
-  .hp-offers__card--fh .hp-offers__price{color:rgba(255,255,255,0.45);}
-  .hp-offers__desc{font-family:var(--sans);font-size:0.93rem;color:rgba(30,61,81,0.75);line-height:1.75;margin:0 0 0.6rem;}
-  .hp-offers__card--fh .hp-offers__desc{color:rgba(255,255,255,0.75);}
-  .hp-offers__note{font-family:var(--sans);font-size:0.82rem;color:rgba(30,61,81,0.45);font-style:italic;margin:0.75rem 0 0;}
-  .hp-offers__card--fh .hp-offers__note{color:rgba(255,255,255,0.4);}
-  @media(max-width:640px){.hp-offers__grid{grid-template-columns:1fr;}}
   /* Proof */
   .hp-proof{padding:clamp(60px,8vw,100px) var(--pad);background:var(--navy);}
   .hp-proof__inner{max-width:900px;margin:0 auto;}
@@ -394,32 +372,68 @@
 
 
   <!-- 5. OFFERS -->
-  <section class="hp-offers">
-    <div class="hp-offers__inner">
-      <div class="hp-offers__head">
-        <p class="hp-offers__eyebrow">Two ways in. One destination.</p>
-        <h2 class="hp-offers__heading">Start with a Handoff.<br>Continue with Fully Handled.</h2>
-        <p class="hp-offers__sub">No long-term commitment to begin. Most clients never look back.</p>
-      </div>
-      <div class="hp-offers__grid">
+  <section class="offers">
+    <div class="offers__inner">
 
-        <div class="hp-offers__card">
-          <span class="hp-offers__pill">Start here</span>
-          <h3 class="hp-offers__title">The Handoff</h3>
-          <p class="hp-offers__price">30-day system build... from $1,500</p>
-          <p class="hp-offers__desc">One month, one job: get you set up. Your brand system and template library, built with real production from day one. Not a trial, not a sample.</p>
-          <p class="hp-offers__note">One new Handoff per month.</p>
+      <div class="offers__head">
+        <p class="offers__eyebrow">Two ways in. One destination.</p>
+        <h2 class="offers__headline">
+          <span class="offers__hl">Start with a Handoff.</span><br>
+          Continue with Fully Handled.
+        </h2>
+        <p class="offers__sub">No long-term commitment to begin. Most clients never look back.</p>
+      </div>
+
+      <div class="offers__journey">
+
+        <!-- The Handoff -->
+        <div class="offers__card offers__card--handoff">
+          <div class="offers__step">
+            <span class="offers__step-num">1</span>
+            <span class="offers__step-label">Start here</span>
+          </div>
+          <h3 class="offers__title">The Handoff</h3>
+          <span class="offers__price-pill offers__price-pill--dark">30-DAY SYSTEM BUILD... FROM $1,500</span>
+          <p class="offers__desc">One month, one job: get you set up. Your brand system and template library, built with real production from day one. Not a trial, not a sample.</p>
+          <ul class="offers__features offers__features--dot">
+            <li>Real design output from day one</li>
+            <li>Your template system and asset library, built</li>
+            <li>No long-term commitment</li>
+          </ul>
+          <p class="offers__price-note" style="font-family:var(--sans);font-size:0.88rem;color:rgba(30,61,81,0.7);margin-top:1rem;line-height:1.6;">$1,500 when you continue into Fully Handled. $2,500 standalone [take the system and run].</p>
+          <p class="offers__avail offers__avail--yellow">Only one new Handoff per month.</p>
         </div>
 
-        <div class="hp-offers__card hp-offers__card--fh">
-          <span class="hp-offers__pill">Where most clients end up</span>
-          <h3 class="hp-offers__title">Fully Handled</h3>
-          <p class="hp-offers__price">Monthly design subscription... from $3,000</p>
-          <p class="hp-offers__desc">Unlimited requests from the list, one at a time, two business days at a time. Pause anytime. Most clients start with a Handoff and continue.</p>
-          <p class="hp-offers__note">Your spot is held when you pause.</p>
+        <!-- Connector -->
+        <div class="offers__connector">
+          <div class="conn-line"></div>
+          <span class="conn-arrow">▼</span>
+          <span class="conn-label">then</span>
+          <div class="conn-line"></div>
         </div>
 
-      </div>
+        <!-- Fully Handled -->
+        <div class="offers__card offers__card--fh">
+          <span class="offers__float-badge">Where most clients end up</span>
+          <div class="offers__step">
+            <span class="offers__step-num offers__step-num--green">2</span>
+            <span class="offers__step-label offers__step-label--green">The destination</span>
+          </div>
+          <h3 class="offers__title offers__title--white">Fully Handled</h3>
+          <span class="offers__price-pill offers__price-pill--green">ONGOING... FROM $3,000 / MONTH</span>
+          <p class="offers__desc offers__desc--muted">Unlimited requests from the list, one at a time, two business days at a time. Your production runs through one senior designer who already knows your brand... no briefing from scratch, no dropped balls.</p>
+          <p class="offers__desc offers__desc--muted" style="margin-top:0.75rem;">Most of this work has a job: winning the listing. It should look like it.</p>
+          <ul class="offers__features offers__features--check">
+            <li>Unlimited requests from the list</li>
+            <li>One active request, delivered in 2 business days</li>
+            <li>Pause anytime... your spot is held</li>
+            <li>Senior designer on everything</li>
+          </ul>
+          <a href="#" class="btn-cta btn-cta--dark js-enquiry-open" style="margin-top:1.5rem;"><span class="btn-kicker">Free</span><span class="btn-main">Get the details <span class="btn-dot">→</span></span></a>
+          <a href="/fit-check" class="btn-secondary-link" style="display:block;text-align:center;">Or book a 15-minute Fit Check</a>
+        </div>
+
+      </div><!-- /journey -->
     </div>
   </section>
 
