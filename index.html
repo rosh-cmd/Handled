@@ -53,10 +53,7 @@
   .hp-how__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-bottom:2.5rem;}
   .hp-how__step-num{font-family:var(--sans);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;color:var(--green);text-transform:uppercase;margin:0 0 0.6rem;}
   .hp-how__step-body{font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.75);line-height:1.75;margin:0;}
-  .hp-how__mascot-row{display:flex;align-items:center;gap:2rem;border-top:1px solid rgba(255,255,255,0.14);padding-top:2rem;}
-  .hp-how__mascot-img{width:72px;height:auto;flex-shrink:0;}
-  .hp-how__mascot-text{font-family:var(--serif);font-size:1.1rem;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.5;}
-  @media(max-width:640px){.hp-how__steps{grid-template-columns:1fr;gap:1.75rem;}.hp-how__mascot-row{flex-direction:column;gap:1rem;text-align:center;}}
+  @media(max-width:640px){.hp-how__steps{grid-template-columns:1fr;gap:1.75rem;}}
   /* What's handled */
   .fh-menu{background:var(--navy);padding:clamp(60px,8vw,100px) var(--pad);}
   .fh-menu__inner{max-width:1100px;margin:0 auto;}
@@ -75,7 +72,7 @@
   .fh-menu__note+.fh-menu__note{margin-top:0.4rem;}
   @media(max-width:640px){.fh-menu__clusters{grid-template-columns:1fr;gap:2rem;}.fh-menu__stages-list{grid-template-columns:1fr;gap:1rem;}}
   /* Work strip */
-  .wk-strip{padding:clamp(40px,5vw,60px) var(--pad);background:#fff;}
+  .wk-strip{padding:clamp(40px,5vw,60px) var(--pad);background:var(--navy);}
   .wk-strip__inner{max-width:var(--max);margin:0 auto;}
   .wk-strip__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;}
   .wk-strip__item{aspect-ratio:4/3;overflow:hidden;display:block;border-radius:6px;}
@@ -283,10 +280,6 @@
           <p class="hp-how__step-body">Small assets land in two business days. Larger pieces arrive in stages. Revisions until it's right.</p>
         </div>
       </div>
-      <div class="hp-how__mascot-row">
-        <img src="/assets/handled-octo-2.png" alt="" class="hp-how__mascot-img" loading="lazy" aria-hidden="true" />
-        <p class="hp-how__mascot-text">One designer. Eight arms.</p>
-      </div>
     </div>
   </section>
 
@@ -471,6 +464,101 @@
         <img src="/assets/logo-jarden.svg" alt="Jarden" loading="lazy" />
         <img src="/assets/logo-status.svg" alt="Status" loading="lazy" />
         <img src="/assets/logo-lb.svg" alt="Lewis Build" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="testimonials__inner">
+      <h2 class="testimonials__heading">In my <span class="tq-hl">clients' words</span></h2>
+
+      <!-- Featured quote -->
+      <div class="tq-featured">
+        <p class="tq-featured__quote">&ldquo;Rosh has served as a key strategic partner to Barfoot &amp; Thompson&rsquo;s marketing team, enhancing our workflow with a consistent and high-calibre design resource.&rdquo;</p>
+        <div class="tq-featured__foot">
+          <div>
+            <p class="tq-featured__name">Neal Morshead</p>
+            <p class="tq-featured__company">Barfoot &amp; Thompson</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card slider -->
+      <div class="tq-slider-wrap">
+        <div class="tq-track" id="tqTrack">
+
+          <div class="tq-card">
+            <span class="tq-pill">Property</span>
+            <p class="tq-card__quote">&ldquo;Rosh has served as a key strategic partner to Barfoot &amp; Thompson&rsquo;s marketing team, enhancing our workflow with a consistent and high-calibre design resource. Their work safeguards our brand integrity and ensures consistency across a large and complex organisation.&rdquo;</p>
+            <div class="tq-card__attr">
+              <p class="tq-card__name">Neal Morshead</p>
+              <p class="tq-card__company">Barfoot &amp; Thompson</p>
+            </div>
+          </div>
+
+          <div class="tq-card">
+            <span class="tq-pill">Finance</span>
+            <p class="tq-card__quote">&ldquo;Rosh has been instrumental in the production of our flagship Investment Outlook publication distributed quarterly to clients and industry professionals. She has continually lifted the standard over the years through communication, production, attention to detail, and implementing improvements.&rdquo;</p>
+            <div class="tq-card__attr">
+              <p class="tq-card__name">Tim Agar</p>
+              <p class="tq-card__company">Jarden</p>
+            </div>
+          </div>
+
+          <div class="tq-card">
+            <span class="tq-pill">Property</span>
+            <p class="tq-card__quote">&ldquo;I was guided by experts who were genuinely in tune with my vision from day one, taking the time to deeply understand my market and how to help me stand out. I feel armed, ready, and proud of my brand.&rdquo;</p>
+            <div class="tq-card__attr">
+              <p class="tq-card__name">AJ Hazelhurst</p>
+              <p class="tq-card__company">Status Realty</p>
+            </div>
+          </div>
+
+          <div class="tq-card">
+            <span class="tq-pill">Property</span>
+            <p class="tq-card__quote">&ldquo;She really understood our target audience, and the new digital and print brochures have helped us win work and grow our business ever since. Rosh and her team are our go-to for design.&rdquo;</p>
+            <div class="tq-card__attr">
+              <p class="tq-card__name">Ben Lewis</p>
+              <p class="tq-card__company">Lewis Build</p>
+            </div>
+          </div>
+
+          <div class="tq-card">
+            <span class="tq-pill">Publishing</span>
+            <p class="tq-card__quote">&ldquo;I worked closely with Rosh for nearly 3 years to publish 4 books I have written in this time. She was prompt, efficient, and accurate in the details of her work, including great design and illustration. She also liaised with the printers for me, and I can thoroughly recommend her for the quality of her work.&rdquo;</p>
+            <div class="tq-card__attr">
+              <p class="tq-card__name">Chris Barfoot</p>
+              <p class="tq-card__company">Author, QSM</p>
+            </div>
+          </div>
+
+          <div class="tq-card">
+            <span class="tq-pill">Multi-sector</span>
+            <p class="tq-card__quote">&ldquo;I engaged Rosh to design signage, brochures, and booklets, and she delivered outstanding results on time. Great vision and ideas. I engaged her again on another restaurant project, and she excelled again. I would highly recommend her for any project.&rdquo;</p>
+            <div class="tq-card__attr">
+              <p class="tq-card__name">Bruce Rule</p>
+              <p class="tq-card__company">Artist / Real Estate Salesperson</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="tq-controls">
+        <button class="tq-arrow" id="tqPrev" aria-label="Previous testimonials">&#8592;</button>
+        <div class="tq-dots" id="tqDots"></div>
+        <button class="tq-arrow" id="tqNext" aria-label="Next testimonials">&#8594;</button>
+      </div>
+
+      <div class="logos">
+        <div class="logos__item"><img src="/assets/logo-barfoot.svg" alt="Barfoot &amp; Thompson" loading="lazy" /></div>
+        <div class="logos__item"><img src="/assets/logo-nfl.svg" alt="Non Fungible Labs" loading="lazy" /></div>
+        <div class="logos__item"><img src="/assets/logo-jarden.svg" alt="Jarden" loading="lazy" /></div>
+        <div class="logos__item"><img src="/assets/logo-status.svg" alt="Status" loading="lazy" /></div>
+        <div class="logos__item"><img src="/assets/logo-lb.svg" alt="Lewis Build" loading="lazy" /></div>
       </div>
     </div>
   </section>
@@ -739,6 +827,44 @@
       wrap.addEventListener('touchstart', e => { tLastX = e.touches[0].clientX; tVel = 0; if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }, { passive: true });
       wrap.addEventListener('touchmove', e => { const newX = e.touches[0].clientX; tVel = tLastX - newX; tLastX = newX; current += tVel; target = current; normalise(); target = current; track.style.transform = `translateX(-${current}px)`; }, { passive: true });
       wrap.addEventListener('touchend', () => { setTarget(target + tVel * 8); }, { passive: true });
+    })();
+
+    // Testimonial card slider
+    (function() {
+      const track = document.getElementById('tqTrack');
+      const dotsWrap = document.getElementById('tqDots');
+      const prevBtn = document.getElementById('tqPrev');
+      const nextBtn = document.getElementById('tqNext');
+      if (!track || !dotsWrap) return;
+      const wrap = track.parentElement;
+      const cards = track.querySelectorAll('.tq-card');
+      const total = cards.length;
+      let current = 0;
+      function perPage() { return window.innerWidth <= 768 ? 1 : 3; }
+      function pageCount() { return Math.ceil(total / perPage()); }
+      for (let i = 0; i < pageCount(); i++) {
+        const d = document.createElement('button');
+        d.className = 'tq-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to page ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(d);
+      }
+      function goTo(n) {
+        current = Math.max(0, Math.min(n, pageCount() - 1));
+        const cardW = cards[0].getBoundingClientRect().width;
+        const gap = 14;
+        wrap.scrollTo({ left: current * perPage() * (cardW + gap), behavior: 'smooth' });
+        dotsWrap.querySelectorAll('.tq-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+      if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+      let tx = 0, ty = 0;
+      wrap.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+      wrap.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - tx;
+        const dy = e.changedTouches[0].clientY - ty;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+      }, { passive: true });
     })();
 
     // FAQ accordion
