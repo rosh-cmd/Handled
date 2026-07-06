@@ -95,13 +95,14 @@
   .hc__pill--out{background:transparent;border:1.5px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.85);}
   .hc__pill--lime{background:#69DE5F;color:#1E3548;}
   @media(prefers-reduced-motion:reduce){.hc__pill-row{animation:none;flex-wrap:wrap;width:auto;}.hc__pills-outer{overflow:visible;}}
-  /* Card 3: asset sheet */
-  .hc__sheet-wrap{position:relative;width:82%;max-width:none;height:340px;}
-  .hc__sheet{position:absolute;background:#fff;border-radius:10px;box-shadow:0 6px 28px rgba(0,0,0,0.14);}
-  .hc__sheet--back{width:90%;height:92%;top:16px;left:50%;transform:translateX(-50%) rotate(6deg);opacity:0.4;}
-  .hc__sheet--front{width:100%;height:93%;top:0;left:50%;transform:translateX(-50%);padding:0;overflow:hidden;}
-  .hc__sheet--front img{width:100%;height:100%;object-fit:cover;display:block;border-radius:10px;}
-  .hc__badge{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:#1E3D51;color:#fff;font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.1rem;border-radius:100px;white-space:nowrap;display:flex;align-items:center;gap:0.4rem;}
+  /* Card 3: fanned portfolio cards */
+  .hc__sheet-wrap{position:relative;width:92%;max-width:none;height:340px;}
+  .hc__card{position:absolute;top:50%;width:58%;height:84%;border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.25);}
+  .hc__card img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hc__card--3{left:2%;transform:translateY(-52%) rotate(-11deg);opacity:0.55;z-index:1;}
+  .hc__card--2{left:21%;transform:translateY(-54%) rotate(-4deg);opacity:0.82;z-index:2;}
+  .hc__card--1{left:38%;transform:translateY(-50%) rotate(4deg);z-index:3;}
+  .hc__badge{position:absolute;bottom:0;left:50%;transform:translateX(-50%);background:#1E3D51;color:#fff;font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.1rem;border-radius:100px;white-space:nowrap;display:flex;align-items:center;gap:0.4rem;z-index:4;}
   @media(max-width:860px){.hp-how__grid{grid-template-columns:1fr;}.hc{min-height:auto;}.hc__visual{min-height:300px;}}
   /* Work strip */
   .wk-strip{padding:clamp(40px,5vw,60px) var(--pad);background:var(--navy);}
@@ -337,9 +338,14 @@
         <div class="hc hc--green">
           <div class="hc__visual">
             <div class="hc__sheet-wrap">
-              <div class="hc__sheet hc__sheet--back"></div>
-              <div class="hc__sheet hc__sheet--front">
-                <img src="/assets/Books-Insite-Mag.jpg" alt="Barfoot &amp; Thompson Insite Magazine" loading="lazy" />
+              <div class="hc__card hc__card--3">
+                <img src="/assets/Lewis-Build-Brochure.jpg" alt="Lewis Build" loading="lazy" />
+              </div>
+              <div class="hc__card hc__card--2">
+                <img src="/assets/portfolio-status.jpg" alt="Status Realty" loading="lazy" />
+              </div>
+              <div class="hc__card hc__card--1">
+                <img src="/assets/Books-Insite-Mag.jpg" alt="Barfoot &amp; Thompson" loading="lazy" />
               </div>
               <div class="hc__badge">&#9200; AVG. 2-DAY DELIVERY</div>
             </div>
