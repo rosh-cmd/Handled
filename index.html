@@ -111,22 +111,49 @@
   @media(max-width:640px){.hp-person__inner{flex-direction:column;text-align:center;}.hp-person__img{width:72px;height:72px;}}
   /* FAQ */
   .hp-faq{background:var(--navy);padding:clamp(60px,8vw,100px) var(--pad);}
-  .hp-faq__inner{max-width:800px;margin:0 auto;}
-  .hp-faq__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;color:#fff;margin:0 0 2rem;line-height:1.2;}
-  .hp-faq__item{border-bottom:1px solid rgba(255,255,255,0.14);}
-  .hp-faq__q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;color:#fff;font-family:var(--sans);font-size:1rem;font-weight:600;text-align:left;padding:1.25rem 0;cursor:pointer;line-height:1.4;transition:color 0.2s;}
-  .hp-faq__q:hover{color:rgba(255,255,255,0.7);}
-  .hp-faq__icon{flex-shrink:0;font-size:1.3rem;font-weight:300;color:var(--green);transition:transform 0.25s ease;}
-  .hp-faq__q[aria-expanded="true"] .hp-faq__icon{transform:rotate(45deg);}
+  .hp-faq__inner{max-width:var(--max);margin:0 auto;}
+  .hp-faq__layout{display:grid;grid-template-columns:1fr 340px;gap:clamp(2.5rem,5vw,5rem);align-items:start;}
+  @media(max-width:860px){.hp-faq__layout{grid-template-columns:1fr;}}
+  .hp-faq__heading{font-family:var(--sans);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;color:#fff;margin:0 0 1.75rem;line-height:1.1;}
+  .hp-faq__heading em{font-family:var(--serif);font-style:italic;font-weight:400;}
+  .hp-faq__item{border-bottom:1px solid rgba(255,255,255,0.12);}
+  .hp-faq__q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:none;border:none;color:#fff;font-family:var(--sans);font-size:0.9rem;font-weight:600;text-align:left;padding:0.85rem 0;cursor:pointer;line-height:1.4;transition:color 0.2s;}
+  .hp-faq__q:hover{color:rgba(255,255,255,0.65);}
+  .hp-faq__icon{flex-shrink:0;font-size:1.1rem;font-weight:300;color:rgba(255,255,255,0.4);transition:transform 0.25s ease;}
+  .hp-faq__q[aria-expanded="true"] .hp-faq__icon{transform:rotate(45deg);color:var(--green);}
   .hp-faq__a{overflow:hidden;max-height:0;transition:max-height 0.35s ease,padding-bottom 0.35s ease;padding-bottom:0;}
-  .hp-faq__a.is-open{max-height:600px;padding-bottom:1.25rem;}
-  .hp-faq__a p{color:rgba(255,255,255,0.72);font-family:var(--sans);font-size:0.93rem;line-height:1.85;margin:0;}
-  .hp-faq__a p+p{margin-top:0.8rem;}
+  .hp-faq__a.is-open{max-height:600px;padding-bottom:1rem;}
+  .hp-faq__a p{color:rgba(255,255,255,0.58);font-family:var(--sans);font-size:0.88rem;line-height:1.8;margin:0;}
+  .hp-faq__a p+p{margin-top:0.7rem;}
+  /* Booking card */
+  .hp-book-card{border-radius:20px;overflow:hidden;position:sticky;top:100px;}
+  .hp-book-card__top{background:var(--green);padding:1.75rem 1.75rem 1.5rem;}
+  .hp-book-card__img{width:60px;height:60px;border-radius:50%;object-fit:cover;object-position:55% 8%;border:3px solid rgba(30,61,81,0.25);margin-bottom:1rem;display:block;}
+  .hp-book-card__heading{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--navy);line-height:1.1;margin:0;}
+  .hp-book-card__body{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-top:none;border-radius:0 0 20px 20px;padding:1.5rem 1.75rem;}
+  .hp-book-card__sub{font-family:var(--sans);font-size:0.85rem;color:rgba(255,255,255,0.5);margin:0 0 1.25rem;line-height:1.65;}
+  .hp-book-card__btn{display:block;background:#fff;color:var(--navy);font-family:var(--sans);font-size:0.92rem;font-weight:700;text-align:center;padding:0.85rem 1rem;border-radius:10px;text-decoration:none;transition:background 0.15s;}
+  .hp-book-card__btn:hover{background:rgba(255,255,255,0.88);}
+  .hp-book-card__alt{font-family:var(--sans);font-size:0.82rem;text-align:center;margin-top:0.9rem;color:rgba(255,255,255,0.35);}
+  .hp-book-card__alt a{color:rgba(255,255,255,0.55);text-underline-offset:2px;}
+  .hp-book-card__alt a:hover{color:#fff;}
   /* Final CTA */
   .cta-final{background:var(--navy);padding:clamp(64px,8vw,100px) var(--pad);border-top:1px solid rgba(255,255,255,0.08);}
   .cta-final__inner{max-width:640px;margin:0 auto;text-align:center;}
   .cta-final__heading{font-family:var(--serif);font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:#fff;margin:0 0 1.25rem;line-height:1.1;}
   .cta-final__body{font-family:var(--sans);font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.85;margin:0 0 2.25rem;}
+  /* Case studies — image-first */
+  .wk-work__imgwrap{height:auto!important;aspect-ratio:16/10;background:transparent!important;border-radius:12px 12px 0 0!important;margin-bottom:0!important;}
+  .wk-work__item{background:rgba(255,255,255,0.05);border-radius:12px;overflow:hidden;}
+  .wk-work__item-body{padding:1.25rem 1.5rem 1.75rem;}
+  .wk-work__name{font-size:0.78rem!important;font-family:var(--sans)!important;font-weight:600;color:rgba(255,255,255,0.4)!important;letter-spacing:0.09em;text-transform:uppercase;margin:0 0 0.6rem!important;}
+  .wk-work__meta{margin-bottom:0.5rem;}
+  /* Carousel arrows */
+  .carousel-wrap{position:relative;background:var(--navy);}
+  .cs-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.15);color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.3rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:background 0.15s,border-color 0.15s;padding:0;}
+  .cs-arrow:hover{background:rgba(255,255,255,0.22);border-color:rgba(255,255,255,0.3);}
+  .cs-arrow--prev{left:10px;}
+  .cs-arrow--next{right:10px;}
   </style>
   <!-- Meta Pixel Code -->
   <script>
@@ -265,19 +292,23 @@
 
 
   <!-- 2. CAROUSEL STRIP -->
-  <div class="carousel-strip" aria-hidden="true">
-    <div class="cs-track">
-      <div class="cs-slide"><img src="/assets/slide-office.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/Lewis-Build-Brochure.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/BTCOM2.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/status-brand-06.png" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/bt-5.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/slide-jdw.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/Books-Insite-Mag.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/Phase-DLs-2.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/Books-BT12.jpg" alt="" /></div>
-      <div class="cs-slide"><img src="/assets/SITE-SCOPE-01.jpg" alt="" /></div>
+  <div class="carousel-wrap" aria-hidden="true">
+    <button class="cs-arrow cs-arrow--prev" aria-label="Previous">&#8249;</button>
+    <div class="carousel-strip">
+      <div class="cs-track">
+        <div class="cs-slide"><img src="/assets/slide-office.jpg" alt="" /></div>
+        <div class="cs-slide"><img src="/assets/Lewis-Build-Brochure.jpg" alt="" /></div>
+        <div class="cs-slide"><img src="/assets/BTCOM2.jpg" alt="" /></div>
+        <div class="cs-slide"><img src="/assets/status-brand-06.png" alt="" /></div>
+        <div class="cs-slide"><img src="/assets/bt-5.jpg" alt="" /></div>
+        <div class="cs-slide"><img src="/assets/slide-jdw.jpg" alt="" /></div>
+        <div class="cs-slide"><img src="/assets/Books-Insite-Mag.jpg" alt="" /></div>
+        <div class="cs-slide"><img src="/assets/Phase-DLs-2.jpg" alt="" /></div>
+        <div class="cs-slide"><img src="/assets/Books-BT12.jpg" alt="" /></div>
+        <div class="cs-slide"><img src="/assets/SITE-SCOPE-01.jpg" alt="" /></div>
+      </div>
     </div>
+    <button class="cs-arrow cs-arrow--next" aria-label="Next">&#8250;</button>
   </div>
 
 
@@ -381,60 +412,64 @@
           <div class="wk-work__imgwrap">
             <a href="/barfoot"><img src="/assets/Books-BT2.jpg" alt="Barfoot &amp; Thompson" loading="lazy" /></a>
           </div>
-          <div class="wk-work__meta">
-            <span class="wk-work__tag">Property</span>
-            <span class="wk-work__loc">New Zealand</span>
+          <div class="wk-work__item-body">
+            <h3 class="wk-work__name">Barfoot &amp; Thompson</h3>
+            <div class="wk-work__meta">
+              <span class="wk-work__tag">Property</span>
+              <span class="wk-work__loc">New Zealand</span>
+            </div>
+            <p class="wk-work__tagline">Consistency at scale across 80+ branches.</p>
+            <p class="wk-work__desc">Ongoing production support across one of New Zealand's largest real estate brands, maintaining consistent output across 1,800+ salespeople and multiple teams.</p>
+            <div class="wk-work__stats">
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">80+</span>
+                <span class="wk-work__stat-label">Branches</span>
+              </div>
+              <div class="wk-work__stat-div"></div>
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">1800+</span>
+                <span class="wk-work__stat-label">Salespeople</span>
+              </div>
+              <div class="wk-work__stat-div"></div>
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">5yr+</span>
+                <span class="wk-work__stat-label">Returning</span>
+              </div>
+            </div>
+            <a href="/barfoot" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">&#8594;</span></span></a>
           </div>
-          <h3 class="wk-work__name">Barfoot &amp; Thompson</h3>
-          <p class="wk-work__tagline">Consistency at scale across 80+ branches.</p>
-          <p class="wk-work__desc">Ongoing production support across one of New Zealand's largest real estate brands, maintaining consistent output across 1,800+ salespeople and multiple teams.</p>
-          <div class="wk-work__stats">
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">80+</span>
-              <span class="wk-work__stat-label">Branches</span>
-            </div>
-            <div class="wk-work__stat-div"></div>
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">1800+</span>
-              <span class="wk-work__stat-label">Salespeople</span>
-            </div>
-            <div class="wk-work__stat-div"></div>
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">5yr+</span>
-              <span class="wk-work__stat-label">Returning</span>
-            </div>
-          </div>
-          <a href="/barfoot" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">&#8594;</span></span></a>
         </div>
 
         <div class="wk-work__item">
           <div class="wk-work__imgwrap">
             <a href="/status"><img src="/assets/Status-Brand-03.jpg" alt="Status Realty" loading="lazy" /></a>
           </div>
-          <div class="wk-work__meta">
-            <span class="wk-work__tag">Property</span>
-            <span class="wk-work__loc">Gold Coast</span>
+          <div class="wk-work__item-body">
+            <h3 class="wk-work__name">Status Realty</h3>
+            <div class="wk-work__meta">
+              <span class="wk-work__tag">Property</span>
+              <span class="wk-work__loc">Gold Coast</span>
+            </div>
+            <p class="wk-work__tagline">Brand system designed for real-world use.</p>
+            <p class="wk-work__desc">Full brand identity, template suite, and ongoing support, ensuring the brand holds consistently across every touchpoint.</p>
+            <div class="wk-work__stats">
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">Full</span>
+                <span class="wk-work__stat-label">Brand system</span>
+              </div>
+              <div class="wk-work__stat-div"></div>
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">20+</span>
+                <span class="wk-work__stat-label">Templates</span>
+              </div>
+              <div class="wk-work__stat-div"></div>
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">Ongoing</span>
+                <span class="wk-work__stat-label">Support</span>
+              </div>
+            </div>
+            <a href="/status" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">&#8594;</span></span></a>
           </div>
-          <h3 class="wk-work__name">Status Realty</h3>
-          <p class="wk-work__tagline">Brand system designed for real-world use.</p>
-          <p class="wk-work__desc">Full brand identity, template suite, and ongoing support, ensuring the brand holds consistently across every touchpoint.</p>
-          <div class="wk-work__stats">
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">Full</span>
-              <span class="wk-work__stat-label">Brand system</span>
-            </div>
-            <div class="wk-work__stat-div"></div>
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">20+</span>
-              <span class="wk-work__stat-label">Templates</span>
-            </div>
-            <div class="wk-work__stat-div"></div>
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">Ongoing</span>
-              <span class="wk-work__stat-label">Support</span>
-            </div>
-          </div>
-          <a href="/status" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">&#8594;</span></span></a>
         </div>
 
       </div>
@@ -647,119 +682,139 @@
   <!-- FAQ -->
   <section class="hp-faq">
     <div class="hp-faq__inner">
-      <h2 class="hp-faq__heading">Questions worth asking before you decide</h2>
+      <div class="hp-faq__layout">
 
-      <div class="hp-faq__item">
-        <button class="hp-faq__q" aria-expanded="false">
-          What counts as one request?
-          <span class="hp-faq__icon" aria-hidden="true">+</span>
-        </button>
-        <div class="hp-faq__a">
-          <p>One asset, one purpose. A DL flyer counts as one request [both sides]. Social graphics up to five tiles on one theme count as one. Signage is counted per sign design. Vehicle decals are counted as one standard sedan set. Profile cards are counted per batch [one agent or one office]. Presentation deck refreshes are counted per section.</p>
-          <p>Bigger pieces like appraisal kits, vehicle wraps and campaign suites are delivered in stages... typically four to six business days. You'll always know the timeline before I start.</p>
+        <div class="hp-faq__left">
+          <h2 class="hp-faq__heading"><em>Frequently</em> asked<br>questions</h2>
+
+          <div class="hp-faq__item">
+            <button class="hp-faq__q" aria-expanded="false">
+              What counts as one request?
+              <span class="hp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="hp-faq__a">
+              <p>One asset, one purpose. A DL flyer counts as one request [both sides]. Social graphics up to five tiles on one theme count as one. Signage is counted per sign design. Vehicle decals are counted as one standard sedan set. Profile cards are counted per batch [one agent or one office]. Presentation deck refreshes are counted per section.</p>
+              <p>Bigger pieces like appraisal kits, vehicle wraps and campaign suites are delivered in stages... typically four to six business days. You'll always know the timeline before I start.</p>
+            </div>
+          </div>
+
+          <div class="hp-faq__item">
+            <button class="hp-faq__q" aria-expanded="false">
+              What if something's urgent?
+              <span class="hp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="hp-faq__a">
+              <p>Every client gets one priority queue-jump a month. Auction Saturday doesn't wait, and I've built for that.</p>
+            </div>
+          </div>
+
+          <div class="hp-faq__item">
+            <button class="hp-faq__q" aria-expanded="false">
+              Can I pause?
+              <span class="hp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="hp-faq__a">
+              <p>Yes... with two weeks' notice before your renewal date. Winter slowdown, holidays, between campaigns. Your spot is held, and when you come back, paused clients get first priority on the next opening. [Inside the two weeks? The pause starts at the following renewal instead.]</p>
+            </div>
+          </div>
+
+          <div class="hp-faq__item">
+            <button class="hp-faq__q" aria-expanded="false">
+              Who actually does the work?
+              <span class="hp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="hp-faq__a">
+              <p>Me. The designer behind Barfoot &amp; Thompson's 80+ branch network and Jarden's publications.</p>
+            </div>
+          </div>
+
+          <div class="hp-faq__item">
+            <button class="hp-faq__q" aria-expanded="false">
+              What's not included?
+              <span class="hp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="hp-faq__a">
+              <p>Development branding, project brochures, websites and video are quoted separately [subscription clients get priority]. Full copywriting isn't included, light copy tidying is.</p>
+            </div>
+          </div>
+
+          <div class="hp-faq__item">
+            <button class="hp-faq__q" aria-expanded="false">
+              What happens if I haven't given feedback?
+              <span class="hp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="hp-faq__a">
+              <p>Production keeps moving. Your next request starts, and the one waiting on feedback comes straight back the moment you reply. Nothing stalls.</p>
+            </div>
+          </div>
+
+          <div class="hp-faq__item">
+            <button class="hp-faq__q" aria-expanded="false">
+              What industries do you work with?
+              <span class="hp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="hp-faq__a">
+              <p>Real estate agencies, mortgage brokers, buyers agents, and property managers. Most clients are in the property sector... it's where the volume of production output actually demands this kind of setup, and where I've spent the last 15 years.</p>
+            </div>
+          </div>
+
+          <div class="hp-faq__item">
+            <button class="hp-faq__q" aria-expanded="false">
+              Do I need to have my brand sorted first?
+              <span class="hp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="hp-faq__a">
+              <p>No. Most clients come in with something to work with... a logo, some templates, a look and feel... even if it's inconsistent. Part of The Handoff is pulling that together into something that actually holds. If you genuinely have nothing, we'll talk through it in the Fit Check.</p>
+            </div>
+          </div>
+
+          <div class="hp-faq__item">
+            <button class="hp-faq__q" aria-expanded="false">
+              What's the difference between The Handoff and Fully Handled?
+              <span class="hp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="hp-faq__a">
+              <p>The Handoff is how you start. One month, one job: get you set up. Your brand system and template library built, with real production from day one. Fully Handled is the ongoing monthly subscription that keeps everything moving after that. Most clients do both, in that order.</p>
+            </div>
+          </div>
+
+          <div class="hp-faq__item">
+            <button class="hp-faq__q" aria-expanded="false">
+              Can I see examples first?
+              <span class="hp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="hp-faq__a">
+              <p>Yes. <a href="/work" style="color:var(--green);font-weight:600;">View my work &#8594;</a></p>
+            </div>
+          </div>
+
+          <div class="hp-faq__item">
+            <button class="hp-faq__q" aria-expanded="false">
+              How quickly can I start?
+              <span class="hp-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="hp-faq__a">
+              <p>That depends on availability. I take one new client per month... when a spot is open, we can usually start at the next renewal date. The Fit Check is how you check current availability.</p>
+            </div>
+          </div>
+
         </div>
-      </div>
 
-      <div class="hp-faq__item">
-        <button class="hp-faq__q" aria-expanded="false">
-          What if something's urgent?
-          <span class="hp-faq__icon" aria-hidden="true">+</span>
-        </button>
-        <div class="hp-faq__a">
-          <p>Every client gets one priority queue-jump a month. Auction Saturday doesn't wait, and I've built for that.</p>
+        <div class="hp-faq__right">
+          <div class="hp-book-card">
+            <div class="hp-book-card__top">
+              <img src="/assets/Homepage-AboutRosh.png" class="hp-book-card__img" alt="Rosh Java" />
+              <h3 class="hp-book-card__heading">Book a Fit Check</h3>
+            </div>
+            <div class="hp-book-card__body">
+              <p class="hp-book-card__sub">Free. 20 minutes. Find out if Handled is the right fit before you commit to anything.</p>
+              <a href="/fit-check" class="hp-book-card__btn">Book a call &#8594;</a>
+              <p class="hp-book-card__alt">or <a href="#" class="js-enquiry-open">send an enquiry</a></p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="hp-faq__item">
-        <button class="hp-faq__q" aria-expanded="false">
-          Can I pause?
-          <span class="hp-faq__icon" aria-hidden="true">+</span>
-        </button>
-        <div class="hp-faq__a">
-          <p>Yes... with two weeks' notice before your renewal date. Winter slowdown, holidays, between campaigns. Your spot is held, and when you come back, paused clients get first priority on the next opening. [Inside the two weeks? The pause starts at the following renewal instead.]</p>
-        </div>
       </div>
-
-      <div class="hp-faq__item">
-        <button class="hp-faq__q" aria-expanded="false">
-          Who actually does the work?
-          <span class="hp-faq__icon" aria-hidden="true">+</span>
-        </button>
-        <div class="hp-faq__a">
-          <p>Me. The designer behind Barfoot &amp; Thompson's 80+ branch network and Jarden's publications.</p>
-        </div>
-      </div>
-
-      <div class="hp-faq__item">
-        <button class="hp-faq__q" aria-expanded="false">
-          What's not included?
-          <span class="hp-faq__icon" aria-hidden="true">+</span>
-        </button>
-        <div class="hp-faq__a">
-          <p>Development branding, project brochures, websites and video are quoted separately [subscription clients get priority]. Full copywriting isn't included, light copy tidying is.</p>
-        </div>
-      </div>
-
-      <div class="hp-faq__item">
-        <button class="hp-faq__q" aria-expanded="false">
-          What happens if I haven't given feedback?
-          <span class="hp-faq__icon" aria-hidden="true">+</span>
-        </button>
-        <div class="hp-faq__a">
-          <p>Production keeps moving. Your next request starts, and the one waiting on feedback comes straight back the moment you reply. Nothing stalls.</p>
-        </div>
-      </div>
-
-      <div class="hp-faq__item">
-        <button class="hp-faq__q" aria-expanded="false">
-          What industries do you work with?
-          <span class="hp-faq__icon" aria-hidden="true">+</span>
-        </button>
-        <div class="hp-faq__a">
-          <p>Real estate agencies, mortgage brokers, buyers agents, and property managers. Most clients are in the property sector... it's where the volume of production output actually demands this kind of setup, and where I've spent the last 15 years.</p>
-        </div>
-      </div>
-
-      <div class="hp-faq__item">
-        <button class="hp-faq__q" aria-expanded="false">
-          Do I need to have my brand sorted first?
-          <span class="hp-faq__icon" aria-hidden="true">+</span>
-        </button>
-        <div class="hp-faq__a">
-          <p>No. Most clients come in with something to work with... a logo, some templates, a look and feel... even if it's inconsistent. Part of The Handoff is pulling that together into something that actually holds. If you genuinely have nothing, we'll talk through it in the Fit Check.</p>
-        </div>
-      </div>
-
-      <div class="hp-faq__item">
-        <button class="hp-faq__q" aria-expanded="false">
-          What's the difference between The Handoff and Fully Handled?
-          <span class="hp-faq__icon" aria-hidden="true">+</span>
-        </button>
-        <div class="hp-faq__a">
-          <p>The Handoff is how you start. One month, one job: get you set up. Your brand system and template library built, with real production from day one. Fully Handled is the ongoing monthly subscription that keeps everything moving after that. Most clients do both, in that order.</p>
-        </div>
-      </div>
-
-      <div class="hp-faq__item">
-        <button class="hp-faq__q" aria-expanded="false">
-          Can I see examples first?
-          <span class="hp-faq__icon" aria-hidden="true">+</span>
-        </button>
-        <div class="hp-faq__a">
-          <p>Yes. <a href="/work" style="color:var(--green);font-weight:600;">View my work &#8594;</a></p>
-        </div>
-      </div>
-
-      <div class="hp-faq__item">
-        <button class="hp-faq__q" aria-expanded="false">
-          How quickly can I start?
-          <span class="hp-faq__icon" aria-hidden="true">+</span>
-        </button>
-        <div class="hp-faq__a">
-          <p>That depends on availability. I take one new client per month... when a spot is open, we can usually start at the next renewal date. The Fit Check is how you check current availability.</p>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -857,6 +912,17 @@
       strip.addEventListener('mouseleave', function() { isDragging = false; });
       strip.addEventListener('mouseup', function() { isDragging = false; });
       strip.addEventListener('mousemove', function(e) { if (!isDragging) return; e.preventDefault(); var x = e.pageX - strip.offsetLeft; strip.scrollLeft = scrollLeft - (x - startX); });
+    })();
+
+    // Carousel arrow nav
+    (function() {
+      var strip = document.querySelector('.carousel-strip');
+      var prev = document.querySelector('.cs-arrow--prev');
+      var next = document.querySelector('.cs-arrow--next');
+      if (!strip || !prev || !next) return;
+      var slideW = 280 + 12;
+      prev.addEventListener('click', function() { strip.scrollBy({ left: -slideW * 2, behavior: 'smooth' }); });
+      next.addEventListener('click', function() { strip.scrollBy({ left: slideW * 2, behavior: 'smooth' }); });
     })();
 
     // Mobile menu
