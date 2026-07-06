@@ -42,7 +42,7 @@
   .enq-confirm__msg{font-family:var(--sans);font-size:1rem;color:#1E3D51;line-height:1.7;margin:0 0 1.25rem;}
   .enq-confirm__link{display:inline-block;font-family:var(--sans);font-size:0.9rem;color:#1E3D51;font-weight:600;text-decoration:underline;}
   /* Secondary button — outlined pill */
-  .btn-secondary-link{display:inline-block;font-family:var(--sans);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.85);text-decoration:none;border:1.5px solid rgba(255,255,255,0.4);border-radius:100px;padding:9px 22px;margin-top:0.6rem;transition:border-color 0.2s,color 0.2s;text-align:center;cursor:pointer;}
+  .btn-secondary-link{display:inline-block;font-family:var(--sans);font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.85);text-decoration:none;border:1.5px solid rgba(255,255,255,0.4);border-radius:8px;padding:8px 18px;margin-top:0.6rem;transition:border-color 0.2s,color 0.2s;text-align:center;cursor:pointer;}
   .btn-secondary-link:hover{border-color:#fff;color:#fff;}
   .btn-secondary-link--dark{color:rgba(30,61,81,0.7);border-color:rgba(30,61,81,0.3);}
   .btn-secondary-link--dark:hover{color:#1E3D51;border-color:rgba(30,61,81,0.7);}
@@ -99,10 +99,8 @@
   .hc__sheet-wrap{position:relative;width:82%;max-width:none;height:340px;}
   .hc__sheet{position:absolute;background:#fff;border-radius:10px;box-shadow:0 6px 28px rgba(0,0,0,0.14);}
   .hc__sheet--back{width:90%;height:92%;top:16px;left:50%;transform:translateX(-50%) rotate(6deg);opacity:0.4;}
-  .hc__sheet--front{width:100%;height:93%;top:0;left:50%;transform:translateX(-50%);padding:1.75rem;}
-  .hc__sheet-title-bar{height:16px;background:#1E3D51;border-radius:4px;margin-bottom:1.25rem;}
-  .hc__sheet-line{height:10px;background:#e0e0e0;border-radius:4px;margin-bottom:0.7rem;}
-  .hc__sheet-line--short{width:58%;}
+  .hc__sheet--front{width:100%;height:93%;top:0;left:50%;transform:translateX(-50%);padding:0;overflow:hidden;}
+  .hc__sheet--front img{width:100%;height:100%;object-fit:cover;display:block;border-radius:10px;}
   .hc__badge{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:#1E3D51;color:#fff;font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.1rem;border-radius:100px;white-space:nowrap;display:flex;align-items:center;gap:0.4rem;}
   @media(max-width:860px){.hp-how__grid{grid-template-columns:1fr;}.hc{min-height:auto;}.hc__visual{min-height:300px;}}
   /* Work strip */
@@ -341,11 +339,7 @@
             <div class="hc__sheet-wrap">
               <div class="hc__sheet hc__sheet--back"></div>
               <div class="hc__sheet hc__sheet--front">
-                <div class="hc__sheet-title-bar"></div>
-                <div class="hc__sheet-line"></div>
-                <div class="hc__sheet-line"></div>
-                <div class="hc__sheet-line hc__sheet-line--short"></div>
-                <div class="hc__sheet-line"></div>
+                <img src="/assets/Books-Insite-Mag.jpg" alt="Barfoot &amp; Thompson Insite Magazine" loading="lazy" />
               </div>
               <div class="hc__badge">&#9200; AVG. 2-DAY DELIVERY</div>
             </div>
