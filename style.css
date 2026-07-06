@@ -80,8 +80,8 @@ em { font-style: italic; }
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: none;
-  padding: 12px 14px 12px 26px;
-  border-radius: 8px;
+  padding: 12px 16px 12px 24px;
+  border-radius: 100px;
   display: inline-flex;
   align-items: center;
   gap: 15px;
@@ -256,7 +256,7 @@ em { font-style: italic; }
   grid-area: body;
   align-self: start;
 }
-.hero__body p { font-size: 1rem; color: rgba(255,255,255,0.75); line-height: 1.75; max-width: 580px; }
+.hero__body p { font-size: 1.25rem; color: rgba(255,255,255,0.85); line-height: 1.7; max-width: 580px; font-weight: 400; }
 
 /* ── Hero image slider ───────────────────────────────────── */
 .hero__slider-wrap { overflow: hidden; width: 100%; user-select: none; position: relative; }
