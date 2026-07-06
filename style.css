@@ -1707,7 +1707,7 @@ em { font-style: italic; }
     padding: 12px 22px;
     gap: 0;
   }
-  .btn-dot { display: none; }
+  .btn-dot { display: none !important; }
 
   /* Hero (homepage) */
   .hero__top { padding: 60px var(--pad) 40px; }

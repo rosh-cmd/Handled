@@ -16,7 +16,7 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
 <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=114" />
+  <link rel="stylesheet" href="/style.css?v=115" />
   <style>
   /* Enquiry Modal */
   .enq-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:1rem;}
@@ -86,6 +86,18 @@
   .hp-produce__line{font-family:var(--serif);font-size:clamp(0.95rem,1.4vw,1.1rem);font-weight:700;color:#fff;line-height:2.4;white-space:nowrap;}
   @media(max-width:720px){.hp-produce__line{white-space:normal;font-size:1rem;line-height:1.85;}}
   .hp-produce__micro{font-family:var(--sans);font-size:0.8rem;color:rgba(255,255,255,0.32);margin:1.1rem 0 0;font-style:italic;}
+  /* Comparison table */
+  .hp-compare{background:var(--navy);padding:clamp(64px,8vw,100px) var(--pad);border-top:1px solid rgba(255,255,255,0.08);}
+  .hp-compare__inner{max-width:var(--max);margin:0 auto;}
+  .hp-compare__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:#fff;margin:0 0 2.5rem;}
+  .hp-compare__scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .hp-compare__table{display:grid;grid-template-columns:minmax(120px,1.1fr) 1fr 1fr 1fr;min-width:560px;}
+  .hpc-head{font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.85rem 1.25rem 1rem;color:rgba(255,255,255,0.35);}
+  .hpc-head--handled{background:var(--green);color:var(--navy);border-radius:12px 12px 0 0;}
+  .hpc-label{font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.38);padding:1.1rem 1rem 1.1rem 0;border-top:1px solid rgba(255,255,255,0.1);}
+  .hpc-cell{font-family:var(--sans);font-size:0.92rem;color:rgba(255,255,255,0.62);padding:1.1rem 1.25rem;border-top:1px solid rgba(255,255,255,0.1);line-height:1.45;}
+  .hpc-cell--handled{background:var(--green);color:var(--navy);font-weight:600;border-top:1px solid rgba(30,61,81,0.1)!important;}
+  .hpc-cell--handled.hpc-cell--last{border-radius:0 0 12px 12px;}
   /* Case studies browse link */
   .hp-cases__browse{font-family:var(--sans);font-size:0.88rem;text-align:center;margin-top:2rem;}
   .hp-cases__browse a{color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;}
@@ -549,6 +561,46 @@
           <a href="/fit-check" class="btn-secondary-link" style="display:block;text-align:center;margin-top:0.5rem;">Book a 15-minute Fit Check</a>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+
+  <!-- COMPARISON TABLE -->
+  <section class="hp-compare">
+    <div class="hp-compare__inner">
+      <h2 class="hp-compare__heading">A simpler way to buy design</h2>
+      <div class="hp-compare__scroll">
+        <div class="hp-compare__table">
+          <div class="hpc-head"></div>
+          <div class="hpc-head">Agency</div>
+          <div class="hpc-head">Freelancer</div>
+          <div class="hpc-head hpc-head--handled">Handled</div>
+          <div class="hpc-label">Pricing</div>
+          <div class="hpc-cell">Per project</div>
+          <div class="hpc-cell">Hourly</div>
+          <div class="hpc-cell hpc-cell--handled">Fixed monthly</div>
+          <div class="hpc-label">Getting started</div>
+          <div class="hpc-cell">Proposal &amp; scope</div>
+          <div class="hpc-cell">Depends on availability</div>
+          <div class="hpc-cell hpc-cell--handled">Start this week</div>
+          <div class="hpc-label">Turnaround</div>
+          <div class="hpc-cell">Weeks</div>
+          <div class="hpc-cell">Depends on workload</div>
+          <div class="hpc-cell hpc-cell--handled">~2 business days</div>
+          <div class="hpc-label">Consistency</div>
+          <div class="hpc-cell">Varies by team</div>
+          <div class="hpc-cell">Varies</div>
+          <div class="hpc-cell hpc-cell--handled">Same designer, every time</div>
+          <div class="hpc-label">Brand knowledge</div>
+          <div class="hpc-cell">Re-explained each project</div>
+          <div class="hpc-cell">Varies</div>
+          <div class="hpc-cell hpc-cell--handled">Already knows your brand</div>
+          <div class="hpc-label">Commitment</div>
+          <div class="hpc-cell">Contract</div>
+          <div class="hpc-cell">Project</div>
+          <div class="hpc-cell hpc-cell--handled hpc-cell--last">Pause anytime</div>
+        </div>
       </div>
     </div>
   </section>
@@ -1050,7 +1102,7 @@
     <div class="enq-modal__card">
       <button class="enq-modal__close" id="enquiry-close" aria-label="Close">&#x2715;</button>
       <h2 class="enq-modal__title" id="enq-modal-title">Get the details</h2>
-      <p class="enq-modal__promise">I'll send the full details... what's handled, how it works, pricing, and current availability.</p>
+      <p class="enq-modal__promise">Everything you need to know about Handled, including pricing, how it works and current availability.</p>
       <form id="enquiry-form" class="enq-form" novalidate>
         <div class="enq-form__honey" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off" /></div>
         <div class="enq-form__field">
@@ -1062,7 +1114,7 @@
           <input class="enq-form__input" type="text" id="enq-business" name="business" required autocomplete="organization" />
         </div>
         <div class="enq-form__field">
-          <label class="enq-form__label" for="enq-type">What are you producing?</label>
+          <label class="enq-form__label" for="enq-type">Your Business</label>
           <select class="enq-form__input enq-form__select" id="enq-type" name="business_type" required>
             <option value="" disabled selected>Select...</option>
             <option value="Real estate agency">Real estate agency</option>
