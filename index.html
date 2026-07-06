@@ -46,59 +46,17 @@
   .btn-secondary-link:hover{border-color:#fff;color:#fff;}
   .btn-secondary-link--dark{color:rgba(30,61,81,0.7);border-color:rgba(30,61,81,0.3);}
   .btn-secondary-link--dark:hover{color:#1E3D51;border-color:rgba(30,61,81,0.7);}
-/* How it works — three card */
-  .hp-how{padding:clamp(60px,8vw,100px) var(--pad);background:var(--navy);}
+/* How it works */
+  .hp-how{padding:clamp(24px,3vw,40px) var(--pad) clamp(40px,5vw,60px);background:var(--navy);}
   .hp-how__inner{max-width:1160px;margin:0 auto;}
-  .hp-how__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:#fff;margin:0 0 2.5rem;}
-  .hp-how__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;align-items:stretch;}
-  .hc{border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.25s ease,box-shadow 0.25s ease;}
-  .hc:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.3);}
-  .hc--yellow{background:#EDC661;}
-  .hc--navy{background:#1E3548;border:1px solid rgba(255,255,255,0.13);}
-  .hc--green{background:#8CD867;}
-  .hc__visual{flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
-  .hc__caption{flex:0 0 auto;padding:1.5rem 1.75rem 2rem;}
-  .hc__step{font-family:var(--sans);font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#69DE5F;margin:0 0 0.5rem;}
-  .hc--yellow .hc__step,.hc--green .hc__step{color:#1E3D51;}
-  .hc__body{font-family:var(--sans);font-size:1rem;line-height:1.65;margin:0;}
-  .hc--navy .hc__body{color:rgba(255,255,255,0.8);}
-  .hc--yellow .hc__body,.hc--green .hc__body{color:rgba(30,61,81,0.85);}
-  /* Card 1: plan card */
-  .hc__plan{background:#1E3D51;border-radius:16px;padding:1.75rem 1.6rem;width:calc(100% - 2.5rem);max-width:none;}
-  .hc__plan-title{font-family:var(--serif);font-size:1.55rem;font-weight:700;color:#fff;margin:0 0 0.7rem;}
-  .hc__plan-tag{display:inline-block;background:#69DE5F;color:#1E3D51;font-family:var(--sans);font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border-radius:5px;padding:4px 10px;margin-bottom:1rem;}
-  .hc__plan-list{list-style:none;padding:0;margin:0;}
-  .hc__plan-list li{font-family:var(--sans);font-size:0.88rem;color:rgba(255,255,255,0.88);padding:0.55rem 0;border-bottom:1px solid rgba(255,255,255,0.11);display:flex;align-items:center;gap:0.6rem;}
-  .hc__plan-list li:last-child{border-bottom:none;}
-  .hc__check{color:#69DE5F;font-size:0.9rem;flex-shrink:0;}
-  /* Card 2: scrolling pills */
-  .hc__pills-outer{width:100%;align-self:stretch;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:center;gap:0.45rem;padding:1.5rem 0;}
-.hc__pills-outer::before,.hc__pills-outer::after{content:'';position:absolute;top:0;bottom:0;width:48px;z-index:2;pointer-events:none;}
-  .hc__pills-outer::before{left:0;background:linear-gradient(to right,#1E3548 55%,transparent);}
-  .hc__pills-outer::after{right:0;background:linear-gradient(to left,#1E3548 55%,transparent);}
-  .hc__pill-row{display:flex;gap:0.6rem;width:max-content;}
-  .hc__pill-row--1{animation:hcScrollL 28s -4s linear infinite;}
-  .hc__pill-row--2{animation:hcScrollR 26s -11s linear infinite;}
-  .hc__pill-row--3{animation:hcScrollL 30s -19s linear infinite;}
-  .hc__pill-row--4{animation:hcScrollR 25s -7s linear infinite;}
-  .hc__pill-row--5{animation:hcScrollL 27s -22s linear infinite;}
-  .hc:hover .hc__pill-row{animation-play-state:paused;}
-  @keyframes hcScrollL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @keyframes hcScrollR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-  .hc__pill{font-family:var(--sans);font-size:0.9rem;font-weight:600;padding:0.55rem 1.1rem;border-radius:100px;white-space:nowrap;}
-  .hc__pill--wht{background:#fff;color:#1E3548;}
-  .hc__pill--out{background:transparent;border:1.5px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.85);}
-  .hc__pill--lime{background:#69DE5F;color:#1E3548;}
-  @media(prefers-reduced-motion:reduce){.hc__pill-row{animation:none;flex-wrap:wrap;width:auto;}.hc__pills-outer{overflow:visible;}}
-  /* Card 3: fanned portfolio cards */
-  .hc__sheet-wrap{position:relative;width:80%;max-width:none;height:300px;margin:0 auto;}
-  .hc__card{position:absolute;top:50%;width:58%;height:84%;border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.25);}
-  .hc__card img{width:100%;height:100%;object-fit:cover;display:block;}
-  .hc__card--3{left:2%;transform:translateY(-52%) rotate(-11deg);opacity:0.55;z-index:1;}
-  .hc__card--2{left:21%;transform:translateY(-54%) rotate(-4deg);opacity:0.82;z-index:2;}
-  .hc__card--1{left:38%;transform:translateY(-50%) rotate(4deg);z-index:3;}
-  .hc__badge{position:absolute;bottom:0;left:50%;transform:translateX(-50%);background:#1E3D51;color:#fff;font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.1rem;border-radius:100px;white-space:nowrap;display:flex;align-items:center;gap:0.4rem;z-index:4;}
-  @media(max-width:860px){.hp-how__grid{grid-template-columns:1fr;}.hc{min-height:auto;}.hc__visual{min-height:300px;}}
+  .hp-how__heading{font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:#fff;margin:0 0 2rem;}
+  .hw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+  .hw-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.75rem 1.5rem;}
+  .hw-num{font-family:var(--sans);font-size:1.1rem;font-weight:700;color:var(--green);margin:0 0 0.75rem;}
+  .hw-title{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:#fff;margin:0 0 0.6rem;line-height:1.2;}
+  .hw-body{font-family:var(--sans);font-size:0.95rem;color:rgba(255,255,255,0.58);line-height:1.65;margin:0;}
+  @media(max-width:860px){.hw-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:500px){.hw-grid{grid-template-columns:1fr;}}
   /* Work strip */
   .wk-strip{padding:clamp(40px,5vw,60px) var(--pad);background:var(--navy);}
   .wk-strip__inner{max-width:var(--max);margin:0 auto;}
@@ -279,78 +237,27 @@
   <section class="hp-how">
     <div class="hp-how__inner">
       <h2 class="hp-how__heading">How it works</h2>
-      <div class="hp-how__grid">
-
-        <!-- Card 1: Subscribe -->
-        <div class="hc hc--yellow">
-          <div class="hc__visual">
-            <div class="hc__plan">
-              <p class="hc__plan-title">Fully Handled</p>
-              <span class="hc__plan-tag">Included</span>
-              <ul class="hc__plan-list">
-                <li><span class="hc__check">✓</span>Unlimited requests</li>
-                <li><span class="hc__check">✓</span>Queued one at a time</li>
-                <li><span class="hc__check">✓</span>Avg. 2-day delivery</li>
-                <li><span class="hc__check">✓</span>Pause anytime</li>
-                <li><span class="hc__check">✓</span>Senior eyes on everything</li>
-              </ul>
-            </div>
-          </div>
-          <div class="hc__caption">
-            <p class="hc__step">1. Get Fully Handled.</p>
-            <p class="hc__body">One plan. Unlimited requests from the list... pause anytime.</p>
-          </div>
+      <div class="hw-grid">
+        <div class="hw-card">
+          <p class="hw-num">1</p>
+          <p class="hw-title">Send an enquiry</p>
+          <p class="hw-body">Tell us what you need. We book a call from there.</p>
         </div>
-
-        <!-- Card 2: Request -->
-        <div class="hc hc--navy">
-          <div class="hc__visual">
-            <div class="hc__pills-outer">
-              <div class="hc__pill-row hc__pill-row--1">
-                <span class="hc__pill hc__pill--wht">Listing suites</span><span class="hc__pill hc__pill--out">EDMs</span><span class="hc__pill hc__pill--lime">Appraisal kits</span><span class="hc__pill hc__pill--out">Signage</span><span class="hc__pill hc__pill--wht">Press ads</span><span class="hc__pill hc__pill--wht">Listing suites</span><span class="hc__pill hc__pill--out">EDMs</span><span class="hc__pill hc__pill--lime">Appraisal kits</span><span class="hc__pill hc__pill--out">Signage</span><span class="hc__pill hc__pill--wht">Press ads</span>
-              </div>
-              <div class="hc__pill-row hc__pill-row--2">
-                <span class="hc__pill hc__pill--out">Social sets</span><span class="hc__pill hc__pill--wht">Rate sheets</span><span class="hc__pill hc__pill--out">Window cards</span><span class="hc__pill hc__pill--lime">Market updates</span><span class="hc__pill hc__pill--wht">Adshels</span><span class="hc__pill hc__pill--out">Social sets</span><span class="hc__pill hc__pill--wht">Rate sheets</span><span class="hc__pill hc__pill--out">Window cards</span><span class="hc__pill hc__pill--lime">Market updates</span><span class="hc__pill hc__pill--wht">Adshels</span>
-              </div>
-              <div class="hc__pill-row hc__pill-row--3">
-                <span class="hc__pill hc__pill--wht">Agent profiles</span><span class="hc__pill hc__pill--lime">Client guides</span><span class="hc__pill hc__pill--out">Vehicle decals</span><span class="hc__pill hc__pill--wht">Landlord reports</span><span class="hc__pill hc__pill--out">Posters</span><span class="hc__pill hc__pill--wht">Agent profiles</span><span class="hc__pill hc__pill--lime">Client guides</span><span class="hc__pill hc__pill--out">Vehicle decals</span><span class="hc__pill hc__pill--wht">Landlord reports</span><span class="hc__pill hc__pill--out">Posters</span>
-              </div>
-              <div class="hc__pill-row hc__pill-row--4">
-                <span class="hc__pill hc__pill--out">Stationery</span><span class="hc__pill hc__pill--wht">DL flyers</span><span class="hc__pill hc__pill--lime">Appraisal decks</span><span class="hc__pill hc__pill--out">Teardrop flags</span><span class="hc__pill hc__pill--wht">Email signatures</span><span class="hc__pill hc__pill--out">Stationery</span><span class="hc__pill hc__pill--wht">DL flyers</span><span class="hc__pill hc__pill--lime">Appraisal decks</span><span class="hc__pill hc__pill--out">Teardrop flags</span><span class="hc__pill hc__pill--wht">Email signatures</span>
-              </div>
-              <div class="hc__pill-row hc__pill-row--5">
-                <span class="hc__pill hc__pill--wht">Welcome packs</span><span class="hc__pill hc__pill--out">Pitch decks</span><span class="hc__pill hc__pill--wht">Rental appraisals</span><span class="hc__pill hc__pill--lime">Campaign suites</span><span class="hc__pill hc__pill--out">Newsletter templates</span><span class="hc__pill hc__pill--wht">Welcome packs</span><span class="hc__pill hc__pill--out">Pitch decks</span><span class="hc__pill hc__pill--wht">Rental appraisals</span><span class="hc__pill hc__pill--lime">Campaign suites</span><span class="hc__pill hc__pill--out">Newsletter templates</span>
-              </div>
-            </div>
-          </div>
-          <div class="hc__caption">
-            <p class="hc__step">2. Request.</p>
-            <p class="hc__body">Anything on the list, as many as you like... queued by priority.</p>
-          </div>
+        <div class="hw-card">
+          <p class="hw-num">2</p>
+          <p class="hw-title">Join the queue</p>
+          <p class="hw-body">Add unlimited requests. We work through them one at a time.</p>
         </div>
-
-        <!-- Card 3: Receive -->
-        <div class="hc hc--green">
-          <div class="hc__visual">
-            <div class="hc__sheet-wrap">
-              <div class="hc__card hc__card--3">
-                <img src="/assets/Lewis-Build-Brochure.jpg" alt="Lewis Build" loading="lazy" />
-              </div>
-              <div class="hc__card hc__card--2">
-                <img src="/assets/portfolio-status.jpg" alt="Status Realty" loading="lazy" />
-              </div>
-              <div class="hc__card hc__card--1">
-                <img src="/assets/Books-Insite-Mag.jpg" alt="Barfoot &amp; Thompson" loading="lazy" />
-              </div>
-              <div class="hc__badge">&#9200; AVG. 2-DAY DELIVERY</div>
-            </div>
-          </div>
-          <div class="hc__caption">
-            <p class="hc__step">3. Receive.</p>
-            <p class="hc__body">Small assets in two days. Bigger pieces in stages.</p>
-          </div>
+        <div class="hw-card">
+          <p class="hw-num">3</p>
+          <p class="hw-title">Designs back fast</p>
+          <p class="hw-body">Average two business day delivery, revisions included.</p>
         </div>
-
+        <div class="hw-card">
+          <p class="hw-num">4</p>
+          <p class="hw-title">Pause anytime</p>
+          <p class="hw-body">Quiet month? Pause your subscription and pick it back up.</p>
+        </div>
       </div>
     </div>
   </section>
