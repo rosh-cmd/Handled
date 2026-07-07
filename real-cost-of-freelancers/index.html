@@ -40,7 +40,7 @@
   }
   </script>
 <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=112" />
+  <link rel="stylesheet" href="/style.css?v=117" />
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -149,7 +149,7 @@
       <a href="/about"         class="menu__link">About</a>
       <a href="/journal"       class="menu__link active">Journal</a>
     </nav>
-    <a href="/fit-check" class="btn-cta btn-cta--dark menu__cta"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
+    <a href="/fit-check" class="btn-cta btn-cta--dark menu__cta"><span class="btn-main">Get the details <span class="btn-dot">&#8594;</span></span></a>
   </div>
 
   <!-- NAV -->
@@ -159,8 +159,14 @@
         <img src="/assets/HandledStudio.png" alt="Handled Studio" class="nav__logomark" />
       </a>
       <div class="nav__right">
-        <a href="/fit-check" class="btn-cta btn-cta--dark"><span class="btn-kicker">Free · 20 minutes</span><span class="btn-main">Book a Fit Check <span class="btn-dot">→</span></span></a>
-        <button class="nav__hamburger" id="menuOpen"><span></span><span></span><span></span></button>
+        <nav class="nav__links">
+          <a href="/" class="nav__link">Home</a>
+          <a href="/work" class="nav__link">Work</a>
+          <a href="/about" class="nav__link">About</a>
+          <a href="/journal" class="nav__link active">Journal</a>
+        </nav>
+        <a href="/fit-check" class="btn-nav-cta">Get the details &#8594;</a>
+        <button class="nav__hamburger" id="menuOpen" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
