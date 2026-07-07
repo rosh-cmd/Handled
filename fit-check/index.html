@@ -39,10 +39,14 @@
   }
   </script>
 <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <!-- Preconnect to Calendly so the iframe loads without DNS/TLS delay -->
+  <!-- Preconnect to Calendly so the widget and iframe load without DNS/TLS delay -->
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
   <link rel="preconnect" href="https://calendly.com" crossorigin />
+  <link rel="dns-prefetch" href="https://assets.calendly.com" />
   <link rel="dns-prefetch" href="https://calendly.com" />
-  <link rel="stylesheet" href="/style.css?v=112" />
+  <!-- Load Calendly widget script early (async — won't block render) -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <link rel="stylesheet" href="/style.css?v=117" />
   <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
   <!-- Meta Pixel Code -->
   <script>
@@ -210,9 +214,6 @@
       <span>© 2026 by Handled</span>
     </div>
   </footer>
-
-  <!-- Calendly inline widget script -->
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <script>
     if (location.hash) history.replaceState(null, '', location.pathname + location.search);
