@@ -36,7 +36,7 @@
   }
   </script>
   <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <link rel="stylesheet" href="/style.css?v=117" />
+  <link rel="stylesheet" href="/style.css?v=118" />
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -78,7 +78,7 @@
       <a href="/about"  class="menu__link">About</a>
       <a href="/journal" class="menu__link">Journal</a>
     </nav>
-    <a href="/fit-check" class="btn-cta btn-cta--dark menu__cta"><span class="btn-main">Get the details <span class="btn-dot">&#8594;</span></span></a>
+    <a href="#" class="btn-cta btn-cta--dark menu__cta js-enquiry-open"><span class="btn-main">Get the details <span class="btn-dot">&#8594;</span></span></a>
   </div>
 
   <!-- NAV -->
@@ -94,7 +94,7 @@
           <a href="/about"  class="nav__link">About</a>
           <a href="/journal" class="nav__link">Journal</a>
         </nav>
-        <a href="/fit-check" class="btn-nav-cta">Get the details &#8594;</a>
+        <a href="#" class="btn-nav-cta js-enquiry-open">Get the details &#8594;</a>
         <button class="nav__hamburger" id="menuOpen" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -445,6 +445,76 @@
       fbq('trackCustom', 'StartAudit', {industry: 'General'});
     }
   });
+  </script>
+  <!-- ENQUIRY MODAL -->
+  <div id="enquiry-modal" class="enq-modal" role="dialog" aria-modal="true" aria-labelledby="enq-modal-title" hidden>
+    <div class="enq-modal__backdrop" id="enquiry-backdrop"></div>
+    <div class="enq-modal__card">
+      <button class="enq-modal__close" id="enquiry-close" aria-label="Close">&#x2715;</button>
+      <h2 class="enq-modal__title" id="enq-modal-title">Get the details</h2>
+      <p class="enq-modal__promise">I'll send the full details... what's handled, how it works, pricing, and current availability.</p>
+      <form id="enquiry-form" class="enq-form" novalidate>
+        <div class="enq-form__honey" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off" /></div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-name">Name</label>
+          <input class="enq-form__input" type="text" id="enq-name" name="name" required autocomplete="name" />
+        </div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-business">Business name</label>
+          <input class="enq-form__input" type="text" id="enq-business" name="business" required autocomplete="organization" />
+        </div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-type">What are you producing?</label>
+          <select class="enq-form__input enq-form__select" id="enq-type" name="business_type" required>
+            <option value="" disabled selected>Select...</option>
+            <option value="Real estate agency">Real estate agency</option>
+            <option value="Mortgage broking">Mortgage broking</option>
+            <option value="Buyers agency">Buyers agency</option>
+            <option value="Property management">Property management</option>
+            <option value="Something else">Something else</option>
+          </select>
+        </div>
+        <div class="enq-form__field">
+          <label class="enq-form__label" for="enq-email">Email</label>
+          <input class="enq-form__input" type="email" id="enq-email" name="email" required autocomplete="email" />
+        </div>
+        <button class="enq-form__submit" type="submit">Send me the info pack</button>
+      </form>
+      <div id="enquiry-confirm" class="enq-confirm" hidden>
+        <p class="enq-confirm__msg">On its way. Check your inbox in the next few minutes... and if you'd rather just talk, the Fit Check link is below.</p>
+        <a href="/fit-check" class="enq-confirm__link">Book a 20-minute Fit Check &#8594;</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+  (function(){
+    emailjs.init('qpwKhTqzAJ3UKxGb1');
+    var modal=document.getElementById('enquiry-modal');
+    var form=document.getElementById('enquiry-form');
+    var confirmEl=document.getElementById('enquiry-confirm');
+    var backdrop=document.getElementById('enquiry-backdrop');
+    var closeBtn=document.getElementById('enquiry-close');
+    if(!modal)return;
+    function openModal(){modal.removeAttribute('hidden');document.body.style.overflow='hidden';}
+    function closeModal(){modal.setAttribute('hidden','');document.body.style.overflow='';}
+    document.querySelectorAll('.js-enquiry-open').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();openModal();});});
+    backdrop&&backdrop.addEventListener('click',closeModal);
+    closeBtn&&closeBtn.addEventListener('click',closeModal);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hasAttribute('hidden'))closeModal();});
+    form&&form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(form.querySelector('[name="_honey"]').value)return;
+      var btn=form.querySelector('.enq-form__submit');
+      btn.disabled=true;btn.textContent='Sending...';
+      var p={name:document.getElementById('enq-name').value,business:document.getElementById('enq-business').value,business_type:document.getElementById('enq-type').value,email:document.getElementById('enq-email').value};
+      emailjs.send('service_jtps204','template_enquiry_admin',p)
+        .then(function(){return emailjs.send('service_jtps204','template_enquiry_auto',p);})
+        .then(function(){form.setAttribute('hidden','');confirmEl.removeAttribute('hidden');if(window.fbq)fbq('track','Lead',{content_name:'Info Pack Request'});if(window.gtag)gtag('event','info_pack_requested',{event_category:'Enquiry'});})
+        .catch(function(){btn.disabled=false;btn.textContent='Send me the info pack';});
+    });
+  })();
   </script>
 </body>
 </html>
