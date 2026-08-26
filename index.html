@@ -1194,13 +1194,13 @@
         name: document.getElementById('enq-name').value,
         business: document.getElementById('enq-business').value,
         business_type: document.getElementById('enq-type').value,
-        email: document.getElementById('enq-email').value
+        user_email: document.getElementById('enq-email').value
       };
       form.style.display = 'none';
       confirmEl.style.display = 'block';
       if (window.fbq) fbq('track', 'Lead', {content_name: 'Info Pack Request'});
       if (window.gtag) gtag('event', 'info_pack_requested', {event_category: 'Enquiry'});
-      emailjs.send('service_jtps204', 'template_enquiry_admin', p).catch(function() {});
+      emailjs.send('service_jtps204', 'template_ts2k91g', p).catch(function() {});
     });
   })();
   </script>
