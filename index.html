@@ -1201,6 +1201,11 @@
       if (window.fbq) fbq('track', 'Lead', {content_name: 'Info Pack Request'});
       if (window.gtag) gtag('event', 'info_pack_requested', {event_category: 'Enquiry'});
       emailjs.send('service_jtps204', 'template_ts2k91g', p).catch(function() {});
+      fetch('https://api.convertkit.com/v3/sequences/1944991/subscribe', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({api_key: 's2qIgw_IxANkpybtjs0ZeA', first_name: p.name, email: p.user_email})
+      }).catch(function() {});
     });
   })();
   </script>
