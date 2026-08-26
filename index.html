@@ -1131,7 +1131,7 @@
     <div class="enq-modal__card">
       <button class="enq-modal__close" id="enquiry-close" aria-label="Close">&#x2715;</button>
       <h2 class="enq-modal__title" id="enq-modal-title">Get the details</h2>
-      <p class="enq-modal__promise">Everything you need to know about Handled, including pricing, how it works and current availability.</p>
+      <p class="enq-modal__promise">Fill in your details and the info pack is yours straight away. I'll follow up to book a call.</p>
       <form id="enquiry-form" class="enq-form" novalidate>
         <div class="enq-form__honey" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off" /></div>
         <div class="enq-form__field">
@@ -1161,8 +1161,10 @@
       </form>
       <div id="enquiry-confirm" class="enq-confirm" hidden>
         <img src="/assets/handled-octo-2.png" alt="" class="enq-confirm__mascot" aria-hidden="true" />
-        <p class="enq-confirm__msg">On its way. Check your inbox in the next few minutes... and if you'd rather just talk, the Fit Check link is below.</p>
-        <a href="/fit-check" class="enq-confirm__link">Book a 20-minute Fit Check &#8594;</a>
+        <p class="enq-confirm__msg">Here's the info pack. I'll follow up shortly to book a call.</p>
+        <a href="https://handledstudio.com.au/assets/Handled_How%20it%20works.pdf" class="btn-cta btn-cta--dark" target="_blank" rel="noopener" style="margin-bottom:1.25rem;">Download the info pack &#8594;</a>
+        <br>
+        <a href="/fit-check" class="enq-confirm__link" style="margin-top:0.5rem;">Or book a 20-minute Fit Check &#8594;</a>
       </div>
     </div>
   </div>
@@ -1194,15 +1196,11 @@
         business_type: document.getElementById('enq-type').value,
         email: document.getElementById('enq-email').value
       };
-      emailjs.send('service_jtps204', 'template_enquiry_admin', p)
-        .then(function() { return emailjs.send('service_jtps204', 'template_enquiry_auto', p); })
-        .then(function() {
-          form.setAttribute('hidden', '');
-          confirmEl.removeAttribute('hidden');
-          if (window.fbq) fbq('track', 'Lead', {content_name: 'Info Pack Request'});
-          if (window.gtag) gtag('event', 'info_pack_requested', {event_category: 'Enquiry'});
-        })
-        .catch(function() { btn.disabled = false; btn.textContent = 'Send me the info pack'; });
+      form.setAttribute('hidden', '');
+      confirmEl.removeAttribute('hidden');
+      if (window.fbq) fbq('track', 'Lead', {content_name: 'Info Pack Request'});
+      if (window.gtag) gtag('event', 'info_pack_requested', {event_category: 'Enquiry'});
+      emailjs.send('service_jtps204', 'template_enquiry_admin', p).catch(function() {});
     });
   })();
   </script>
