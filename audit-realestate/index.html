@@ -1042,6 +1042,15 @@
         });
       } catch (_) { /* fail silently */ }
 
+      // Add to Welcome Sequence
+      try {
+        await fetch('https://api.convertkit.com/v3/sequences/2726541/subscribe', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({api_key: 's2qIgw_IxANkpybtjs0ZeA', first_name: '', email: email})
+        });
+      } catch (_) { /* fail silently */ }
+
       renderResult(total, band);
     });
 
