@@ -1162,9 +1162,9 @@
       <div id="enquiry-confirm" class="enq-confirm" hidden>
         <img src="/assets/handled-octo-2.png" alt="" class="enq-confirm__mascot" aria-hidden="true" />
         <p class="enq-confirm__msg">Here's the info pack. I'll follow up shortly to book a call.</p>
-        <a href="https://handledstudio.com.au/assets/Handled_How%20it%20works.pdf" class="btn-cta btn-cta--dark" target="_blank" rel="noopener" style="margin-bottom:1.25rem;">Download the info pack &#8594;</a>
+        <a href="https://handledstudio.com.au/assets/Handled_How%20it%20works.pdf" target="_blank" rel="noopener" style="display:inline-block;background:#1E3D51;color:#fff;padding:0.75rem 1.75rem;border-radius:8px;font-family:var(--sans);font-size:0.9rem;font-weight:600;text-decoration:none;margin-bottom:1.25rem;">Download the info pack &#8594;</a>
         <br>
-        <a href="/fit-check" class="enq-confirm__link" style="margin-top:0.5rem;">Or book a 20-minute Fit Check &#8594;</a>
+        <a href="/fit-check" class="enq-confirm__link" style="display:inline-block;margin-top:0.5rem;">Or book a 20-minute Fit Check &#8594;</a>
       </div>
     </div>
   </div>
@@ -1196,8 +1196,8 @@
         business_type: document.getElementById('enq-type').value,
         email: document.getElementById('enq-email').value
       };
-      form.setAttribute('hidden', '');
-      confirmEl.removeAttribute('hidden');
+      form.style.display = 'none';
+      confirmEl.style.display = 'block';
       if (window.fbq) fbq('track', 'Lead', {content_name: 'Info Pack Request'});
       if (window.gtag) gtag('event', 'info_pack_requested', {event_category: 'Enquiry'});
       emailjs.send('service_jtps204', 'template_enquiry_admin', p).catch(function() {});
