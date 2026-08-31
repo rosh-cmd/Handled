@@ -66,6 +66,21 @@
   .btn-secondary-link:hover{color:#fff;}
   .btn-secondary-link--dark{color:rgba(30,61,81,0.6);}
   .btn-secondary-link--dark:hover{color:#1E3D51;}
+
+  /* ── WORK GRID RESTRUCTURE ── */
+  .wk-work__grid{display:flex!important;flex-direction:column;gap:3rem;}
+  .wk-work__item--hero{display:grid;grid-template-columns:55% 1fr;gap:clamp(2rem,4vw,4rem);align-items:center;}
+  .wk-work__item--hero .wk-work__imgwrap{height:auto;aspect-ratio:3/2;margin-bottom:0;}
+  .wk-work__hero-body{display:flex;flex-direction:column;align-items:flex-start;}
+  .wk-work__flagship{display:inline-block;background:#69DE5F;color:#1E3D51;font-family:var(--sans);font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:4px;margin-bottom:0.65rem;}
+  .wk-work__item--hero .wk-work__name{font-size:1.65rem;}
+  .wk-work__item--hero .wk-work__stat-val{font-size:1.35rem;}
+  .wk-work__subgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:48px;}
+  @media(max-width:860px){
+    .wk-work__item--hero{grid-template-columns:1fr;}
+    .wk-work__item--hero .wk-work__imgwrap{aspect-ratio:16/9;margin-bottom:1.5rem;}
+    .wk-work__subgrid{grid-template-columns:1fr;gap:40px;}
+  }
   </style>
   <!-- Meta Pixel Code -->
   <script>
@@ -155,97 +170,105 @@
       <h2 class="wk-work__heading">Consistency at scale</h2>
       <div class="wk-work__grid">
 
-        <!-- Barfoot & Thompson -->
-        <div class="wk-work__item">
+        <!-- Barfoot & Thompson — flagship hero -->
+        <div class="wk-work__item wk-work__item--hero">
           <div class="wk-work__imgwrap">
             <a href="/barfoot"><img src="/assets/Books-BT2.jpg" alt="Barfoot &amp; Thompson" loading="lazy" /></a>
           </div>
-          <div class="wk-work__meta">
-            <span class="wk-work__tag">Property</span>
-            <span class="wk-work__loc">New Zealand</span>
+          <div class="wk-work__hero-body">
+            <div class="wk-work__meta">
+              <span class="wk-work__tag">Property</span>
+              <span class="wk-work__loc">New Zealand</span>
+            </div>
+            <span class="wk-work__flagship">Flagship</span>
+            <h3 class="wk-work__name">Barfoot &amp; Thompson</h3>
+            <p class="wk-work__tagline">Consistency at scale across 80+ branches.</p>
+            <p class="wk-work__desc">Ongoing production support across one of New Zealand's largest real estate brands, maintaining consistent output across 1,800+ salespeople and multiple teams.</p>
+            <div class="wk-work__stats">
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">80+</span>
+                <span class="wk-work__stat-label">Branches</span>
+              </div>
+              <div class="wk-work__stat-div"></div>
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">1800+</span>
+                <span class="wk-work__stat-label">Salespeople</span>
+              </div>
+              <div class="wk-work__stat-div"></div>
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">5yr+</span>
+                <span class="wk-work__stat-label">Ongoing</span>
+              </div>
+            </div>
+            <a href="/barfoot" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">→</span></span></a>
           </div>
-          <h3 class="wk-work__name">Barfoot &amp; Thompson</h3>
-          <p class="wk-work__tagline">Consistency at scale across 80+ branches.</p>
-          <p class="wk-work__desc">Ongoing production support across one of New Zealand's largest real estate brands, maintaining consistent output across 1,700+ salespeople and multiple teams.</p>
-          <div class="wk-work__stats">
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">80+</span>
-              <span class="wk-work__stat-label">Branches</span>
-            </div>
-            <div class="wk-work__stat-div"></div>
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">1800+</span>
-              <span class="wk-work__stat-label">Salespeople</span>
-            </div>
-            <div class="wk-work__stat-div"></div>
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">5yr+</span>
-              <span class="wk-work__stat-label">Returning</span>
-            </div>
-          </div>
-          <a href="/barfoot" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">→</span></span></a>
         </div>
 
-        <!-- Status Realty -->
-        <div class="wk-work__item">
-          <div class="wk-work__imgwrap">
-            <a href="/status"><img src="/assets/Status-Brand-03.jpg" alt="Status Realty" loading="lazy" /></a>
-          </div>
-          <div class="wk-work__meta">
-            <span class="wk-work__tag">Property</span>
-            <span class="wk-work__loc">Gold Coast</span>
-          </div>
-          <h3 class="wk-work__name">Status Realty</h3>
-          <p class="wk-work__tagline">Brand system designed for real-world use.</p>
-          <p class="wk-work__desc">Full brand identity, template suite, and ongoing support, ensuring the brand holds consistently across every touchpoint.</p>
-          <div class="wk-work__stats">
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">Full</span>
-              <span class="wk-work__stat-label">Brand system</span>
-            </div>
-            <div class="wk-work__stat-div"></div>
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">20+</span>
-              <span class="wk-work__stat-label">Templates</span>
-            </div>
-            <div class="wk-work__stat-div"></div>
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">Ongoing</span>
-              <span class="wk-work__stat-label">Support</span>
-            </div>
-          </div>
-          <a href="/status" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">→</span></span></a>
-        </div>
+        <!-- Two-across subgrid (add a third card here for three-across) -->
+        <div class="wk-work__subgrid">
 
-        <!-- Kria Mortgage Managers -->
-        <div class="wk-work__item">
-          <div class="wk-work__imgwrap">
-            <a href="/kria"><img src="/assets/Kria 2.png" alt="Kria Mortgage Managers" loading="lazy" /></a>
-          </div>
-          <div class="wk-work__meta">
-            <span class="wk-work__tag">Mortgage</span>
-            <span class="wk-work__loc">Melbourne</span>
-          </div>
-          <h3 class="wk-work__name">Kria Mortgage Managers</h3>
-          <p class="wk-work__tagline">A brand that finally matches the business.</p>
-          <p class="wk-work__desc">Full rebrand, launch assets, and an ongoing template system for an award-winning Melbourne mortgage manager — a five-year design partnership across two stages of the business.</p>
-          <div class="wk-work__stats">
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">5+</span>
-              <span class="wk-work__stat-label">Years</span>
+          <!-- Status Realty -->
+          <div class="wk-work__item">
+            <div class="wk-work__imgwrap">
+              <a href="/status"><img src="/assets/Status-Brand-03.jpg" alt="Status Realty" loading="lazy" /></a>
             </div>
-            <div class="wk-work__stat-div"></div>
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">Rebrand</span>
-              <span class="wk-work__stat-label">+ Templates</span>
+            <div class="wk-work__meta">
+              <span class="wk-work__tag">Property</span>
+              <span class="wk-work__loc">Gold Coast</span>
             </div>
-            <div class="wk-work__stat-div"></div>
-            <div class="wk-work__stat">
-              <span class="wk-work__stat-val">Returning</span>
-              <span class="wk-work__stat-label">Client</span>
+            <h3 class="wk-work__name">Status Realty</h3>
+            <p class="wk-work__tagline">Brand system designed for real-world use.</p>
+            <p class="wk-work__desc">Full brand identity, template suite, and ongoing support, ensuring the brand holds consistently across every touchpoint.</p>
+            <div class="wk-work__stats">
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">Full</span>
+                <span class="wk-work__stat-label">Brand system</span>
+              </div>
+              <div class="wk-work__stat-div"></div>
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">20+</span>
+                <span class="wk-work__stat-label">Templates</span>
+              </div>
+              <div class="wk-work__stat-div"></div>
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">Ongoing</span>
+                <span class="wk-work__stat-label">Support</span>
+              </div>
             </div>
+            <a href="/status" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">→</span></span></a>
           </div>
-          <a href="/kria" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">→</span></span></a>
+
+          <!-- Kria Mortgage Managers -->
+          <div class="wk-work__item">
+            <div class="wk-work__imgwrap">
+              <a href="/kria"><img src="/assets/Kria 2.png" alt="Kria Mortgage Managers" loading="lazy" /></a>
+            </div>
+            <div class="wk-work__meta">
+              <span class="wk-work__tag">Mortgage</span>
+              <span class="wk-work__loc">Melbourne</span>
+            </div>
+            <h3 class="wk-work__name">Kria Mortgage Managers</h3>
+            <p class="wk-work__tagline">A brand that finally matches the business.</p>
+            <p class="wk-work__desc">Full rebrand, launch assets, and an ongoing template system for an award-winning Melbourne mortgage manager — a five-year design partnership across two stages of the business.</p>
+            <div class="wk-work__stats">
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">5+</span>
+                <span class="wk-work__stat-label">Years</span>
+              </div>
+              <div class="wk-work__stat-div"></div>
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">Rebrand</span>
+                <span class="wk-work__stat-label">+ Templates</span>
+              </div>
+              <div class="wk-work__stat-div"></div>
+              <div class="wk-work__stat">
+                <span class="wk-work__stat-val">Returning</span>
+                <span class="wk-work__stat-label">Client</span>
+              </div>
+            </div>
+            <a href="/kria" class="btn-cta btn-cta--dark"><span class="btn-kicker">Case study</span><span class="btn-main">Read case study <span class="btn-dot">→</span></span></a>
+          </div>
+
         </div>
 
       </div>
