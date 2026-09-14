@@ -1489,7 +1489,7 @@ em { font-style: italic; }
   margin: 0 0 1.25rem;
 }
 .offers__unified .offers__features--dot li { color: rgba(255,255,255,0.82); }
-.offers__unified .offers__features--dot li::before { background: #F4C85A; }
+.offers__unified .offers__features--dot li::before { background: #69DE5F; }
 
 /* Social proof */
 .offers__proof { text-align: center; max-width: 700px; margin: 0 auto; padding-top: 3.5rem; }
