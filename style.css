@@ -1439,7 +1439,7 @@ em { font-style: italic; }
 }
 .offers__unified-name {
   font-family: var(--serif);
-  font-size: 1.2rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: #fff;
   margin: 0;
@@ -1453,57 +1453,43 @@ em { font-style: italic; }
   text-transform: uppercase;
 }
 .offers__phase { padding: clamp(1.75rem, 4vw, 2.25rem); }
-.offers__phase--handoff { background: #f5c842; }
-.offers__phase--fh { background: #1e3d2a; }
+.offers__phase--handoff { background: #1e3d2a; }
+.offers__phase--fh { background: #1e3d2a; border-top: 1px solid rgba(255,255,255,0.12); }
 .offers__phase-eyebrow {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.7rem;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
 }
 .offers__phase-num {
   font-family: var(--sans);
-  font-size: 0.68rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  background: rgba(0,0,0,0.12);
-  color: #3d2e00;
+  background: rgba(244,200,90,0.18);
+  color: #F4C85A;
   border-radius: 4px;
-  padding: 0.18rem 0.45rem;
+  padding: 0.22rem 0.55rem;
   letter-spacing: 0.04em;
 }
 .offers__phase-num--g { background: rgba(105,222,95,0.15); color: #69DE5F; }
 .offers__phase-lbl {
   font-family: var(--sans);
-  font-size: 0.7rem;
+  font-size: 0.86rem;
   font-weight: 700;
-  color: #5a3e00;
-  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.offers__phase-lbl--g { color: rgba(255,255,255,0.5); }
-.offers__phase-title {
-  font-family: var(--serif);
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: #1a2e38;
-  margin: 0 0 1rem;
-}
-.offers__phase-title--w { color: #fff; }
+.offers__phase-lbl--g { color: rgba(255,255,255,0.55); }
 .offers__phase-desc {
   font-family: var(--sans);
   font-size: 0.97rem;
-  color: #3d2e00;
+  color: rgba(255,255,255,0.82);
   line-height: 1.7;
   margin: 0 0 1.25rem;
 }
-.offers__phase-conn {
-  background: #f5c842;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.1rem 0 0.45rem;
-}
-.offers__phase-conn-arrow { color: rgba(0,0,0,0.22); font-size: 1rem; }
+.offers__unified .offers__features--dot li { color: rgba(255,255,255,0.82); }
+.offers__unified .offers__features--dot li::before { background: #F4C85A; }
 
 /* Social proof */
 .offers__proof { text-align: center; max-width: 700px; margin: 0 auto; padding-top: 3.5rem; }
