@@ -1346,7 +1346,7 @@ em { font-style: italic; }
   font-weight: 700;
   flex-shrink: 0;
 }
-.offers__features--check li { color: #cde0e8; }
+.offers__features--check li { color: rgba(255,255,255,0.82); }
 
 /* Availability notes */
 .offers__avail {
