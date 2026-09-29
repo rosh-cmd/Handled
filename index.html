@@ -1105,7 +1105,7 @@
     <div class="enq-modal__card">
       <button class="enq-modal__close" id="enquiry-close" aria-label="Close">&#x2715;</button>
       <h2 class="enq-modal__title" id="enq-modal-title">Get the details</h2>
-      <p class="enq-modal__promise">Fill in your details and the info pack is yours straight away. I'll follow up to book a call.</p>
+      <p class="enq-modal__promise" id="enq-promise">Fill in your details and I'll send the info pack straight away.</p>
       <form id="enquiry-form" class="enq-form">
         <div class="enq-form__honey" aria-hidden="true"><input type="text" name="_honey" tabindex="-1" autocomplete="off" /></div>
         <div class="enq-form__field">
@@ -1171,6 +1171,7 @@
         user_email: document.getElementById('enq-email').value
       };
       form.style.display = 'none';
+      document.getElementById('enq-promise').style.display = 'none';
       confirmEl.style.display = 'block';
       if (window.fbq) fbq('track', 'Lead', {content_name: 'Info Pack Request'});
       if (window.gtag) gtag('event', 'info_pack_requested', {event_category: 'Enquiry'});
